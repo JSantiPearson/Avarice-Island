@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
 		else
 		{
 			instance = this;
-			DontDestroyOnLoad(gameObject);
+			//DontDestroyOnLoad(gameObject);
 		}
 
 		//Add an audio source to the manager for each sound 
@@ -45,7 +45,7 @@ public class AudioManager : MonoBehaviour
 	}
 
 
-	//Plays a given sound (silent error if no such sound exists)
+	//Plays a sound given its name (silent error if no such sound exists)
 	public void Play(string sound)
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound);
