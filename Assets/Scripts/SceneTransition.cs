@@ -6,19 +6,21 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
 
+  public Animator transitionAnimation;
 	public string sceneName;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
        if(Input.GetKeyDown(KeyCode.Tab)){
-       	SceneManager.LoadScene(sceneName);
+       	StartCoroutine(LoadScene());
        } 
+    }
+
+    IEnumerator LoadScene(){
+      transitionAnimation.SetTrigger("end");
+      yield return new WaitForSeconds(1f);
+      SceneManager.LoadScene(sceneName);
     }
 }
