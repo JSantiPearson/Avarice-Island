@@ -46,7 +46,7 @@ public class Actor : MonoBehaviour
   * Determines actor's state upon landing. In the case of the player, they enter into Walk().
   **/
   protected virtual void Landed(){
-    
+
   }
 
   /**
