@@ -97,6 +97,7 @@ public class Hero : Actor  {
 
   void FixedUpdate() {
     Vector3 moveVector = currentDir * speed;
+    
     if(onGround && !isAttackingAnim){
       body.MovePosition (transform.position + moveVector * Time.fixedDeltaTime);
       baseAnim.SetFloat ("Speed", moveVector.magnitude);
