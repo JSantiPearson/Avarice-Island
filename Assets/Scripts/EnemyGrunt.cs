@@ -30,13 +30,13 @@ public class EnemyGrunt : Actor
 
         if (positionX <= leftBound)
         {
-            currentDir = Vector3.left;
+            currentDir = Vector3.right;
             isFacingLeft = true;
             FlipSprite(isFacingLeft);
         }
         else if (positionX >= rightBound)
         {
-            currentDir = Vector3.right;
+            currentDir = Vector3.left;
             isFacingLeft = false;
             FlipSprite(isFacingLeft);
         }
@@ -47,11 +47,13 @@ public class EnemyGrunt : Actor
     public void Stop()
     {
         speed = 0;
+        isMoving = false;
         baseAnim.SetFloat("Speed", speed);
     }
 
     public void Walk()
     {
+        isMoving = true;
         speed = walkSpeed;
         baseAnim.SetFloat("Speed", speed);
     }
