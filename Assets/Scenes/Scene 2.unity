@@ -3077,7 +3077,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1645925508}
-  - component: {fileID: 1645925511}
   - component: {fileID: 1645925507}
   - component: {fileID: 1645925510}
   - component: {fileID: 1645925509}
@@ -3155,28 +3154,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.42, y: 0.85, z: 0.31}
   m_Center: {x: 0, y: -0.03, z: 0}
---- !u!114 &1645925511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645925506}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fadc8bac8faec3749b91c6d9ec39c8a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseAnim: {fileID: 852259690}
-  body: {fileID: 1645925509}
-  shadowSprite: {fileID: 2080182120}
-  speed: 2
-  onGround: 0
-  walkSpeed: 2
-  runSpeed: 5
-  canRun: 1
-  input: {fileID: 1862765540}
-  jumpForce: 1700
 --- !u!1 &1662151022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,6 +3491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePaused: 0
   pauseMenu: {fileID: 986086756}
+  player: {fileID: 1645925506}
 --- !u!1 &1901616917
 GameObject:
   m_ObjectHideFlags: 0
