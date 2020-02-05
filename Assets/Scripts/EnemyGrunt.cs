@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Actor
+public class EnemyGrunt : Actor
 {
 
     public float walkSpeed = 2;
     int rightBound = 15;
-    int leftBound = 5;
+    int leftBound = 7;
 
     bool isMoving;
     float lastWalk;
@@ -16,6 +16,11 @@ public class Enemy : Actor
     Vector3 currentDir;
     bool isFacingLeft;
 
+    void Start()
+    {
+        body.position = new Vector3(12.0f, 2.5f, 1.5f);
+    }
+
     public override void Update()
     {
         base.Update();
@@ -23,14 +28,17 @@ public class Enemy : Actor
         float positionX = body.position.x;
         float positionY = body.position.y;
 
-        if(positionX <= leftBound)
+        if (positionX <= leftBound)
         {
             currentDir = Vector3.left;
             isFacingLeft = true;
-        }else if(positionX >= rightBound)
+            FlipSprite(isFacingLeft);
+        }
+        else if (positionX >= rightBound)
         {
             currentDir = Vector3.right;
             isFacingLeft = false;
+            FlipSprite(isFacingLeft);
         }
         Walk();
 
