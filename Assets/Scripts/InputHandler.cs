@@ -6,6 +6,7 @@ public class InputHandler : MonoBehaviour {
   float lastJumpTime;
   bool isJumping;
   bool attack;
+  bool FeverAttack;
 
   public float maxJumpDuration = 0.2f;
 
@@ -21,11 +22,16 @@ public class InputHandler : MonoBehaviour {
   public bool GetAttackButtonDown() {
     return attack;
   }
+    public bool GetFeverAttackButtonDown(){
+        return FeverAttack;
+    }
 
   void Update() {
     horizontal = Input.GetAxisRaw("Horizontal");
     vertical = Input.GetAxisRaw("Vertical");
     attack = Input.GetButtonDown("Attack");
+    FeverAttack = Input.GetButtonDown("FeverAttack");
+
 
     if(!jump && !isJumping && Input.GetButton("Jump")) {
       jump = true;
