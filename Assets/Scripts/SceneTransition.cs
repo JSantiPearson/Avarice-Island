@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
 
-  public Animator transitionAnimation;
+  	public Animator transitionAnimation;
 	public string sceneName;
 
 
@@ -17,6 +17,7 @@ public class SceneTransition : MonoBehaviour
        	StartCoroutine(LoadScene());
        } 
     }
+
 
     IEnumerator LoadScene(){
       transitionAnimation.SetTrigger("end");
