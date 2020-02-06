@@ -9,7 +9,6 @@ public class Hero : Actor  {
   public float runSpeed = 5;
 
   bool isRunning;
-    bool isWalking;
   bool isMoving;
   float lastWalk;
   public bool canRun = true;
@@ -17,7 +16,7 @@ public class Hero : Actor  {
   Vector3 lastWalkVector;
 
   Vector3 currentDir;
-  public bool isFacingLeft;
+  bool isFacingLeft;
 
   bool isJumpLandAnim;
   bool isJumpingAnim;
@@ -71,7 +70,7 @@ public class Hero : Actor  {
 
     if (jump && !isJumpLandAnim && !isAttackingAnim &&
     (onGround || (isJumpingAnim && Time.time < lastJumpTime +
-    jumpDuration))) {
+    jumpDuration)) ) {
       Jump(currentDir);
     }
 
@@ -107,9 +106,7 @@ public class Hero : Actor  {
       if (moveVector.x != 0) {
         isFacingLeft = moveVector.x < 0;
       }
-
       FlipSprite (isFacingLeft);
-     // updateLeft (isFacingLeft);
     }
   }
 
@@ -142,11 +139,5 @@ public class Hero : Actor  {
   public override void Attack() {
 
   }
-
-  public void FeverAttack()
-    {
-
-
-    }
 
 }
