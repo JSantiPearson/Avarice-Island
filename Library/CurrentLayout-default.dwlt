@@ -111,10 +111,10 @@ MonoBehaviour:
     y: 30
     width: 1842
     height: 947
-  m_MinSize: {x: 583, y: 494}
-  m_MaxSize: {x: 14004, y: 14044}
+  m_MinSize: {x: 681, y: 494}
+  m_MaxSize: {x: 14002, y: 14044}
   vertical: 0
-  controlID: 34
+  controlID: 16
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -136,10 +136,10 @@ MonoBehaviour:
     y: 0
     width: 1302
     height: 947
-  m_MinSize: {x: 306, y: 494}
+  m_MinSize: {x: 406, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 61
+  controlID: 17
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,10 +161,10 @@ MonoBehaviour:
     y: 0
     width: 1302
     height: 504
-  m_MinSize: {x: 306, y: 222}
+  m_MinSize: {x: 406, y: 222}
   m_MaxSize: {x: 8006, y: 4022}
   vertical: 0
-  controlID: 62
+  controlID: 18
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -210,15 +210,15 @@ MonoBehaviour:
     y: 0
     width: 751
     height: 504
-  m_MinSize: {x: 104, y: 122}
+  m_MinSize: {x: 204, y: 222}
   m_MaxSize: {x: 4004, y: 4022}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 14}
   - {fileID: 12}
   - {fileID: 15}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -266,8 +266,8 @@ MonoBehaviour:
     y: 0
     width: 540
     height: 947
-  m_MinSize: {x: 277, y: 72}
-  m_MaxSize: {x: 4002, y: 4022}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -385,21 +385,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 24ecffff48ecffff6af2ffff1af3ffff2cf5ffff5a3d00004c3e00000e3f00001a4800002a480000
+      m_ExpandedIDs: 72fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: SceneManager
-        m_OriginalName: SceneManager
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 14702
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -575,20 +575,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Images/Sprites/Scott/FeverAttacks
+    m_Folders: []
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\hunte\Documents\PugetSoundCS\CS440\Merge\Avarice-Island-master
+  m_LastProjectPath: C:\Users\hunte\Documents\PugetSoundCS\CS440\Avarice-Island
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b6280000
     m_LastClickedID: 10422
-    m_ExpandedIDs: 00000000d03100002a320000523200006633000098330000ba330000ec330000063400000c3400002e3400003e340000523400007c34000088340000e2340000ea340000f634000008370000703700000a38000016380000b8390000ba390000bc390000be390000c0390000c2390000c4390000c6390000c8390000ca390000
+    m_ExpandedIDs: 00000000182f0000562f00006a2f0000842f0000a02f0000da2f0000f82f0000fe2f00003c300000503000006c300000a4300000b4300000c03000004631000050310000603100008a3100009e310000d83300005e3400002a350000d2380000d4380000d6380000d8380000da380000dc380000de380000e0380000e2380000e4380000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -616,21 +615,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 593}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000d03100002a320000523200006633000098330000ba330000ec330000063400000c3400002e3400003e340000523400007c34000088340000e2340000ea340000f63400001c3500003035000008370000703700000a380000b8390000ba390000bc390000be390000c0390000c2390000c4390000c6390000c8390000ca390000
+    m_ExpandedIDs: ffffffff00000000182f0000562f00006a2f0000842f0000a02f0000da2f0000f82f0000fe2f00003c300000503000006c300000a4300000b4300000c03000004631000050310000603100008a3100009e310000d83300005e3400002a350000d2380000d4380000d6380000d8380000da380000dc380000de380000e0380000e2380000e4380000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Game
-      m_OriginalName: Game
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 14158
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 

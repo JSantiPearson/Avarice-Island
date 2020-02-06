@@ -5,32 +5,38 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-  public int health, numOfPips;
+    public int health, numOfPips;
 
-  public Image[] pips;
+    public Image[] pips;
 
-  public Sprite fullPip, emptyPip;
+    public Sprite fullPip, emptyPip;
 
-  void Update(){
+    void Update()
+    {
 
-    if (health > numOfPips)
-      health = numOfPips;
+        if (health > numOfPips)
+            health = numOfPips;
 
-    for (int i = 0; i < pips.Length; i++) {
+        for (int i = 0; i < pips.Length; i++)
+        {
 
-      if (i < health){
-        pips[i].sprite = fullPip;
-      }
-      else {
-        pips[i].sprite = emptyPip;
-      }
+            if (i < health)
+            {
+                pips[i].sprite = fullPip;
+            }
+            else
+            {
+                pips[i].sprite = emptyPip;
+            }
 
-      if (i < numOfPips) {
-        pips[i].enabled = true;
-      }
-      else {
-        pips[i].enabled = false;
-      }
+            if (i < numOfPips)
+            {
+                pips[i].enabled = true;
+            }
+            else
+            {
+                pips[i].enabled = false;
+            }
+        }
     }
-  }
 }
