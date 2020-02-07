@@ -451,8 +451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2960d78078d5a4c8a02cf2f9cbeb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionAnimation: {fileID: 0}
-  sceneName: 
 --- !u!4 &760339976
 Transform:
   m_ObjectHideFlags: 0
@@ -561,8 +559,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 760339977}
-        m_MethodName: Startgame
+      - m_Target: {fileID: 760339975}
+        m_MethodName: Load
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
