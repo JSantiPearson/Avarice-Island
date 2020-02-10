@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Actor.cs" />
      <Compile Include="Assets\Scripts\CameraBounds.cs" />
+     <Compile Include="Assets\Scripts\Fever.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Hero.cs" />
