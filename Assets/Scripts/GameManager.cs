@@ -14,4 +14,12 @@ void Update() {
       cameraBounds.SetXPosition(actor.transform.position.x);
     }
   }
+  
+public void LockCamera(){
+  cameraFollows=false;
+}
+
+public void unlockCamera(){
+  cameraFollows=true;
+}
 }
