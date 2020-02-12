@@ -1,40 +1,49 @@
 fileFormatVersion: 2
-guid: 9329534396bb4d14f989380ab645b3e5
+guid: 75efa24b785c9934b89206189a460b69
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3728444628764940867
-    second: MikeHurtStanding2_0
+      213: -1036155141311917166
+    second: MikeLaunch_0
   - first:
-      213: -7429870397043219726
-    second: MikeHurtStanding2_1
+      213: -7981834211345166593
+    second: MikeLaunch_1
   - first:
-      213: 149584278961354678
-    second: MikeHurtStanding2_2
+      213: -4675863378833935623
+    second: MikeLaunch_2
   - first:
-      213: -4542924188449218771
-    second: MikeHurtStanding2_3
+      213: 4164161815599415187
+    second: MikeLaunch_3
   - first:
-      213: 2437130213934236370
-    second: MikeHurtStanding2_4
+      213: -4561997103444409205
+    second: MikeLaunch_4
   - first:
-      213: -6702255715574716757
-    second: MikeHurtStanding2_5
+      213: 2115986324829981589
+    second: MikeLaunch_5
   - first:
-      213: -4014748078169267184
-    second: MikeHurtStanding2_6
+      213: 758532148421198380
+    second: MikeLaunch_6
   - first:
-      213: -8911027144523123394
-    second: MikeHurtStanding2_7
+      213: 5231130652928434144
+    second: MikeLaunch_7
   - first:
-      213: -434799389119125106
-    second: MikeHurtStanding2_8
+      213: 7170440791241804142
+    second: MikeLaunch_8
   - first:
-      213: -6271770955014760169
-    second: MikeHurtStanding2_9
+      213: 4580010492500894951
+    second: MikeLaunch_9
   - first:
-      213: 5157412280024957153
-    second: MikeHurtStanding2_10
+      213: 7717761458417229967
+    second: MikeLaunch_10
+  - first:
+      213: 7837870141574440859
+    second: MikeLaunch_11
+  - first:
+      213: 1875946857310752851
+    second: MikeLaunch_12
+  - first:
+      213: 8711833170694666520
+    second: MikeLaunch_13
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -119,74 +128,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MikeHurtStanding2_0
+      name: MikeLaunch_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 3
-        width: 46
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd7ae4080bea6b94cafc5d81286d5690
-      internalID: 3728444628764940867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MikeHurtStanding2_1
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 0
-        width: 42
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 098ff1fd5c274324bb19360f29a8e5a4
-      internalID: -7429870397043219726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MikeHurtStanding2_2
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 0
-        width: 43
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a454912e8d5f47a439b12cbebc2eab61
-      internalID: 149584278961354678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MikeHurtStanding2_3
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 1
+        x: 2
+        y: 4
         width: 45
         height: 56
       alignment: 0
@@ -196,124 +142,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9eee7856bb1e83842afff6be07c407eb
-      internalID: -4542924188449218771
+      spriteID: 8123db2b60b459746ae91b0f104c40ff
+      internalID: -1036155141311917166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MikeHurtStanding2_4
+      name: MikeLaunch_1
       rect:
         serializedVersion: 2
-        x: 191
-        y: 4
-        width: 45
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa00933c32b509240a5ba15c0b028443
-      internalID: 2437130213934236370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MikeHurtStanding2_5
-      rect:
-        serializedVersion: 2
-        x: 241
-        y: 0
-        width: 42
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56fb21c46856c084ea271607a4178c3b
-      internalID: -6702255715574716757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MikeHurtStanding2_6
-      rect:
-        serializedVersion: 2
-        x: 286
-        y: 0
-        width: 43
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f60ee667e61dac42ad8d336708872fe
-      internalID: -4014748078169267184
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MikeHurtStanding2_7
-      rect:
-        serializedVersion: 2
-        x: 332
-        y: 8
-        width: 45
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e68facd3398c7234dabe3a27048c8647
-      internalID: -8911027144523123394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MikeHurtStanding2_8
-      rect:
-        serializedVersion: 2
-        x: 380
-        y: 6
-        width: 46
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fed58404a359f9e4cbc393d2048c409a
-      internalID: -434799389119125106
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MikeHurtStanding2_9
-      rect:
-        serializedVersion: 2
-        x: 429
-        y: 2
-        width: 45
+        x: 55
+        y: 16
+        width: 58
         height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -322,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f490dff69cb17dd4da19a2d44611204c
-      internalID: -6271770955014760169
+      spriteID: e361aefd04ebb814e8eceec25393dfb4
+      internalID: -7981834211345166593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MikeHurtStanding2_10
+      name: MikeLaunch_2
       rect:
         serializedVersion: 2
-        x: 477
-        y: 19
-        width: 69
-        height: 43
+        x: 122
+        y: 25
+        width: 67
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,8 +184,239 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a1e8afcda1520047990216edd8352b2
-      internalID: 5157412280024957153
+      spriteID: 7c39cdf3061385d4eabd3885df1d0928
+      internalID: -4675863378833935623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 41
+        width: 67
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1695a0cb7e2c9a49a0c720a7813c65b
+      internalID: 4164161815599415187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_4
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 40
+        width: 66
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65a6117f0df4e14ab7fa5122415fdb7
+      internalID: -4561997103444409205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_5
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 32
+        width: 53
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5198cd5aa50bd448f949c79ff2b826
+      internalID: 2115986324829981589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_6
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 7
+        width: 45
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88fb1413ed1f2bb42af1ecb6a82d48ce
+      internalID: 758532148421198380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_7
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 9
+        width: 63
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a8147abf57ce846bbf013076e495e7
+      internalID: 5231130652928434144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_8
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 13
+        width: 67
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b220587d331c6534e91ae8ab0e8b8455
+      internalID: 7170440791241804142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_9
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 6
+        width: 66
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956becb4cd644b9439974ca38c12daed
+      internalID: 4580010492500894951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_10
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 11
+        width: 65
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12acb0e5c72f079419313c1206fcb27c
+      internalID: 7717761458417229967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_11
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 7
+        width: 62
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5347b32f476ac45839d509baaa7e89
+      internalID: 7837870141574440859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_12
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 6
+        width: 69
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8f8bb3920199d42990b5338e38b303
+      internalID: 1875946857310752851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeLaunch_13
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 7
+        width: 70
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 312618eb8918c224085cae38200406cb
+      internalID: 8711833170694666520
       vertices: []
       indices: 
       edges: []

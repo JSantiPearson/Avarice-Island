@@ -1,7 +1,37 @@
 fileFormatVersion: 2
 guid: 56674a55f9a7b5849ae7ac3f6c7a507f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -32621326954581087
+    second: MikeJump_0
+  - first:
+      213: -1704819199004373772
+    second: MikeJump_1
+  - first:
+      213: 3891515878395060204
+    second: MikeJump_2
+  - first:
+      213: -1976778310663663037
+    second: MikeJump_3
+  - first:
+      213: 3335462039024022155
+    second: MikeJump_4
+  - first:
+      213: -1679068863069871023
+    second: MikeJump_5
+  - first:
+      213: 2788005546927318341
+    second: MikeJump_6
+  - first:
+      213: 8511457072006194
+    second: MikeJump_7
+  - first:
+      213: -4937819911667134573
+    second: MikeJump_8
+  - first:
+      213: 222544396518133867
+    second: MikeJump_9
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +70,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +100,231 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MikeJump_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4305c250291b144bac2afac83456cf
+      internalID: -32621326954581087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeJump_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 18
+        width: 54
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ed65a66719aad343b1cc482e9db5535
+      internalID: -1704819199004373772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeJump_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 18
+        width: 55
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58082dc6f3a60ec4cac0ec9445f9b3f8
+      internalID: 3891515878395060204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeJump_3
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 18
+        width: 54
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e3b4c77cbb93a4f838ebbb52430f3a
+      internalID: -1976778310663663037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeJump_4
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 16
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1508ff3af7f00142852bd1823e20acd
+      internalID: 3335462039024022155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeJump_5
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 16
+        width: 53
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db257275e465e0c4cad22dbacfb326b9
+      internalID: -1679068863069871023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeJump_6
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 13
+        width: 54
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 555311042f239444490ff283f603bb2a
+      internalID: 2788005546927318341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeJump_7
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 13
+        width: 54
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b55f0b161500bd45b9eb509ca82bfec
+      internalID: 8511457072006194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeJump_8
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 13
+        width: 54
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222b9b3572c49d542bdad6ba3297ada8
+      internalID: -4937819911667134573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MikeJump_9
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 3
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8adb7651d8713cd46a364f11c0274748
+      internalID: 222544396518133867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
