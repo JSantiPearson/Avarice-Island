@@ -6,22 +6,31 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
 
-  	public Animator transitionAnimation;
-	public string sceneName;
+  	//public Animator transitionAnimation; //need this when we implement fades
+	//public string sceneName;
 
 
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKeyDown(KeyCode.Tab) && sceneName!=null){
-       	StartCoroutine(LoadScene());
-       } 
+    //This will load a scene on keypress.
+    //   if(Input.GetKeyDown(KeyCode.Tab) && sceneName!=null){
+    //   	StartCoroutine(LoadScene());
+    //   } 
+    }
+
+    public void Load(string sceneName){
+    	StartCoroutine(LoadSceneCo(sceneName));
     }
 
 
-    IEnumerator LoadScene(){
-      transitionAnimation.SetTrigger("end");
-      yield return new WaitForSeconds(1f);
-      SceneManager.LoadScene(sceneName);
+    IEnumerator LoadSceneCo(string sceneName){
+      //transitionAnimation.SetTrigger("end");
+      //check for game paus
+    	if(Time.timeScale==0){
+			Time.timeScale=1;
+		}
+      	yield return new WaitForSeconds(1f);
+      	SceneManager.LoadScene(sceneName);
     }
 }
