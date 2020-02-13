@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//I created this class for a quick start menu button. We can delete when I refactor into sceneTransition
+
 public class StartGame : MonoBehaviour
 {
-    // Start is called before the first frame update
 	public void Startgame(string sceneName){
 		Application.LoadLevel(sceneName);
 	}
