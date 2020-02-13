@@ -6,10 +6,16 @@ using UnityEngine.UI;
 public class Fever : MonoBehaviour
 {
     public Image feverBar;
+    public Image alert;
+    private float interval = 0.05f;
+    Color tempColor = new Color(1f, 0f, 0f, 0f);
     private bool cooldown = false;
+    private bool fadeIn = true;
 
     void Start(){
       feverBar.fillAmount = 50f / 100;
+      tempColor.a = 0f;
+      alert.color = tempColor;
     }
 
     // Update is called once per frame
@@ -22,6 +28,25 @@ public class Fever : MonoBehaviour
       feverBar.fillAmount -= 0.1f / 100;
       if (Input.GetButtonDown("Fever Attack 1") && !cooldown){
         feverBar.fillAmount += 15f / 100;
+      }
+
+      if (cooldown && fadeIn){
+        tempColor.a += interval;
+        alert.color = tempColor;
+        if (tempColor.a >= 1f){
+          fadeIn = false;
+        }
+      }
+      else if (cooldown && !fadeIn){
+        tempColor.a -= interval;
+        alert.color = tempColor;
+        if (tempColor.a <= 0f){
+          fadeIn = true;
+        }
+      }
+      else {
+        tempColor.a = 0f;
+        alert.color = tempColor;
       }
     }
 }

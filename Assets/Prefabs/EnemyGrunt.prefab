@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 725957175831764323}
   - component: {fileID: 725957175831764320}
   - component: {fileID: 725957175831764321}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyGrunt
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 725957176034283286}
   - component: {fileID: 725957176034283287}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyGrunt_ShadowCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 725957176267447972}
   - component: {fileID: 725957176267447975}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyGrunt_AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 725957176378792787}
   - component: {fileID: 725957176378792790}
   - component: {fileID: 725957176378792784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyGrunt_Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 725957177204438316}
   - component: {fileID: 725957177204438319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyGrunt_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
