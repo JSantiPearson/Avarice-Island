@@ -16,9 +16,12 @@ public class EnemyGrunt : Actor
     Vector3 currentDir;
     bool isFacingLeft;
 
+    Vector3 startingPosition = new Vector3(12.0f, 2.5f, 1.5f);
+
+
     void Start()
     {
-        body.position = new Vector3(12.0f, 2.5f, 1.5f);
+        body.position = startingPosition;
     }
 
     public override void Update()
@@ -41,6 +44,22 @@ public class EnemyGrunt : Actor
             FlipSprite(isFacingLeft);
         }
         Walk();
+
+    }
+
+    public void Wander()
+    {
+        var wanderBoundsX = (left: startingPosition.x - 4, right: startingPosition.x + 4);
+        var wanderBoundsY = (bottom: startingPosition.y - 1.8, top: 4.4f);
+
+        Random random = new Random();
+
+        Vector3 currPosition = body.position;
+        float targetX = random.Next(wanderBoundsX.right - wanderBoundsX.left) + wanderBoundsX.left;
+        float targetZ = random.Next((wanderBoundsY.top - wanderBoundsX.bottom)*10)/10 + wanderBoundsX.left;
+        float targetY = currPosition.z;
+
+        Vector3 focalPoint = Vecotr3(targetX, targetY, targetZ);
 
     }
 
