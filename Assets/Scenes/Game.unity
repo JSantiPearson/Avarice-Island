@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 6405571}
   - component: {fileID: 6405570}
   - component: {fileID: 6405569}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftCamBounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,7 +1081,7 @@ GameObject:
   m_Component:
   - component: {fileID: 492788481}
   - component: {fileID: 492788482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyGrunt_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1593,7 +1593,7 @@ GameObject:
   - component: {fileID: 681125001}
   - component: {fileID: 681125000}
   - component: {fileID: 681124999}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightCamBounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2652,7 +2652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1201561915}
   - component: {fileID: 1201561914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyGrunt_ShadowCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2889,7 +2889,7 @@ GameObject:
   - component: {fileID: 1269576526}
   - component: {fileID: 1269576525}
   - component: {fileID: 1269576524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyGrunt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3097,7 +3097,7 @@ GameObject:
   - component: {fileID: 1349356073}
   m_Layer: 0
   m_Name: HeroSprite
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3347,7 +3347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1436823689}
   - component: {fileID: 1436823690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyGrunt_AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4286,7 +4286,7 @@ GameObject:
   - component: {fileID: 1812018555}
   - component: {fileID: 1812018557}
   - component: {fileID: 1812018556}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyGrunt_Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
