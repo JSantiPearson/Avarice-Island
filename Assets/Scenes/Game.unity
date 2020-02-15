@@ -2976,7 +2976,10 @@ MonoBehaviour:
   shadowSprite: {fileID: 1201561914}
   speed: 2
   onGround: 0
+  currentHealth: 0
   walkSpeed: 2
+  currentState: 0
+  playerReference: {fileID: 0}
 --- !u!4 &1269576529
 Transform:
   m_ObjectHideFlags: 0
@@ -3097,7 +3100,7 @@ GameObject:
   - component: {fileID: 1349356073}
   m_Layer: 0
   m_Name: HeroSprite
-  m_TagString: player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
