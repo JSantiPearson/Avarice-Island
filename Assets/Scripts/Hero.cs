@@ -12,7 +12,7 @@ public class Hero : Actor  {
   bool isMoving;
   float lastWalk;
   public bool canRun = true;
-  float tapAgainToRunTime = 0.2f;
+  float tapAgainToRunTime = 0.4f;
   Vector3 lastWalkVector;
 
   Vector3 currentDir;
