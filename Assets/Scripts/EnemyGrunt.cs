@@ -19,7 +19,6 @@ public class EnemyGrunt : Actor
     void Start()
     {
         body.position = new Vector3(12.0f, 2.5f, 1.5f);
-        //want them to spawn facing left
     }
 
     public override void Update()

@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour {
    cameraFollows=false;
   }
 
-  public void unlockCamera(){
+  public void UnlockCamera(){
     cameraFollows=true;
   }
 
