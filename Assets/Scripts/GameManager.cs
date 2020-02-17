@@ -28,11 +28,14 @@ public class GameManager : MonoBehaviour {
     Debug.Log("Enemies: " + (GameObject.FindGameObjectsWithTag("Enemy")).Length);
 
     //test for interval spawns
+
     /*
+
     timeElapsed+=Time.deltaTime;
     if(okToSpawn()){
       Instantiate(enemyPrefab);
     }
+
     */
 
   }
@@ -41,12 +44,14 @@ public class GameManager : MonoBehaviour {
    cameraFollows=false;
   }
 
+
   public void UnlockCamera(){
     cameraFollows=true;
   }
 
   //NEED TO MOVE FOLLOWING METHODS EVENTUALLY. NEED A SMART SPAWNING SCHEME
   /*
+
   public bool okToSpawn(){
     if(timeElapsed>spawnInterval && GameObject.FindGameObjectsWithTag("Enemy").Length<maxEnemies){
       timeElapsed=0;
@@ -55,6 +60,7 @@ public class GameManager : MonoBehaviour {
       return false;
     }
   } 
+  /**
   IEnumerator SpawnAndWait(){
     Instantiate(enemyPrefab);
     yield return new WaitForSeconds(2);
@@ -64,5 +70,5 @@ public class GameManager : MonoBehaviour {
     for(int i=0;i<numEnemies;i++){
       StartCoroutine("SpawnAndWait");
     }
-  }*/
+
 }
