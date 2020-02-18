@@ -70,5 +70,5 @@ public class GameManager : MonoBehaviour {
     for(int i=0;i<numEnemies;i++){
       StartCoroutine("SpawnAndWait");
     }
-
+  */
 }
