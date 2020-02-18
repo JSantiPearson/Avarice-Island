@@ -156,7 +156,7 @@ public class EnemyGrunt : Actor
 
     public void Approach()
     {
-        Vector3 playerPosition = GameObject.FindWithTag("player").transform.position;
+        Vector3 playerPosition = playerReference.transform.position;
         currentDir = playerPosition - body.position;
         currentDir.Normalize();
         Walk();
