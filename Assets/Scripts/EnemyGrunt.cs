@@ -23,13 +23,13 @@ public class EnemyGrunt : Actor
     Vector3 currentDir;
     bool isFacingLeft;
 
-    Vector3 startingPosition = new Vector3(12.0f, 2.5f, 1.5f);
-    Vector3 targetPosition;
+    Vector3 startingPosition = new Vector3(12.0f, 2.475173f, 1.0f);
+    Vector3 targetPosition = new Vector3(12.0f, 2.5f, 1.0f);
 
     float timeOfLastWander;
-    float WanderWaitTime;
+    float WanderWaitTime = 5;
 
-    float noticeDistance = 4;
+    float noticeDistance = 2;
     float attackDistance = 1;
     int fleeHealth;
 
@@ -92,7 +92,7 @@ public class EnemyGrunt : Actor
                         fleeHealth -= 15;
                         break;
                     case DifficultyLevel.hard:
-                        fleeHealth -= 5;
+                        fleeHealth -= 10;
                         break;
                     default:
                         fleeHealth -= 30;
@@ -121,6 +121,9 @@ public class EnemyGrunt : Actor
                 break;
             case EnemyState.fleeing:
                 Flee();
+                break;
+            case EnemyState.wandering:
+                Wander();
                 break;
             default:
                 break;
@@ -200,20 +203,33 @@ public class EnemyGrunt : Actor
 
     public void Wander()
     {
-            // If at the new target and it's time to wander again, get a new target position.
-            if (targetPosition.Equals(body.position) && (Time.time - timeOfLastWander) > WanderWaitTime)
+        // If at the new target and it's time to wander again, get a new target position.
+        if (IsCloseTo(targetPosition, body.position)) 
+        {
+            if ((Time.time - timeOfLastWander) > WanderWaitTime)
             {
-                var wanderBoundsX = (left: startingPosition.x - 4, right: startingPosition.x + 4);
-                var wanderBoundsY = (bottom: startingPosition.y - 1.8, top: 4.4f);
+                timeOfLastWander = Time.time;
+                var wanderBoundsX = (left: startingPosition.x - 2, right: startingPosition.x + 2);
+                var wanderBoundsZ = (bottom: -2.5f, top: 1.2f);
 
                 Vector3 currPosition = body.position;
                 float targetX = (float)(Random.value * (wanderBoundsX.right - wanderBoundsX.left) + wanderBoundsX.left);
-                float targetZ = (float)(Random.value * (wanderBoundsY.top - wanderBoundsY.bottom) + wanderBoundsY.bottom);
-                float targetY = currPosition.z;
+                float targetZ = (float)(Random.value * (wanderBoundsZ.top - wanderBoundsZ.bottom) + wanderBoundsZ.bottom);
+                float targetY = currPosition.y;
 
                 targetPosition = new Vector3(targetX, targetY, targetZ);
             }
-
+            else
+            {
+                Stop();
+            }
+        }
+        else
+        {
+            currentDir = targetPosition - body.position;
+            currentDir.Normalize();
+            Walk();
+        }
     }
 
     public void Punch()
@@ -250,5 +266,14 @@ public class EnemyGrunt : Actor
             }
             FlipSprite(isFacingLeft);
         }
+    }
+
+    private bool IsCloseTo(Vector3 target, Vector3 position)
+    {
+        float diffX = System.Math.Abs(target.x - position.x);
+        float diffY = System.Math.Abs(target.y - position.y);
+        float diffZ = System.Math.Abs(target.z - position.z);
+
+        return diffX <= 0.1 && diffY <= 0.1 && diffZ <= 0.1;
     }
 }
