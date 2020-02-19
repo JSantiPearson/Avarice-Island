@@ -9,7 +9,8 @@ public class EnemyGrunt : Actor
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public float currentHealth;
-    public float walkSpeed = 2;
+    public float walkSpeed = 1.5f;
+    public float runSpeed = 4f;
     int rightBound = 15;
     int leftBound = 7;
 
@@ -29,7 +30,8 @@ public class EnemyGrunt : Actor
     float timeOfLastWander;
     float WanderWaitTime = 5;
 
-    float noticeDistance = 2;
+    float noticeDistance = 5;
+    float walkDistance = 3;
     float attackDistance = 1;
     int fleeHealth;
 
@@ -161,8 +163,17 @@ public class EnemyGrunt : Actor
     {
         Vector3 playerPosition = playerReference.transform.position;
         currentDir = playerPosition - body.position;
+        float currentDistance = currentDir.magnitude;
         currentDir.Normalize();
-        Walk();
+
+        if (currentDistance <= walkDistance)
+        {
+            Walk();
+        }
+        else
+        {
+            Run();
+        }
     }
 
     public void Attack()
@@ -248,6 +259,13 @@ public class EnemyGrunt : Actor
     {
         isMoving = true;
         speed = walkSpeed;
+        baseAnim.SetFloat("Speed", speed);
+    }
+
+    public void Run()
+    {
+        isMoving = true;
+        speed = runSpeed;
         baseAnim.SetFloat("Speed", speed);
     }
 

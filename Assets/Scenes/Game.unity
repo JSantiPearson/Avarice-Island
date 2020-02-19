@@ -3600,15 +3600,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 725957176034283284, guid: b32c0c3188e3d224c93af04e69d65201,
         type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 725957176267447972, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176267447972, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176267447972, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 725957176267447973, guid: b32c0c3188e3d224c93af04e69d65201,
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176378792784, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176378792784, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176378792784, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 725957176378792791, guid: b32c0c3188e3d224c93af04e69d65201,
         type: 3}
