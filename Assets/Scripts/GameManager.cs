@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
 
     //we can check how many enemies are left by finding all objects tagged enemy
     //MAKE SURE ALL ENEMIES ARE INSTANTIATED WITH 'Enemy' TAGS
-    Debug.Log("Enemies: " + (GameObject.FindGameObjectsWithTag("Enemy")).Length);
+    //Debug.Log("Enemies: " + (GameObject.FindGameObjectsWithTag("Enemy")).Length);
 
     //test for interval spawns
 

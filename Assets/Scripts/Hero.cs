@@ -11,6 +11,8 @@ public class Hero : Actor  {
   bool isRunning;
   bool isMoving;
   float lastWalk;
+  bool attack;
+
   public bool canRun = true;
   float tapAgainToRunTime = 0.4f;
   Vector3 lastWalkVector;
@@ -27,6 +29,9 @@ public class Hero : Actor  {
   private float jumpDuration = 0.2f;
   private float lastJumpTime;
 
+
+
+
   bool isAttackingAnim;
   float lastAttackTime;
   float attackLimit = 0.14f;
@@ -34,7 +39,7 @@ public class Hero : Actor  {
   public override void Update() {
     base.Update();
 
-    isAttackingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack1");
+    isAttackingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack");
     isJumpLandAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpLand");
     isJumpingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpRise") ||
       baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpFall");
@@ -43,7 +48,8 @@ public class Hero : Actor  {
     float h = input.GetHorizontalAxis ();
     float v = input.GetVerticalAxis ();
     bool jump = input.GetJumpButtonDown();
-    bool attack = input.GetAttackButtonDown();
+    attack = input.GetAttackButtonDown();
+    bool FeverAttack = input.GetFeverAttackButtonDown();
 
     currentDir = new Vector3(h, 0, v);
     currentDir.Normalize();
@@ -74,10 +80,18 @@ public class Hero : Actor  {
       Jump(currentDir);
     }
 
-    if (attack && Time.time >= lastAttackTime + attackLimit) {
-      lastAttackTime = Time.time;
-      Attack();
+    if(Input.GetButtonDown("Attack")){
+      attack = true;
+      baseAnim.SetBool("attack", attack);
     }
+    else if(Input.GetButtonUp("Attack"))
+    {
+    attack = false;
+    baseAnim.SetBool("attack", attack);
+
+    }
+
+
   }
 
   public void Stop() {
@@ -130,14 +144,22 @@ public class Hero : Actor  {
     body.AddForce(verticalVector,ForceMode.Force);
   }
 
+
   protected override void Landed()
   {
     base.Landed();
     Walk();
   }
-
+  public bool getRunning(){
+    return isRunning;
+  }
   public override void Attack() {
 
-  }
+
+      baseAnim.SetBool("attack", attack);
+      lastAttackTime = Time.time;
+      attack = false;
+      baseAnim.SetBool("atatck", attack);
+    }
 
 }
