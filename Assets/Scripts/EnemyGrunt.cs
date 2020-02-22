@@ -7,7 +7,7 @@ public class EnemyGrunt : Actor
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// CLASS VARIABLES
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    public int maxHealth = 100;
     public float currentHealth;
     public float walkSpeed = 2;
     int rightBound = 15;
@@ -15,6 +15,8 @@ public class EnemyGrunt : Actor
 
     bool isAttacking;
     bool isHurt;
+
+
 
     bool isMoving;
     float lastWalk;
@@ -67,7 +69,7 @@ public class EnemyGrunt : Actor
         targetPosition = startingPosition;
         playerReference = GameObject.Find("Player");
         currentState = EnemyState.idle;
-        currentHealth = 100;
+        currentHealth = maxHealth;
         fleeHealth = 30;
     }
 
@@ -250,5 +252,15 @@ public class EnemyGrunt : Actor
             }
             FlipSprite(isFacingLeft);
         }
+    }
+
+    public void TakeDamage (int damage){
+
+      currentHealth -= damage;
+
+      if(currentHealth <= 0){
+        //die
+        Debug.Log("Enemy Die");
+      }
     }
 }
