@@ -241,6 +241,7 @@ Transform:
   m_Children:
   - {fileID: 1474980912}
   - {fileID: 1591165833}
+  - {fileID: 2043261486}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2892,7 +2893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783982381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.82, y: 0.2, z: 0.07}
+  m_LocalPosition: {x: 17.2, y: 0.2, z: 0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 878049763}
@@ -2925,7 +2926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 1848818766}
   sentences:
-  - STOP....
+  - STOP... WE ARE ABOUT TO BOUNCE YOU! [z to continue]
   index: 0
   speed: 0.2
   pauseGame: {fileID: 0}
@@ -4067,6 +4068,7 @@ MonoBehaviour:
   cameraBounds: {fileID: 663414174}
   enemyPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
+  dialogueBar: {fileID: 0}
 --- !u!4 &1105488776
 Transform:
   m_ObjectHideFlags: 0
@@ -5537,7 +5539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474980911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.19, y: 1.34, z: 5.02}
+  m_LocalPosition: {x: 20.25, y: 0.56, z: 3.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 18911492}
@@ -5557,7 +5559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
-  spawnLimit: 2
+  spawnLimit: 1
 --- !u!1 &1539763840
 GameObject:
   m_ObjectHideFlags: 0
@@ -7191,6 +7193,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909424373}
   m_CullTransparentMesh: 0
+--- !u!1 &2043261485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043261486}
+  - component: {fileID: 2043261487}
+  m_Layer: 0
+  m_Name: RoadSpawn2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2043261486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043261485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.25, y: 0.56, z: 3.41}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 18911492}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2043261487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043261485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a15605e0b954e8b4eb1db6e834a2afe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
+    type: 3}
+  spawnLimit: 1
 --- !u!1 &2051152577
 GameObject:
   m_ObjectHideFlags: 0

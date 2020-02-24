@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
   public bool cameraFollows = true;
   public CameraBounds cameraBounds;
   public GameObject enemyPrefab;
+  public GameObject dialogueBar;
+
   //MOVE THESE ELSEWHERE WHEN SPAWNING IS REFACTORED
   /*
   int maxEnemies=5;
@@ -16,6 +18,9 @@ public class GameManager : MonoBehaviour {
 //2
   void Start() {
     cameraBounds.SetXPosition(cameraBounds.minVisibleX);
+    //make sure dialogue is hidden (maybe move this to a new dialogue manager later)
+    dialogueBar = GameObject.Find("DialogueBar");
+    dialogueBar.SetActive(false);    
   }
 //3
   void Update() {

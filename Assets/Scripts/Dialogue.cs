@@ -12,29 +12,52 @@ public class Dialogue : MonoBehaviour
 	public float speed;
 	public PauseGame pauseGame;
 	public GameObject dialogueBar;
+	private bool pausedForDialogue;
 
 	void Start(){
-		//find the pauseGame component 
+		//find the pauseGame component
+		pausedForDialogue = false; 
 		pauseGame =  GameObject.Find("MyGameManager").GetComponent(typeof(PauseGame)) as PauseGame;
 		dialogueBar = GameObject.Find("DialogueBar");
 
 	}
 
-    // Start is called before the first frame update
+	void Update(){
+		//keep track of whether or not we are paused for dialogue, allow player to continue
+		if(pausedForDialogue && Input.GetKeyDown(KeyCode.Z)){
+			pauseGame.UnpauseForDialogue();
+			pausedForDialogue = false;
+			dialogueBar.SetActive(false);    
+
+		}
+
+	}
+
     public void PlayDialogue()
     {
-        StartCoroutine(Type());
+    	//TEMPORARY SOLUTION FOR DIALOGUE HANDLING. Only works for 1 line
+    	dialogueBar.SetActive(true);
+    	pauseGame.PauseForDialogue();
+    	textDisplay.text = sentences[index];
+    	pausedForDialogue = true;
+    	//CONTINUE HAPPENS IN UPDATE METHOD
+
     }
 
-    // Update is called once per frame
+    //UNUSED at the moment
     IEnumerator Type()
     {
     	dialogueBar.SetActive(true);
     	pauseGame.PauseForDialogue();
+    	/*
     	foreach(char letter in sentences[index].ToCharArray()){
     		textDisplay.text += letter;
-    		yield return new WaitForSeconds(speed);
+
     	}
+    	*/
+    	textDisplay.text = sentences[index];
+    	yield return new WaitForSeconds(speed);
+    	//Debug.Log("yielded...");
     	pauseGame.UnpauseForDialogue();
     	dialogueBar.SetActive(false);    
     }

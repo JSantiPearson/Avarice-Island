@@ -46,15 +46,15 @@ public class PauseGame : MonoBehaviour
     //separate pause method for dialogue handling
 
     public void PauseForDialogue(){
-		//Time.timeScale=0f;
+		Time.timeScale=0f;
         pausedForDialogue=true;
-        //player.GetComponent<Hero>().enabled=false;
+        player.GetComponent<Hero>().enabled=false;
     }
 
     public void UnpauseForDialogue(){
-    	//Time.timeScale=1f;
+    	Time.timeScale=1f;
         pausedForDialogue=false;
-        //player.GetComponent<Hero>().enabled=true;
+        player.GetComponent<Hero>().enabled=true;
     }
 
     public void RevealOptions(){
