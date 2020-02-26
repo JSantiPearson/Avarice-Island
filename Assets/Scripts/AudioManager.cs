@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
 	public static AudioManager instance;
 
 	public AudioMixerGroup mixerGroup;
+	public AudioMixer mixer;
 
 	public Sound[] sounds;
 
@@ -59,6 +60,10 @@ public class AudioManager : MonoBehaviour
 		//s.source.pitch = s.pitch; //* (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
 		s.source.Play();
+	}
+
+	public void SetLevel(float sliderValue){
+		mixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue)*20);
 	}
 
 }

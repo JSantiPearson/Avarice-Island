@@ -11,6 +11,8 @@ public class Fever : MonoBehaviour
     Color tempColor = new Color(1f, 0f, 0f, 0f);
     private bool cooldown = false;
     private bool fadeIn = true;
+    public Transform firePoint;
+    public GameObject feverProjectilePreFab;
 
     void Start(){
       feverBar.fillAmount = 50f / 100;
@@ -26,8 +28,9 @@ public class Fever : MonoBehaviour
       else if (feverBar.fillAmount == 0)
         cooldown = false;
       feverBar.fillAmount -= 0.1f / 100;
-      if (Input.GetButtonDown("Fever Attack 1") && !cooldown){
-        feverBar.fillAmount += 15f / 100;
+      if (Input.GetButtonDown("FeverAttack") && !cooldown){
+            FireProjectile();
+            feverBar.fillAmount += 15f / 100;
       }
 
       if (cooldown && fadeIn){
@@ -48,5 +51,10 @@ public class Fever : MonoBehaviour
         tempColor.a = 0f;
         alert.color = tempColor;
       }
+    }
+
+    void FireProjectile()
+    {
+        Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
     }
 }

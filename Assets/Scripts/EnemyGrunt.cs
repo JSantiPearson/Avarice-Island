@@ -7,7 +7,7 @@ public class EnemyGrunt : Actor
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// CLASS VARIABLES
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    public int maxHealth = 100;
     public float currentHealth;
     public float walkSpeed = 1.5f;
     public float runSpeed = 4f;
@@ -19,6 +19,8 @@ public class EnemyGrunt : Actor
     float lastHit;
     bool launch;
     float lastLaunch;
+
+
 
     bool isMoving;
     float lastWalk;
@@ -72,7 +74,7 @@ public class EnemyGrunt : Actor
         targetPosition = startingPosition;
         playerReference = GameObject.Find("Player");
         currentState = EnemyState.idle;
-        currentHealth = 100;
+        currentHealth = maxHealth;
         fleeHealth = 30;
     }
 
@@ -272,7 +274,6 @@ public class EnemyGrunt : Actor
         baseAnim.SetFloat("Speed", speed);
     }
 
-
     void FixedUpdate()
     {
         Vector3 moveVector = currentDir * speed;
@@ -302,10 +303,14 @@ public class EnemyGrunt : Actor
                 hit = true;
                 lastHit = Time.time;
                 baseAnim.SetTrigger("Hit");
+                break;
             case "launch":
-                lauch = true;
+                launch = true;
                 lastLaunch = Time.time;
                 baseAnim.SetTrigger("Launch");
+                break;
+            default:
+                break;
         }
     }
 

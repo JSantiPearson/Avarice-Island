@@ -44,6 +44,5 @@ public class CameraBounds : MonoBehaviour {
     Vector3 trans = cameraRoot.position;
     trans.x = Mathf.Clamp(x, minValue, maxValue);
     cameraRoot.position = trans;
-    Debug.Log(maxValue);
   }
 }
