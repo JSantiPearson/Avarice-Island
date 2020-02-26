@@ -15,7 +15,10 @@ public class EnemyGrunt : Actor
     int leftBound = 7;
 
     bool isAttacking;
-    bool isHurt;
+    bool hit;
+    float lastHit;
+    bool launch;
+    float lastLaunch;
 
     bool isMoving;
     float lastWalk;
@@ -285,6 +288,43 @@ public class EnemyGrunt : Actor
             FlipSprite(isFacingLeft);
         }
     }
+
+    protected virtual void OnCollisionEnter(Collision collision)
+    {
+        switch (collision.collider.tag)
+        {
+            case "floor":
+                onGround = true;
+                baseAnim.SetBool("onGround", onGround);
+                Landed();
+                break;
+            case "hit":
+                hit = true;
+                lastHit = Time.time;
+                baseAnim.SetTrigger("Hit");
+            case "launch":
+                lauch = true;
+                lastLaunch = Time.time;
+                baseAnim.SetTrigger("Launch");
+        }
+    }
+
+    public void Hurt(float damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0) Die();
+    }
+
+    private void Die()//Method for dying?
+    {
+
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Helper Functions
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private bool IsCloseTo(Vector3 target, Vector3 position)
     {
