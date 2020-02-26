@@ -3230,7 +3230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
-  spawnLimit: 2
+  spawnLimit: 4
   numSpawned: 0
 --- !u!1 &1545865323
 GameObject:
@@ -3543,7 +3543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
-  spawnLimit: 1
+  spawnLimit: 4
   numSpawned: 0
 --- !u!1 &1602100750
 GameObject:
@@ -3840,6 +3840,7 @@ MonoBehaviour:
   speed: 2
   onGround: 0
   engaged: []
+  numEngagements: 2
   walkSpeed: 2
   runSpeed: 5
   canRun: 1
@@ -3857,7 +3858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108ca49cc89069488ef99e4861ce34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 0}
+  hero: {fileID: 1684210474}
   input: {fileID: 1105488777}
   isRunning: 0
   animator: {fileID: 66640174}
@@ -4436,6 +4437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
         type: 3}

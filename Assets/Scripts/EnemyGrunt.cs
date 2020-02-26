@@ -23,7 +23,7 @@ public class EnemyGrunt : Actor
     bool isStanding;
     bool isGrounded;
 
-    float waitDistance = 3;
+    float waitDistance = 4;
     bool isWaiting;
 
     int paused;
@@ -43,7 +43,7 @@ public class EnemyGrunt : Actor
     float timeOfLastWander;
     float WanderWaitTime = 5;
 
-    float noticeDistance = 5;
+    float noticeDistance = 7;
     float walkDistance = 3;
     float attackDistance = 1;
     int fleeHealth;
@@ -89,22 +89,19 @@ public class EnemyGrunt : Actor
 
         Vector3 playerPosition = playerReference.transform.position;
         float currentDistance = Vector3.Distance(body.position, playerPosition);
-        List<Actor> playerEngagements = playerReference.GetComponent<Hero>().engaged;
         
-        if(isWaiting && playerEngagements.Count <= playerEngagements.Capacity)
-        {
-            playerEngagements.Add(this);
-            isWaiting = false;
-        }
-
         if (isWaiting)
         {
-            currentState = EnemyState.waiting;
+            isWaiting = !playerReference.GetComponent<Hero>().Engage(this);
         }
 
         if (paused >= 0)
         {
             paused--;
+        }
+        else if (isWaiting)
+        {
+            currentState = EnemyState.waiting;
         }
         //Universal state change logic
         else if (!(isLaunching || isHurting || isAttacking || isWaiting || isGrounded || isStanding))
@@ -325,7 +322,7 @@ public class EnemyGrunt : Actor
     {
         if (IsCloseTo(targetPosition, body.position))
         {
-            var wanderBoundsX = (left: startingPosition.x - 2, right: startingPosition.x + 2);
+            var wanderBoundsX = (left: startingPosition.x - 5, right: startingPosition.x + 5);
             var wanderBoundsZ = (bottom: -2.5f, top: 1.2f);
 
             //Form a line connecting the player and enemy
