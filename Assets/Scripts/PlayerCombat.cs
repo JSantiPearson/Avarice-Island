@@ -45,6 +45,7 @@ public class PlayerCombat : MonoBehaviour
       Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
       foreach(Collider enemy in hitEnemies){
         //enemy.GetComponent<EnemyGrunt>().TakeDamage(attackDamage);
+        enemy.GetComponent<EnemyGrunt>().Hit(30);
         Debug.Log("We Dash Attacked " + enemy.name);
       }
     }
@@ -56,7 +57,9 @@ public class PlayerCombat : MonoBehaviour
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider enemy in hitEnemies){
-          //enemy.GetComponent<EnemyGrunt>().TakeDamage(attackDamage);
+          //enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
+            enemy.GetComponent<EnemyGrunt>().Hit(30);
+            //enemy.GetComponent<EnemyGrunt>().Hurt(15);
           Debug.Log("We Hit " + enemy.name);
         }
     }

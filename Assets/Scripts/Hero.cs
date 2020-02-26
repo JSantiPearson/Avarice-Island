@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hero : Actor  {
 
+  public List<Actor> engaged;
+  int numEngagements = 3;
 
   public float walkSpeed = 2;
   public float runSpeed = 5;
@@ -29,12 +31,14 @@ public class Hero : Actor  {
   private float jumpDuration = 0.2f;
   private float lastJumpTime;
 
-
-
-
   bool isAttackingAnim;
   float lastAttackTime;
   float attackLimit = 0.14f;
+
+  public void Start()
+    {
+      engaged = new List<Actor>(numEngagements);
+    }
 
   public override void Update() {
     base.Update();
