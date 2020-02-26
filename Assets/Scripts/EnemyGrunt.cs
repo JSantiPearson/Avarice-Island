@@ -424,8 +424,8 @@ public class EnemyGrunt : Actor
     private void Die()//Method for dying?
     {
         List<Actor> playerEngagements = playerReference.GetComponent<Hero>().engaged;
-        playerEngagements.Remove(this.GetComponentInParent(EnemyGrunt));
-        GameObject.Destroy(body);
+        playerEngagements.Remove(this);
+        GameObject.Destroy(transform.root.gameObject);
     }
 
 
