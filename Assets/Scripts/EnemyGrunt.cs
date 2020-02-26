@@ -72,8 +72,8 @@ public class EnemyGrunt : Actor
 
     public void Start()
     {
-        body.position = startingPosition;
-        targetPosition = startingPosition;
+        targetPosition = new Vector3(body.position.x, startingPosition.y, startingPosition.z);
+        startingPosition = targetPosition;
         playerReference = GameObject.Find("Player");
         currentState = EnemyState.idle;
         currentHealth = maxHealth;
@@ -390,6 +390,7 @@ public class EnemyGrunt : Actor
 
     public void Hit(float damage)
     {
+        Stop();
         isHurting = true;
         lastHurtTime = Time.time;
         baseAnim.SetTrigger("Hit");
@@ -398,6 +399,7 @@ public class EnemyGrunt : Actor
 
     public void Launch(Vector3 attackerLocation)
     {
+        Stop();
         isLaunching = true;
         lastLaunchTime = Time.time;
         baseAnim.SetTrigger("Launch");
