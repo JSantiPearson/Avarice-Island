@@ -45,6 +45,7 @@ public class PlayerCombat : MonoBehaviour
       Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
       foreach(Collider enemy in hitEnemies){
         //enemy.GetComponent<EnemyGrunt>().TakeDamage(attackDamage);
+        enemy.GetComponent<EnemyGrunt>().Hit(30);
         Debug.Log("We Dash Attacked " + enemy.name);
       }
     }
@@ -56,8 +57,20 @@ public class PlayerCombat : MonoBehaviour
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider enemy in hitEnemies){
-          //enemy.GetComponent<EnemyGrunt>().TakeDamage(attackDamage);
-          Debug.Log("We Hit " + enemy.name);
+
+            //WARNING This is a temporary jank ass fix because i can't find real hitboxes assocciated with these attacks
+            if(hero.speed > 3)
+            {
+                enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
+                enemy.GetComponent<EnemyGrunt>().Hurt(30);
+            }
+            else
+            {
+                enemy.GetComponent<EnemyGrunt>().Hit(15);
+            }
+            //This is the end of the jank ass fix
+            
+            Debug.Log("We Hit " + enemy.name);
         }
     }
 

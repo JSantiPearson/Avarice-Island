@@ -13,10 +13,18 @@ public class Actor : MonoBehaviour
 
   public bool onGround; //is the actor on the ground? true or false
 
-  /**
-  * Updates the graphics every frame, moving actors and such. Position is determined through here.
-  **/
-  public virtual void Update() {
+  //game difficulty
+  public enum DifficultyLevel
+  {
+    easy,
+    medium,
+    hard
+  }
+
+    /**
+    * Updates the graphics every frame, moving actors and such. Position is determined through here.
+    **/
+    public virtual void Update() {
   Vector3 shadowSpritePosition = shadowSprite.transform.position;
   shadowSpritePosition.y = 1.8f; //set shadow starting position
   shadowSprite.transform.position = shadowSpritePosition; //update the shadow position
