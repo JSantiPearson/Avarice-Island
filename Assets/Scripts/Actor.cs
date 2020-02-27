@@ -68,10 +68,14 @@ public class Actor : MonoBehaviour
   * Flips the sprite horizontally for when the actor changes direction.
   **/
   public void FlipSprite(bool isFacingLeft) {
+
     if (isFacingLeft) {
-      frontVector = new Vector3(-1, 0, 0);
+
+         //   transform.Rotate(0f, 180f, 0f);
+     frontVector = new Vector3(-1, 0, 0);
       transform.localScale = new Vector3(-1.5f, 1.5f, 1);
     } else {
+            //transform.Rotate(0f, 180f, 0);
       frontVector = new Vector3(1, 0, 0);
       transform.localScale = new Vector3(1.5f, 1.5f, 1);
     }

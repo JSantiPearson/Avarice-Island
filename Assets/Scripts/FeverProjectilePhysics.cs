@@ -17,15 +17,8 @@ public class FeverProjectilePhysics : MonoBehaviour
     void Start()
     {
 
-        if (isFacingLeft)
-        {
-            rb.velocity = new Vector3(0, BulletSpeed * -1, 0);
-        }
-        else
-        {
             rb.velocity = new Vector3(BulletSpeed, 0, 0);
 
-        }
 
     }
 
