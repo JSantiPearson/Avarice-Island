@@ -1,34 +1,19 @@
 fileFormatVersion: 2
-guid: 1122a3766d86a4b35bb54fb3f751d8f1
+guid: a617419384ff74369b192aa5ea6d9fac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6130217396869382921
-    second: GetUp_0
+      213: -8038244360479521221
+    second: HurtGrounded_0
   - first:
-      213: -5549359483131430800
-    second: GetUp_1
+      213: 2297037739791353918
+    second: HurtGrounded_1
   - first:
-      213: 2197053828777075788
-    second: GetUp_2
+      213: -864122946074099476
+    second: HurtGrounded_2
   - first:
-      213: -4051754144899792339
-    second: GetUp_3
-  - first:
-      213: -7933276967682598159
-    second: GetUp_4
-  - first:
-      213: -7207101813492754100
-    second: GetUp_5
-  - first:
-      213: -7182680711527038956
-    second: GetUp_6
-  - first:
-      213: 927587425761004748
-    second: GetUp_7
-  - first:
-      213: 5579423433395182292
-    second: GetUp_8
+      213: 2307469044554686589
+    second: HurtGrounded_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -113,11 +98,74 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GetUp_0
+      name: HurtGrounded_0
       rect:
         serializedVersion: 2
         x: 10
-        y: 2
+        y: 1
+        width: 65
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7678e531a824a36a8d85d7dee8e79a
+      internalID: -8038244360479521221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HurtGrounded_1
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1
+        width: 73
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d801722cf35a4096b33ac39dc384ecb
+      internalID: 2297037739791353918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HurtGrounded_2
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 4
+        width: 71
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 019edc77bb1814962a5ffb708a49b18d
+      internalID: -864122946074099476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HurtGrounded_3
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 5
         width: 70
         height: 25
       alignment: 0
@@ -127,176 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc04728c9ad8c4a8eb72fd0918e8f6cb
-      internalID: -6130217396869382921
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GetUp_1
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 1
-        width: 67
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a862410018cce4e10bdc46fbd6edfcf2
-      internalID: -5549359483131430800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GetUp_2
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 3
-        width: 64
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 828224a6f75c64c60b360d20b17f08eb
-      internalID: 2197053828777075788
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GetUp_3
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 3
-        width: 65
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3148cc4b8ea6249caa6ae1ca09a9e270
-      internalID: -4051754144899792339
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GetUp_4
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 3
-        width: 56
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7c100240e80e42c19a3e6e58eb2795d
-      internalID: -7933276967682598159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GetUp_5
-      rect:
-        serializedVersion: 2
-        x: 347
-        y: 3
-        width: 40
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 688a2b12e8756435cb280a7461cbdac6
-      internalID: -7207101813492754100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GetUp_6
-      rect:
-        serializedVersion: 2
-        x: 390
-        y: 3
-        width: 37
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2df59487cb4d543e3aec0e1bdb3787a4
-      internalID: -7182680711527038956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GetUp_7
-      rect:
-        serializedVersion: 2
-        x: 430
-        y: 3
-        width: 27
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e888c42d81e954ceeb2fa26fb1e50178
-      internalID: 927587425761004748
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GetUp_8
-      rect:
-        serializedVersion: 2
-        x: 460
-        y: 3
-        width: 25
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 294c1438336ac48d599e73f0a5ca64a0
-      internalID: 5579423433395182292
+      spriteID: 89c3f9d641d204dc7a414f6924728eba
+      internalID: 2307469044554686589
       vertices: []
       indices: 
       edges: []
