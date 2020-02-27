@@ -3569,7 +3569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602100750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93, y: 0.217, z: 0}
+  m_LocalPosition: {x: 0.9, y: 0.217, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1684210471}
@@ -3843,6 +3843,7 @@ MonoBehaviour:
   numEngagements: 2
   walkSpeed: 2
   runSpeed: 5
+  isRunning: 0
   canRun: 1
   input: {fileID: 1105488777}
   jumpForce: 1700

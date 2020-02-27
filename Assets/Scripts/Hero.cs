@@ -12,7 +12,7 @@ public class Hero : Actor
     public float walkSpeed = 2;
     public float runSpeed = 5;
 
-    bool isRunning;
+    public bool isRunning;
     bool isMoving;
     float lastWalk;
     bool attack;
@@ -141,8 +141,11 @@ public class Hero : Actor
         {
             if (moveVector.x != 0)
             {
+                //transform.Rotate(0f, 180f, 0f);
+
                 isFacingLeft = moveVector.x < 0;
             }
+
             FlipSprite(isFacingLeft);
         }
     }
@@ -182,15 +185,15 @@ public class Hero : Actor
         return isRunning;
     }
 
-    public override void Attack()
-    {
+    //public override void Attack()
+    //{
 
 
-        baseAnim.SetBool("attack", attack);
-        lastAttackTime = Time.time;
-        attack = false;
-        baseAnim.SetBool("atatck", attack);
-    }
+        //baseAnim.SetBool("attack", attack);
+        //lastAttackTime = Time.time;
+       // attack = false;
+     //   baseAnim.SetBool("atatck", attack);
+   // }
 
     public bool Engage(Actor enemy)
     {

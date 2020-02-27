@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddcb5145ae1ad42449051bd5eaa70710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSpeed: 8
+  BulletSpeed: 7
   collider: {fileID: -5306000454987824724}
   rb: {fileID: -5209954011663614875}
   damage: 50

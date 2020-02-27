@@ -7,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
     public Hero hero;
     public InputHandler input;
     public bool isRunning;
+   // public
     public Animator animator;
     public Transform attackPoint;
     public int attackDamage = 40;
@@ -21,16 +22,28 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
       if(Time.time >= nextAttackTime){
+
+
         if (Input.GetButtonDown("Attack"))
-        {
+             {
+                if (hero.isRunning)
+                {
+                   
+                    dashAttack();
+                    
+                }
+                else
+                {
+                    Attack();
+                    nextAttackTime = Time.time + 1f / attackRate; //lockout attack by a second
+
+                    //attack = true;
+                    //baseAnim.SetBool("attack", attack);
+                }
 
 
-            Attack();
-            nextAttackTime = Time.time + 1f/ attackRate; //lockout attack by a second
-            //attack = true;
-            //baseAnim.SetBool("attack", attack);
 
-        }
+            }
       }
 
         else if (Input.GetButtonUp("Attack"))
@@ -41,12 +54,15 @@ public class PlayerCombat : MonoBehaviour
         }
     }
     void dashAttack(){
-      animator.SetTrigger("Attack");
+       // hero.body.velocity = rigidbody.velocity * 0.9;
+        animator.SetTrigger("Attack");
       Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
-      foreach(Collider enemy in hitEnemies){
+        
+        foreach (Collider enemy in hitEnemies){
         //enemy.GetComponent<EnemyGrunt>().TakeDamage(attackDamage);
         enemy.GetComponent<EnemyGrunt>().Hit(30);
         Debug.Log("We Dash Attacked " + enemy.name);
+        
       }
     }
 

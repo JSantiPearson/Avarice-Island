@@ -55,6 +55,7 @@ public class Fever : MonoBehaviour
 
     void FireProjectile()
     {
+        Debug.Log("fiejifjfiejfiejf");
         Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
     }
 }
