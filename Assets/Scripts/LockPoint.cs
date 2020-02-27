@@ -14,20 +14,27 @@ public class LockPoint : MonoBehaviour
 	private int enemiesLeft;
 	private float distanceFromPlayer;
 	public Dialogue dialogue;
+	public Animator goArrowAnim;
 
     // Start is called before the first frame update
     void Start()
     {
     	//get dialogue if there is a dialogue component associated with this lockpoint
     	dialogue = gameObject.GetComponent(typeof(Dialogue)) as Dialogue;
+
+    	//find other gameobjects we need
     	gameManager = GameObject.Find("MyGameManager").GetComponent(typeof(GameManager)) as GameManager;
     	pauseGame = gameManager.GetComponent(typeof(PauseGame)) as PauseGame;
+    	goArrowAnim = GameObject.Find("GoArrow").GetComponent(typeof(Animator)) as Animator;
+    	//goArrowAnim = gameObject.GetComponent(typeof(Animator)) as Animator;
+
     	locked = false;
     	//set up position vectors
 
         player = GameObject.Find("Player");
         playerLocation = player.transform.position; 
         lockLocation = gameObject.transform.position;
+
     }
 
     // Update is called once per frame
@@ -45,13 +52,15 @@ public class LockPoint : MonoBehaviour
     	//still fighting enemies - do nothing
 
         if(locked && enemiesLeft==0){
-        	//unlock
+        	//UNLOCK
         	gameManager.cameraFollows = true;
         	locked = false;
+        	goArrowAnim.SetTrigger("ScreenUnlocked");
         	//dont want lockpoint to slow things down after it's done its job
         	Destroy(gameObject);
         } else if (!locked && distanceFromPlayer < 0.1) {
-        	//lock
+
+        	//LOCK
         	if(dialogue!=null){
         		TriggerDialogue();
         	}
@@ -65,4 +74,19 @@ public class LockPoint : MonoBehaviour
     	dialogue.PlayDialogue();
     	//pauseGame.UnpauseForDialogue();
     }
+
+    /**
+    IEnumerator FlashArrow(){
+    	float endTime = 3f;
+    	float totalTime = 0f;
+
+    	while(executionTime<endTime){
+    		totalTime+=Time.deltaTime;
+
+    		Color arrowColor = goArrow.color;
+    		arrowColor.a = Mathf.PingPong(1+totalTime*2f, 1f);
+    		goArrow.color = c;
+    	}
+    	yield return null;
+    	**/
 }
