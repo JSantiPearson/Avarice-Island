@@ -72,8 +72,8 @@ public class EnemyGrunt : Actor
 
     public void Start()
     {
-        body.position = startingPosition;
-        targetPosition = startingPosition;
+        targetPosition = new Vector3(body.position.x, startingPosition.y, startingPosition.z);
+        startingPosition = targetPosition;
         playerReference = GameObject.Find("Player");
         currentState = EnemyState.idle;
         currentHealth = maxHealth;
@@ -250,25 +250,25 @@ public class EnemyGrunt : Actor
     public void Attack()
     {
         Stop();
-        float attackChance;
+        float attackThreshold;
 
         switch (currentLevel)
         {
             case DifficultyLevel.easy:
-                attackChance = .03f;
+                attackThreshold = .6f;
                 break;
             case DifficultyLevel.medium:
-                attackChance = .8f;
+                attackThreshold = .8f;
                 break;
             case DifficultyLevel.hard:
-                attackChance = .2f;
+                attackThreshold = .95f;
                 break;
             default:
-                attackChance = .03f;
+                attackThreshold = .6f;
                 break;
         }
 
-        if (Random.value <= attackChance)
+        if (Random.value <= attackThreshold)
         {
             Punch();
         }
@@ -358,6 +358,7 @@ public class EnemyGrunt : Actor
     public void Punch()
     {
         //seperate methods for each possible attack and select randomly? How many attacks will grunts have?
+        baseAnim.SetTrigger("Punch");
     }
 
     public void Stop()
@@ -390,6 +391,7 @@ public class EnemyGrunt : Actor
 
     public void Hit(float damage)
     {
+        Stop();
         isHurting = true;
         lastHurtTime = Time.time;
         baseAnim.SetTrigger("Hit");
@@ -398,6 +400,7 @@ public class EnemyGrunt : Actor
 
     public void Launch(Vector3 attackerLocation)
     {
+        Stop();
         isLaunching = true;
         lastLaunchTime = Time.time;
         baseAnim.SetTrigger("Launch");
@@ -441,7 +444,7 @@ public class EnemyGrunt : Actor
 
     private void CheckAnims()
     {
-        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_attack");
+        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_punch");
         isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_launch");
         isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_grounded");
         isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_stand");
