@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
   public CameraBounds cameraBounds;
   public GameObject enemyPrefab;
   public GameObject dialogueBar;
+  public GameObject leftScreenCollider;
+  public GameObject rightScreenCollider;
 
   //MOVE THESE ELSEWHERE WHEN SPAWNING IS REFACTORED
   /*
@@ -17,10 +19,16 @@ public class GameManager : MonoBehaviour {
 
 //2
   void Start() {
-    cameraBounds.SetXPosition(cameraBounds.minVisibleX);
-    //make sure dialogue is hidden (maybe move this to a new dialogue manager later)
+
+    //find game objects we need to reference
     dialogueBar = GameObject.Find("DialogueBar");
-    dialogueBar.SetActive(false);    
+    leftScreenCollider = GameObject.Find("LeftCamBounds");
+    rightScreenCollider = GameObject.Find("RightCamBounds");
+
+    //initialize objects
+    cameraBounds.SetXPosition(cameraBounds.minVisibleX);
+    dialogueBar.SetActive(false);
+    SetScreenColliders(false);    
   }
 //3
   void Update() {
@@ -52,6 +60,11 @@ public class GameManager : MonoBehaviour {
 
   public void UnlockCamera(){
     cameraFollows=true;
+  }
+
+  public void SetScreenColliders(bool active){
+    leftScreenCollider.SetActive(active);
+    rightScreenCollider.SetActive(active);
   }
 
   //NEED TO MOVE FOLLOWING METHODS EVENTUALLY. NEED A SMART SPAWNING SCHEME

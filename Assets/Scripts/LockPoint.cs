@@ -28,9 +28,8 @@ public class LockPoint : MonoBehaviour
     	goArrowAnim = GameObject.Find("GoArrow").GetComponent(typeof(Animator)) as Animator;
     	//goArrowAnim = gameObject.GetComponent(typeof(Animator)) as Animator;
 
-    	locked = false;
-    	//set up position vectors
-
+    	//set up position vectors + other bookkeeping
+        locked = false;
         player = GameObject.Find("Player");
         playerLocation = player.transform.position; 
         lockLocation = gameObject.transform.position;
@@ -54,6 +53,7 @@ public class LockPoint : MonoBehaviour
         if(locked && enemiesLeft==0){
         	//UNLOCK
         	gameManager.cameraFollows = true;
+            gameManager.SetScreenColliders(false);
         	locked = false;
         	goArrowAnim.SetTrigger("ScreenUnlocked");
         	//dont want lockpoint to slow things down after it's done its job
@@ -61,6 +61,7 @@ public class LockPoint : MonoBehaviour
         } else if (!locked && distanceFromPlayer < 0.1) {
 
         	//LOCK
+            gameManager.SetScreenColliders(true);
         	if(dialogue!=null){
         		TriggerDialogue();
         	}

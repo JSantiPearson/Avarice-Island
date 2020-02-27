@@ -11,7 +11,7 @@ public class SpawnPoint : MonoBehaviour
 	public int spawnLimit;
 	private float spawnInterval=2;
     private float timeElapsed=0;
-	const int spawnDistFromPlayer = 5;
+	const int spawnDistFromPlayer = 8;
     // Start is called before the first frame update
     void Start()
     {
