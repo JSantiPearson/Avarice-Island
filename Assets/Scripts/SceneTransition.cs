@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
 
-  	//public Animator transitionAnimation; //need this when we implement fades
+  	public Animator transitionAnimation; //need this when we implement fades
 	//public string sceneName;
 
 
@@ -25,12 +25,13 @@ public class SceneTransition : MonoBehaviour
 
 
     IEnumerator LoadSceneCo(string sceneName){
-      //transitionAnimation.SetTrigger("end");
-      //check for game paus
+      //check for game pause
     	if(Time.timeScale==0){
 			Time.timeScale=1;
 		}
-      	yield return new WaitForSeconds(1f);
+		//trigger a fadeout
+		transitionAnimation.SetTrigger("fadeout");
+      	yield return new WaitForSeconds(0.8f);
       	SceneManager.LoadScene(sceneName);
     }
 }
