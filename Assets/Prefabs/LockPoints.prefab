@@ -137,8 +137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 0}
   sentences:
-  - STOP... WE ARE GOING TO BOUNCE YOU!!! (press z)
+  - 'STOP... WE ARE GOING TO BOUNCE YOU!!! '
   index: 0
   speed: 0
   pauseGame: {fileID: 0}
   dialogueBar: {fileID: 0}
+  cursorInterval: 1
