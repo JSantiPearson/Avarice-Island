@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour {
   public GameObject leftScreenCollider;
   public GameObject rightScreenCollider;
   private Transform currentCameraTrans;
-  private float distCameraToPlayer;
+  private float lastDistCamToPlayer;
+  private float currDistCamToPlayer;
 
   //MOVE THESE ELSEWHERE WHEN SPAWNING IS REFACTORED
   /*
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour {
     rightScreenCollider = GameObject.Find("RightCamBounds");
 
     //initialize objects
-    distCameraToPlayer = 0;
+    currDistCamToPlayer = 0;
     cameraBounds.SetXPosition(cameraBounds.minVisibleX);
     currentCameraTrans = cameraBounds.cameraRoot;
     dialogueBar.SetActive(false);
@@ -38,19 +39,22 @@ public class GameManager : MonoBehaviour {
 //3
   void Update() {
 
-    distCameraToPlayer = (currentCameraTrans.position.x - actor.transform.position.x);
-    Debug.Log("distCameraToPlayer" + distCameraToPlayer);
+    currDistCamToPlayer = (currentCameraTrans.position.x - actor.transform.position.x);
+    Debug.Log("currDistCamToPlayer" + currDistCamToPlayer);
 
-
+    //on an unlock, we pan back to the player
     if (cameraFollows) {
       cameraBounds.SetXPosition(actor.transform.position.x);
     } else if (cameraPanning){
-      Debug.Log("panning by " + (distCameraToPlayer/50));
-      cameraBounds.SetXPosition(currentCameraTrans.position.x - (distCameraToPlayer/100));
+      Debug.Log("panning by " + (lastDistCamToPlayer/50));
+      cameraBounds.SetXPosition(currentCameraTrans.position.x - (lastDistCamToPlayer/50));
+    } else {
+        //only update this value when camera is locked and not panning.
+        lastDistCamToPlayer = (currentCameraTrans.position.x - actor.transform.position.x);
     }
 
     //cameraFollows reset when camera lands on player
-    if(Mathf.Abs(distCameraToPlayer) < 0.1 && cameraPanning){
+    if(Mathf.Abs(currDistCamToPlayer) < 0.1 && cameraPanning){
       Debug.Log("setting follows to true");
       cameraFollows = true;
       cameraPanning = false;
