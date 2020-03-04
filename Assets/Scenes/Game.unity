@@ -1888,7 +1888,7 @@ PrefabInstance:
     - target: {fileID: 7646960995735838581, guid: ddb130f5e4ada024a91db35bbd7d0c14,
         type: 3}
       propertyPath: m_Name
-      value: Map1
+      value: FestivalMap
       objectReference: {fileID: 0}
     - target: {fileID: 7646960995735838582, guid: ddb130f5e4ada024a91db35bbd7d0c14,
         type: 3}
