@@ -52,7 +52,7 @@ public class LockPoint : MonoBehaviour
 
         if(locked && enemiesLeft==0){
         	//UNLOCK
-        	gameManager.cameraFollows = true;
+        	gameManager.UnlockCamera();
             gameManager.SetScreenColliders(false);
         	locked = false;
         	goArrowAnim.SetTrigger("ScreenUnlocked");
@@ -65,7 +65,7 @@ public class LockPoint : MonoBehaviour
         	if(dialogue!=null){
         		TriggerDialogue();
         	}
-        	gameManager.cameraFollows = false;
+        	gameManager.LockCamera();
         	locked = true;
         }
     }

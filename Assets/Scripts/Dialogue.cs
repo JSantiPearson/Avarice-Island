@@ -12,11 +12,17 @@ public class Dialogue : MonoBehaviour
 	public float speed;
 	public PauseGame pauseGame;
 	public GameObject dialogueBar;
+    public int cursorInterval;
+    private float timeElapsed;
 	private bool pausedForDialogue;
+    private bool cursorOn;
+    private char[] cursorChars = {'(','z',')'};
 
 	void Start(){
 		//find the pauseGame component
-		pausedForDialogue = false; 
+        cursorOn = false; //used for flashing cursor in dialogue bar.
+		pausedForDialogue = false;
+        timeElapsed=0; 
 		pauseGame =  GameObject.Find("MyGameManager").GetComponent(typeof(PauseGame)) as PauseGame;
 		dialogueBar = GameObject.Find("DialogueBar");
         textDisplay = GameObject.Find("DialogueText").GetComponent(typeof(TextMeshProUGUI)) as TextMeshProUGUI;
@@ -25,10 +31,14 @@ public class Dialogue : MonoBehaviour
 
 	void Update(){
 		//keep track of whether or not we are paused for dialogue, allow player to continue
-		if(pausedForDialogue && Input.GetKeyDown(KeyCode.Z)){
-			pauseGame.UnpauseForDialogue();
-			pausedForDialogue = false;
-			dialogueBar.SetActive(false);    
+        timeElapsed+=Time.fixedDeltaTime;
+		if(pausedForDialogue){
+            flashCursor();
+			if(Input.GetKeyDown(KeyCode.Z)){
+                pauseGame.UnpauseForDialogue();
+			    pausedForDialogue = false;
+			    dialogueBar.SetActive(false);
+            }    
 
 		}
 
@@ -43,6 +53,25 @@ public class Dialogue : MonoBehaviour
     	pausedForDialogue = true;
     	//CONTINUE HAPPENS IN UPDATE METHOD
 
+    }
+
+    public void flashCursor(){
+
+        string cursorString = new string(cursorChars); 
+
+        if(timeElapsed>=cursorInterval){
+            //flash either on or off
+            if(cursorOn){
+                textDisplay.text+=cursorString;
+                cursorOn = false;
+            } else {
+                textDisplay.text = (textDisplay.text).TrimEnd(cursorChars);
+                cursorOn = true;
+            }
+            //reset time
+            timeElapsed = 0;
+        }
+        Debug.Log("timeElapsed wasn't sufficient");
     }
 
     //UNUSED at the moment

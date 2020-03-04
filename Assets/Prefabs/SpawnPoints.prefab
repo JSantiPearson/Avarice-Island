@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
-  spawnLimit: 4
+  spawnLimit: 1
 --- !u!1 &4546920531785793492
 GameObject:
   m_ObjectHideFlags: 0

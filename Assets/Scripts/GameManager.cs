@@ -4,11 +4,15 @@ public class GameManager : MonoBehaviour {
   //1
   public Hero actor;
   public bool cameraFollows = true;
+  public bool cameraPanning = false;
   public CameraBounds cameraBounds;
   public GameObject enemyPrefab;
   public GameObject dialogueBar;
   public GameObject leftScreenCollider;
   public GameObject rightScreenCollider;
+  private Transform currentCameraTrans;
+  private float lastDistCamToPlayer;
+  private float currDistCamToPlayer;
 
   //MOVE THESE ELSEWHERE WHEN SPAWNING IS REFACTORED
   /*
@@ -26,30 +30,35 @@ public class GameManager : MonoBehaviour {
     rightScreenCollider = GameObject.Find("RightCamBounds");
 
     //initialize objects
+    currDistCamToPlayer = 0;
     cameraBounds.SetXPosition(cameraBounds.minVisibleX);
+    currentCameraTrans = cameraBounds.cameraRoot;
     dialogueBar.SetActive(false);
     SetScreenColliders(false);    
   }
 //3
   void Update() {
+
+    currDistCamToPlayer = (currentCameraTrans.position.x - actor.transform.position.x);
+    Debug.Log("currDistCamToPlayer" + currDistCamToPlayer);
+
+    //on an unlock, we pan back to the player
     if (cameraFollows) {
       cameraBounds.SetXPosition(actor.transform.position.x);
+    } else if (cameraPanning){
+      Debug.Log("panning by " + (lastDistCamToPlayer/50));
+      cameraBounds.SetXPosition(currentCameraTrans.position.x - (lastDistCamToPlayer/50));
+    } else {
+        //only update this value when camera is locked and not panning.
+        lastDistCamToPlayer = (currentCameraTrans.position.x - actor.transform.position.x);
     }
 
-    //we can check how many enemies are left by finding all objects tagged enemy
-    //MAKE SURE ALL ENEMIES ARE INSTANTIATED WITH 'Enemy' TAGS
-    Debug.Log("Enemies: " + (GameObject.FindGameObjectsWithTag("Enemy")).Length);
-
-    //test for interval spawns
-
-    /*
-
-    timeElapsed+=Time.deltaTime;
-    if(okToSpawn()){
-      Instantiate(enemyPrefab);
+    //cameraFollows reset when camera lands on player
+    if(Mathf.Abs(currDistCamToPlayer) < 0.1 && cameraPanning){
+      Debug.Log("setting follows to true");
+      cameraFollows = true;
+      cameraPanning = false;
     }
-
-    */
 
   }
   
@@ -59,7 +68,8 @@ public class GameManager : MonoBehaviour {
 
 
   public void UnlockCamera(){
-    cameraFollows=true;
+    //cameraFollows=true;
+    cameraPanning = true;
   }
 
   public void SetScreenColliders(bool active){
@@ -67,26 +77,4 @@ public class GameManager : MonoBehaviour {
     rightScreenCollider.SetActive(active);
   }
 
-  //NEED TO MOVE FOLLOWING METHODS EVENTUALLY. NEED A SMART SPAWNING SCHEME
-  /*
-
-  public bool okToSpawn(){
-    if(timeElapsed>spawnInterval && GameObject.FindGameObjectsWithTag("Enemy").Length<maxEnemies){
-      timeElapsed=0;
-      return true;
-    } else {
-      return false;
-    }
-  } 
-  /**
-  IEnumerator SpawnAndWait(){
-    Instantiate(enemyPrefab);
-    yield return new WaitForSeconds(2);
-  }
-
-  IEnumerator SpawnEnemies(int numEnemies){
-    for(int i=0;i<numEnemies;i++){
-      StartCoroutine("SpawnAndWait");
-    }
-  */
 }

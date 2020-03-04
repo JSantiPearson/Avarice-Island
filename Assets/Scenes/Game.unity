@@ -343,7 +343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &221637477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,6 +909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actor: {fileID: 1684210474}
   cameraFollows: 1
+  cameraPanning: 0
   cameraBounds: {fileID: 663414174}
   enemyPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
@@ -1770,11 +1771,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockPoints
       objectReference: {fileID: 0}
-    - target: {fileID: 933420383789421299, guid: b91f8d624053920488bf81cea0126043,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91f8d624053920488bf81cea0126043, type: 3}
 --- !u!1001 &4546920533025870843
@@ -1788,11 +1784,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnPoints
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920533040513784, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4546920533040513791, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
