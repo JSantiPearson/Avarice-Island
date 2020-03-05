@@ -1392,7 +1392,7 @@ MonoBehaviour:
   attackRate: 2
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4294967295
 --- !u!114 &1684210476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,6 +1740,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764349, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: playerReference
+      value: 
+      objectReference: {fileID: 1684210470}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b32c0c3188e3d224c93af04e69d65201, type: 3}
 --- !u!1001 &933420384659008273
