@@ -1685,6 +1685,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyGrunt
       objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1892,6 +1897,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1534371730, guid: ddb130f5e4ada024a91db35bbd7d0c14, type: 3}
+      propertyPath: sceneTransition
+      value: 
+      objectReference: {fileID: 573888188}
     - target: {fileID: 7646960995735838581, guid: ddb130f5e4ada024a91db35bbd7d0c14,
         type: 3}
       propertyPath: m_Name
