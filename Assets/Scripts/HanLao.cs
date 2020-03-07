@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HanLao : MonoBehaviour
+public class HanLao : Actor
 {
 	public float walkSpeed;
 	public float runSpeed;

@@ -9,44 +9,61 @@ public class WalkBehavior : StateMachineBehaviour
     public float minTime;
     public float maxTime;
 
-    public GameObject hanLao;
-    //public GameObject player;
+    public GameObject hanLaoObject; //might need to clean this up
+    public Actor hanLaoActor;
+    public GameObject player;
     private Transform playerPos;
 
     public Rigidbody body; 
     public float speed;
     private Vector3 direction;
 
+    private bool isFacingLeft;
+
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        playerPos = GameObject.Find("Player").GetComponent<Transform>();
-        hanLao = GameObject.Find("HanLao");
-        body = hanLao.GetComponent<Rigidbody>(); 
+        //playerPos = GameObject.Find("Player").GetComponent<Transform>();
+        player = GameObject.Find("Player");
+        hanLaoObject = GameObject.Find("HanLao");
+        body = hanLaoObject.GetComponent<Rigidbody>();
+        hanLaoActor = hanLaoObject.GetComponent<HanLao>();
+
         timer = Random.Range(minTime,maxTime);
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
-        if(timer<=0){
-            animator.SetTrigger("idle");
-        } else {
-            timer -= Time.deltaTime;
-        }
+        playerPos = player.transform;
+        Debug.Log("Player position: " + player.transform.position);
+        Debug.Log("lao position: " + body.position);
+
+        //if(timer<=0){
+        //    animator.SetTrigger("idle");
+        //} else {
+        //    timer -= Time.deltaTime;
+        //}
 
         //walk either away or towards player
-        Vector3 target = new Vector3(playerPos.position.x, playerPos.position.y, playerPos.position.z);
-        Debug.Log("PLAYER: " + playerPos.position.x + "  " +   playerPos.position.y + "  " + playerPos.position.z + "  ");
-        //Debug.Log("delta time: " + Time.deltaTime);
-        Vector3 moveVector = Vector3.MoveTowards(animator.transform.position, target, speed*Time.deltaTime);
-        Debug.Log("MOVEVECTOR: "+ moveVector.x + "  " +   moveVector.y + "  " + moveVector.z + "  ");
+        //Vector3 target = new Vector3(playerPos.position.x, playerPos.position.y, playerPos.position.z);
+        //Vector3 moveVector = Vector3.MoveTowards(animator.transform.position, target, speed*Time.deltaTime);
+        Vector3 moveVector = playerPos.position - body.position;
+        moveVector.Normalize();
+        //Debug.Log("MOVEVECTOR: "+ moveVector.x + "  " +   moveVector.y + "  " + moveVector.z + "  ");
+        //Debug.Log("MOVEVECTOR: "+ moveVector);
+        if(IsCloseTo(body.position,playerPos.position)){
+            animator.SetTrigger("groundattack");
+        }
 
         //moveVector.Normalize();
-        body.MovePosition(moveVector*Time.deltaTime);
+        //check for sprite flip and move
+        //isFacingLeft = moveVector.x < 0;
+       //hanLaoActor.FlipSprite(isFacingLeft);
+        body.MovePosition(body.position+moveVector*Time.deltaTime);
 
 
     }
@@ -55,6 +72,16 @@ public class WalkBehavior : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         
+    }
+
+    //NEED TO MAKE THIS INTO A STATIC METHOD IN A HIGHER LEVEL CLASS
+    private bool IsCloseTo(Vector3 target, Vector3 position)
+    {
+        float diffX = System.Math.Abs(target.x - position.x);
+        float diffY = System.Math.Abs(target.y - position.y);
+        float diffZ = System.Math.Abs(target.z - position.z);
+
+        return diffX <= 0.1 && diffY <= 0.1 && diffZ <= 0.1;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

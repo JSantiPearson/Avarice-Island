@@ -40,13 +40,11 @@ public class GameManager : MonoBehaviour {
   void Update() {
 
     currDistCamToPlayer = (currentCameraTrans.position.x - actor.transform.position.x);
-    Debug.Log("currDistCamToPlayer" + currDistCamToPlayer);
 
     //on an unlock, we pan back to the player
     if (cameraFollows) {
       cameraBounds.SetXPosition(actor.transform.position.x);
     } else if (cameraPanning){
-      Debug.Log("panning by " + (lastDistCamToPlayer/50));
       cameraBounds.SetXPosition(currentCameraTrans.position.x - (lastDistCamToPlayer/50));
     } else {
         //only update this value when camera is locked and not panning.
@@ -55,7 +53,6 @@ public class GameManager : MonoBehaviour {
 
     //cameraFollows reset when camera lands on player
     if(Mathf.Abs(currDistCamToPlayer) < 0.1 && cameraPanning){
-      Debug.Log("setting follows to true");
       cameraFollows = true;
       cameraPanning = false;
     }
