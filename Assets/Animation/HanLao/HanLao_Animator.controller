@@ -94,7 +94,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.5
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -442,37 +442,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: idle
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: groundattack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: walk
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: run
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: hurt
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -601,6 +601,23 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &3159725962199463444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e081be5604da80e489ea2bd61ae32b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hanLaoObject: {fileID: 0}
+  hanLaoActor: {fileID: 0}
+  player: {fileID: 0}
+  body: {fileID: 0}
+  speed: 0
 --- !u!1101 &4300430109948100566
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -664,8 +681,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  minTime: 20
-  maxTime: 21
+  minTime: 2
+  maxTime: 7
   hanLaoObject: {fileID: 0}
   hanLaoActor: {fileID: 0}
   player: {fileID: 0}
@@ -777,9 +794,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306cb592a1c663e44b8ebe8d0e131c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 400
-  hanLao: {fileID: 0}
+  jumpForce: 300
+  hanLaoObject: {fileID: 0}
+  hanLaoActor: {fileID: 0}
   body: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1102 &8738899275448826066
 AnimatorState:
   serializedVersion: 5
@@ -793,7 +812,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: 8291284680568687434}
   - {fileID: -4528935387425096497}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 3159725962199463444}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

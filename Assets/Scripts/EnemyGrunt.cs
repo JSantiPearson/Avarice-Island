@@ -434,6 +434,7 @@ public class EnemyGrunt : Actor
     /// Helper Functions
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //MOVING THIS TO A STATIC METHOD IN ACTOR... -HARPER
     private bool IsCloseTo(Vector3 target, Vector3 position)
     {
         float diffX = System.Math.Abs(target.x - position.x);

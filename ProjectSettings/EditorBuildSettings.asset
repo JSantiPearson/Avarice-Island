@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Club.unity
     guid: a264b20efd8fb4a4da910ea385956df2
+  - enabled: 1
+    path: Assets/Scenes/Docks.unity
+    guid: 35b0c952a503f45cbb3b143581e6cc4d
   m_configObjects: {}

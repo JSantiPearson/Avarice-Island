@@ -81,4 +81,14 @@ public class Actor : MonoBehaviour
       transform.localScale = new Vector3(size, size, 1);
     }
   }
+
+  //STATIC VERSION OF METHOD ORIGINALLY DECLARED IN ENEMYGRUNT CLASS. should migrate to this one
+  public static bool IsCloseTo(Vector3 target, Vector3 position, float interval)
+    {
+        float diffX = System.Math.Abs(target.x - position.x);
+        float diffY = System.Math.Abs(target.y - position.y);
+        float diffZ = System.Math.Abs(target.z - position.z);
+
+        return diffX <= interval && diffY <= interval && diffZ <= interval;
+    }
 }
