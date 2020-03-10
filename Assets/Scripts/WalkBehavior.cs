@@ -19,6 +19,7 @@ public class WalkBehavior : StateMachineBehaviour
     private Vector3 direction;
 
     private bool isFacingLeft;
+    const float groundAttackDist = 0.8f;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -39,14 +40,15 @@ public class WalkBehavior : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerPos = player.transform;
-        Debug.Log("Player position: " + player.transform.position);
-        Debug.Log("lao position: " + body.position);
+        //Debug.Log("Player position: " + player.transform.position);
+        //Debug.Log("lao position: " + body.position);
 
-        //if(timer<=0){
-        //    animator.SetTrigger("idle");
-        //} else {
-        //    timer -= Time.deltaTime;
-        //}
+        //timed jumps
+        if(timer<=0){
+            animator.SetTrigger("jump");
+        } else {
+            timer -= Time.deltaTime;
+        }
 
         //walk either away or towards player
         //Vector3 target = new Vector3(playerPos.position.x, playerPos.position.y, playerPos.position.z);
@@ -55,7 +57,7 @@ public class WalkBehavior : StateMachineBehaviour
         moveVector.Normalize();
         //Debug.Log("MOVEVECTOR: "+ moveVector.x + "  " +   moveVector.y + "  " + moveVector.z + "  ");
         //Debug.Log("MOVEVECTOR: "+ moveVector);
-        if(IsCloseTo(body.position,playerPos.position)){
+        if(Actor.IsCloseTo(body.position,playerPos.position, groundAttackDist)){
             animator.SetTrigger("groundattack");
         }
 
@@ -75,14 +77,15 @@ public class WalkBehavior : StateMachineBehaviour
     }
 
     //NEED TO MAKE THIS INTO A STATIC METHOD IN A HIGHER LEVEL CLASS
-    private bool IsCloseTo(Vector3 target, Vector3 position)
+    /*private bool IsCloseTo(Vector3 target, Vector3 position)
     {
         float diffX = System.Math.Abs(target.x - position.x);
         float diffY = System.Math.Abs(target.y - position.y);
         float diffZ = System.Math.Abs(target.z - position.z);
 
-        return diffX <= 0.1 && diffY <= 0.1 && diffZ <= 0.1;
-    }
+        //return diffX <= 0.1 && diffY <= 0.1 && diffZ <= 0.1;
+        return diffX <= 0.8 && diffY <= 0.8 && diffZ <= 0.8;
+    }*/
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

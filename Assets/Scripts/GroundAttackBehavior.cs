@@ -2,34 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleBehavior : StateMachineBehaviour
+public class GroundAttackBehavior : StateMachineBehaviour
 {
 
-    public float timer;
-    public float minTime;
-    public float maxTime;
+    public GameObject hanLaoObject; //might need to clean this up
+    public Actor hanLaoActor;
+    public GameObject player;
+    private Transform playerPos;
+
+    public Rigidbody body; 
+    public float speed;
+    private Vector3 direction;
+
+    private bool isFacingLeft;
+    const float groundAttackDist = 0.8f;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       timer = Random.Range(minTime,maxTime);
+        player = GameObject.Find("Player");
+        hanLaoObject = GameObject.Find("HanLao");
+        body = hanLaoObject.GetComponent<Rigidbody>();
+        hanLaoActor = hanLaoObject.GetComponent<HanLao>();
     }
 
-    //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //leave idle after random time
-       if(timer<=0){
-        animator.SetTrigger("walk");
-       } else {
-        timer -= Time.deltaTime;
-       }
+        playerPos = player.transform;
+
+        if(!Actor.IsCloseTo(body.position,player.transform.position,groundAttackDist)){
+            animator.SetTrigger("walk");
+        }
     }
 
-    //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
+        
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
