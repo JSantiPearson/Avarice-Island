@@ -11,6 +11,7 @@ public class EnemyGrunt : Actor
     public float currentHealth;
     public float walkSpeed = 1.5f;
     public float runSpeed = 4f;
+    public int enemyType = 0; //0 for grunt, 1 for rave girl. We can change this when we get enemy super class
     int rightBound = 15;
     int leftBound = 7;
 
@@ -89,7 +90,7 @@ public class EnemyGrunt : Actor
 
         Vector3 playerPosition = playerReference.transform.position;
         float currentDistance = Vector3.Distance(body.position, playerPosition);
-        
+
         if (isWaiting)
         {
             isWaiting = !playerReference.GetComponent<Hero>().Engage(this);
@@ -290,7 +291,7 @@ public class EnemyGrunt : Actor
     public void Wander()
     {
         // If at the new target and it's time to wander again, get a new target position.
-        if (IsCloseTo(targetPosition, body.position)) 
+        if (IsCloseTo(targetPosition, body.position))
         {
             if ((Time.time - timeOfLastWander) > WanderWaitTime)
             {
@@ -445,11 +446,21 @@ public class EnemyGrunt : Actor
 
     private void CheckAnims()
     {
-        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_punch");
-        isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_launch");
-        isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_grounded");
-        isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_stand");
-        isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_hurt_grounded") || 
-            baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_hurt_standing");
+        if (enemyType == 0){
+          isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_punch");
+          isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_launch");
+          isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_grounded");
+          isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_stand");
+          isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_hurt_grounded") ||
+              baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_hurt_standing");
+        }
+        if (enemyType == 1){
+          isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlPunchAnim");
+          isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlLaunchAnim");
+          isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlGroundedAnim");
+          isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlGetUpAnim");
+          isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlHurtGroundedAnim") ||
+              baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlHurtAnim");
+        }
     }
 }

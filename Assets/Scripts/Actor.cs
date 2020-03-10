@@ -9,6 +9,7 @@ public class Actor : MonoBehaviour
   public SpriteRenderer shadowSprite; //renders the actor's shadow
 
   public float speed = 2; //the default speed at which the actor walks. Currently only in hero class.
+  public float size = 1.5f;
   protected Vector3 frontVector; //for determining direction the actor is facing
 
   public bool onGround; //is the actor on the ground? true or false
@@ -73,11 +74,11 @@ public class Actor : MonoBehaviour
 
          //   transform.Rotate(0f, 180f, 0f);
      frontVector = new Vector3(-1, 0, 0);
-      transform.localScale = new Vector3(-1.5f, 1.5f, 1);
+      transform.localScale = new Vector3(-size, size, 1);
     } else {
             //transform.Rotate(0f, 180f, 0);
       frontVector = new Vector3(1, 0, 0);
-      transform.localScale = new Vector3(1.5f, 1.5f, 1);
+      transform.localScale = new Vector3(size, size, 1);
     }
   }
 
