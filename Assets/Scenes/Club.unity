@@ -2485,8 +2485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a182987a246403fb6174496c2b98cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feverBar: {fileID: 0}
-  alert: {fileID: 0}
+  feverBar: {fileID: 1689423984}
+  alert: {fileID: 1712797587}
   firePoint: {fileID: 1918707391}
   feverProjectilePreFab: {fileID: 932761474171890994, guid: dc484f864acb38f449ba955a6e95f956,
     type: 3}
