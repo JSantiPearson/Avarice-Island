@@ -1,97 +1,154 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 public class PlayerCombat : MonoBehaviour
 {
     public Hero hero;
     public InputHandler input;
     public bool isRunning;
-   // public
+    // public
     public Animator animator;
-    public Transform attackPoint;
-    public int attackDamage = 40;
-    public float attackRange = 0.5f;
     public float attackRate = 1f;
     float nextAttackTime = 0f;
     public LayerMask enemyLayers;
+    public Collider[] attackHitboxes;
+        //[0] is standing attack 1 and 3
+        //[1] is standing attack 2
+        //[2] is dash attack
+    int bufferAttackCount = 0;
+
+
+    // Queue<bool> attackBuffer = new Queue<bool>();
 
 
 
     // Update is called once per frame
     void Update()
     {
-      if(Time.time >= nextAttackTime){
-
-
-        if (Input.GetButtonDown("Attack"))
-             {
-                if (hero.isRunning)
+        if (Time.time >= nextAttackTime)
+        {
+            //Debug.Log("Time:"  + Time.time);
+            // Debug.Log("Next Attack Time:"  + nextAttackTime);
+            if (Input.GetButtonDown("Attack"))
+            {
+                if (hero.speed > 3)
                 {
-                   
-                    dashAttack();
-                    
+                    dashAttack(attackHitboxes[2]);
                 }
                 else
                 {
-                    Attack();
-                    nextAttackTime = Time.time + 1f / attackRate; //lockout attack by a second
-
-                    //attack = true;
-                    //baseAnim.SetBool("attack", attack);
+                    Attack(attackHitboxes[0]); //0 is first standing attack
+                    nextAttackTime = Time.time + 1.3f; //lockout attack by a second
+                    bufferAttackCount = 0;
                 }
-
-
-
             }
-      }
-
-        else if (Input.GetButtonUp("Attack"))
+        }
+        if (Input.GetButtonDown("Attack"))
         {
-           // attack = false;
-           // baseAnim.SetBool("attack", attack);
-
+            bufferAttackCount++;
         }
     }
-    void dashAttack(){
-       // hero.body.velocity = rigidbody.velocity * 0.9;
-        animator.SetTrigger("Attack");
-      Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
-        
-        foreach (Collider enemy in hitEnemies){
-        //enemy.GetComponent<EnemyGrunt>().TakeDamage(attackDamage);
-        enemy.GetComponent<EnemyGrunt>().Hit(30);
-        Debug.Log("We Dash Attacked " + enemy.name);
-        
-      }
-    }
-
-    void Attack()
+    void dashAttack(Collider col)
     {
-        animator.SetTrigger("Attack");
+        // hero.body.velocity = rigidbody.velocity * 0.9;
+        animator.SetTrigger("DashAttack");
+        Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
 
-        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
+        foreach (Collider enemy in hitEnemies)
+        {
+            enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
+            enemy.GetComponent<EnemyGrunt>().Hurt(30);
+            Debug.Log("We Dash Attacked " + enemy.name);
 
-        foreach(Collider enemy in hitEnemies){
-
-            //WARNING This is a temporary jank ass fix because i can't find real hitboxes assocciated with these attacks
-            if(hero.speed > 3)
-            {
-                enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
-                enemy.GetComponent<EnemyGrunt>().Hurt(30);
-            }
-            else
-            {
-                enemy.GetComponent<EnemyGrunt>().Hit(15);
-            }
-            //This is the end of the jank ass fix
-            
-            Debug.Log("We Hit " + enemy.name);
         }
     }
 
-    void OnDrawGizmosSelected(){
+    void Attack(Collider col)
+    {
 
-      Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        animator.SetTrigger("Attack");
+
+        Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
+
+        foreach (Collider enemy in hitEnemies)
+        {
+            Debug.Log(enemy.name);
+            enemy.GetComponent<EnemyGrunt>().Hit(15);
+            Debug.Log("We Hit " + enemy.name);
+            if (bufferAttackCount > 1)
+            {
+                animator.SetTrigger("Attack2");
+               // Attack2(attackHitboxes[1]);
+            }
+        }
+
+        if (bufferAttackCount > 1)
+        {
+            animator.SetTrigger("Attack2");
+            Attack2(attackHitboxes[1]);
+        }
+        else
+        {
+            bufferAttackCount = 0;
+        }
+
     }
+    void Attack2(Collider col)
+    {
+
+        Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
+
+        foreach (Collider enemy in hitEnemies)
+        {
+            Debug.Log(enemy.name);
+            enemy.GetComponent<EnemyGrunt>().Hit(15);
+            Debug.Log("We Hit " + enemy.name);
+            if (bufferAttackCount > 2)
+            {
+                //  Debug.Log("Buffer Into Attack 3 " + bufferAttackCount);
+                animator.SetTrigger("Attack3");
+               // Attack3(attackHitboxes[0]); //standing attack 1 and 3
+            }
+        }
+        if (bufferAttackCount > 2)
+        {
+            //  Debug.Log("Buffer Into Attack 3 " + bufferAttackCount);
+            animator.SetTrigger("Attack3");
+            Attack3(attackHitboxes[0]); //standing attack 1 and 3
+        }
+        bufferAttackCount = 0;
+
+
+    }
+    void Attack3(Collider col)
+    {
+
+        // bufferAttack = false;
+
+        Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
+
+        foreach (Collider enemy in hitEnemies)
+        {
+            hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
+
+            enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
+            enemy.GetComponent<EnemyGrunt>().Hurt(30);
+
+
+            Debug.Log("We Hit " + enemy.name);
+
+        }
+        // Debug.Log("Buffer after Attack 3 " + bufferAttackCount);
+
+        bufferAttackCount = 0;
+
+
+
+    }
+
+
+
 }
