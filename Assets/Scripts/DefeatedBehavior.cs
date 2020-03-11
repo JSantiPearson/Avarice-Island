@@ -12,19 +12,22 @@ public class DefeatedBehavior : StateMachineBehaviour
         hanLaoObject = GameObject.Find("HanLao");
         dialogue = hanLaoObject.GetComponent(typeof(Dialogue)) as Dialogue;
         dialogue.PlayDialogue();
+        animator.ResetTrigger("defeated");
+        //animator.SetTrigger("exit");
+
 
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
+        //animator.ResetTrigger("defeated");
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       Destroy(hanLaoObject);
+        Destroy(hanLaoObject);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
