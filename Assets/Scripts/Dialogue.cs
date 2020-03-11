@@ -12,7 +12,7 @@ public class Dialogue : MonoBehaviour
 	public float speed;
 	public PauseGame pauseGame;
 	public GameObject dialogueBar;
-    public int cursorInterval;
+    private const float cursorInterval=0.5f;
     private float timeElapsed;
 	private bool pausedForDialogue;
     private bool cursorOn;

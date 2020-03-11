@@ -176,7 +176,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.02, y: 1.16}
+  m_Size: {x: 1.34, y: 1.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 1083201463559581764}
   - component: {fileID: 1083201463559581765}
   - component: {fileID: 567660292}
+  - component: {fileID: 1449405596}
   m_Layer: 8
   m_Name: HanLao
   m_TagString: Enemy
@@ -306,10 +307,30 @@ MonoBehaviour:
   body: {fileID: 0}
   shadowSprite: {fileID: 0}
   speed: 2
+  size: 1.5
   onGround: 0
   walkSpeed: 0
   runSpeed: 0
   direction: 0
+--- !u!114 &1449405596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083201463559581760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6448b59325b50428dd3c70b3996451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textDisplay: {fileID: 0}
+  sentences:
+  - A rave always comes to an end...
+  index: 0
+  speed: 0
+  pauseGame: {fileID: 0}
+  dialogueBar: {fileID: 0}
 --- !u!1 &1083201463625490994
 GameObject:
   m_ObjectHideFlags: 0
