@@ -2,52 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyGrunt : Actor
+public class Enemy : Actor
 {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// CLASS VARIABLES
     ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    protected string PUNCH_ANIM;
+    protected string LAUNCH_ANIM;
+    protected string GROUNDED_ANIM;
+    protected string STAND_ANIM;
+    protected string HURT_GROUNDED_ANIM;
+    protected string HURT_STANDING_ANIM;
+
     public int maxHealth = 100;
     public float currentHealth;
     public float walkSpeed = 1.5f;
     public float runSpeed = 4f;
-    public int enemyType = 0; //0 for grunt, 1 for rave girl. We can change this when we get enemy super class
-    int rightBound = 15;
-    int leftBound = 7;
+    protected int rightBound = 15;
+    protected int leftBound = 7;
 
-    bool isAttacking;
-    bool isHurting;
-    float lastHurtTime;
-    bool isLaunching;
-    float lastLaunchTime;
-    float launchForce = 250f;
-    bool isStanding;
-    bool isGrounded;
+    protected bool isAttacking;
+    protected bool isHurting;
+    protected float lastHurtTime;
+    protected bool isLaunching;
+    protected float lastLaunchTime;
+    protected float launchForce = 250f;
+    protected bool isStanding;
+    protected bool isGrounded;
 
-    float waitDistance = 4;
-    bool isWaiting;
+    protected float waitDistance = 4;
+    protected bool isWaiting;
 
-    int paused;
-    int waitingPauseTime = 40;
-    int attackingPauseTime = 40;
+    protected int paused;
+    protected int waitingPauseTime = 40;
+    protected int attackingPauseTime = 40;
 
-    bool isMoving;
-    float lastWalk;
-    Vector3 lastWalkVector;
+    protected bool isMoving;
+    protected float lastWalk;
+    protected Vector3 lastWalkVector;
 
-    Vector3 currentDir;
-    bool isFacingLeft;
+    protected Vector3 currentDir;
+    protected bool isFacingLeft;
 
-    Vector3 startingPosition = new Vector3(12.0f, 2.475173f, 1.0f);
-    Vector3 targetPosition = new Vector3(12.0f, 2.5f, 1.0f);
+    public Vector3 startingPosition = new Vector3(12.0f, 2.475173f, 1.0f);
+    public Vector3 targetPosition = new Vector3(12.0f, 2.5f, 1.0f);
 
-    float timeOfLastWander;
-    float WanderWaitTime = 5;
+    protected float timeOfLastWander;
+    protected float WanderWaitTime = 5;
 
-    float noticeDistance = 7;
-    float walkDistance = 3;
-    float attackDistance = 1;
-    int fleeHealth;
+    protected float noticeDistance = 7;
+    protected float walkDistance = 3;
+    protected float attackDistance = 1;
+    protected int fleeHealth;
 
 
     public enum EnemyState
@@ -291,7 +298,7 @@ public class EnemyGrunt : Actor
     public void Wander()
     {
         // If at the new target and it's time to wander again, get a new target position.
-        if (IsCloseTo(targetPosition, body.position))
+        if (IsCloseTo(targetPosition, body.position, 0.1f))
         {
             if ((Time.time - timeOfLastWander) > WanderWaitTime)
             {
@@ -321,7 +328,7 @@ public class EnemyGrunt : Actor
 
     public void Wait()
     {
-        if (IsCloseTo(targetPosition, body.position))
+        if (IsCloseTo(targetPosition, body.position, 0.1f))
         {
             var wanderBoundsX = (left: startingPosition.x - 5, right: startingPosition.x + 5);
             var wanderBoundsZ = (bottom: -2.5f, top: 1.2f);
@@ -408,7 +415,7 @@ public class EnemyGrunt : Actor
 
         Vector3 horizontalLaunchInfluence = body.position - attackerLocation;
         horizontalLaunchInfluence.Normalize();
-        horizontalLaunchInfluence = horizontalLaunchInfluence * launchForce/2;
+        horizontalLaunchInfluence = horizontalLaunchInfluence * launchForce / 2;
         body.AddForce(horizontalLaunchInfluence, ForceMode.Force);
 
         Vector3 verticalLaunchInfluence = Vector3.up * launchForce;
@@ -434,33 +441,13 @@ public class EnemyGrunt : Actor
     /// Helper Functions
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //MOVING THIS TO A STATIC METHOD IN ACTOR... -HARPER
-    private bool IsCloseTo(Vector3 target, Vector3 position)
-    {
-        float diffX = System.Math.Abs(target.x - position.x);
-        float diffY = System.Math.Abs(target.y - position.y);
-        float diffZ = System.Math.Abs(target.z - position.z);
-
-        return diffX <= 0.1 && diffY <= 0.1 && diffZ <= 0.1;
-    }
-
     private void CheckAnims()
     {
-        if (enemyType == 0){
-          isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_punch");
-          isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_launch");
-          isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_grounded");
-          isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_stand");
-          isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_hurt_grounded") ||
-              baseAnim.GetCurrentAnimatorStateInfo(0).IsName("enemy_grunt_hurt_standing");
-        }
-        if (enemyType == 1){
-          isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlPunchAnim");
-          isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlLaunchAnim");
-          isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlGroundedAnim");
-          isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlGetUpAnim");
-          isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlHurtGroundedAnim") ||
-              baseAnim.GetCurrentAnimatorStateInfo(0).IsName("RaveGirlHurtAnim");
-        }
+        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM);
+        isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM);
+        isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GROUNDED_ANIM);
+        isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(STAND_ANIM);
+        isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_GROUNDED_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_STANDING_ANIM);
     }
 }
