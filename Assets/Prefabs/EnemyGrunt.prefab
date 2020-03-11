@@ -51,11 +51,13 @@ MonoBehaviour:
   body: {fileID: 725957175831764323}
   shadowSprite: {fileID: 725957176034283287}
   speed: 2
+  size: 1.5
   onGround: 0
   maxHealth: 100
   currentHealth: 0
   walkSpeed: 1.5
   runSpeed: 4
+  enemyType: 0
   currentState: 0
   playerReference: {fileID: 0}
 --- !u!65 &725957175831764322
