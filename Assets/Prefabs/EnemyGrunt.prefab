@@ -44,20 +44,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 725957175831764326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f867e5b4cd15a43b4514e6ff68a48c, type: 3}
+  m_Script: {fileID: 11500000, guid: 046b919355af9ca48a2814761b7092e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   baseAnim: {fileID: 725957176378792790}
   body: {fileID: 725957175831764323}
   shadowSprite: {fileID: 725957176034283287}
   speed: 2
+  size: 1.5
   onGround: 0
   maxHealth: 100
   currentHealth: 0
   walkSpeed: 1.5
   runSpeed: 4
+  enemyType: 0
   currentState: 0
   playerReference: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
+  walkSpeed: 1.5
+  runSpeed: 4
+  enemyType: 0
 --- !u!65 &725957175831764322
 BoxCollider:
   m_ObjectHideFlags: 0
