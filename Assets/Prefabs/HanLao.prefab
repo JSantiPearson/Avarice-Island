@@ -170,7 +170,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -303,9 +303,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb1deca7c4c8e546bd0344e7e7a22d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAnim: {fileID: 0}
-  body: {fileID: 0}
-  shadowSprite: {fileID: 0}
+  baseAnim: {fileID: 1083201462895113840}
+  body: {fileID: 1083201463559581765}
+  shadowSprite: {fileID: 1083201463625490993}
   speed: 2
   size: 1.5
   onGround: 0
