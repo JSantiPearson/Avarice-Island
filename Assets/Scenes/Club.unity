@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!95 &4417077 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1083201462895113840, guid: 1f8eab0359271164f8a0cdd297fed1c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 633847357}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &29013099
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,12 +708,6 @@ Transform:
   m_Father: {fileID: 816102852}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &138195680 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 1083201463559581765, guid: 1f8eab0359271164f8a0cdd297fed1c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 633847357}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &182612329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,18 +1427,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 567660292, guid: 1f8eab0359271164f8a0cdd297fed1c8, type: 3}
-      propertyPath: baseAnim
-      value: 
-      objectReference: {fileID: 4417077}
-    - target: {fileID: 567660292, guid: 1f8eab0359271164f8a0cdd297fed1c8, type: 3}
-      propertyPath: shadowSprite
-      value: 
-      objectReference: {fileID: 1638532203}
-    - target: {fileID: 567660292, guid: 1f8eab0359271164f8a0cdd297fed1c8, type: 3}
-      propertyPath: body
-      value: 
-      objectReference: {fileID: 138195680}
     - target: {fileID: 1083201463559581760, guid: 1f8eab0359271164f8a0cdd297fed1c8,
         type: 3}
       propertyPath: m_Name
@@ -4558,12 +4534,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604764181}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!212 &1638532203 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1083201463625490993, guid: 1f8eab0359271164f8a0cdd297fed1c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 633847357}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1651622806
 GameObject:
   m_ObjectHideFlags: 0
