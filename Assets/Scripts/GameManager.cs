@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
   private Transform currentCameraTrans;
   private float lastDistCamToPlayer;
   private float currDistCamToPlayer;
+  private const float panInterval = 0.15f;
 
   //MOVE THESE ELSEWHERE WHEN SPAWNING IS REFACTORED
   /*
@@ -47,14 +48,20 @@ public class GameManager : MonoBehaviour {
       //set y value to player's z because of tilted screen. not an exact correlation but close.
       cameraBounds.SetYPosition(actor.transform.position.z);
     } else if (cameraPanning){
-      cameraBounds.SetXPosition(currentCameraTrans.position.x - (lastDistCamToPlayer/50));
+      //cameraBounds.SetXPosition(currentCameraTrans.position.x - (lastDistCamToPlayer/50)); //this version is based on player location
+      if(lastDistCamToPlayer > 0){
+        cameraBounds.SetXPosition(currentCameraTrans.position.x - panInterval); //pan by 0.5 each frame (NEED TO REMOVE HARDCODE)
+      } else if (lastDistCamToPlayer < 0) {
+        cameraBounds.SetXPosition(currentCameraTrans.position.x + panInterval);
+      }
+
     } else {
         //only update this value when camera is locked and not panning.
         lastDistCamToPlayer = (currentCameraTrans.position.x - actor.transform.position.x);
     }
 
     //cameraFollows reset when camera lands on player
-    if(Mathf.Abs(currDistCamToPlayer) < 0.1 && cameraPanning){
+    if(Mathf.Abs(currDistCamToPlayer) < 0.2 && cameraPanning){
       cameraFollows = true;
       cameraPanning = false;
     }
