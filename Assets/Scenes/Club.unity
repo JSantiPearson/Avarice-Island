@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &4417077 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1083201462895113840, guid: 1f8eab0359271164f8a0cdd297fed1c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 633847357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &29013099
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +714,12 @@ Transform:
   m_Father: {fileID: 816102852}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &138195680 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1083201463559581765, guid: 1f8eab0359271164f8a0cdd297fed1c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 633847357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &182612329
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279346922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.33, y: 0.2, z: 5.59}
+  m_LocalPosition: {x: 15.8, y: 0.2, z: 5.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002049879}
@@ -831,8 +843,6 @@ MonoBehaviour:
   spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
   spawnLimit: 1
-  spawnInterval: 0
-  spawnDistFromPlayer: 0
 --- !u!1 &292026662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483638024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.19, y: 1.34, z: 5.02}
+  m_LocalPosition: {x: 24.9, y: 1.34, z: 5.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002049879}
@@ -1215,8 +1225,6 @@ MonoBehaviour:
   spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
   spawnLimit: 4
-  spawnInterval: 0
-  spawnDistFromPlayer: 0
 --- !u!1 &522387202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1435,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 567660292, guid: 1f8eab0359271164f8a0cdd297fed1c8, type: 3}
+      propertyPath: baseAnim
+      value: 
+      objectReference: {fileID: 4417077}
+    - target: {fileID: 567660292, guid: 1f8eab0359271164f8a0cdd297fed1c8, type: 3}
+      propertyPath: shadowSprite
+      value: 
+      objectReference: {fileID: 1638532203}
+    - target: {fileID: 567660292, guid: 1f8eab0359271164f8a0cdd297fed1c8, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 138195680}
     - target: {fileID: 1083201463559581760, guid: 1f8eab0359271164f8a0cdd297fed1c8,
         type: 3}
       propertyPath: m_Name
@@ -2252,11 +2272,13 @@ MonoBehaviour:
   input: {fileID: 715101494}
   isRunning: 0
   animator: {fileID: 759492201}
+  attackPoint: {fileID: 125040961}
+  attackDamage: 40
+  attackRange: 0.5
   attackRate: 2
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
-  attackHitboxes: []
 --- !u!114 &816102848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2272,11 +2294,11 @@ MonoBehaviour:
   health: 5
   numOfPips: 5
   pips:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 96947764}
+  - {fileID: 62511998}
+  - {fileID: 918981297}
+  - {fileID: 1215439799}
+  - {fileID: 928202003}
   fullPip: {fileID: 21300000, guid: c420655398dd1434181130702c1325a2, type: 3}
   emptyPip: {fileID: 21300000, guid: 4e798b10ad563435bb9a3d58078fe01b, type: 3}
 --- !u!54 &816102849
@@ -4533,6 +4555,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604764181}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!212 &1638532203 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1083201463625490993, guid: 1f8eab0359271164f8a0cdd297fed1c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 633847357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1651622806
 GameObject:
   m_ObjectHideFlags: 0
@@ -4678,7 +4706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   feverBar: {fileID: 1689423984}
   alert: {fileID: 1712797587}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 1918707391}
   feverProjectilePreFab: {fileID: 932761474171890994, guid: dc484f864acb38f449ba955a6e95f956,
     type: 3}
 --- !u!114 &1689423984
@@ -6066,7 +6094,7 @@ PrefabInstance:
     - target: {fileID: 4211829178027098492, guid: 2db58d65d27c37a4598f619d3cc471be,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 19.51
       objectReference: {fileID: 0}
     - target: {fileID: 4211829178027098492, guid: 2db58d65d27c37a4598f619d3cc471be,
         type: 3}
@@ -6130,7 +6158,7 @@ PrefabInstance:
     - target: {fileID: 7453650147743374217, guid: 4c6dfb8ccf231294399f0191d35d9fc4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 13.66
       objectReference: {fileID: 0}
     - target: {fileID: 7453650147743374217, guid: 4c6dfb8ccf231294399f0191d35d9fc4,
         type: 3}
