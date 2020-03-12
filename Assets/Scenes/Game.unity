@@ -617,6 +617,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minVisibleX: 5
   maxVisibleX: 96
+  minXValue: 6
+  minYValue: 0
+  maxXValue: 100
+  maxYValue: 1.1
   cameraHalfWidth: 0
   cameraRoot: {fileID: 1105488776}
   leftBounds: {fileID: 6405568}

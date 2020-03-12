@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
     leftScreenCollider = GameObject.Find("LeftCamBounds");
     rightScreenCollider = GameObject.Find("RightCamBounds");
 
-    //initialize objects
+    //initialize values and objects
     currDistCamToPlayer = 0;
     cameraBounds.SetXPosition(cameraBounds.minVisibleX);
     currentCameraTrans = cameraBounds.cameraRoot;
@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour {
     //on an unlock, we pan back to the player
     if (cameraFollows) {
       cameraBounds.SetXPosition(actor.transform.position.x);
+      //set y value to player's z because of tilted screen. not an exact correlation but close.
+      cameraBounds.SetYPosition(actor.transform.position.z);
     } else if (cameraPanning){
       cameraBounds.SetXPosition(currentCameraTrans.position.x - (lastDistCamToPlayer/50));
     } else {
