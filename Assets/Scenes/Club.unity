@@ -843,6 +843,8 @@ MonoBehaviour:
   spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
   spawnLimit: 1
+  spawnInterval: 0
+  spawnDistFromPlayer: 0
 --- !u!1 &292026662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,6 +1227,8 @@ MonoBehaviour:
   spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
   spawnLimit: 4
+  spawnInterval: 0
+  spawnDistFromPlayer: 0
 --- !u!1 &522387202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2272,13 +2276,11 @@ MonoBehaviour:
   input: {fileID: 715101494}
   isRunning: 0
   animator: {fileID: 759492201}
-  attackPoint: {fileID: 125040961}
-  attackDamage: 40
-  attackRange: 0.5
   attackRate: 2
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
+  attackHitboxes: []
 --- !u!114 &816102848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2822,7 +2824,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969904054}
-  m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0.5, y: -3.41, z: 2.84}
   m_LocalScale: {x: 1.55, y: 1.55, z: 1}
   m_Children:
@@ -4596,7 +4598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.5510254, y: -0.6589966}
+  m_AnchoredPosition: {x: 0.5510254, y: -0.65893555}
   m_SizeDelta: {x: 21.1, y: 23.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1651622808
@@ -5443,6 +5445,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minVisibleX: 5
   maxVisibleX: 96
+  minXValue: 6.5
+  minYValue: 0
+  maxXValue: 90
+  maxYValue: 1.1
   cameraHalfWidth: 0
   cameraRoot: {fileID: 715101497}
   leftBounds: {fileID: 1604764182}
@@ -5507,7 +5513,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977291319}
-  m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 8, z: -7.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

@@ -6,8 +6,8 @@ public class CameraBounds : MonoBehaviour {
 
   public float minVisibleX; //static left screen buffer, currently 5
   public float maxVisibleX; //static right screen buffer, currently 96
-  private float minValue = 10; //left camera position value for camera clamp
-  private float maxValue = 90; //right camera position value for camera clamp
+  public float minXValue, minYValue; //left camera position value for camera clamp
+  public float maxXValue, maxYValue; //right camera position value for camera clamp
   public float cameraHalfWidth; //the halfway position of camera, between min and max
   private static float HALF = 0.5f;
 
@@ -42,7 +42,15 @@ public class CameraBounds : MonoBehaviour {
   **/
   public void SetXPosition(float x) {
     Vector3 trans = cameraRoot.position;
-    trans.x = Mathf.Clamp(x, minValue, maxValue);
+    trans.x = Mathf.Clamp(x, minXValue, maxXValue);
     cameraRoot.position = trans;
   }
+
+  public void SetYPosition(float y) {
+    Vector3 trans = cameraRoot.position;
+    trans.y = Mathf.Clamp(y, minYValue, maxYValue);
+    cameraRoot.position = trans;
+  }
+
+
 }
