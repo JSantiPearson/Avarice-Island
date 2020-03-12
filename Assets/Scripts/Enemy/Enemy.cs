@@ -115,7 +115,7 @@ public class Enemy : Actor
         else if (!(isLaunching || isHurting || isAttacking || isWaiting || isGrounded || isStanding))
         {
             //might have to rework this to flee to a determined point rather than a standing distance
-            if (currentDistance <= 3 && (currentHealth <= fleeHealth || currentState == EnemyState.fleeing))
+            if (currentDistance <= 3 && (currentHealth <= fleeHealth || currentState == EnemyState.fleeing) && !isHurting)
             {
                 if (currentState != EnemyState.fleeing)
                 {
