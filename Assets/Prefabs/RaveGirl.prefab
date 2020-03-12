@@ -207,7 +207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7453650147743374220}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 7, y: 2.5, z: 1.36}
+  m_LocalPosition: {x: 7, y: 2.35, z: 1.36}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 7453650146322609819}
@@ -266,9 +266,7 @@ MonoBehaviour:
   currentHealth: 0
   walkSpeed: 1.5
   runSpeed: 4
+  startingPosition: {x: 12, y: 2.475173, z: 1}
+  targetPosition: {x: 12, y: 2.5, z: 1}
   currentState: 0
   playerReference: {fileID: 0}
-  maxHealth: 100
-  currentHealth: 0
-  walkSpeed: 1.5
-  runSpeed: 4

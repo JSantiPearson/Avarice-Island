@@ -55,6 +55,7 @@ public class WalkBehavior : StateMachineBehaviour
         //Vector3 moveVector = Vector3.MoveTowards(animator.transform.position, target, speed*Time.deltaTime);
         Vector3 moveVector = playerPos.position - body.position;
         moveVector.Normalize();
+        hanLaoActor.FlipSprite(moveVector.x < 0);
         //Debug.Log("MOVEVECTOR: "+ moveVector.x + "  " +   moveVector.y + "  " + moveVector.z + "  ");
         //Debug.Log("MOVEVECTOR: "+ moveVector);
         if(Actor.IsCloseTo(body.position,playerPos.position, groundAttackDist)){
