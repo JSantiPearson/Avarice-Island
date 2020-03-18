@@ -57,7 +57,7 @@ public class LockPoint : MonoBehaviour
         	locked = false;
         	goArrowAnim.SetTrigger("ScreenUnlocked");
         	//dont want lockpoint to slow things down after it's done its job
-        	Destroy(gameObject);
+        	StartCoroutine(Expire());
         } else if (!locked && distanceFromPlayer < 0.1) {
 
         	//LOCK
@@ -74,6 +74,12 @@ public class LockPoint : MonoBehaviour
     	//pauseGame.PauseForDialogue();
     	dialogue.PlayDialogue();
     	//pauseGame.UnpauseForDialogue();
+    }
+
+    
+    IEnumerator Expire(){
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
     /**
