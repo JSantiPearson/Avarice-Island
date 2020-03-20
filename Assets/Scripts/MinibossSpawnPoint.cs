@@ -12,8 +12,20 @@ public class MinibossSpawnPoint : MonoBehaviour
     public Vector3 spawnLocation, playerLocation;
     private bool spawnTriggered;
     private bool okToSpawn;
+
     private GameObject player;
+  	private GameObject miniBoss;
+
+  	//camera vars. could reorganize this
     private GameManager gameManager;
+    private CameraBounds cameraBounds;
+    private Transform currentCameraTrans;
+    private bool panToMiniboss;
+    private bool reachedLimit;
+    private float distPanned;
+    public float distToPan; //defines how far the camera should pan
+    public float panInterval = 0.08f;
+
 
 
 
@@ -21,11 +33,17 @@ public class MinibossSpawnPoint : MonoBehaviour
     void Start()
     {
         spawnTriggered=false;
+        panToMiniboss=false;
+        reachedLimit=false;
+        distPanned=0f;
         player = GameObject.Find("Player");
         gameManager = GameObject.Find("MyGameManager").GetComponent<GameManager>();
         spawnLocation = gameObject.transform.position;
         Debug.Log("Spawn location: " + gameObject.transform.position);
-        playerLocation = player.transform.position; 
+        playerLocation = player.transform.position;
+        //cameras
+        cameraBounds = gameManager.cameraBounds; 
+        currentCameraTrans = cameraBounds.cameraRoot;
     }
 
     // Update is called once per frame
@@ -38,20 +56,46 @@ public class MinibossSpawnPoint : MonoBehaviour
         	okToSpawn = true;
         }
 
-        //start spawning enemies incrementally
-        //timeElapsed+=Time.deltaTime;
+        //NEED TO REFACTOR PANNING SOMEWHERE ELSE maybe just game manager
         if(spawnTriggered && okToSpawn){
         	Debug.Log("about to spawn han");
         	okToSpawn = false;
-        	PanToMiniboss();
+
+        	//cinematic pan vars
+        	panToMiniboss = true;
+        	gameManager.LockCamera();
+        	//must freeze player. all grunts should be dead though.
+        	player.GetComponent<Hero>().enabled=false;
+
+
+
          //if(okToSpawn()){
-        	Instantiate(spawnPrefab,spawnLocation,Quaternion.identity);
+        	miniBoss = Instantiate(spawnPrefab,spawnLocation,Quaternion.identity);
         }
+
+        //do a cinematic pan to han lao as he spawns
+        if(panToMiniboss && distPanned<=distToPan){
+        	Debug.Log("trying to pan");
+        	cameraBounds.SetXPosition(currentCameraTrans.position.x + panInterval);
+        	distPanned+=panInterval;
+        	//condition: camera has panned full distance
+        	//if(System.Math.Abs(currentCameraTrans.position.x - miniBoss.transform.position.x) < 0.2){
+        } else {
+        	panToMiniboss = false;
+        	gameManager.UnlockCamera();
+        	player.GetComponent<Hero>().enabled=true;
+            //this may not work as expected
+        }
+
     }
 
+    /*
     public void PanToMiniboss(){
+    	//take control of the camera, pan, and return
+    	gameManager.LockCamera();
+
     	return;
-    }
+    }*/
 
 
 }

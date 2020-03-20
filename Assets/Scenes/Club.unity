@@ -1775,7 +1775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePaused: 0
-  pausedForDialogue: 0
+  pausedWithoutMenu: 0
   pauseMenu: {fileID: 0}
   optionsMenu: {fileID: 0}
   player: {fileID: 816102845}
@@ -5292,10 +5292,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 1083201463559581760, guid: 1f8eab0359271164f8a0cdd297fed1c8,
     type: 3}
-  spawnDistFromPlayer: 2
+  spawnDistFromPlayer: 10
   entranceDialogue: {fileID: 0}
   spawnLocation: {x: 0, y: 0, z: 0}
   playerLocation: {x: 0, y: 0, z: 0}
+  distToPan: 8
+  panInterval: 0.08
 --- !u!4 &1901841958
 Transform:
   m_ObjectHideFlags: 0

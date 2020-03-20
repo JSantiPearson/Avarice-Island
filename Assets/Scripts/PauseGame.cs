@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseGame : MonoBehaviour
 {
 	public bool gamePaused=false;
-	public bool pausedForDialogue=false;
+	public bool pausedWithoutMenu=false;
 	public GameObject pauseMenu;
 	public GameObject optionsMenu;
     public GameObject player;
@@ -48,15 +48,15 @@ public class PauseGame : MonoBehaviour
 
     //separate pause method for dialogue handling
 
-    public void PauseForDialogue(){
+    public void PauseWithoutMenu(){
 		Time.timeScale=0f;
-        pausedForDialogue=true;
+        pausedWithoutMenu=true;
         player.GetComponent<Hero>().enabled=false;
     }
 
-    public void UnpauseForDialogue(){
+    public void UnpauseWithoutMenu(){
     	Time.timeScale=1f;
-        pausedForDialogue=false;
+        pausedWithoutMenu=false;
         player.GetComponent<Hero>().enabled=true;
     }
 
