@@ -57,24 +57,28 @@ public class LockPoint : MonoBehaviour
         	locked = false;
         	goArrowAnim.SetTrigger("ScreenUnlocked");
         	//dont want lockpoint to slow things down after it's done its job
-        	StartCoroutine(Expire());
+            Destroy(gameObject);
+        	//StartCoroutine(Expire());
         } else if (!locked && distanceFromPlayer < 0.1) {
 
         	//LOCK
             gameManager.SetScreenColliders(true);
         	if(dialogue!=null){
-        		TriggerDialogue();
+        		//TriggerDialogue();
+                dialogue.PlayDialogue();
+
         	}
         	gameManager.LockCamera();
         	locked = true;
         }
     }
 
+    /*
     void TriggerDialogue(){
     	//pauseGame.PauseForDialogue();
     	dialogue.PlayDialogue();
     	//pauseGame.UnpauseForDialogue();
-    }
+    }*/
 
     
     IEnumerator Expire(){

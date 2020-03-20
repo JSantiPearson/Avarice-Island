@@ -417,6 +417,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259992118}
   m_Mesh: {fileID: 4300000, guid: 72da68e9c60b14b8ba277f448fffbcdf, type: 2}
+--- !u!114 &291380850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3755170081014334085, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863270442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &418112596 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3755170079247315960, guid: 3b8ad81643a188949b34078cf28632c9,
@@ -823,6 +835,12 @@ Transform:
   m_Father: {fileID: 1684210471}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &691530491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3755170079736126281, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863270442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &858383933
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +1006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePaused: 0
-  pausedForDialogue: 0
+  pausedWithoutMenu: 0
   pauseMenu: {fileID: 0}
   optionsMenu: {fileID: 0}
   player: {fileID: 1684210470}
@@ -1919,6 +1937,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockPoints
       objectReference: {fileID: 0}
+    - target: {fileID: 933420384211956769, guid: b91f8d624053920488bf81cea0126043,
+        type: 3}
+      propertyPath: dialogueBar
+      value: 
+      objectReference: {fileID: 691530491}
+    - target: {fileID: 933420384211956769, guid: b91f8d624053920488bf81cea0126043,
+        type: 3}
+      propertyPath: textDisplay
+      value: 
+      objectReference: {fileID: 291380850}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91f8d624053920488bf81cea0126043, type: 3}
 --- !u!1001 &2767108201411825796

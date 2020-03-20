@@ -14,7 +14,7 @@ public class Dialogue : MonoBehaviour
 	public GameObject dialogueBar;
     private const float cursorInterval=0.5f;
     private float timeElapsed;
-	private bool pausedForDialogue;
+	public bool pausedForDialogue;
     private bool cursorOn;
     private char[] cursorChars = {'(','z',')'};
 
@@ -24,8 +24,8 @@ public class Dialogue : MonoBehaviour
 		pausedForDialogue = false;
         timeElapsed=0; 
 		pauseGame =  GameObject.Find("MyGameManager").GetComponent(typeof(PauseGame)) as PauseGame;
-		dialogueBar = GameObject.Find("DialogueBar");
-        textDisplay = GameObject.Find("DialogueText").GetComponent(typeof(TextMeshProUGUI)) as TextMeshProUGUI;
+		//dialogueBar = GameObject.Find("DialogueBar");
+        //textDisplay = GameObject.Find("DialogueText").GetComponent(typeof(TextMeshProUGUI)) as TextMeshProUGUI;
 
 	}
 
