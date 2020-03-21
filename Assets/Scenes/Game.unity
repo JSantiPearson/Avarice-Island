@@ -1671,6 +1671,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1105488778}
+    - target: {fileID: 3755170079793248274, guid: 3b8ad81643a188949b34078cf28632c9,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1602100751}
     - target: {fileID: 3755170079924625826, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_Name
