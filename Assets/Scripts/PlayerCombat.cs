@@ -11,7 +11,7 @@ public class PlayerCombat : MonoBehaviour
     public bool isRunning;
     // public
     public Animator animator;
-    public float attackRate = 1f;
+    public float attackRate = .01f;
     float nextAttackTime = 0f;
     public LayerMask enemyLayers;
     public Collider[] attackHitboxes;
@@ -37,11 +37,12 @@ public class PlayerCombat : MonoBehaviour
                 if (hero.speed > 3)
                 {
                     dashAttack(attackHitboxes[2]);
+                    bufferAttackCount = 0;
                 }
                 else
                 {
                     Attack(attackHitboxes[0]); //0 is first standing attack
-                    nextAttackTime = Time.time + 1.3f; //lockout attack by a second
+                    nextAttackTime = Time.time + attackRate; //lockout attack by a second
                     bufferAttackCount = 0;
                 }
             }
@@ -64,6 +65,7 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("We Dash Attacked " + enemy.name);
 
         }
+        bufferAttackCount = 0;
     }
 
     void Attack(Collider col)
