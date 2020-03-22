@@ -71,7 +71,7 @@ public class MinibossSpawnPoint : MonoBehaviour
         	//must freeze player. all grunts should be dead though.
         	player.GetComponent<Hero>().enabled=false;
          //if(okToSpawn()){
-        	miniBoss = Instantiate(spawnPrefab,spawnLocation,Quaternion.identity);
+        	//miniBoss = Instantiate(spawnPrefab,spawnLocation,Quaternion.identity);
         }
 
         //do a cinematic pan to han lao as he spawns
