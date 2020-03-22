@@ -14,7 +14,7 @@ public class Dialogue : MonoBehaviour
 	public GameObject dialogueBar;
     private const float cursorInterval=0.5f;
     private float timeElapsed;
-	private bool pausedForDialogue;
+	public bool pausedForDialogue;
     private bool cursorOn;
     private char[] cursorChars = {'(','z',')'};
 
@@ -24,8 +24,8 @@ public class Dialogue : MonoBehaviour
 		pausedForDialogue = false;
         timeElapsed=0; 
 		pauseGame =  GameObject.Find("MyGameManager").GetComponent(typeof(PauseGame)) as PauseGame;
-		dialogueBar = GameObject.Find("DialogueBar");
-        textDisplay = GameObject.Find("DialogueText").GetComponent(typeof(TextMeshProUGUI)) as TextMeshProUGUI;
+		//dialogueBar = GameObject.Find("DialogueBar");
+        //textDisplay = GameObject.Find("DialogueText").GetComponent(typeof(TextMeshProUGUI)) as TextMeshProUGUI;
 
 	}
 
@@ -35,7 +35,7 @@ public class Dialogue : MonoBehaviour
 		if(pausedForDialogue){
             flashCursor();
 			if(Input.GetKeyDown(KeyCode.Z)){
-                pauseGame.UnpauseForDialogue();
+                pauseGame.UnpauseWithoutMenu();
 			    pausedForDialogue = false;
 			    dialogueBar.SetActive(false);
             }    
@@ -48,7 +48,7 @@ public class Dialogue : MonoBehaviour
     {
     	//TEMPORARY SOLUTION FOR DIALOGUE HANDLING. Only works for 1 line
     	dialogueBar.SetActive(true);
-    	pauseGame.PauseForDialogue();
+    	pauseGame.PauseWithoutMenu();
     	textDisplay.text = sentences[index];
     	pausedForDialogue = true;
     	//CONTINUE HAPPENS IN UPDATE METHOD
@@ -78,7 +78,7 @@ public class Dialogue : MonoBehaviour
     IEnumerator Type()
     {
     	dialogueBar.SetActive(true);
-    	pauseGame.PauseForDialogue();
+    	pauseGame.PauseWithoutMenu();
     	/*
     	foreach(char letter in sentences[index].ToCharArray()){
     		textDisplay.text += letter;
@@ -88,7 +88,7 @@ public class Dialogue : MonoBehaviour
     	textDisplay.text = sentences[index];
     	yield return new WaitForSeconds(speed);
     	//Debug.Log("yielded...");
-    	pauseGame.UnpauseForDialogue();
+    	pauseGame.UnpauseWithoutMenu();
     	dialogueBar.SetActive(false);    
     }
 }
