@@ -25,7 +25,7 @@ public class JumpBehavior : StateMachineBehaviour
     {
         //get objects and rigidbodies 
         player = GameObject.Find("Player");
-        hanLaoObject = GameObject.Find("HanLao");
+        hanLaoObject = animator.transform.parent.gameObject;
         body = hanLaoObject.GetComponent<Rigidbody>(); 
         hanLaoActor = hanLaoObject.GetComponent<HanLao>();
 

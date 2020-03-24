@@ -1415,6 +1415,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minVisibleX: 5
   maxVisibleX: 96
+  minXValue: 5.73
+  minYValue: 0
+  maxXValue: 96
+  maxYValue: 12
   cameraHalfWidth: 0
   cameraRoot: {fileID: 2135241699}
   leftBounds: {fileID: 1456595859}
@@ -4786,13 +4790,11 @@ MonoBehaviour:
   input: {fileID: 2135241696}
   isRunning: 0
   animator: {fileID: 1883006920}
-  attackPoint: {fileID: 1834790290}
-  attackDamage: 40
-  attackRange: 0.5
   attackRate: 2
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
+  attackHitboxes: []
 --- !u!114 &1854260605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4860,6 +4862,7 @@ MonoBehaviour:
   body: {fileID: 1854260606}
   shadowSprite: {fileID: 207261330}
   speed: 2
+  size: 1.5
   onGround: 0
   engaged: []
   numEngagements: 2
@@ -5327,7 +5330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePaused: 0
-  pausedForDialogue: 0
+  pausedWithoutMenu: 0
   pauseMenu: {fileID: 0}
   optionsMenu: {fileID: 0}
   player: {fileID: 1854260602}

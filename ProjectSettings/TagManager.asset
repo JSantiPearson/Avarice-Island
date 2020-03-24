@@ -17,8 +17,8 @@ TagManager:
   - UI
   - 
   - 
-  - Enemy
   - Camera Bound
+  - Enemy
   - Player
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3631563405
+    locked: 0
+  - name: Door
+    uniqueID: 1419327349
     locked: 0

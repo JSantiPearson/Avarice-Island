@@ -28,7 +28,8 @@ public class WalkBehavior : StateMachineBehaviour
 
         //playerPos = GameObject.Find("Player").GetComponent<Transform>();
         player = GameObject.Find("Player");
-        hanLaoObject = GameObject.Find("HanLao");
+        //hanLaoObject = GameObject.Find("HanLao");
+        hanLaoObject = animator.transform.parent.gameObject; //should find parent object in heirarchy
         body = hanLaoObject.GetComponent<Rigidbody>();
         hanLaoActor = hanLaoObject.GetComponent<HanLao>();
 

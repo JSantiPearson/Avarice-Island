@@ -9,7 +9,7 @@ public class DefeatedBehavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        hanLaoObject = GameObject.Find("HanLao");
+        hanLaoObject = animator.transform.parent.gameObject;
         dialogue = hanLaoObject.GetComponent(typeof(Dialogue)) as Dialogue;
         dialogue.PlayDialogue();
         animator.ResetTrigger("defeated");

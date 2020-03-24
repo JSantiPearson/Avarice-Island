@@ -13,7 +13,7 @@ public class SpawnPoint : MonoBehaviour
   private float timeElapsed;
   private int numSpawned;
   public Vector3 spawnLocation, playerLocation;
-  private bool spawnTriggered;
+  public bool spawnTriggered;
   private GameObject player;
     // Start is called before the first frame update
     void Start()
