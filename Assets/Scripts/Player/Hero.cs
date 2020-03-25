@@ -9,6 +9,9 @@ public class Hero : Actor
     private readonly object balanceLock = new object();
     public int numEngagements;
 
+    public const float maxHealth = 150;
+    public float currentHealth;
+
     public float walkSpeed = 2;
     public float runSpeed = 5;
 
@@ -40,6 +43,7 @@ public class Hero : Actor
     public void Start()
     {
         engaged = new List<Actor>(numEngagements);
+        currentHealth = maxHealth;
     }
 
     public override void Update()
@@ -183,6 +187,21 @@ public class Hero : Actor
     public bool getRunning()
     {
         return isRunning;
+    }
+
+    //Not sure how Hunter wanted to do these but here is a quick and dirty version -Ethan
+    public void hurt(float damage)
+    {
+        takeDamage(damage);
+        baseAnim.SetTrigger("Hurt");
+    }
+
+    public void takeDamage(float damage)
+    {
+        currentHealth = (currentHealth - damage);
+        Debug.Log(currentHealth - damage);
+        Debug.Log(currentHealth);
+        gameObject.GetComponent<Health>().health = (int) (currentHealth / (maxHealth / 5)); //Update the Health script and pips in the UI
     }
 
     //public override void Attack()

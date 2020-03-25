@@ -34,6 +34,10 @@ public class GroundAttackBehavior : StateMachineBehaviour
         if(!Actor.IsCloseTo(body.position,player.transform.position,groundAttackDist)){
             animator.SetTrigger("walk");
         }
+        else
+        {
+            animator.SetTrigger("idle");
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
