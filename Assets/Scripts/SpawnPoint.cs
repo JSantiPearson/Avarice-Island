@@ -12,8 +12,8 @@ public class SpawnPoint : MonoBehaviour
   
   private float timeElapsed;
   private int numSpawned;
-  private Vector3 spawnLocation, playerLocation;
-  private bool spawnTriggered;
+  public Vector3 spawnLocation, playerLocation;
+  public bool spawnTriggered;
   private GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,6 @@ public class SpawnPoint : MonoBehaviour
         timeElapsed+=Time.deltaTime;
         if(spawnTriggered && okToSpawn()){
          //if(okToSpawn()){
-        	Debug.Log("About to spawn for" + gameObject.name);
         	Instantiate(spawnPrefab,spawnLocation,Quaternion.identity);
         }
 

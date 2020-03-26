@@ -142,4 +142,4 @@ MonoBehaviour:
   speed: 0
   pauseGame: {fileID: 0}
   dialogueBar: {fileID: 0}
-  cursorInterval: 1
+  pausedForDialogue: 0
