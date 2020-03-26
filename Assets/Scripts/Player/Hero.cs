@@ -199,8 +199,6 @@ public class Hero : Actor
     public void takeDamage(float damage)
     {
         currentHealth = (currentHealth - damage);
-        Debug.Log(currentHealth - damage);
-        Debug.Log(currentHealth);
         gameObject.GetComponent<Health>().health = (int) (currentHealth / (maxHealth / 5)); //Update the Health script and pips in the UI
     }
 

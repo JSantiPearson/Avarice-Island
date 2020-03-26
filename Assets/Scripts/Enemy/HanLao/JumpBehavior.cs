@@ -42,7 +42,7 @@ public class JumpBehavior : StateMachineBehaviour
         Vector3 randDirVector = new Vector3(randX,0,randZ);
         randDirVector.Normalize();
         Vector3 horizontalVector = randDirVector*jumpForce;
-        Vector3 verticalVector = Vector3.up * jumpForce;
+        Vector3 verticalVector = Vector3.up * jumpForce*2;
         body.AddForce(horizontalVector);
         body.AddForce(verticalVector);
         //animator.ResetTrigger("jump");
@@ -55,12 +55,10 @@ public class JumpBehavior : StateMachineBehaviour
    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
-        //if(timer<=0){
-            //animator.SetTrigger("idle");
-        //} else {
-       //      timer -= Time.deltaTime;
-       // }
+        if(body.velocity.y <= 0)
+        {
+            animator.SetTrigger("fall");
+        }
     }
 
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state

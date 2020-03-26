@@ -14,6 +14,7 @@ public class Hitbox : MonoBehaviour
     {
         //Use this to ensure that the Gizmos are being drawn when in Play Mode.
         m_Started = true;
+        SetActive(false);
     }
 
     void FixedUpdate()
@@ -34,7 +35,6 @@ public class Hitbox : MonoBehaviour
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
-                Debug.Log("Hit : " + enemy.name + i);
                 enemy.GetComponent<Hero>().hurt(damage);
                 beenHit.Add(enemy);
             }

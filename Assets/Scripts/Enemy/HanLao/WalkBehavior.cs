@@ -19,7 +19,7 @@ public class WalkBehavior : StateMachineBehaviour
     private Vector3 direction;
 
     private bool isFacingLeft;
-    const float groundAttackDist = 0.8f;
+    const float groundAttackDist = 1.4f;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
