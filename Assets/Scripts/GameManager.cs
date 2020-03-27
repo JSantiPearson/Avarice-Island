@@ -1,19 +1,25 @@
 using UnityEngine;
 using System.Collections;
 public class GameManager : MonoBehaviour {
+
+  //TODO: Refactor Camera Stuff? or just rename this file and refactor noncamera stuff. 
+
+
   //1
   public Hero actor;
   public bool cameraFollows = true;
   public bool cameraPanning = false;
   public CameraBounds cameraBounds;
   public GameObject enemyPrefab;
-  public GameObject dialogueBar;
-  public GameObject leftScreenCollider;
-  public GameObject rightScreenCollider;
   private Transform currentCameraTrans;
   private float lastDistCamToPlayer;
   private float currDistCamToPlayer;
   private const float panInterval = 0.15f;
+
+  //noncamera vars
+  public GameObject dialogueBar;
+  public GameObject leftScreenCollider;
+  public GameObject rightScreenCollider;
 
   //MOVE THESE ELSEWHERE WHEN SPAWNING IS REFACTORED
   /*
