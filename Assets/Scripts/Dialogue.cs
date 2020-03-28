@@ -17,9 +17,12 @@ public class Dialogue : MonoBehaviour
 	public bool pausedForDialogue;
     private bool cursorOn;
     private char[] cursorChars = {'(','z',')'};
+    private bool indexUpdated;
 
 	void Start(){
 		//find the pauseGame component
+        index = 0;
+        indexUpdated = true; //true so first sentence will load
         cursorOn = false; //used for flashing cursor in dialogue bar.
 		pausedForDialogue = false;
         timeElapsed=0; 
@@ -33,26 +36,41 @@ public class Dialogue : MonoBehaviour
 		//keep track of whether or not we are paused for dialogue, allow player to continue
         timeElapsed+=Time.fixedDeltaTime;
 		if(pausedForDialogue){
+            //displays a fresh sentence only once
+            if(indexUpdated){
+                PlaySentence(index);
+                indexUpdated=false;
+            }
+
             flashCursor();
 			if(Input.GetKeyDown(KeyCode.Z)){
-                pauseGame.UnpauseWithoutMenu();
-			    pausedForDialogue = false;
-			    dialogueBar.SetActive(false);
+                //pauseGame.UnpauseWithoutMenu();
+                //PlaySentence(index);
+                index++;
+                indexUpdated=true;
+			    //pausedForDialogue = false;
+			    //dialogueBar.SetActive(false);
             }    
-
-		}
-
+		    if(index>=sentences.Length){
+                pausedForDialogue = false;
+                dialogueBar.SetActive(false);
+                pauseGame.UnpauseWithoutMenu();
+            }
+        }
 	}
 
     public void PlayDialogue()
     {
-    	//TEMPORARY SOLUTION FOR DIALOGUE HANDLING. Only works for 1 line
     	dialogueBar.SetActive(true);
     	pauseGame.PauseWithoutMenu();
-    	textDisplay.text = sentences[index];
     	pausedForDialogue = true;
+        //PlaySentence(0); //start first sentence
     	//CONTINUE HAPPENS IN UPDATE METHOD
 
+    }
+
+    public void PlaySentence(int index){
+        textDisplay.text = sentences[index];
     }
 
     public void flashCursor(){
@@ -68,7 +86,7 @@ public class Dialogue : MonoBehaviour
                 textDisplay.text = (textDisplay.text).TrimEnd(cursorChars);
                 cursorOn = true;
             }
-            //reset time
+            //reset
             timeElapsed = 0;
         }
         Debug.Log("timeElapsed wasn't sufficient");
