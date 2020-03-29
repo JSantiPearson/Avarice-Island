@@ -264,6 +264,10 @@ PrefabInstance:
       propertyPath: sentences.Array.data[0]
       value: '...AH!'
       objectReference: {fileID: 0}
+    - target: {fileID: 1901841959, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
+      propertyPath: dialogueAnim
+      value: 
+      objectReference: {fileID: 1951887707}
     - target: {fileID: 2080717135, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1410,6 +1414,12 @@ Transform:
 --- !u!1 &1951887703 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3755170079736126281, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1070420053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1951887707 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1951887707, guid: 3b8ad81643a188949b34078cf28632c9,
     type: 3}
   m_PrefabInstance: {fileID: 1070420053}
   m_PrefabAsset: {fileID: 0}

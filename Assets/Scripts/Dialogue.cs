@@ -11,7 +11,8 @@ public class Dialogue : MonoBehaviour
 	public int index; //which sentence to type
 	public float speed;
 	public PauseGame pauseGame;
-	public GameObject dialogueBar;
+	//public GameObject dialogueBar;
+    public Animator dialogueAnim;
     private const float cursorInterval=0.5f;
     private float timeElapsed;
 	public bool pausedForDialogue;
@@ -53,7 +54,8 @@ public class Dialogue : MonoBehaviour
             }    
 		    if(index>=sentences.Length){
                 pausedForDialogue = false;
-                dialogueBar.SetActive(false);
+                //dialogueBar.SetActive(false);
+                dialogueAnim.SetTrigger("hide");
                 pauseGame.UnpauseWithoutMenu();
             }
         }
@@ -61,8 +63,10 @@ public class Dialogue : MonoBehaviour
 
     public void PlayDialogue()
     {
-    	dialogueBar.SetActive(true);
-    	pauseGame.PauseWithoutMenu();
+    	//dialogueBar.SetActive(true);
+        dialogueAnim.SetTrigger("popup");
+    	//pauseGame.PauseWithoutMenu();
+        StartCoroutine(WaitAndPause(0.5f));
     	pausedForDialogue = true;
         //PlaySentence(0); //start first sentence
     	//CONTINUE HAPPENS IN UPDATE METHOD
@@ -95,7 +99,8 @@ public class Dialogue : MonoBehaviour
     //UNUSED at the moment
     IEnumerator Type()
     {
-    	dialogueBar.SetActive(true);
+    	//dialogueBar.SetActive(true);
+        dialogueAnim.SetTrigger("popup");
     	pauseGame.PauseWithoutMenu();
     	/*
     	foreach(char letter in sentences[index].ToCharArray()){
@@ -107,6 +112,12 @@ public class Dialogue : MonoBehaviour
     	yield return new WaitForSeconds(speed);
     	//Debug.Log("yielded...");
     	pauseGame.UnpauseWithoutMenu();
-    	dialogueBar.SetActive(false);    
+    	//dialogueBar.SetActive(false); 
+        dialogueAnim.SetTrigger("hide");   
+    }
+
+    IEnumerator WaitAndPause(float time){
+        yield return new WaitForSeconds(time);
+        pauseGame.PauseWithoutMenu();
     }
 }
