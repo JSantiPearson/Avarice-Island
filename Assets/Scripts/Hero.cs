@@ -200,7 +200,7 @@ public class Hero : Actor
         lock (balanceLock)
         {
             if (engaged.Count < numEngagements)
-            { 
+            {
                 engaged.Add(enemy);
                 return true;
             }
