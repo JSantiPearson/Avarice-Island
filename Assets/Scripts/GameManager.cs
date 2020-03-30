@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
   void Start() {
 
     //find game objects we need to reference
-    dialogueBar = GameObject.Find("DialogueBar");
+    //dialogueBar = GameObject.Find("DialogueBar");
     leftScreenCollider = GameObject.Find("LeftCamBounds");
     rightScreenCollider = GameObject.Find("RightCamBounds");
 
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour {
     currDistCamToPlayer = 0;
     cameraBounds.SetXPosition(cameraBounds.minVisibleX);
     currentCameraTrans = cameraBounds.cameraRoot;
-    dialogueBar.SetActive(false);
+    //dialogueBar.SetActive(false); //TESTING ANIMATOR VERSION
     SetScreenColliders(false);    
   }
 //3
