@@ -15,9 +15,9 @@ public class PlayerCombat : MonoBehaviour
     float nextAttackTime = 0f;
     public LayerMask enemyLayers;
     public Collider[] attackHitboxes;
-        //[0] is standing attack 1 and 3
-        //[1] is standing attack 2
-        //[2] is dash attack
+    //[0] is standing attack 1 and 3
+    //[1] is standing attack 2
+    //[2] is dash attack
     int bufferAttackCount = 0;
 
 
@@ -64,6 +64,8 @@ public class PlayerCombat : MonoBehaviour
             enemy.GetComponent<EnemyGrunt>().Hurt(30);
             Debug.Log("We Dash Attacked " + enemy.name);
 
+            enemy.GetComponent<HanLao>().Hurt(15);
+
         }
         bufferAttackCount = 0;
     }
@@ -83,7 +85,7 @@ public class PlayerCombat : MonoBehaviour
             if (bufferAttackCount > 1)
             {
                 animator.SetTrigger("Attack2");
-               // Attack2(attackHitboxes[1]);
+                // Attack2(attackHitboxes[1]);
             }
         }
 
@@ -112,7 +114,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 //  Debug.Log("Buffer Into Attack 3 " + bufferAttackCount);
                 animator.SetTrigger("Attack3");
-               // Attack3(attackHitboxes[0]); //standing attack 1 and 3
+                // Attack3(attackHitboxes[0]); //standing attack 1 and 3
             }
         }
         if (bufferAttackCount > 2)

@@ -22,7 +22,7 @@ public class ExitDoor : MonoBehaviour
     {
     	playerPos =  playerTrans.position;
     	doorPos = gameObject.transform.position;
-    	Debug.Log("Door x: " + doorPos.x + "\n Player x: " + playerPos.x );
+    	//Debug.Log("Door x: " + doorPos.x + "\n Player x: " + playerPos.x );
         if(System.Math.Abs(playerPos.x-doorPos.x)<0.8){
         	doorAnim.SetTrigger("Nearby");
         }

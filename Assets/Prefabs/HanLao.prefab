@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 1083201462895113845}
   - component: {fileID: 1083201462895113840}
   - component: {fileID: 1083201462895113846}
+  - component: {fileID: 4721808638754297157}
   m_Layer: 8
   m_Name: HanLao_Animator
   m_TagString: Untagged
@@ -106,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083201462895113841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.049, z: 0}
   m_LocalScale: {x: 1.446359, y: 1.446359, z: 1.446359}
   m_Children:
   - {fileID: 1083201462111410186}
@@ -176,12 +177,29 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.34, y: 1.64}
+  m_Size: {x: 1.2, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4721808638754297157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083201462895113841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa147814b2ea7ab4cb6617003383a260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knifeProjectile: {fileID: 8461332646004378646, guid: 120330bcbef9d714dbd91888c0dedf8a,
+    type: 3}
+  knifeThrowLift: 200
+  spitProjectile: {fileID: 7259980322015582007, guid: 4654bb89572bb204482b5baf5bd57b52,
+    type: 3}
 --- !u!1 &1083201463325225859
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +277,8 @@ Transform:
   m_Children:
   - {fileID: 1083201462895113845}
   - {fileID: 1083201463625490992}
+  - {fileID: 3278928743531515710}
+  - {fileID: 7041580704781870960}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
@@ -312,6 +332,9 @@ MonoBehaviour:
   walkSpeed: 0
   runSpeed: 0
   direction: 0
+  maxHealth: 150
+  currentHealth: 0
+  phase: 0
 --- !u!114 &1449405596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +354,7 @@ MonoBehaviour:
   speed: 0
   pauseGame: {fileID: 0}
   dialogueBar: {fileID: 0}
+  pausedForDialogue: 0
 --- !u!1 &1083201463625490994
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,3 +435,117 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4037364221976081616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7041580704781870960}
+  - component: {fileID: 5876381672560558314}
+  - component: {fileID: 1564133699529646908}
+  m_Layer: 8
+  m_Name: HanLao_GroundAttackSecondSwipe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7041580704781870960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037364221976081616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.646, y: 0.019, z: 0.002}
+  m_LocalScale: {x: 0.49591818, y: 0.86316985, z: 0.24853873}
+  m_Children: []
+  m_Father: {fileID: 1083201463559581786}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5876381672560558314
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037364221976081616}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1564133699529646908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037364221976081616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  thisBox: {fileID: 4037364221976081616}
+  damage: 30
+--- !u!1 &7509260949756080349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3278928743531515710}
+  - component: {fileID: 65173908900641034}
+  - component: {fileID: 5209328631497339661}
+  m_Layer: 8
+  m_Name: HanLao_GroundAttackFirstSwipe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3278928743531515710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7509260949756080349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.771, y: 0.019, z: 0.002}
+  m_LocalScale: {x: 0.7327613, y: 0.86316985, z: 0.24853873}
+  m_Children: []
+  m_Father: {fileID: 1083201463559581786}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &65173908900641034
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7509260949756080349}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5209328631497339661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7509260949756080349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  thisBox: {fileID: 7509260949756080349}
+  damage: 30
