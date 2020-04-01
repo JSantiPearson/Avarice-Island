@@ -14,8 +14,8 @@ public class Actor : MonoBehaviour
 
   public bool onGround; //is the actor on the ground? true or false
 
-  //game difficulty
-  public enum DifficultyLevel
+    //game difficulty
+    public enum DifficultyLevel
   {
     easy,
     medium,

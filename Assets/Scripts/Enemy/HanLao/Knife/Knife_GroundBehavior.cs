@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HanLao : Actor
+public class Knife_GroundBehavior : MonoBehaviour
 {
-	public float walkSpeed;
-	public float runSpeed;
-	public float direction;
-
     // Start is called before the first frame update
     void Start()
     {
