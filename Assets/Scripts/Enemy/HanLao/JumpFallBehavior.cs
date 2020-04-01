@@ -2,44 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundAttackBehavior : StateMachineBehaviour
+public class JumpFallBehavior : StateMachineBehaviour
 {
 
+    
     public GameObject hanLaoObject; //might need to clean this up
     public Actor hanLaoActor;
-    public GameObject player;
-    private Transform playerPos;
+    public Rigidbody body;
 
-    public Rigidbody body; 
-    public float speed;
-    private Vector3 direction;
+    public float spitThreshold = 0.5f;
 
-    private bool isFacingLeft;
-    const float groundAttackDist = 0.8f;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player = GameObject.Find("Player");
+        //get objects and rigidbodies 
         hanLaoObject = animator.transform.parent.gameObject;
         body = hanLaoObject.GetComponent<Rigidbody>();
         hanLaoActor = hanLaoObject.GetComponent<HanLao>();
+
+        if (Random.value >= spitThreshold)
+        {
+            animator.SetTrigger("spit");
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerPos = player.transform;
-
-        if(!Actor.IsCloseTo(body.position,player.transform.position,groundAttackDist)){
-            animator.SetTrigger("walk");
+        if (body.velocity.y == 0)
+        {
+            animator.SetTrigger("land");
         }
     }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

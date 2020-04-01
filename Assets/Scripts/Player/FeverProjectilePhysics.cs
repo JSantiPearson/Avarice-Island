@@ -24,20 +24,22 @@ public class FeverProjectilePhysics : MonoBehaviour
 
     void OnTriggerEnter(Collider hitInfo)
     {
-        EnemyGrunt enemy = hitInfo.GetComponent<EnemyGrunt>();
+        //EnemyGrunt enemy = hitInfo.GetComponent<EnemyGrunt>();
+        HanLao enemy = hitInfo.transform.parent.parent.gameObject.GetComponent<HanLao>();
 
-        if(enemy != null)
+        if (enemy != null)
         {
-
+            enemy.Hurt(15);
             //Launch and Hitbox
 
             //enemy.TakeDamage(damage);
         }
 
        Debug.Log(hitInfo.name);
+        Debug.Log(enemy.name);
 
 
-       Destroy(gameObject);
+        Destroy(gameObject);
 
     }
 
