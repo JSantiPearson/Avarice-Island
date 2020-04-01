@@ -23,6 +23,10 @@ public class SceneTransition : MonoBehaviour
     	StartCoroutine(LoadSceneCo(sceneName));
     }
 
+    public void ReLoad(){
+      StartCoroutine(LoadSceneCo(SceneManager.GetActiveScene().name));
+    }
+
 
     IEnumerator LoadSceneCo(string sceneName){
       //check for game pause

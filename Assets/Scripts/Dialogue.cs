@@ -11,15 +11,19 @@ public class Dialogue : MonoBehaviour
 	public int index; //which sentence to type
 	public float speed;
 	public PauseGame pauseGame;
-	public GameObject dialogueBar;
+	//public GameObject dialogueBar;
+    public Animator dialogueAnim;
     private const float cursorInterval=0.5f;
     private float timeElapsed;
 	public bool pausedForDialogue;
     private bool cursorOn;
     private char[] cursorChars = {'(','z',')'};
+    private bool indexUpdated;
 
 	void Start(){
 		//find the pauseGame component
+        index = 0;
+        indexUpdated = true; //true so first sentence will load
         cursorOn = false; //used for flashing cursor in dialogue bar.
 		pausedForDialogue = false;
         timeElapsed=0; 
@@ -33,26 +37,44 @@ public class Dialogue : MonoBehaviour
 		//keep track of whether or not we are paused for dialogue, allow player to continue
         timeElapsed+=Time.fixedDeltaTime;
 		if(pausedForDialogue){
+            //displays a fresh sentence only once
+            if(indexUpdated){
+                PlaySentence(index);
+                indexUpdated=false;
+            }
+
             flashCursor();
 			if(Input.GetKeyDown(KeyCode.Z)){
-                pauseGame.UnpauseWithoutMenu();
-			    pausedForDialogue = false;
-			    dialogueBar.SetActive(false);
+                //pauseGame.UnpauseWithoutMenu();
+                //PlaySentence(index);
+                index++;
+                indexUpdated=true;
+			    //pausedForDialogue = false;
+			    //dialogueBar.SetActive(false);
             }    
-
-		}
-
+		    if(index>=sentences.Length){
+                pausedForDialogue = false;
+                //dialogueBar.SetActive(false);
+                dialogueAnim.SetTrigger("hide");
+                pauseGame.UnpauseWithoutMenu();
+            }
+        }
 	}
 
     public void PlayDialogue()
     {
-    	//TEMPORARY SOLUTION FOR DIALOGUE HANDLING. Only works for 1 line
-    	dialogueBar.SetActive(true);
-    	pauseGame.PauseWithoutMenu();
-    	textDisplay.text = sentences[index];
+    	//dialogueBar.SetActive(true);
+        dialogueAnim.SetTrigger("popup");
+    	//pauseGame.PauseWithoutMenu();
+        StartCoroutine(WaitAndPause(0.5f));
     	pausedForDialogue = true;
+        //PlaySentence(0); //start first sentence
     	//CONTINUE HAPPENS IN UPDATE METHOD
 
+    }
+
+    public void PlaySentence(int index){
+        textDisplay.text = sentences[index];
     }
 
     public void flashCursor(){
@@ -68,7 +90,7 @@ public class Dialogue : MonoBehaviour
                 textDisplay.text = (textDisplay.text).TrimEnd(cursorChars);
                 cursorOn = true;
             }
-            //reset time
+            //reset
             timeElapsed = 0;
         }
         Debug.Log("timeElapsed wasn't sufficient");
@@ -77,7 +99,8 @@ public class Dialogue : MonoBehaviour
     //UNUSED at the moment
     IEnumerator Type()
     {
-    	dialogueBar.SetActive(true);
+    	//dialogueBar.SetActive(true);
+        dialogueAnim.SetTrigger("popup");
     	pauseGame.PauseWithoutMenu();
     	/*
     	foreach(char letter in sentences[index].ToCharArray()){
@@ -89,6 +112,12 @@ public class Dialogue : MonoBehaviour
     	yield return new WaitForSeconds(speed);
     	//Debug.Log("yielded...");
     	pauseGame.UnpauseWithoutMenu();
-    	dialogueBar.SetActive(false);    
+    	//dialogueBar.SetActive(false); 
+        dialogueAnim.SetTrigger("hide");   
+    }
+
+    IEnumerator WaitAndPause(float time){
+        yield return new WaitForSeconds(time);
+        pauseGame.PauseWithoutMenu();
     }
 }

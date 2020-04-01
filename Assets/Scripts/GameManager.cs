@@ -1,19 +1,25 @@
 using UnityEngine;
 using System.Collections;
 public class GameManager : MonoBehaviour {
+
+  //TODO: Refactor Camera Stuff? or just rename this file and refactor noncamera stuff. 
+
+
   //1
   public Hero actor;
   public bool cameraFollows = true;
   public bool cameraPanning = false;
   public CameraBounds cameraBounds;
   public GameObject enemyPrefab;
-  public GameObject dialogueBar;
-  public GameObject leftScreenCollider;
-  public GameObject rightScreenCollider;
   private Transform currentCameraTrans;
   private float lastDistCamToPlayer;
   private float currDistCamToPlayer;
   private const float panInterval = 0.15f;
+
+  //noncamera vars
+  public GameObject dialogueBar;
+  public GameObject leftScreenCollider;
+  public GameObject rightScreenCollider;
 
   //MOVE THESE ELSEWHERE WHEN SPAWNING IS REFACTORED
   /*
@@ -26,7 +32,7 @@ public class GameManager : MonoBehaviour {
   void Start() {
 
     //find game objects we need to reference
-    dialogueBar = GameObject.Find("DialogueBar");
+    //dialogueBar = GameObject.Find("DialogueBar");
     leftScreenCollider = GameObject.Find("LeftCamBounds");
     rightScreenCollider = GameObject.Find("RightCamBounds");
 
@@ -34,7 +40,7 @@ public class GameManager : MonoBehaviour {
     currDistCamToPlayer = 0;
     cameraBounds.SetXPosition(cameraBounds.minVisibleX);
     currentCameraTrans = cameraBounds.cameraRoot;
-    dialogueBar.SetActive(false);
+    //dialogueBar.SetActive(false); //TESTING ANIMATOR VERSION
     SetScreenColliders(false);    
   }
 //3
