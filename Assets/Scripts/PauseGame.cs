@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseGame : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PauseGame : MonoBehaviour
 	public GameObject pauseMenu;
 	public GameObject optionsMenu;
     public GameObject player;
+    public Selectable firstSelectedPauseButton;
+    public Selectable firstSelectedOptionsButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,7 @@ public class PauseGame : MonoBehaviour
         gamePaused=true;
         player.GetComponent<Hero>().enabled=false;
         pauseMenu.SetActive(true);
+        firstSelectedPauseButton.Select();
     }
 
     public void Unpause(){
@@ -63,10 +67,13 @@ public class PauseGame : MonoBehaviour
     public void RevealOptions(){
     	pauseMenu.SetActive(false);
     	optionsMenu.SetActive(true);
+        firstSelectedOptionsButton.Select();
     }
 
     public void UnRevealOptions(){
     	pauseMenu.SetActive(true);
     	optionsMenu.SetActive(false);
+        firstSelectedPauseButton.Select();
+
     }
 }
