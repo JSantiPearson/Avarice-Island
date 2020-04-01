@@ -36,14 +36,15 @@ public class JumpBehavior : StateMachineBehaviour
 
         //Vector3 horizontalVector = new Vector3(direction.x, 0, direction.z) * speed * 40;
         //Vector3 verticalVector = Vector3.up * jumpForce * Time.deltaTime;
-
-        //trigger a jump
-        //Vector3 horizontalVector = new Vector3(0, 0, 0);
-        Vector3 randDirVector = new Vector3(randX,0,randZ);
-        randDirVector.Normalize();
-        Vector3 horizontalVector = randDirVector*jumpForce;
-        Vector3 verticalVector = Vector3.up * jumpForce*2;
-        body.AddForce(horizontalVector);
+        if (!animator.GetBool("knifethrow")){
+            //trigger a jump
+            //Vector3 horizontalVector = new Vector3(0, 0, 0);
+            Vector3 randDirVector = new Vector3(randX, 0, randZ);
+            randDirVector.Normalize();
+            Vector3 horizontalVector = randDirVector * jumpForce;
+            body.AddForce(horizontalVector);
+        }
+        Vector3 verticalVector = Vector3.up * jumpForce * 2;
         body.AddForce(verticalVector);
         //animator.ResetTrigger("jump");
         //timer = Random.Range(minTime,maxTime);   

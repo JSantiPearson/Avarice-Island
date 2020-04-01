@@ -9,13 +9,14 @@ public class HanLao : Actor
 	public float direction;
     public float maxHealth = 150;
     public float currentHealth;
-    public int phase;
+    public int currentPhase;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-    }
+        currentPhase = 1;
+}
 
     // Update is called once per frame
     void Update()
@@ -24,10 +25,9 @@ public class HanLao : Actor
         {
             baseAnim.SetTrigger("defeated");
         }
-        if (currentHealth <= (maxHealth / 2) && phase == 1)
+        if (currentHealth <= (maxHealth / 2) && currentPhase == 1)
         {
-            phase = 2;
-            baseAnim.SetTrigger("transition1");
+            currentPhase = 2;
         }
     }
 
@@ -40,11 +40,6 @@ public class HanLao : Actor
     {
         TakeDamage(damage);
         baseAnim.SetTrigger("hurt");
-    }
-
-    public int getPhase()
-    {
-        return phase;
     }
 
     /**

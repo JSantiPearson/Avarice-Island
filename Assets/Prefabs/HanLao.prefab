@@ -195,6 +195,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa147814b2ea7ab4cb6617003383a260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knifeProjectile: {fileID: 8461332646004378646, guid: 120330bcbef9d714dbd91888c0dedf8a,
+    type: 3}
+  knifeThrowLift: 200
+  spitProjectile: {fileID: 7259980322015582007, guid: 4654bb89572bb204482b5baf5bd57b52,
+    type: 3}
 --- !u!1 &1083201463325225859
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +334,7 @@ MonoBehaviour:
   direction: 0
   maxHealth: 150
   currentHealth: 0
+  phase: 0
 --- !u!114 &1449405596
 MonoBehaviour:
   m_ObjectHideFlags: 0

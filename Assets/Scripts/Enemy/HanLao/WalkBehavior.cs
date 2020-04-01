@@ -14,12 +14,16 @@ public class WalkBehavior : StateMachineBehaviour
     public GameObject player;
     private Transform playerPos;
 
-    public Rigidbody body; 
+    public Rigidbody body;
+    public float walkSpeed;
+    public float runSpeed;
     public float speed;
     private Vector3 direction;
 
     private bool isFacingLeft;
     const float groundAttackDist = 1.4f;
+
+    public float knifeThrowTriggerThreshold = 0.8f;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -35,6 +39,13 @@ public class WalkBehavior : StateMachineBehaviour
 
         timer = Random.Range(minTime,maxTime);
 
+        //possible extension for a multi phase fight. Currently, this script can't seem to recognize that the hanlao script has the public variable currentPhase
+        /*
+        if (hanLaoActor.currentPhase == 2 && speed == walkSpeed)
+        {
+            speed = runSpeed;
+        }*/
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -47,6 +58,7 @@ public class WalkBehavior : StateMachineBehaviour
         //timed jumps
         if(timer<=0){
             animator.SetTrigger("jump");
+            animator.SetBool("knifethrow", Random.value >= knifeThrowTriggerThreshold);
         } else {
             timer -= Time.deltaTime;
         }

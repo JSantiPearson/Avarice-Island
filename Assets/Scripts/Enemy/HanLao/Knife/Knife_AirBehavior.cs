@@ -2,41 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpFallBehavior : StateMachineBehaviour
+public class Knife_AirBehavior : StateMachineBehaviour
 {
-
-    
-    public GameObject hanLaoObject; //might need to clean this up
-    public Actor hanLaoActor;
+    public Dialogue dialogue;
     public Rigidbody body;
+    public GameObject knifeObject; //might need to clean this up
+    public KnifeProjectilePhysics knifeBehavior;
+    public float speed = 10f;
+    public Vector3 playerDir;
 
-    public float spitThreshold = 0.5f;
+    public GameObject player;
 
-
-    //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //get objects and rigidbodies 
-        hanLaoObject = animator.transform.parent.gameObject;
-        body = hanLaoObject.GetComponent<Rigidbody>();
-        hanLaoActor = hanLaoObject.GetComponent<HanLao>();
+        knifeObject = animator.gameObject;
+        body = knifeObject.GetComponent<Rigidbody>();
+        knifeBehavior = knifeObject.GetComponent<KnifeProjectilePhysics>();
+        //speed = knifeBehavior.speed;
 
-        if (Random.value >= spitThreshold)
-        {
-            animator.SetTrigger("spit");
-        }
+        player = GameObject.Find("Player");
+
+        Vector3 playerPosition = player.transform.position;
+        playerDir = playerPosition - body.position;
+        playerDir.Normalize();
+
+        knifeBehavior.FlipSprite(playerDir.x <= 0);
+        Vector3 velocity = playerDir * speed;
+        body.velocity = velocity;
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (body.velocity.y == 0)
-        {
-            animator.SetTrigger("land");
-        }
     }
 
-    //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
     }
