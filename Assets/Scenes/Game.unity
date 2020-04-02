@@ -413,6 +413,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &653857010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3755170080638370281, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863270442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &653857012 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3755170080638370283, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863270442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653857010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &666882416 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3755170080944347490, guid: 3b8ad81643a188949b34078cf28632c9,
@@ -517,9 +535,9 @@ Transform:
   m_Father: {fileID: 66640172}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &691530491 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3755170079736126281, guid: 3b8ad81643a188949b34078cf28632c9,
+--- !u!95 &691530492 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1951887707, guid: 3b8ad81643a188949b34078cf28632c9,
     type: 3}
   m_PrefabInstance: {fileID: 1863270442}
   m_PrefabAsset: {fileID: 0}
@@ -1517,6 +1535,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1684210470}
+    - target: {fileID: 8649656564577461737, guid: efcc4629498b60546972d8d3ecd6eb73,
+        type: 3}
+      propertyPath: firstSelectedPauseButton
+      value: 
+      objectReference: {fileID: 653857012}
     - target: {fileID: 8649656564577461739, guid: efcc4629498b60546972d8d3ecd6eb73,
         type: 3}
       propertyPath: m_Name
@@ -1682,9 +1705,9 @@ PrefabInstance:
       objectReference: {fileID: 291380850}
     - target: {fileID: 933420384211956769, guid: b91f8d624053920488bf81cea0126043,
         type: 3}
-      propertyPath: dialogueBar
+      propertyPath: dialogueAnim
       value: 
-      objectReference: {fileID: 691530491}
+      objectReference: {fileID: 691530492}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91f8d624053920488bf81cea0126043, type: 3}
 --- !u!1001 &2767108201411825796
@@ -2033,6 +2056,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847262934848129044, guid: 6054fb2a5ff6869448ff41ede72f8cbf,
+        type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 653857010}
+    - target: {fileID: 7847262934848129045, guid: 6054fb2a5ff6869448ff41ede72f8cbf,
+        type: 3}
+      propertyPath: m_ForceModuleActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7847262934848129046, guid: 6054fb2a5ff6869448ff41ede72f8cbf,
         type: 3}

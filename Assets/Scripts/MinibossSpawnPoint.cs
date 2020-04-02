@@ -88,10 +88,10 @@ public class MinibossSpawnPoint : MonoBehaviour
         	}
         	//gameManager.UnlockCamera();
         	//player.GetComponent<Hero>().enabled=true;
-            //this may not work as expected
         } else if (!entranceDialogue.pausedForDialogue && distPanned>=distToPan){ //NEEDS REWORK.. just means pan+dialogue is completely done
         	gameManager.UnlockCamera();
         	player.GetComponent<Hero>().enabled=true;
+        	Destroy(gameObject);
         }
 
 
