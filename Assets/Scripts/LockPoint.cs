@@ -68,6 +68,7 @@ public class LockPoint : MonoBehaviour
                 dialogue.PlayDialogue();
 
         	}
+            Debug.Log("about to lock camera");
         	gameManager.LockCamera();
         	locked = true;
         }
