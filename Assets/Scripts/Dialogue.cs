@@ -11,7 +11,7 @@ public class Dialogue : MonoBehaviour
 	public int index; //which sentence to type
 	public float speed;
 	public PauseGame pauseGame;
-	//public GameObject dialogueBar;
+	public GameObject dialogueBar;
     public Animator dialogueAnim;
     private const float cursorInterval=0.5f;
     private float timeElapsed;
@@ -27,8 +27,12 @@ public class Dialogue : MonoBehaviour
         cursorOn = false; //used for flashing cursor in dialogue bar.
 		pausedForDialogue = false;
         timeElapsed=0; 
+
+        //fill in dialogue-related objects
 		pauseGame =  GameObject.Find("MyGameManager").GetComponent(typeof(PauseGame)) as PauseGame;
-		//dialogueBar = GameObject.Find("DialogueBar");
+		dialogueBar = GameObject.Find("DialogueBar");
+        dialogueAnim = dialogueBar.GetComponent<Animator>();
+        textDisplay = dialogueBar.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         //textDisplay = GameObject.Find("DialogueText").GetComponent(typeof(TextMeshProUGUI)) as TextMeshProUGUI;
 
 	}
@@ -37,6 +41,7 @@ public class Dialogue : MonoBehaviour
 		//keep track of whether or not we are paused for dialogue, allow player to continue
         timeElapsed+=Time.fixedDeltaTime;
 		if(pausedForDialogue){
+
             //displays a fresh sentence only once
             if(indexUpdated){
                 PlaySentence(index);
@@ -118,6 +123,7 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator WaitAndPause(float time){
         yield return new WaitForSeconds(time);
+        dialogueAnim.ResetTrigger("popup"); //fix for bug after miniboss death
         pauseGame.PauseWithoutMenu();
     }
 }
