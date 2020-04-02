@@ -334,7 +334,7 @@ MonoBehaviour:
   direction: 0
   maxHealth: 150
   currentHealth: 0
-  phase: 0
+  currentPhase: 0
 --- !u!114 &1449405596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
   index: 0
   speed: 0
   pauseGame: {fileID: 0}
-  dialogueBar: {fileID: 0}
+  dialogueAnim: {fileID: 0}
   pausedForDialogue: 0
 --- !u!1 &1083201463625490994
 GameObject:

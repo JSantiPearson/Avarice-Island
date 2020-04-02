@@ -62,8 +62,10 @@ public class GameManager : MonoBehaviour {
       }
 
     } else {
-        //only update this value when camera is locked and not panning.
+        //locked in x direction only
         lastDistCamToPlayer = (currentCameraTrans.position.x - actor.transform.position.x);
+        cameraBounds.SetYPosition(actor.transform.position.z);
+
     }
 
     //cameraFollows reset when camera lands on player
