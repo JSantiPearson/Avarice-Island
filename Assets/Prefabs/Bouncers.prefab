@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4448734794368405706}
+  - component: {fileID: 1252274508426158458}
+  - component: {fileID: 2449900665317245917}
+  - component: {fileID: 6738567550868281031}
   m_Layer: 0
   m_Name: BouncerRex
   m_TagString: Untagged
@@ -24,13 +27,69 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4448734794368405711}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.165758, y: -2.2612715, z: -2.2098904}
+  m_LocalPosition: {x: 16.165758, y: 0, z: -8.2}
   m_LocalScale: {x: -1.9, y: 1.9, z: 1}
   m_Children:
   - {fileID: 4448734795906165581}
   m_Father: {fileID: 4448734794678777491}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1252274508426158458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448734794368405711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684d3931c37fe1f4eb7e43e2e704e7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseAnim: {fileID: 4448734795906165583}
+  body: {fileID: 6738567550868281031}
+  shadowSprite: {fileID: 0}
+  speed: 2
+  size: 1.5
+  onGround: 0
+  maxHealth: 100
+  currentHealth: 0
+  walkSpeed: 1.5
+  runSpeed: 4
+  startingPosition: {x: 12, y: 2.475173, z: 1}
+  targetPosition: {x: 12, y: 2.5, z: 1}
+  currentState: 0
+  playerReference: {fileID: 0}
+  bouncerName: 
+--- !u!65 &2449900665317245917
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448734794368405711}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.42, y: 0.85, z: 0.31}
+  m_Center: {x: 0, y: -0.03, z: 0}
+--- !u!54 &6738567550868281031
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448734794368405711}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &4448734794678777490
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4448734794678777490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.924242, y: 2.2612715, z: 5.2098904}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4448734795365023515}
@@ -172,6 +231,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4448734795365023515}
+  - component: {fileID: 6421752791294088001}
+  - component: {fileID: 1908649064207788970}
+  - component: {fileID: 936535590855298029}
   m_Layer: 0
   m_Name: BouncerBrad
   m_TagString: Untagged
@@ -187,13 +249,69 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4448734795365023512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.535757, y: -1.7612715, z: -0.9698906}
+  m_LocalPosition: {x: 15.535757, y: 0, z: -4.24}
   m_LocalScale: {x: -1.9, y: 1.9, z: 1}
   m_Children:
   - {fileID: 4448734795114219381}
   m_Father: {fileID: 4448734794678777491}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6421752791294088001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448734795365023512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684d3931c37fe1f4eb7e43e2e704e7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseAnim: {fileID: 4448734795114219383}
+  body: {fileID: 936535590855298029}
+  shadowSprite: {fileID: 0}
+  speed: 2
+  size: 1.5
+  onGround: 0
+  maxHealth: 100
+  currentHealth: 0
+  walkSpeed: 1.5
+  runSpeed: 4
+  startingPosition: {x: 12, y: 2.475173, z: 1}
+  targetPosition: {x: 12, y: 2.5, z: 1}
+  currentState: 0
+  playerReference: {fileID: 0}
+  bouncerName: 
+--- !u!65 &1908649064207788970
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448734795365023512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.42, y: 0.85, z: 0.31}
+  m_Center: {x: 0, y: -0.03, z: 0}
+--- !u!54 &936535590855298029
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448734795365023512}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &4448734795906165580
 GameObject:
   m_ObjectHideFlags: 0
