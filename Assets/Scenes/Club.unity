@@ -645,6 +645,8 @@ MonoBehaviour:
   canRun: 1
   input: {fileID: 715101494}
   jumpForce: 1700
+  deathDialogue: {fileID: 0}
+  deathScreenAnim: {fileID: 0}
 --- !u!4 &816102852
 Transform:
   m_ObjectHideFlags: 0

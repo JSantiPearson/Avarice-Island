@@ -40,10 +40,16 @@ public class Hero : Actor
     float lastAttackTime;
     float attackLimit = 0.14f;
 
+    //for player death
+    public Dialogue deathDialogue;
+    public Animator deathScreenAnim;
+
     public void Start()
     {
         engaged = new List<Actor>(numEngagements);
         currentHealth = maxHealth;
+        deathDialogue = gameObject.GetComponent<Dialogue>();
+        deathScreenAnim = GameObject.Find("DeathScreen").GetComponent<Animator>();
     }
 
     public override void Update()
@@ -110,6 +116,11 @@ public class Hero : Actor
             attack = false;
             baseAnim.SetBool("attack", attack);
 
+        }
+
+        //check for death
+        if(currentHealth<=0){
+            Die();
         }
 
 
@@ -200,6 +211,11 @@ public class Hero : Actor
     {
         currentHealth = (currentHealth - damage);
         gameObject.GetComponent<Health>().health = (int) (currentHealth / (maxHealth / 5)); //Update the Health script and pips in the UI
+    }
+
+    public void Die(){
+        //deathDialogue.PlayDialogue(); //This is causing a freeze
+        deathScreenAnim.SetTrigger("death");
     }
 
     //public override void Attack()

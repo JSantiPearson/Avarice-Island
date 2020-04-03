@@ -44,6 +44,7 @@ public class Dialogue : MonoBehaviour
 
             //displays a fresh sentence only once
             if(indexUpdated){
+                Debug.Log("Index For Sentence Array: " + index);
                 PlaySentence(index);
                 indexUpdated=false;
             }
@@ -56,9 +57,12 @@ public class Dialogue : MonoBehaviour
                 indexUpdated=true;
 			    //pausedForDialogue = false;
 			    //dialogueBar.SetActive(false);
-            }    
+            }  
+
 		    if(index>=sentences.Length){
+                Debug.Log("about to unpauseForDialogue");
                 pausedForDialogue = false;
+                Debug.Log("just unpausedForDialogue");
                 //dialogueBar.SetActive(false);
                 dialogueAnim.SetTrigger("hide");
                 pauseGame.UnpauseWithoutMenu();
@@ -72,7 +76,7 @@ public class Dialogue : MonoBehaviour
         dialogueAnim.SetTrigger("popup");
     	//pauseGame.PauseWithoutMenu();
         StartCoroutine(WaitAndPause(0.5f));
-    	pausedForDialogue = true;
+    	//pausedForDialogue = true;
         //PlaySentence(0); //start first sentence
     	//CONTINUE HAPPENS IN UPDATE METHOD
 
@@ -98,7 +102,7 @@ public class Dialogue : MonoBehaviour
             //reset
             timeElapsed = 0;
         }
-        Debug.Log("timeElapsed wasn't sufficient");
+        //Debug.Log("timeElapsed wasn't sufficient");
     }
 
     //UNUSED at the moment
@@ -123,7 +127,8 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator WaitAndPause(float time){
         yield return new WaitForSeconds(time);
-        dialogueAnim.ResetTrigger("popup"); //fix for bug after miniboss death
+        dialogueAnim.ResetTrigger("popup");
+        pausedForDialogue = true; //fix for bug after miniboss death
         pauseGame.PauseWithoutMenu();
     }
 }
