@@ -98,7 +98,7 @@ MonoBehaviour:
   BulletSpeed: 7
   collider: {fileID: -5306000454987824724}
   rb: {fileID: -5209954011663614875}
-  damage: 50
+  damage: 20
 --- !u!212 &8373478504360386948
 SpriteRenderer:
   m_ObjectHideFlags: 0

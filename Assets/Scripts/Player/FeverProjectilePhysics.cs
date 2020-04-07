@@ -8,7 +8,7 @@ public class FeverProjectilePhysics : MonoBehaviour
     public Collider collider;
     public Rigidbody rb;
     bool isFacingLeft;
-    public int damage = 50;
+    public int damage = 15;
 
     public void updateLeft(bool isFacingLeft)
     {
