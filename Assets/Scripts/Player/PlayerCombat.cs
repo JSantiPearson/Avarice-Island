@@ -19,16 +19,19 @@ public class PlayerCombat : MonoBehaviour
     //[1] is standing attack 2
     //[2] is dash attack
     int bufferAttackCount = 0;
-
+    public bool inAttackAnim;
 
     // Queue<bool> attackBuffer = new Queue<bool>();
 
 
-
+    void start()
+    {
+        isAttacking(false);
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= nextAttackTime)
+        if (!inAttackAnim)
         {
             //Debug.Log("Time:"  + Time.time);
             // Debug.Log("Next Attack Time:"  + nextAttackTime);
@@ -152,7 +155,11 @@ public class PlayerCombat : MonoBehaviour
 
 
     }
-
+    public int isAttacking(bool isAttacking)
+    {
+        inAttackAnim = isAttacking;
+        return 220;
+    }
 
 
 }
