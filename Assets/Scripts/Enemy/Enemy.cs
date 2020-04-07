@@ -255,7 +255,7 @@ public class Enemy : Actor
         }
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
         Stop();
         float attackThreshold;
