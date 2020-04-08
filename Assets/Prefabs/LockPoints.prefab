@@ -141,5 +141,6 @@ MonoBehaviour:
   index: 0
   speed: 0
   pauseGame: {fileID: 0}
+  dialogueBar: {fileID: 0}
   dialogueAnim: {fileID: 0}
   pausedForDialogue: 0

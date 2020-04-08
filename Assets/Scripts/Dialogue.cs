@@ -126,9 +126,9 @@ public class Dialogue : MonoBehaviour
     }
 
     IEnumerator WaitAndPause(float time){
+        pausedForDialogue = true; //fix for bug after miniboss death
         yield return new WaitForSeconds(time);
         dialogueAnim.ResetTrigger("popup");
-        pausedForDialogue = true; //fix for bug after miniboss death
         pauseGame.PauseWithoutMenu();
     }
 }

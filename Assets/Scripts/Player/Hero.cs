@@ -215,6 +215,7 @@ public class Hero : Actor
 
     public void Die(){
         //deathDialogue.PlayDialogue(); //This is causing a freeze
+        //baseAnim.
         deathScreenAnim.SetTrigger("death");
     }
 

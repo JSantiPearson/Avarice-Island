@@ -43,13 +43,11 @@ public class Bouncer : Enemy
         fleeHealth = 30;
 
 
-
-
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //void Update()
+    //{
+    //   
+    //}
 }
