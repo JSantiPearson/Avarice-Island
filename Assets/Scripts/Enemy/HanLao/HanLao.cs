@@ -47,10 +47,10 @@ public class HanLao : Actor
   **/
     protected virtual void OnCollisionExit(Collision collision)
     {
-        if(collision.collider.tag == "Hit")
+        /*if(collision.collider.tag == "Hit")
         {
             Hurt(15);
             Debug.Log("got hit by electroball");
-        }
+        }*/
     }
 }
