@@ -321,6 +321,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7407634278323939828, guid: 599fc3e44461e7a4dba0265e24d07b0e,
+        type: 3}
+      propertyPath: spawnLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407634278323939828, guid: 599fc3e44461e7a4dba0265e24d07b0e,
+        type: 3}
+      propertyPath: spawnDistFromPlayer
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
 --- !u!114 &444020263 stripped
@@ -646,7 +656,7 @@ MonoBehaviour:
   size: 1.5
   onGround: 0
   engaged: []
-  numEngagements: 2
+  numEngagements: 4
   currentHealth: 150
   walkSpeed: 2
   runSpeed: 5

@@ -207,6 +207,10 @@ public class Hero : Actor
         baseAnim.SetTrigger("Hurt");
     }
 
+    public void stunned(){
+      baseAnim.SetTrigger("Flashed");
+    }
+
     public void takeDamage(float damage)
     {
         currentHealth = (currentHealth - damage);

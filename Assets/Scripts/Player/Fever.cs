@@ -13,6 +13,9 @@ public class Fever : MonoBehaviour
     private bool fadeIn = true;
     public Transform firePoint;
     public GameObject feverProjectilePreFab;
+    public GameObject feverLightningPreFab;
+    public GameObject feverAOEPreFab;
+    public Animator animator;
 
     void Start(){
       feverBar.fillAmount = 50f / 100;
@@ -28,10 +31,31 @@ public class Fever : MonoBehaviour
       else if (feverBar.fillAmount == 0)
         cooldown = false;
       feverBar.fillAmount -= 0.1f / 100;
-      if (Input.GetButtonDown("FeverAttack") && !cooldown){
-            FireProjectile();
-            feverBar.fillAmount += 15f / 100;
-      }
+
+
+      if (Input.GetKey(KeyCode.E) && !cooldown){
+
+            if(Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.LeftArrow))
+            {
+                FireProjectile();
+                feverBar.fillAmount += 15f / 100;
+            }
+            else if (Input.GetKey(KeyCode.UpArrow))
+            {
+                feverLightning();
+                feverBar.fillAmount += 15f / 100;
+
+            }
+            if(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.UpArrow)))
+            {
+                feverAOE();
+                feverBar.fillAmount += 50f / 100;
+
+            }
+
+
+
+        }
 
       if (cooldown && fadeIn){
         tempColor.a += interval;
@@ -55,7 +79,19 @@ public class Fever : MonoBehaviour
 
     void FireProjectile()
     {
-        Debug.Log("fiejifjfiejfiejf");
+        animator.SetTrigger("FeverProjectile");
         Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
+    }
+    void feverAOE()
+    {
+        animator.SetTrigger("FeverAOE");
+        //Debug.Log("fiejifjfiejfiejf");
+       // Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
+    }
+    void feverLightning()
+    {
+        animator.SetTrigger("FeverLightning");
+        //Debug.Log("fiejifjfiejfiejf");
+        //Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
     }
 }

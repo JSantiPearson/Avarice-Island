@@ -5,25 +5,32 @@ using UnityEngine;
 public class IdleBehavior : StateMachineBehaviour
 {
 
-    public float timer;
+    public float jumpTimer;
+    public float walkTimer;
     public float minTime;
     public float maxTime;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       timer = Random.Range(minTime,maxTime);
+       walkTimer = Random.Range(minTime,maxTime);
+       jumpTimer = Random.Range(minTime, maxTime);
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         //leave idle after random time
-       if(timer<=0){
+       if(walkTimer<=0){
         animator.SetTrigger("walk");
-       } else {
-        timer -= Time.deltaTime;
-       }
+       } else if (jumpTimer <= 0){
+            animator.SetTrigger("jump");
+        }
+        else
+        {
+            walkTimer -= Time.deltaTime;
+            jumpTimer -= Time.deltaTime;
+        }
     }
 
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state

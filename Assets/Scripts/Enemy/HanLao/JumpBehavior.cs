@@ -16,6 +16,13 @@ public class JumpBehavior : StateMachineBehaviour
     private Vector3 direction;
 
 
+    //Bounds of the screen during the miniboss screenlock. That way he knows where he can jump to.
+    private float xMinBound = 23.8f;
+    private float xMaxBound = 32.8f;
+    private float zMinBound = -2.55f;
+    private float zMaxBound = 2.85f;
+
+
     public GameObject player;
     private Transform playerPos;
 
@@ -41,7 +48,7 @@ public class JumpBehavior : StateMachineBehaviour
             //Vector3 horizontalVector = new Vector3(0, 0, 0);
             Vector3 randDirVector = new Vector3(randX, 0, randZ);
             randDirVector.Normalize();
-            Vector3 horizontalVector = randDirVector * jumpForce;
+            Vector3 horizontalVector = randDirVector * (jumpForce/2);
             body.AddForce(horizontalVector);
         }
         Vector3 verticalVector = Vector3.up * jumpForce * 2;
