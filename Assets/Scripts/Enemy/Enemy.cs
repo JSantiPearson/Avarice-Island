@@ -175,6 +175,7 @@ public class Enemy : Actor
     void FixedUpdate()
     {
         Vector3 moveVector = currentDir * speed;
+        //Debug.Log("Trying to move with currentDir: " + currentDir);
         body.MovePosition(transform.position + moveVector * Time.fixedDeltaTime);
         baseAnim.SetFloat("Speed", moveVector.magnitude);
 
@@ -220,6 +221,7 @@ public class Enemy : Actor
 
     public void Pace()
     {
+        Debug.Log("trying to pace");
         float positionX = body.position.x;
         float positionY = body.position.y;
 

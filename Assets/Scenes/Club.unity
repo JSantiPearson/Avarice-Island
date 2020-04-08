@@ -240,18 +240,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1483238636, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1901841959, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
       propertyPath: textDisplay
       value: 
       objectReference: {fileID: 933897001}
     - target: {fileID: 1901841959, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
-      propertyPath: dialogueBar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901841959, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
       propertyPath: dialogueAnim
       value: 
       objectReference: {fileID: 1951887707}
+    - target: {fileID: 2080717135, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463774143562906255, guid: 599fc3e44461e7a4dba0265e24d07b0e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6120865179932378490, guid: 599fc3e44461e7a4dba0265e24d07b0e,
         type: 3}
       propertyPath: m_Name
@@ -655,6 +664,8 @@ MonoBehaviour:
   canRun: 1
   input: {fileID: 715101494}
   jumpForce: 1700
+  deathDialogue: {fileID: 0}
+  deathScreenAnim: {fileID: 0}
 --- !u!4 &816102852
 Transform:
   m_ObjectHideFlags: 0
@@ -796,6 +807,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 169339729, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1164821333}
+    - target: {fileID: 1392971845, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1164821333}
     - target: {fileID: 3755170079428337694, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
