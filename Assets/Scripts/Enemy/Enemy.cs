@@ -66,7 +66,8 @@ public class Enemy : Actor
         attacking,
         fleeing,
         wandering,
-        waiting
+        waiting,
+        teleporting //this is specific to RaveGirl so it probably shouldn't be here but I can't add to this enum in her class
     }
 
     public DifficultyLevel? currentLevel = null;
@@ -443,7 +444,7 @@ public class Enemy : Actor
     /// Helper Functions
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private void CheckAnims()
+    public virtual void CheckAnims()
     {
         isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM);
         isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM);
