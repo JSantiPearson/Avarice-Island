@@ -52,7 +52,7 @@ public class Enemy : Actor
     protected float WanderWaitTime = 5;
 
     protected float noticeDistance = 7;
-    protected float walkDistance = 3;
+    protected float walkDistance = 3.5f;
     protected float attackDistance = 1;
     protected int fleeHealth;
 
@@ -67,7 +67,7 @@ public class Enemy : Actor
         fleeing,
         wandering,
         waiting,
-        teleporting //this is specific to RaveGirl so it probably shouldn't be here but I can't add to this enum in her class
+        teleporting //not sure if this state should exist in this context
     }
 
     public DifficultyLevel? currentLevel = null;
@@ -90,7 +90,7 @@ public class Enemy : Actor
         fleeHealth = 30;
     }
 
-    public override void Update()
+    public virtual void Update()
     {
         base.Update();
 

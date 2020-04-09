@@ -9,8 +9,8 @@ public class RaveGirl : Enemy
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     float lastDistance;
-    float teleportDistance = 4;
-    float teleportThreshold = .5f;
+    float teleportDistance = 3;
+    float teleportThreshold = .03f;
     Vector3 playerPosition;
     protected bool isTeleporting;
     protected string TELEPORT_IN_ANIM;

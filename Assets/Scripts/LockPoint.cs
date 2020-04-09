@@ -31,7 +31,7 @@ public class LockPoint : MonoBehaviour
     	//set up position vectors + other bookkeeping
         locked = false;
         player = GameObject.Find("Player");
-        playerLocation = player.transform.position; 
+        playerLocation = player.transform.position;
         lockLocation = gameObject.transform.position;
 
     }
@@ -68,7 +68,6 @@ public class LockPoint : MonoBehaviour
                 dialogue.PlayDialogue();
 
         	}
-            Debug.Log("about to lock camera");
         	gameManager.LockCamera();
         	locked = true;
         }
@@ -81,7 +80,7 @@ public class LockPoint : MonoBehaviour
     	//pauseGame.UnpauseForDialogue();
     }*/
 
-    
+
     IEnumerator Expire(){
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
