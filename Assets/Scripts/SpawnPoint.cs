@@ -43,7 +43,7 @@ public class SpawnPoint : MonoBehaviour
         timeElapsed+=Time.deltaTime;
         if(spawnTriggered && okToSpawn()){
          //if(okToSpawn()){
-        	Instantiate(spawnPrefab,spawnLocation,Quaternion.identity);
+        	Instantiate(spawnPrefab,spawnLocation,spawnPrefab.transform.rotation);
         }
 
     }
