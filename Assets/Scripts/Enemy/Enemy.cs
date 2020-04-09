@@ -52,7 +52,7 @@ public class Enemy : Actor
     protected float WanderWaitTime = 5;
 
     protected float noticeDistance = 7;
-    protected float walkDistance = 3;
+    protected float walkDistance = 3.5f;
     protected float attackDistance = 1;
     protected int fleeHealth;
 
@@ -66,7 +66,8 @@ public class Enemy : Actor
         attacking,
         fleeing,
         wandering,
-        waiting
+        waiting,
+        teleporting //not sure if this state should exist in this context
     }
 
     public DifficultyLevel? currentLevel = null;
@@ -89,7 +90,7 @@ public class Enemy : Actor
         fleeHealth = 30;
     }
 
-    public override void Update()
+    public virtual void Update()
     {
         base.Update();
 
@@ -441,7 +442,7 @@ public class Enemy : Actor
     /// Helper Functions
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private void CheckAnims()
+    public virtual void CheckAnims()
     {
         isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM);
         isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM);

@@ -25,7 +25,7 @@ public class Hero : Actor
     Vector3 lastWalkVector;
 
     Vector3 currentDir;
-    bool isFacingLeft;
+    public bool isFacingLeft;
 
     bool isJumpLandAnim;
     bool isJumpingAnim;
