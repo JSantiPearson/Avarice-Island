@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1252274508426158458}
   - component: {fileID: 2449900665317245917}
   - component: {fileID: 6738567550868281031}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BouncerRex
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4448734794368405711}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 1, y: 0, z: -3}
   m_LocalScale: {x: -1.9, y: 1.9, z: 1}
   m_Children:
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 621841942656578503}
   m_Father: {fileID: 4448734794678777491}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &1252274508426158458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4448734794678777491}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bouncers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 4448734795114219381}
   - component: {fileID: 4448734795114219383}
   - component: {fileID: 4448734795114219382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BradAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 6421752791294088001}
   - component: {fileID: 1908649064207788970}
   - component: {fileID: 936535590855298029}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BouncerBrad
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4448734795365023512}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: -1.9, y: 1.9, z: 1}
   m_Children:
@@ -257,7 +257,7 @@ Transform:
   - {fileID: 7415365221663048773}
   m_Father: {fileID: 4448734794678777491}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &6421752791294088001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 4448734795906165581}
   - component: {fileID: 4448734795906165583}
   - component: {fileID: 4448734795906165582}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RexAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7415365221663048773}
   - component: {fileID: 553042141165772056}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BradShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621841942656578503}
   - component: {fileID: 4774727942881254576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RexShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
