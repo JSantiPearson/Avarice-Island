@@ -60,7 +60,8 @@ MonoBehaviour:
   startingPosition: {x: 12, y: 2.475173, z: 1}
   targetPosition: {x: 12, y: 2.5, z: 1}
   currentState: 0
-  playerReference: {fileID: 0}
+  playerReference: {fileID: 8452970743776353722, guid: 64a6fe08ff1f13642875947c988e6f65,
+    type: 3}
   bouncerName: BouncerRex
 --- !u!65 &2449900665317245917
 BoxCollider:
@@ -212,7 +213,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b7d1b33b2b185460ba781c82aff65c64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -220,7 +221,7 @@ SpriteRenderer:
   m_Size: {x: 0.9, y: 1.0428572}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4448734795365023512
@@ -283,7 +284,8 @@ MonoBehaviour:
   startingPosition: {x: 12, y: 2.475173, z: 1}
   targetPosition: {x: 12, y: 2.5, z: 1}
   currentState: 4
-  playerReference: {fileID: 0}
+  playerReference: {fileID: 8452970743776353722, guid: 64a6fe08ff1f13642875947c988e6f65,
+    type: 3}
   bouncerName: BouncerBrad
 --- !u!65 &1908649064207788970
 BoxCollider:
@@ -403,15 +405,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: cbfcb3404c30849b09df875b29d15588, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.52, y: 0.81}
+  m_Size: {x: 0.78571427, y: 1.0714285}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6252546672385065217
@@ -439,8 +441,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6252546672385065217}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.7894737, y: 1.0444093, z: 1.4280696}
+  m_LocalPosition: {x: 0, y: -0.51, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.4280696}
   m_Children: []
   m_Father: {fileID: 4448734795365023515}
   m_RootOrder: 1
@@ -519,8 +521,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8056375280846735267}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.7894737, y: 1.0444093, z: 1.4280696}
+  m_LocalPosition: {x: 0, y: -0.51, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.4280696}
   m_Children: []
   m_Father: {fileID: 4448734794368405706}
   m_RootOrder: 1
