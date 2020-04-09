@@ -59,17 +59,20 @@ public class PlayerCombat : MonoBehaviour
     {
         // hero.body.velocity = rigidbody.velocity * 0.9;
         animator.SetTrigger("DashAttack");
+
+        /*
         Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
 
         foreach (Collider enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
-            enemy.GetComponent<EnemyGrunt>().Hurt(30);
+            enemy.GetComponent<EnemyGrunt>().Hurt(20);
             Debug.Log("We Dash Attacked " + enemy.name);
 
             enemy.GetComponent<HanLao>().Hurt(15);
 
         }
+        */
         bufferAttackCount = 0;
     }
 
@@ -83,7 +86,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider enemy in hitEnemies)
         {
             Debug.Log(enemy.name);
-            enemy.GetComponent<EnemyGrunt>().Hit(15);
+            enemy.GetComponent<EnemyGrunt>().Hit(10);
             Debug.Log("We Hit " + enemy.name);
             if (bufferAttackCount > 1)
             {
@@ -111,7 +114,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider enemy in hitEnemies)
         {
             Debug.Log(enemy.name);
-            enemy.GetComponent<EnemyGrunt>().Hit(15);
+            enemy.GetComponent<EnemyGrunt>().Hit(10);
             Debug.Log("We Hit " + enemy.name);
             if (bufferAttackCount > 2)
             {
@@ -141,8 +144,8 @@ public class PlayerCombat : MonoBehaviour
         {
             hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
 
-            enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
-            enemy.GetComponent<EnemyGrunt>().Hurt(30);
+            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+            enemy.GetComponent<Enemy>().Hurt(30);
 
 
             Debug.Log("We Hit " + enemy.name);
@@ -155,10 +158,9 @@ public class PlayerCombat : MonoBehaviour
 
 
     }
-    public int isAttacking(bool isAttacking)
+    public void isAttacking(bool isAttacking)
     {
         inAttackAnim = isAttacking;
-        return 220;
     }
 
 

@@ -65,10 +65,15 @@ public class Actor : MonoBehaviour
     baseAnim.SetTrigger("Attack");
   }
 
-  /**
-  * Flips the sprite horizontally for when the actor changes direction.
-  **/
-  public void FlipSprite(bool isFacingLeft) {
+    public virtual void Hurt(float dmg)
+    {
+
+    }
+
+    /**
+    * Flips the sprite horizontally for when the actor changes direction.
+    **/
+    public void FlipSprite(bool isFacingLeft) {
 
     if (isFacingLeft) {
 

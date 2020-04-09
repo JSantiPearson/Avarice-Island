@@ -34,17 +34,17 @@ public class feverHitboxes : MonoBehaviour
         //Check when there is a new collider coming into contact with the box
         foreach (Collider collider in hitColliders)
         {
-            Debug.Log("10000");
-
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
 
                 enemy.GetComponent<Enemy>().Hurt(damage);
+                enemy.GetComponent<HanLao>().Hurt(damage);
                 beenHit.Add(enemy);
-                if(Knockback)
+
+                if (Knockback)
                 {
-                    enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+                    //  enemy.GetComponent<Actor>().Launch(GameObject.Find("Player").transform.position);
 
                 }
             }

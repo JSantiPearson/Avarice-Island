@@ -17,25 +17,36 @@ public class Fever : MonoBehaviour
     public GameObject feverAOEPreFab;
     public Animator animator;
 
-    void Start(){
-      feverBar.fillAmount = 50f / 100;
-      tempColor.a = 0f;
-      alert.color = tempColor;
+    void Start()
+    {
+        feverBar.fillAmount = 50f / 100;
+        tempColor.a = 0f;
+        alert.color = tempColor;
     }
 
     // Update is called once per frame
     void Update()
     {
-      if (feverBar.fillAmount == 100f / 100)
-        cooldown = true;
-      else if (feverBar.fillAmount == 0)
-        cooldown = false;
-      feverBar.fillAmount -= 0.1f / 100;
+        if (feverBar.fillAmount >= 100f / 100)
+        {
+            //Debug.Log("FeverFill");
+
+            cooldown = true;
+        }
+        else if (feverBar.fillAmount == 0)
+        {
+          //  Debug.Log("FeverEmpty");
+            cooldown = false;
+        }
+
+        feverBar.fillAmount -= 0.1f / 100;
 
 
-      if (Input.GetKey(KeyCode.E) && !cooldown){
+        if (Input.GetKeyDown(KeyCode.E) && !cooldown)
+        {
+            Debug.Log(cooldown);
 
-            if(Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             {
                 FireProjectile();
                 feverBar.fillAmount += 15f / 100;
@@ -46,7 +57,7 @@ public class Fever : MonoBehaviour
                 feverBar.fillAmount += 15f / 100;
 
             }
-            if(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.UpArrow)))
+            if (!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.UpArrow)))
             {
                 feverAOE();
                 feverBar.fillAmount += 50f / 100;
@@ -57,24 +68,29 @@ public class Fever : MonoBehaviour
 
         }
 
-      if (cooldown && fadeIn){
-        tempColor.a += interval;
-        alert.color = tempColor;
-        if (tempColor.a >= 1f){
-          fadeIn = false;
+        if (cooldown && fadeIn)
+        {
+            tempColor.a += interval;
+            alert.color = tempColor;
+            if (tempColor.a >= 1f)
+            {
+                fadeIn = false;
+            }
         }
-      }
-      else if (cooldown && !fadeIn){
-        tempColor.a -= interval;
-        alert.color = tempColor;
-        if (tempColor.a <= 0f){
-          fadeIn = true;
+        else if (cooldown && !fadeIn)
+        {
+            tempColor.a -= interval;
+            alert.color = tempColor;
+            if (tempColor.a <= 0f)
+            {
+                fadeIn = true;
+            }
         }
-      }
-      else {
-        tempColor.a = 0f;
-        alert.color = tempColor;
-      }
+        else
+        {
+            tempColor.a = 0f;
+            alert.color = tempColor;
+        }
     }
 
     void FireProjectile()
@@ -85,13 +101,9 @@ public class Fever : MonoBehaviour
     void feverAOE()
     {
         animator.SetTrigger("FeverAOE");
-        //Debug.Log("fiejifjfiejfiejf");
-       // Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
     }
     void feverLightning()
     {
         animator.SetTrigger("FeverLightning");
-        //Debug.Log("fiejifjfiejfiejf");
-        //Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
     }
 }

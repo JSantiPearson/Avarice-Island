@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 8452970744103588086}
   - component: {fileID: 8452970744103588085}
   - component: {fileID: 8452970744103588084}
+  - component: {fileID: 8452970745325952670}
   m_Layer: 0
   m_Name: DashAttackHitbox
   m_TagString: Untagged
@@ -256,6 +257,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8452970745325952670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8452970744103588091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45483a15614fed84ab83d53e194eec71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  thisBox: {fileID: 8452970744103588091}
+  damage: 20
+  Knockback: 1
 --- !u!1 &8452970744152956154
 GameObject:
   m_ObjectHideFlags: 0
