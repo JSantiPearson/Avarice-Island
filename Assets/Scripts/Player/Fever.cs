@@ -29,6 +29,7 @@ public class Fever : MonoBehaviour
     {
         if (feverBar.fillAmount >= 100f / 100)
         {
+<<<<<<< HEAD
             //Debug.Log("FeverFill");
 
             cooldown = true;
@@ -47,6 +48,25 @@ public class Fever : MonoBehaviour
             Debug.Log(cooldown);
 
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+=======
+            Debug.Log("FeverFill");
+
+            cooldown = true;
+        }
+        else if (feverBar.fillAmount == 0)
+        {
+            Debug.Log("FeverEmpty");
+            cooldown = false;
+        }
+
+        feverBar.fillAmount -= 0.1f/100;
+
+
+      if (Input.GetKeyDown(KeyCode.E) && !cooldown){
+            Debug.Log(cooldown);
+
+            if (Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.LeftArrow))
+>>>>>>> 45369303495802248893efff9ce3688f439b99cf
             {
                 FireProjectile();
                 feverBar.fillAmount += 15f / 100;
@@ -57,7 +77,11 @@ public class Fever : MonoBehaviour
                 feverBar.fillAmount += 15f / 100;
 
             }
+<<<<<<< HEAD
             if (!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.UpArrow)))
+=======
+            if(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.UpArrow)))
+>>>>>>> 45369303495802248893efff9ce3688f439b99cf
             {
                 feverAOE();
                 feverBar.fillAmount += 50f / 100;

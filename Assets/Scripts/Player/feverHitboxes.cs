@@ -38,6 +38,7 @@ public class feverHitboxes : MonoBehaviour
             if (!beenHit.Contains(enemy))
             {
 
+<<<<<<< HEAD
                 enemy.GetComponent<Enemy>().Hurt(damage);
                 enemy.GetComponent<HanLao>().Hurt(damage);
                 beenHit.Add(enemy);
@@ -45,6 +46,14 @@ public class feverHitboxes : MonoBehaviour
                 if (Knockback)
                 {
                     //  enemy.GetComponent<Actor>().Launch(GameObject.Find("Player").transform.position);
+=======
+                enemy.GetComponent<Actor>().Hurt(damage);
+                beenHit.Add(enemy);
+
+                if(Knockback)
+                {
+                  //  enemy.GetComponent<Actor>().Launch(GameObject.Find("Player").transform.position);
+>>>>>>> 45369303495802248893efff9ce3688f439b99cf
 
                 }
             }
