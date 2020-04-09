@@ -9,8 +9,8 @@ public class RaveGirl : Enemy
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     float lastDistance;
-    float teleportDistance = 3;
-    float teleportThreshold = .03f;
+    float teleportDistance = 2;
+    float teleportThreshold = .05f;
     Vector3 playerPosition;
     protected bool isTeleporting;
     protected string TELEPORT_IN_ANIM;
@@ -41,6 +41,7 @@ public class RaveGirl : Enemy
         fleeHealth = 30;
         lastDistance = Vector3.Distance(body.position, playerPosition);
         cameraHalfWidth = Camera.main.GetComponent<CameraBounds>().cameraHalfWidth;
+        Debug.Log(cameraHalfWidth);
     }
 
     public override void Update()
@@ -141,7 +142,7 @@ public class RaveGirl : Enemy
       yield return new WaitForSeconds(0.5f);
       float teleportLocation;
       if (playerReference.GetComponent<Hero>().isFacingLeft){
-        if (playerPosition.x < leftCamBound + 3){
+        if (playerPosition.x < leftCamBound + 2){
           Debug.Log("Safe tele");
           teleportLocation = playerPosition.x + 1;
         }
@@ -151,7 +152,7 @@ public class RaveGirl : Enemy
         }
       }
       else {
-        if (playerPosition.x > rightCamBound - 3){
+        if (playerPosition.x > rightCamBound - 2){
           Debug.Log("Safe tele");
           teleportLocation = playerPosition.x - 1;
         }
