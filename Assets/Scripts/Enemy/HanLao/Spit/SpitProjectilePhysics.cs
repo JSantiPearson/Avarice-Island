@@ -57,9 +57,16 @@ public class SpitProjectilePhysics : MonoBehaviour
         //rb.setActive(false);
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision hitInfo)
     {
-
+        if (hitInfo.collider.tag == "Floor")
+        {
+            onGround = true;
+            baseAnim.SetBool("onGround", onGround);
+            //myCollider.SetActive(false);
+            //rb.setActive(false);
+            Destroy(gameObject);
+        }
     }
 
     /**
