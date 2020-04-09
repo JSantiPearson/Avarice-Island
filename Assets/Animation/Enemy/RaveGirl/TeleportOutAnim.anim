@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TeleportAnim
+  m_Name: TeleportOutAnim
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -25,16 +25,6 @@ AnimationClip:
       value: {fileID: 21300000, guid: e96111f562ce04cea8fef6cc44cbc5db, type: 3}
     - time: 0.16666667
       value: {fileID: 21300000, guid: c2e121b06c91949fd825010bfd03215f, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: e8a996a6cb4ba442ea5122de6dd00e48, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 87495601da73543998deb5041e0724a6, type: 3}
-    - time: 0.41666666
-      value: {fileID: 21300000, guid: 899842f18866a468c9942c3cf78094ce, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: 05e41b395882244e0a236d35ad4fed43, type: 3}
-    - time: 0.5833333
-      value: {fileID: 21300000, guid: b4a102ff5f1894924845bd7c8103208b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -57,17 +47,12 @@ AnimationClip:
     - {fileID: 21300000, guid: 49de2966ef15645e4af0d7a12493f14d, type: 3}
     - {fileID: 21300000, guid: e96111f562ce04cea8fef6cc44cbc5db, type: 3}
     - {fileID: 21300000, guid: c2e121b06c91949fd825010bfd03215f, type: 3}
-    - {fileID: 21300000, guid: e8a996a6cb4ba442ea5122de6dd00e48, type: 3}
-    - {fileID: 21300000, guid: 87495601da73543998deb5041e0724a6, type: 3}
-    - {fileID: 21300000, guid: 899842f18866a468c9942c3cf78094ce, type: 3}
-    - {fileID: 21300000, guid: 05e41b395882244e0a236d35ad4fed43, type: 3}
-    - {fileID: 21300000, guid: b4a102ff5f1894924845bd7c8103208b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666666
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

@@ -54,7 +54,6 @@ public class RaveBoy : Enemy
         float rand = Random.value;
         if (rand <= flashThreshold)
         {
-          Debug.Log("value: " + rand + ", threshold: " + flashThreshold);
           Flash();
         }
         else if (rand <= attackThreshold)
