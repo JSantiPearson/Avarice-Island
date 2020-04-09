@@ -19,7 +19,6 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
     }
     public void activateIsAttacking(int activate)
     {
-        Debug.Log(transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0));
         transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0);
     }
     public void activatePlayerDashAttack(int activate)

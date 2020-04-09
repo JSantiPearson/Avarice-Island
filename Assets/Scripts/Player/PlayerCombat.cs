@@ -155,10 +155,9 @@ public class PlayerCombat : MonoBehaviour
 
 
     }
-    public int isAttacking(bool isAttacking)
+    public void isAttacking(bool isAttacking)
     {
         inAttackAnim = isAttacking;
-        return 220;
     }
 
 

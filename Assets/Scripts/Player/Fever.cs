@@ -26,16 +26,25 @@ public class Fever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (feverBar.fillAmount == 100f / 100)
-        cooldown = true;
-      else if (feverBar.fillAmount == 0)
-        cooldown = false;
-      feverBar.fillAmount -= 0.1f / 100;
+        if (feverBar.fillAmount >= 100f / 100)
+        {
+            Debug.Log("FeverFill");
+
+            cooldown = true;
+        }
+        else if (feverBar.fillAmount == 0)
+        {
+            Debug.Log("FeverEmpty");
+            cooldown = false;
+        }
+
+        feverBar.fillAmount -= 0.1f/100;
 
 
-      if (Input.GetKey(KeyCode.E) && !cooldown){
+      if (Input.GetKeyDown(KeyCode.E) && !cooldown){
+            Debug.Log(cooldown);
 
-            if(Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.LeftArrow))
             {
                 FireProjectile();
                 feverBar.fillAmount += 15f / 100;
@@ -46,7 +55,7 @@ public class Fever : MonoBehaviour
                 feverBar.fillAmount += 15f / 100;
 
             }
-            if(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.UpArrow)))
+            if(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.UpArrow)))
             {
                 feverAOE();
                 feverBar.fillAmount += 50f / 100;
@@ -91,7 +100,5 @@ public class Fever : MonoBehaviour
     void feverLightning()
     {
         animator.SetTrigger("FeverLightning");
-        //Debug.Log("fiejifjfiejfiejf");
-        //Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
     }
 }

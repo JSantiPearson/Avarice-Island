@@ -40,11 +40,12 @@ public class feverHitboxes : MonoBehaviour
             if (!beenHit.Contains(enemy))
             {
 
-                enemy.GetComponent<Enemy>().Hurt(damage);
+                enemy.GetComponent<Actor>().Hurt(damage);
                 beenHit.Add(enemy);
+
                 if(Knockback)
                 {
-                    enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+                  //  enemy.GetComponent<Actor>().Launch(GameObject.Find("Player").transform.position);
 
                 }
             }

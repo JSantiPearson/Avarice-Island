@@ -19,7 +19,6 @@ public class FeverProjectilePhysics : MonoBehaviour
 
             rb.velocity = new Vector3(BulletSpeed, 0, 0);
 
-
     }
 
     void OnTriggerEnter(Collider hitInfo)

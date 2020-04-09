@@ -615,8 +615,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682502128}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.41787702, y: 0.03456961, z: -0.0006913695}
-  m_LocalScale: {x: 1.0245848, y: 0.28691524, z: 0.653111}
+  m_LocalPosition: {x: 0.3248, y: 0.03456961, z: -0.0006913695}
+  m_LocalScale: {x: 0.8384177, y: 0.28691524, z: 0.653111}
   m_Children: []
   m_Father: {fileID: 66640172}
   m_RootOrder: 1
@@ -719,6 +719,7 @@ GameObject:
   - component: {fileID: 1224494698}
   - component: {fileID: 1224494697}
   - component: {fileID: 1224494696}
+  - component: {fileID: 1224494700}
   m_Layer: 0
   m_Name: DashAttackHitbox
   m_TagString: Untagged
@@ -799,6 +800,24 @@ Transform:
   m_Father: {fileID: 66640172}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1224494700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224494695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45483a15614fed84ab83d53e194eec71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  thisBox: {fileID: 1224494695}
+  damage: 30
+  Knockback: 1
 --- !u!114 &1249070034 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3755170080577144552, guid: 3b8ad81643a188949b34078cf28632c9,
@@ -857,8 +876,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307411046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1461, z: -0}
-  m_LocalScale: {x: 1.8604689, y: 2.2880635, z: 1.6778549}
+  m_LocalPosition: {x: -0.0476, y: -0.0033, z: 0}
+  m_LocalScale: {x: 1.4448011, y: 1.9892424, z: 1.6778549}
   m_Children: []
   m_Father: {fileID: 66640172}
   m_RootOrder: 5
@@ -1538,6 +1557,7 @@ MonoBehaviour:
   - {fileID: 682502129}
   - {fileID: 1419960378}
   - {fileID: 1224494696}
+  inAttackAnim: 0
 --- !u!114 &1684210476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1611,7 +1631,17 @@ PrefabInstance:
         type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 66640174}
+    - target: {fileID: 3755170079793248274, guid: 3b8ad81643a188949b34078cf28632c9,
+        type: 3}
+      propertyPath: feverAOEPreFab
+      value: 
+      objectReference: {fileID: 1307411046}
+    - target: {fileID: 3755170079793248274, guid: 3b8ad81643a188949b34078cf28632c9,
+        type: 3}
+      propertyPath: feverLightningPreFab
+      value: 
+      objectReference: {fileID: 1477198368}
     - target: {fileID: 3755170079924625826, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_Name
