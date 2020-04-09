@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4448734794368405711}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 1, y: 0, z: -3}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: -1.9, y: 1.9, z: 1}
   m_Children:
   - {fileID: 4448734795906165581}
@@ -53,6 +53,7 @@ MonoBehaviour:
   speed: 2
   size: 1.5
   onGround: 0
+  preDialogueBufferDist: 2
   maxHealth: 100
   currentHealth: 0
   walkSpeed: 1.5
@@ -277,6 +278,7 @@ MonoBehaviour:
   speed: 2
   size: 1.5
   onGround: 0
+  preDialogueBufferDist: 2
   maxHealth: 100
   currentHealth: 0
   walkSpeed: 1.5

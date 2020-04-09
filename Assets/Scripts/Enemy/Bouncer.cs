@@ -37,7 +37,7 @@ public class Bouncer : Enemy
         targetPosition = new Vector3(body.position.x, startingPosition.y, startingPosition.z);
         startingPosition = targetPosition;
         playerReference = GameObject.Find("Player");
-        currentState = EnemyState.idle;
+        currentState = EnemyState.preDialogueIdle;
         currentHealth = maxHealth;
         isWaiting = true;
         fleeHealth = 30;
