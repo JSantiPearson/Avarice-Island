@@ -10,6 +10,7 @@ public class playerHitbox : MonoBehaviour
     public float damage;
     public HashSet<GameObject> beenHit = new HashSet<GameObject>();
 
+
     void Start()
     {
         //Use this to ensure that the Gizmos are being drawn when in Play Mode.

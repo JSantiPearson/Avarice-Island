@@ -58,6 +58,8 @@ public class Enemy : Actor
     protected float attackDistance = 1;
     protected int fleeHealth;
 
+    public GameObject hitEffectPrefab;
+
 
     public enum EnemyState
     {
@@ -440,6 +442,7 @@ public class Enemy : Actor
 
     public void Hurt(float damage)
     {
+        Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
 
         if (currentHealth <= 0) Die();
