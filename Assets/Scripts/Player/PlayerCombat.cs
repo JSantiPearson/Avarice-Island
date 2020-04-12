@@ -24,7 +24,6 @@ public class PlayerCombat : MonoBehaviour
     // Queue<bool> attackBuffer = new Queue<bool>();
 
     //hit effects
-    public GameObject hitEffectPrefab;
 
 
     void start()
@@ -91,7 +90,6 @@ public class PlayerCombat : MonoBehaviour
             if (bufferAttackCount > 1)
             {
                 animator.SetTrigger("Attack2");
-                Instantiate(hitEffectPrefab,enemy.transform.position,enemy.transform.rotation);
                 // Attack2(attackHitboxes[1]);
             }
         }
