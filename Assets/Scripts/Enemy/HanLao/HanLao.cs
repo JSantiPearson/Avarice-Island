@@ -10,6 +10,7 @@ public class HanLao : Actor
     public float maxHealth = 150;
     public float currentHealth;
     public int currentPhase;
+    public GameObject hitEffectPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class HanLao : Actor
     public void Hurt(float damage)
     {
         TakeDamage(damage);
+        Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         baseAnim.SetTrigger("hurt");
     }
 

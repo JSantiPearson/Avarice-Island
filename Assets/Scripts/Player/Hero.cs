@@ -220,8 +220,8 @@ public class Hero : Actor
     public void Die(){
         //deathDialogue.PlayDialogue(); //This is causing a freeze
         baseAnim.SetTrigger("Dead"); //maybe best to have these triggers have same name?
-        this.enabled = false;
         deathScreenAnim.SetTrigger("death");
+        this.enabled = false;
     }
 
     //public override void Attack()

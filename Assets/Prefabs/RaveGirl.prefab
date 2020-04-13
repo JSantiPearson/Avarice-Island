@@ -262,11 +262,14 @@ MonoBehaviour:
   speed: 2
   size: 1.5
   onGround: 0
+  preDialogueBufferDist: 1
   maxHealth: 100
   currentHealth: 100
   walkSpeed: 1.5
   runSpeed: 4
   startingPosition: {x: 12, y: 2.475173, z: 1}
   targetPosition: {x: 12, y: 2.5, z: 1}
+  hitEffectPrefab: {fileID: 6811703016688193411, guid: 042ee057e134dc54cb43a128c4c8c483,
+    type: 3}
   currentState: 0
   playerReference: {fileID: 0}
