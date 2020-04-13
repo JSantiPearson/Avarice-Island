@@ -15,10 +15,7 @@ GameObject:
   - component: {fileID: 8452970743776353712}
   - component: {fileID: 8452970743776353719}
   - component: {fileID: 8452970743776353713}
-  - component: {fileID: 1684210475}
-  - component: {fileID: 1684210476}
-  - component: {fileID: 1684210477}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -249,7 +246,7 @@ GameObject:
   - component: {fileID: 8452970744103588086}
   - component: {fileID: 8452970744103588085}
   - component: {fileID: 8452970744103588084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DashAttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +339,7 @@ GameObject:
   - component: {fileID: 8452970744152956149}
   - component: {fileID: 8452970744152956148}
   - component: {fileID: 8452970744152956144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FeverAOE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +450,7 @@ GameObject:
   - component: {fileID: 8452970744385658047}
   - component: {fileID: 8452970744385658046}
   - component: {fileID: 8452970744385658042}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FeverLightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8452970744397299859}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: firePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8452970744513664180}
   - component: {fileID: 8452970744513664181}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HeroSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +670,7 @@ GameObject:
   - component: {fileID: 8452970744577457824}
   - component: {fileID: 8452970744577457831}
   - component: {fileID: 8452970744577457830}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack2Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +762,7 @@ GameObject:
   - component: {fileID: 8452970744643729775}
   - component: {fileID: 8452970744643729774}
   - component: {fileID: 8452970744643729773}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack1n3Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8452970745004685474}
   - component: {fileID: 8452970745004685475}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShadowCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +934,7 @@ GameObject:
   - component: {fileID: 8452970745261508530}
   - component: {fileID: 8452970745261508529}
   - component: {fileID: 8452970745261508525}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

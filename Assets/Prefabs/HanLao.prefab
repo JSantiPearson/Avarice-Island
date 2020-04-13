@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1083201462111410186}
   - component: {fileID: 1083201462111410185}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: HanLao_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1083201462895113840}
   - component: {fileID: 1083201462895113846}
   - component: {fileID: 4721808638754297157}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: HanLao_Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1083201463325225858}
   - component: {fileID: 1083201463325225857}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: HanLao_AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 1083201463559581765}
   - component: {fileID: 567660292}
   - component: {fileID: 1449405596}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: HanLao
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1083201463625490992}
   - component: {fileID: 1083201463625490993}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: HanLao_ShadowCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 7041580704781870960}
   - component: {fileID: 5876381672560558314}
   - component: {fileID: 1564133699529646908}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: HanLao_GroundAttackSecondSwipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 3278928743531515710}
   - component: {fileID: 65173908900641034}
   - component: {fileID: 5209328631497339661}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: HanLao_GroundAttackFirstSwipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
