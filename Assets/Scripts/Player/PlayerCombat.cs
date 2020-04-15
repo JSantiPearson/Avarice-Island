@@ -23,6 +23,8 @@ public class PlayerCombat : MonoBehaviour
 
     // Queue<bool> attackBuffer = new Queue<bool>();
 
+    //hit effects
+
 
     void start()
     {

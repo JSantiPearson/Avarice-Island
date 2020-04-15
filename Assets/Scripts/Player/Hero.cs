@@ -214,13 +214,14 @@ public class Hero : Actor
     public void takeDamage(float damage)
     {
         currentHealth = (currentHealth - damage);
-        gameObject.GetComponent<Health>().health = (int) (currentHealth / (maxHealth / 5)); //Update the Health script and pips in the UI
+        gameObject.GetComponent<Health>().health = (int) Mathf.Ceil(currentHealth / (maxHealth / 5)); //Update the Health script and pips in the UI
     }
 
     public void Die(){
         //deathDialogue.PlayDialogue(); //This is causing a freeze
-        //baseAnim.
+        baseAnim.SetTrigger("Dead"); //maybe best to have these triggers have same name?
         deathScreenAnim.SetTrigger("death");
+        this.enabled = false;
     }
 
     //public override void Attack()

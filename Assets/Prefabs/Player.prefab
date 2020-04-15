@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8452970743776353712}
   - component: {fileID: 8452970743776353719}
   - component: {fileID: 8452970743776353713}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -64,6 +64,7 @@ MonoBehaviour:
   runSpeed: 5
   isRunning: 0
   canRun: 1
+  isFacingLeft: 0
   input: {fileID: 0}
   jumpForce: 1700
   deathDialogue: {fileID: 0}
@@ -144,6 +145,7 @@ MonoBehaviour:
   - {fileID: 8452970744577457830}
   - {fileID: 8452970744103588084}
   inAttackAnim: 0
+  hitEffectPrefab: {fileID: 0}
 --- !u!114 &8452970743776353713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +166,74 @@ MonoBehaviour:
   feverLightningPreFab: {fileID: 8452970744385658044}
   feverAOEPreFab: {fileID: 8452970744152956154}
   animator: {fileID: 8452970745261508530}
+--- !u!114 &1684210475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8452970743776353722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b108ca49cc89069488ef99e4861ce34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hero: {fileID: 8452970743776353718}
+  input: {fileID: 0}
+  isRunning: 0
+  animator: {fileID: 0}
+  attackRate: 2
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  attackHitboxes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inAttackAnim: 0
+  hitEffectPrefab: {fileID: 0}
+--- !u!114 &1684210476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8452970743776353722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f0b0dd9d72d40d188afc10a37eac51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  numOfPips: 5
+  pips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullPip: {fileID: 21300000, guid: c420655398dd1434181130702c1325a2, type: 3}
+  emptyPip: {fileID: 21300000, guid: 4e798b10ad563435bb9a3d58078fe01b, type: 3}
+--- !u!114 &1684210477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8452970743776353722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a182987a246403fb6174496c2b98cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feverBar: {fileID: 0}
+  alert: {fileID: 0}
+  firePoint: {fileID: 8452970744397299859}
+  feverProjectilePreFab: {fileID: 932761474171890994, guid: dc484f864acb38f449ba955a6e95f956,
+    type: 3}
+  feverLightningPreFab: {fileID: 0}
+  feverAOEPreFab: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &8452970744103588091
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +246,7 @@ GameObject:
   - component: {fileID: 8452970744103588086}
   - component: {fileID: 8452970744103588085}
   - component: {fileID: 8452970744103588084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DashAttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +339,7 @@ GameObject:
   - component: {fileID: 8452970744152956149}
   - component: {fileID: 8452970744152956148}
   - component: {fileID: 8452970744152956144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FeverAOE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +450,7 @@ GameObject:
   - component: {fileID: 8452970744385658047}
   - component: {fileID: 8452970744385658046}
   - component: {fileID: 8452970744385658042}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FeverLightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8452970744397299859}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: firePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8452970744513664180}
   - component: {fileID: 8452970744513664181}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HeroSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +670,7 @@ GameObject:
   - component: {fileID: 8452970744577457824}
   - component: {fileID: 8452970744577457831}
   - component: {fileID: 8452970744577457830}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack2Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +762,7 @@ GameObject:
   - component: {fileID: 8452970744643729775}
   - component: {fileID: 8452970744643729774}
   - component: {fileID: 8452970744643729773}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack1n3Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8452970745004685474}
   - component: {fileID: 8452970745004685475}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShadowCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,7 +934,7 @@ GameObject:
   - component: {fileID: 8452970745261508530}
   - component: {fileID: 8452970745261508529}
   - component: {fileID: 8452970745261508525}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,7 +1023,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.78, y: 0.63}
+  m_Size: {x: 0.8, y: 0.82}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

@@ -15,6 +15,8 @@ public class Enemy : Actor
     protected string HURT_GROUNDED_ANIM;
     protected string HURT_STANDING_ANIM;
 
+    public float preDialogueBufferDist = 1f;
+
     public int maxHealth = 100;
     public float currentHealth;
     public float walkSpeed = 1.5f;
@@ -56,10 +58,13 @@ public class Enemy : Actor
     protected float attackDistance = 1;
     protected int fleeHealth;
 
+    public GameObject hitEffectPrefab;
+
 
     public enum EnemyState
     {
         //noticed state? alternatively, "if state not approaching and approachable" case in state logic of update
+        preDialogueIdle, //only used when enemy should be idling before player reaches them
         idle,
         pacing,
         approaching,
@@ -84,7 +89,7 @@ public class Enemy : Actor
         targetPosition = new Vector3(body.position.x, startingPosition.y, startingPosition.z);
         startingPosition = targetPosition;
         playerReference = GameObject.Find("Player");
-        currentState = EnemyState.idle;
+        currentState = EnemyState.idle; //override this if preDialogueIdle needs to be used
         currentHealth = maxHealth;
         isWaiting = true;
         fleeHealth = 30;
@@ -98,6 +103,16 @@ public class Enemy : Actor
 
         Vector3 playerPosition = playerReference.transform.position;
         float currentDistance = Vector3.Distance(body.position, playerPosition);
+        float currentXDistance = Mathf.Abs(body.position.x - playerPosition.x); //need this for preDialogue checks
+
+        //remains fully idle until player reaches a certain point (should be equivalent to a dialogue point)
+        if(currentState == EnemyState.preDialogueIdle){
+            Stop();
+            if(currentXDistance<preDialogueBufferDist){
+                currentState = EnemyState.idle;
+            }
+            return;
+        }
 
         if (isWaiting)
         {
@@ -427,6 +442,7 @@ public class Enemy : Actor
 
     public void Hurt(float damage)
     {
+        Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
 
         if (currentHealth <= 0) Die();
