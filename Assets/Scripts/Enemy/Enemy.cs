@@ -452,7 +452,12 @@ public class Enemy : Actor
     {
         List<Actor> playerEngagements = playerReference.GetComponent<Hero>().engaged;
         playerEngagements.Remove(this);
-        GameObject.Destroy(transform.root.gameObject);
+        baseAnim.SetTrigger("Death");
+        //Stop();
+        //currentState = EnemyState.idle;
+        Destroy(body);
+        StartCoroutine(WaitAndDie(3));
+
     }
 
 
@@ -468,5 +473,10 @@ public class Enemy : Actor
         isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(STAND_ANIM);
         isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_GROUNDED_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_STANDING_ANIM);
+    }
+
+    IEnumerator WaitAndDie(float time){
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 }

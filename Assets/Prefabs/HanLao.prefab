@@ -335,6 +335,9 @@ MonoBehaviour:
   maxHealth: 150
   currentHealth: 0
   currentPhase: 0
+  hitEffectPrefab: {fileID: 6945868551980403083, guid: d94156061177f7e46b7e48a6ff5cb2cb,
+    type: 3}
+  killTest: 0
 --- !u!114 &1449405596
 MonoBehaviour:
   m_ObjectHideFlags: 0
