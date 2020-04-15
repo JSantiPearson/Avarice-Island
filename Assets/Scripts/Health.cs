@@ -11,8 +11,17 @@ public class Health : MonoBehaviour
 
   public Sprite fullPip, emptyPip;
 
-  void Update(){
+  public GameObject fullPipPrefab, emptyPipPrefab;
 
+  void Start(){
+    for(int i=0;i<numOfPips;i++){
+      Instantiate(emptyPipPrefab,transform);
+    }
+  }
+
+  void Update(){
+     //OLD VERSION, INTERACTS WITH ORIGINAL HEALTH BAR
+    /*
     if (health > numOfPips)
       health = numOfPips;
 
@@ -32,5 +41,8 @@ public class Health : MonoBehaviour
         pips[i].enabled = false;
       }
     }
+    */
+
+
   }
 }
