@@ -813,6 +813,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0876e3e62b29046e482ece6da8bdc7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1769549545
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Name
+      value: Blaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.2588191
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9659258
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957175831764348, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176034283284, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Name
+      value: Blaster_ShadowCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176267447973, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Name
+      value: Blaster_AttackCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176378792784, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176378792784, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176378792784, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957176378792790, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3e14dd52236072843865913a9d95e36d, type: 2}
+    - target: {fileID: 725957176378792791, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Name
+      value: Blaster_Animator
+      objectReference: {fileID: 0}
+    - target: {fileID: 725957177204438317, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Name
+      value: Blaster_Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239174979095160140, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+      propertyPath: m_Name
+      value: Blaster_punch_hitbox1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b32c0c3188e3d224c93af04e69d65201, type: 3}
 --- !u!1001 &1863270442
 PrefabInstance:
   m_ObjectHideFlags: 0
