@@ -5,7 +5,8 @@ using UnityEngine;
 public class NPCBehavior : MonoBehaviour
 {
     Hero script;
-    Vector3 transform;
+    Vector3 position;
+    Vector3 localScale;
     GameObject player;
     GameObject manager;
     Animator animator;
@@ -31,25 +32,34 @@ public class NPCBehavior : MonoBehaviour
       leftCamBound = camera.x - cameraHalfWidth;
       rightCamBound = camera.x + cameraHalfWidth;
 
-      transform = gameObject.transform.position;
+      position = gameObject.transform.position;
+      localScale = gameObject.transform.localScale;
       float playerX = player.transform.position.x;
       if (script.engaged.Count > 0 && locked){
-        if (transform.x < camera.x && transform.x > leftCamBound-1){
+        if (position.x < camera.x && position.x > leftCamBound-1){
+          if (localScale.x < 0){
+            localScale.x *= -1;
+            gameObject.transform.localScale = localScale;
+          }
           Debug.Log("Running away");
           animator.SetBool("Running", true);
-          transform.x -= 0.06f;
-          if (transform.x <= leftCamBound-1){
+          position.x -= 0.06f;
+          if (position.x <= leftCamBound-1){
             Destroy(gameObject);
           }
         }
-        else if(transform.x >= camera.x && transform.x < rightCamBound+1){
+        else if(position.x >= camera.x && position.x < rightCamBound+1){
+          if (localScale.x > 0){
+            localScale.x *= -1;
+            gameObject.transform.localScale = localScale;
+          }
           animator.SetBool("Running", true);
-          transform.x += 0.06f;
-          if (transform.x >= rightCamBound+1){
+          position.x += 0.06f;
+          if (position.x >= rightCamBound+1){
             Destroy(gameObject);
           }
         }
-        gameObject.transform.position = transform;
+        gameObject.transform.position = position;
       }
     }
 }
