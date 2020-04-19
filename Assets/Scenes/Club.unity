@@ -454,6 +454,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1164821333}
+    - target: {fileID: 1653132608, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653132609, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -222
+      objectReference: {fileID: 0}
     - target: {fileID: 1878999760, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -15.61908
