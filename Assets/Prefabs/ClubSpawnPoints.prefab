@@ -223,7 +223,7 @@ MonoBehaviour:
     type: 3}
   spawnLimit: 1
   spawnInterval: 1
-  spawnDistFromPlayer: 3
+  spawnDistFromPlayer: -3
   spawnLocation: {x: 0, y: 0, z: 0}
   playerLocation: {x: 0, y: 0, z: 0}
   spawnTriggered: 0

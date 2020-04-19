@@ -12,6 +12,8 @@ public class HanLao : Actor
     public int currentPhase;
     public GameObject hitEffectPrefab;
 
+    public bool killTest;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,13 @@ public class HanLao : Actor
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth <= 0)
+        /*if (currentHealth <= 0)
         {
             baseAnim.SetTrigger("defeated");
+        }*/
+        if(killTest){
+            Hurt(150);
+            killTest = false;
         }
         if (currentHealth <= (maxHealth / 2) && currentPhase == 1)
         {
@@ -35,6 +41,10 @@ public class HanLao : Actor
     public void TakeDamage(float damage)
     {
         currentHealth = currentHealth - damage;
+        if (currentHealth <= 0)
+        {
+            baseAnim.SetTrigger("defeated");
+        }
     }
 
     public void Hurt(float damage)
@@ -54,5 +64,15 @@ public class HanLao : Actor
             Hurt(15);
             Debug.Log("got hit by electroball");
         }*/
+    }
+
+    public void Die(){
+        StartCoroutine(WaitAndDie(1.5f));
+    }
+
+    IEnumerator WaitAndDie(float time){
+        yield return new WaitForSeconds(time);
+        Debug.Log("About to destroy han");
+        Destroy(gameObject);
     }
 }

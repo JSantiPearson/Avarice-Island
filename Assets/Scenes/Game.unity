@@ -848,6 +848,14 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 169339729, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 573888188}
+    - target: {fileID: 169339729, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReLoad
+      objectReference: {fileID: 0}
     - target: {fileID: 1392971845, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 4
@@ -871,6 +879,14 @@ PrefabInstance:
     - target: {fileID: 1392971845, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392971845, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 573888188}
+    - target: {fileID: 1392971845, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Load
       objectReference: {fileID: 0}
     - target: {fileID: 1559552626, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
       propertyPath: m_IsActive
