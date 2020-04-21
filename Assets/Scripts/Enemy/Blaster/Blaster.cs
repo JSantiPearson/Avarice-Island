@@ -28,7 +28,7 @@ public class Blaster : Enemy
         targetPosition = new Vector3(body.position.x, startingPosition.y, startingPosition.z);
         startingPosition = targetPosition;
         playerReference = GameObject.Find("Player");
-        currentState = EnemyState.idle;
+        currentState = EnemyState.approaching;
         currentHealth = maxHealth;
         isWaiting = true;
         fleeHealth = 30;
@@ -50,7 +50,7 @@ public class Blaster : Enemy
             Stop();
             if (currentXDistance < preDialogueBufferDist)
             {
-                currentState = EnemyState.idle;
+                currentState = EnemyState.approaching;
             }
             return;
         }
@@ -129,8 +129,24 @@ public class Blaster : Enemy
 
     }
 
+    public override void Idle()
+    {
+        currentState = EnemyState.approaching;
+    }
+
     public override void Approach()
     {
+        Vector3 playerPosition = playerReference.transform.position;
+        float targetX;
+        if(body.position.x > playerPosition.x)
+        {
+            targetX = playerPosition.x + 3;
+        }
+        else
+        {
+            targetX = playerPosition.x - 3;
+        }
+        targetPosition = new Vector3(targetX, playerPosition.y, playerPosition.z);
         currentDir = targetPosition - body.position;
         float currentDistance = currentDir.magnitude;
         currentDir.Normalize();

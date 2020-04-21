@@ -60,6 +60,7 @@ public class Enemy : Actor
     protected float walkDistance = 3.5f;
     protected float attackDistance = 1;
     protected int fleeHealth;
+    protected bool noticed = false;
 
     public GameObject hitEffectPrefab;
 

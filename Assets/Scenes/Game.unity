@@ -495,6 +495,46 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1863270442}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &797891568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 96733372261855030, guid: 7f48f087fe010ac47abbb78b4e9ab507,
+    type: 3}
+  m_PrefabInstance: {fileID: 811972061570784441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &797891569 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 96733372261855027, guid: 7f48f087fe010ac47abbb78b4e9ab507,
+    type: 3}
+  m_PrefabInstance: {fileID: 811972061570784441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &797891570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797891568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48960b027c953454481797d065bdab4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseAnim: {fileID: 1061297283}
+  body: {fileID: 797891569}
+  shadowSprite: {fileID: 1350695008}
+  speed: 2
+  size: 1.5
+  onGround: 0
+  preDialogueBufferDist: 1
+  maxHealth: 100
+  currentHealth: 0
+  walkSpeed: 1.5
+  runSpeed: 4
+  startingPosition: {x: 12, y: 2.475173, z: 1}
+  targetPosition: {x: 12, y: 2.5, z: 1}
+  hitEffectPrefab: {fileID: 0}
+  currentState: 0
+  playerReference: {fileID: 0}
 --- !u!114 &936744840 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1392971845, guid: 3b8ad81643a188949b34078cf28632c9,
@@ -537,6 +577,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1bd9a7614324df8aedef6f118e580f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1061297283 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 96733372809406726, guid: 7f48f087fe010ac47abbb78b4e9ab507,
+    type: 3}
+  m_PrefabInstance: {fileID: 811972061570784441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1224494695
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +699,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1350695008 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 96733372464086343, guid: 7f48f087fe010ac47abbb78b4e9ab507,
+    type: 3}
+  m_PrefabInstance: {fileID: 811972061570784441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1377957103 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3755170080870462187, guid: 3b8ad81643a188949b34078cf28632c9,
