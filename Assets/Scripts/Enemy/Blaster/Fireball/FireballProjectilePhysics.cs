@@ -10,6 +10,7 @@ public class FireballProjectilePhysics : MonoBehaviour
     //public Rigidbody rb;
     public int damage;
     bool onGround;
+    public float dieTime;
 
     public float size = 1.0f;
     protected Vector3 frontVector; //for determining direction the actor is facing
@@ -21,7 +22,12 @@ public class FireballProjectilePhysics : MonoBehaviour
 
     void Update()
     {
+        if (Time.time >= dieTime)
+        {
 
+            //baseAnim.SetTrigger("Hit");
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider hitInfo)
@@ -34,7 +40,6 @@ public class FireballProjectilePhysics : MonoBehaviour
             baseAnim.SetBool("onGround", onGround);
             //myCollider.SetActive(false);
             //rb.setActive(false);
-            Destroy(gameObject);
         }
         else if (hitInfo.tag == "Player")
         {
@@ -51,10 +56,10 @@ public class FireballProjectilePhysics : MonoBehaviour
             }
 
             Debug.Log("fireball hit" + player.name);
-            Destroy(gameObject);
         }
         //myCollider.SetActive(false);
         //rb.setActive(false);
+        baseAnim.SetTrigger("Hit");
         Destroy(gameObject);
     }
 

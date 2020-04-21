@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 8452970743776353712}
   - component: {fileID: 8452970743776353719}
   - component: {fileID: 8452970743776353713}
+  - component: {fileID: 1684210475}
+  - component: {fileID: 1684210476}
+  - component: {fileID: 1684210477}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -145,7 +148,6 @@ MonoBehaviour:
   - {fileID: 8452970744577457830}
   - {fileID: 8452970744103588084}
   inAttackAnim: 0
-  hitEffectPrefab: {fileID: 0}
 --- !u!114 &8452970743776353713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +193,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inAttackAnim: 0
-  hitEffectPrefab: {fileID: 0}
 --- !u!114 &1684210476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +249,7 @@ GameObject:
   - component: {fileID: 8452970744103588084}
   m_Layer: 10
   m_Name: DashAttackHitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,7 +342,7 @@ GameObject:
   - component: {fileID: 8452970744152956144}
   m_Layer: 10
   m_Name: FeverAOE
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -452,7 +453,7 @@ GameObject:
   - component: {fileID: 8452970744385658042}
   m_Layer: 10
   m_Name: FeverLightning
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -559,7 +560,7 @@ GameObject:
   - component: {fileID: 8452970744397299859}
   m_Layer: 10
   m_Name: firePoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -590,7 +591,7 @@ GameObject:
   - component: {fileID: 8452970744513664181}
   m_Layer: 10
   m_Name: HeroSprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -672,7 +673,7 @@ GameObject:
   - component: {fileID: 8452970744577457830}
   m_Layer: 10
   m_Name: Attack2Hitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -764,7 +765,7 @@ GameObject:
   - component: {fileID: 8452970744643729773}
   m_Layer: 10
   m_Name: Attack1n3Hitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -854,7 +855,7 @@ GameObject:
   - component: {fileID: 8452970745004685475}
   m_Layer: 10
   m_Name: ShadowCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -936,7 +937,7 @@ GameObject:
   - component: {fileID: 8452970745261508525}
   m_Layer: 10
   m_Name: PlayerAnimator
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

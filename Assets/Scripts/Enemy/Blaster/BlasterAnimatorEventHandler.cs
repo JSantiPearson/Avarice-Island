@@ -17,5 +17,6 @@ public class BlasterAnimatorEventHandler : MonoBehaviour
     {
         var fireball = Instantiate(fireballProjectile, fireballSpawnPoint.transform.position, transform.rotation);
         fireball.GetComponent<Rigidbody>().AddForce(fireballSpawnPoint.transform.up * fireballForce);
+        fireball.GetComponent<FireballProjectilePhysics>().dieTime = Time.time + 1.5f;
     }
 }

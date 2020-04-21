@@ -1429,7 +1429,8 @@ PrefabInstance:
         type: 3}
       propertyPath: fireballProjectile
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5719015877896851541, guid: dff61d42b22a24d4bad8f365c01c330a,
+        type: 3}
     - target: {fileID: 9053639687424981497, guid: 7f48f087fe010ac47abbb78b4e9ab507,
         type: 3}
       propertyPath: fireballSpawnPoint
@@ -1438,7 +1439,7 @@ PrefabInstance:
     - target: {fileID: 9053639687424981497, guid: 7f48f087fe010ac47abbb78b4e9ab507,
         type: 3}
       propertyPath: fireballForce
-      value: 1
+      value: 0.000025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f48f087fe010ac47abbb78b4e9ab507, type: 3}
