@@ -55,6 +55,7 @@ public class FireballProjectilePhysics : MonoBehaviour
         }
         //myCollider.SetActive(false);
         //rb.setActive(false);
+        Destroy(gameObject);
     }
 
     void OnCollisionEnter(Collision hitInfo)
