@@ -133,7 +133,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 96733372261855020}
-  - component: {fileID: 96733372261855021}
   - component: {fileID: 96733372261855026}
   - component: {fileID: 96733372261855027}
   m_Layer: 9
@@ -160,35 +159,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
---- !u!114 &96733372261855021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96733372261855030}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 046b919355af9ca48a2814761b7092e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseAnim: {fileID: 96733372809406726}
-  body: {fileID: 96733372261855027}
-  shadowSprite: {fileID: 96733372464086343}
-  speed: 2
-  size: 1.5
-  onGround: 0
-  preDialogueBufferDist: 1
-  maxHealth: 100
-  currentHealth: 0
-  walkSpeed: 1.5
-  runSpeed: 4
-  startingPosition: {x: 12, y: 2.475173, z: 1}
-  targetPosition: {x: 12, y: 2.5, z: 1}
-  hitEffectPrefab: {fileID: 2186167066489008872, guid: 82092519e983c6541a0f88eb4b1ea989,
-    type: 3}
-  currentState: 0
-  playerReference: {fileID: 0}
 --- !u!65 &96733372261855026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -309,7 +279,7 @@ GameObject:
   - component: {fileID: 96733372809406723}
   - component: {fileID: 96733372809406726}
   - component: {fileID: 96733372809406720}
-  - component: {fileID: 7685288902079922519}
+  - component: {fileID: 9053639687424981497}
   m_Layer: 9
   m_Name: Blaster_Animator
   m_TagString: Untagged
@@ -401,7 +371,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7685288902079922519
+--- !u!114 &9053639687424981497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,7 +380,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 96733372809406727}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9387548f3d074994eb096fbc26a1778f, type: 3}
+  m_Script: {fileID: 11500000, guid: 83d303f53b7836546a6f1797f2c3bd08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6760664862930900764
@@ -424,7 +394,7 @@ GameObject:
   - component: {fileID: 7379030740161695468}
   - component: {fileID: 8915130627043850205}
   - component: {fileID: 626719143298644730}
-  - component: {fileID: 9053229963545820431}
+  - component: {fileID: 928759624065929561}
   m_Layer: 9
   m_Name: Blaster_punch_hitbox1
   m_TagString: Untagged
@@ -440,8 +410,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6760664862930900764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.528, y: 0.019, z: 0}
-  m_LocalScale: {x: 0.28044972, y: 0.36343235, z: 0.360109}
+  m_LocalPosition: {x: 0.516, y: 0.012, z: -0}
+  m_LocalScale: {x: 0.25689194, y: 0.34998536, z: 0.360109}
   m_Children: []
   m_Father: {fileID: 96733372261855020}
   m_RootOrder: 2
@@ -492,7 +462,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &9053229963545820431
+--- !u!114 &928759624065929561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -10,6 +10,9 @@ public class Enemy : Actor
 
     protected string PUNCH_ANIM;
     protected string LAUNCH_ANIM;
+    protected string LAUNCH_RISE_ANIM;
+    protected string LAUNCH_FALL_ANIM;
+    protected string LAUNCH_LAND_ANIM;
     protected string GROUNDED_ANIM;
     protected string STAND_ANIM;
     protected string HURT_GROUNDED_ANIM;
@@ -72,7 +75,8 @@ public class Enemy : Actor
         fleeing,
         wandering,
         waiting,
-        teleporting //not sure if this state should exist in this context
+        teleporting, //not sure if this state should exist in this context. <-- I think it's fine (Ethan)
+        shooting
     }
 
     public DifficultyLevel? currentLevel = null;
@@ -229,7 +233,7 @@ public class Enemy : Actor
     /// State Methods
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void Idle()
+    public virtual void Idle()
     {
         //Idle anim? leg up on wall/kicking dirt/hand in pocket/smoking?
         Stop();
@@ -256,10 +260,10 @@ public class Enemy : Actor
         Walk();
     }
 
-    public void Approach()
+    public virtual void Approach()
     {
-        Vector3 playerPosition = playerReference.transform.position;
-        currentDir = playerPosition - body.position;
+        targetPosition = playerReference.transform.position;
+        currentDir = targetPosition - body.position;
         float currentDistance = currentDir.magnitude;
         currentDir.Normalize();
 
@@ -463,7 +467,10 @@ public class Enemy : Actor
     public virtual void CheckAnims()
     {
         isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM);
-        isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM);
+        isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_RISE_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_FALL_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_LAND_ANIM);
         isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GROUNDED_ANIM);
         isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(STAND_ANIM);
         isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_GROUNDED_ANIM) ||
