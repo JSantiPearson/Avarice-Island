@@ -13,8 +13,11 @@ public class Blaster : Enemy
     float shootThreshold = 0.2f;
     int directive; //to decide whether the blaster wants to position for shooting or punching
 
+    protected string SHOOT_ANIM = "Blaster_Blast";
+
     public void Start()
     {
+        
         PUNCH_ANIM = "Blaster_Punch1";
         LAUNCH_RISE_ANIM = "Blaster_Launch_Rise";
         LAUNCH_FALL_ANIM = "Blaster_Launch_Fall";
@@ -93,6 +96,10 @@ public class Blaster : Enemy
                     }
                 }
                 currentState = EnemyState.fleeing;
+            }
+            else
+            {
+                //currentState = EnemyState.approaching;
             }
         }
 
@@ -200,10 +207,13 @@ public class Blaster : Enemy
     public void Shoot()
     {
         Stop();
+        //face the player
+        Vector3 playerPosition = playerReference.transform.position;
+        FlipSprite(body.position.x > playerPosition.x);
+
         if (!isAttacking)
         {
-            Vector3 playerPosition = playerReference.transform.position;
-            if (InShootingRange(playerPosition, body.position) && Random.value <= shootThreshold)
+            if (InShootingRange(playerPosition, body.position))
             {
                 if (System.Math.Abs(playerPosition.x - body.position.x) >= minShootDist)
                 {
@@ -229,6 +239,20 @@ public class Blaster : Enemy
         float diffX = System.Math.Abs(target.x - position.x);
         float diffZ = System.Math.Abs(target.z - position.z);
 
-        return (diffX <= maxShootDist && diffZ <= 0.1);
+        return (diffX <= maxShootDist && diffZ <= 0.3);
+    }
+
+    public override void CheckAnims()
+    {
+        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(SHOOT_ANIM);
+        isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_RISE_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_FALL_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_LAND_ANIM);
+        isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GROUNDED_ANIM);
+        isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(STAND_ANIM);
+        isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_GROUNDED_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_STANDING_ANIM);
     }
 }

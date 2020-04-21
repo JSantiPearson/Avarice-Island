@@ -32,7 +32,14 @@ public class FireballProjectilePhysics : MonoBehaviour
 
     void OnTriggerEnter(Collider hitInfo)
     {
-        Debug.Log("fireball hit" + hitInfo.name);
+        
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+
+        Collider hitInfo = col.collider;
+        Debug.Log("fireball hit " + hitInfo.name);
         //if (hitInfo.GetComponent<Collider>().tag == "Floor")
         if (hitInfo.tag == "Floor")
         {
@@ -45,7 +52,7 @@ public class FireballProjectilePhysics : MonoBehaviour
         {
 
             //EnemyGrunt enemy = hitInfo.GetComponent<EnemyGrunt>();
-            Hero player = hitInfo.transform.parent.parent.gameObject.GetComponent<Hero>();
+            Hero player = hitInfo.gameObject.GetComponent<Hero>();
 
             if (player != null)
             {
@@ -60,19 +67,7 @@ public class FireballProjectilePhysics : MonoBehaviour
         //myCollider.SetActive(false);
         //rb.setActive(false);
         baseAnim.SetTrigger("Hit");
-        Destroy(gameObject);
-    }
-
-    void OnCollisionEnter(Collision hitInfo)
-    {
-        if (hitInfo.collider.tag == "Floor")
-        {
-            onGround = true;
-            baseAnim.SetBool("onGround", onGround);
-            //myCollider.SetActive(false);
-            //rb.setActive(false);
-            Destroy(gameObject);
-        }
+        //Destroy(gameObject);
     }
 
     /**
