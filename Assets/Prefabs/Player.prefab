@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 8452970743776353719}
   - component: {fileID: 8452970743776353713}
   - component: {fileID: 1684210475}
-  - component: {fileID: 1684210476}
   - component: {fileID: 1684210477}
   m_Layer: 10
   m_Name: Player
@@ -63,6 +62,7 @@ MonoBehaviour:
   engaged: []
   numEngagements: 2
   currentHealth: 0
+  currentLives: 0
   walkSpeed: 2
   runSpeed: 5
   isRunning: 0
@@ -115,6 +115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   numOfPips: 20
+  prevHealth: 0
+  regain: 0
   fullPips: []
   fullPip: {fileID: 21300000, guid: c420655398dd1434181130702c1325a2, type: 3}
   emptyPip: {fileID: 21300000, guid: 4e798b10ad563435bb9a3d58078fe01b, type: 3}
@@ -197,30 +199,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inAttackAnim: 0
---- !u!114 &1684210476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8452970743776353722}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8f0b0dd9d72d40d188afc10a37eac51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
-  numOfPips: 5
-  fullPips: []
-  fullPip: {fileID: 21300000, guid: c420655398dd1434181130702c1325a2, type: 3}
-  emptyPip: {fileID: 21300000, guid: 4e798b10ad563435bb9a3d58078fe01b, type: 3}
-  fullPipPrefab: {fileID: 0}
-  emptyPipPrefab: {fileID: 0}
-  healthBar: {fileID: 0}
-  emptyHealthSet: {fileID: 0}
-  fullHealthSet: {fileID: 0}
-  playerObject: {fileID: 0}
-  player: {fileID: 0}
 --- !u!114 &1684210477
 MonoBehaviour:
   m_ObjectHideFlags: 0
