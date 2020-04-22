@@ -1224,6 +1224,24 @@ PrefabInstance:
       objectReference: {fileID: 573888188}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
+--- !u!1 &1863270443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 59928707, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863270442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1863270444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1878999759, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863270442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1863270445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1653132608, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863270442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1926145231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1941,6 +1959,36 @@ PrefabInstance:
       propertyPath: pips.Array.data[4]
       value: 
       objectReference: {fileID: 1249070034}
+    - target: {fileID: 1684210476, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: fullPipPrefab
+      value: 
+      objectReference: {fileID: 7197418615088600027, guid: 9d4ca7d4c6de4fb45a5b48ab92dc747d,
+        type: 3}
+    - target: {fileID: 1684210476, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: emptyPipPrefab
+      value: 
+      objectReference: {fileID: 2234996079511514278, guid: 9892abdb6f580ac4eadfd04eda64475b,
+        type: 3}
+    - target: {fileID: 1684210476, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1863270445}
+    - target: {fileID: 1684210476, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: emptyHealthSet
+      value: 
+      objectReference: {fileID: 1863270444}
+    - target: {fileID: 1684210476, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: fullHealthSet
+      value: 
+      objectReference: {fileID: 1863270443}
+    - target: {fileID: 1684210476, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1684210470}
+    - target: {fileID: 1684210476, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1684210474}
     - target: {fileID: 1684210477, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
       propertyPath: feverBar
       value: 
@@ -1953,6 +2001,16 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 66640174}
+    - target: {fileID: 1684210477, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: feverAOEPreFab
+      value: 
+      objectReference: {fileID: 6019056073209926966, guid: 6bb5150f0ab2d324388ee0bf2184c2e5,
+        type: 3}
+    - target: {fileID: 1684210477, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: feverLightningPreFab
+      value: 
+      objectReference: {fileID: 6347328590250594609, guid: daeb53c3f4a93da4cb3af353d63fcdd9,
+        type: 3}
     - target: {fileID: 8452970743776353712, guid: 64a6fe08ff1f13642875947c988e6f65,
         type: 3}
       propertyPath: pips.Array.data[0]
@@ -1978,6 +2036,31 @@ PrefabInstance:
       propertyPath: pips.Array.data[4]
       value: 
       objectReference: {fileID: 1249070034}
+    - target: {fileID: 8452970743776353712, guid: 64a6fe08ff1f13642875947c988e6f65,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1863270445}
+    - target: {fileID: 8452970743776353712, guid: 64a6fe08ff1f13642875947c988e6f65,
+        type: 3}
+      propertyPath: emptyHealthSet
+      value: 
+      objectReference: {fileID: 1863270444}
+    - target: {fileID: 8452970743776353712, guid: 64a6fe08ff1f13642875947c988e6f65,
+        type: 3}
+      propertyPath: fullHealthSet
+      value: 
+      objectReference: {fileID: 1863270443}
+    - target: {fileID: 8452970743776353712, guid: 64a6fe08ff1f13642875947c988e6f65,
+        type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1684210470}
+    - target: {fileID: 8452970743776353712, guid: 64a6fe08ff1f13642875947c988e6f65,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1684210474}
     - target: {fileID: 8452970743776353713, guid: 64a6fe08ff1f13642875947c988e6f65,
         type: 3}
       propertyPath: feverBar
@@ -2053,5 +2136,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1684210475, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+    - {fileID: 1684210477, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+    - {fileID: 8452970743776353712, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}

@@ -227,6 +227,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 423056042}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &295087617 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8452970744643729773, guid: 64a6fe08ff1f13642875947c988e6f65,
+    type: 3}
+  m_PrefabInstance: {fileID: 423056042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &335230627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,6 +340,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1684210475, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 715101494}
+    - target: {fileID: 1684210475, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1379466500}
+    - target: {fileID: 1684210475, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: attackHitboxes.Array.data[0]
+      value: 
+      objectReference: {fileID: 295087617}
+    - target: {fileID: 1684210475, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: attackHitboxes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1167198633}
+    - target: {fileID: 1684210475, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
+      propertyPath: attackHitboxes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1043942759}
     - target: {fileID: 1684210476, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
       propertyPath: healthBar
       value: 
@@ -552,6 +578,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1bd9a7614324df8aedef6f118e580f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1043942759 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8452970744103588084, guid: 64a6fe08ff1f13642875947c988e6f65,
+    type: 3}
+  m_PrefabInstance: {fileID: 423056042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1070420053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -835,6 +867,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2960d78078d5a4c8a02cf2f9cbeb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1167198633 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8452970744577457830, guid: 64a6fe08ff1f13642875947c988e6f65,
+    type: 3}
+  m_PrefabInstance: {fileID: 423056042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1377789776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1878999759, guid: 3b8ad81643a188949b34078cf28632c9,
