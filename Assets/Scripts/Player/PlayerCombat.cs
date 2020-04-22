@@ -67,6 +67,11 @@ public class PlayerCombat : MonoBehaviour
         {
             enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
             enemy.GetComponent<EnemyGrunt>().Hurt(30);
+            enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
+            enemy.GetComponent<RaveBoy>().Hurt(30);
+            enemy.GetComponent<RaveGirl>().Launch(GameObject.Find("Player").transform.position);
+            enemy.GetComponent<RaveGirl>().Hurt(30);
+            
             Debug.Log("We Dash Attacked " + enemy.name);
 
             enemy.GetComponent<HanLao>().Hurt(15);
