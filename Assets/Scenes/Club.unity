@@ -242,6 +242,11 @@ PrefabInstance:
       propertyPath: dialogueAnim
       value: 
       objectReference: {fileID: 1951887707}
+    - target: {fileID: 2080717137, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
+      propertyPath: spawnPrefab
+      value: 
+      objectReference: {fileID: 4211829178027098480, guid: 2db58d65d27c37a4598f619d3cc471be,
+        type: 3}
     - target: {fileID: 6120865179932378490, guid: 599fc3e44461e7a4dba0265e24d07b0e,
         type: 3}
       propertyPath: m_Name
