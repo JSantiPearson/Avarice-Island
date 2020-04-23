@@ -62,7 +62,7 @@ public class Enemy : Actor
     protected int fleeHealth;
     protected bool noticed = false;
 
-    public GameObject hitEffectPrefab;
+    public GameObject hitEffectPrefab, ghostPrefab;
 
 
     public enum EnemyState
@@ -196,7 +196,6 @@ public class Enemy : Actor
     void FixedUpdate()
     {
         Vector3 moveVector = currentDir * speed;
-        //Debug.Log("Trying to move with currentDir: " + currentDir);
         body.MovePosition(transform.position + moveVector * Time.fixedDeltaTime);
         baseAnim.SetFloat("Speed", moveVector.magnitude);
 
@@ -242,7 +241,6 @@ public class Enemy : Actor
 
     public void Pace()
     {
-        Debug.Log("trying to pace");
         float positionX = body.position.x;
         float positionY = body.position.y;
 
@@ -453,18 +451,24 @@ public class Enemy : Actor
     {
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
-
-        if (currentHealth <= 0) Die();
+        if (currentHealth <= 0){
+            Die();
+        }
     }
 
     private void Die()//Method for dying?
     {
+        currentState = EnemyState.dead;
         List<Actor> playerEngagements = playerReference.GetComponent<Hero>().engaged;
         playerEngagements.Remove(this);
         baseAnim.SetTrigger("Death");
-        //Stop();
-        //currentState = EnemyState.idle;
+
+
+        //ghost
+        Instantiate(ghostPrefab,this.transform.position,this.transform.rotation);
+
         Destroy(body);
+        Destroy(this.GetComponent<BoxCollider>());
         StartCoroutine(WaitAndDie(3));
 
     }
