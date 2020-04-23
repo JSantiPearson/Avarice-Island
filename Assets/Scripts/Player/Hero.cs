@@ -232,6 +232,10 @@ public class Hero : Actor
         return isRunning;
     }
 
+    public void Launch(){
+      baseAnim.SetTrigger("Launch");
+    }
+
     //Not sure how Hunter wanted to do these but here is a quick and dirty version -Ethan
     public void hurt(int damage)
     {
