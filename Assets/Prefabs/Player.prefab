@@ -194,15 +194,15 @@ MonoBehaviour:
   hero: {fileID: 8452970743776353718}
   input: {fileID: 0}
   isRunning: 0
-  animator: {fileID: 0}
+  animator: {fileID: 8452970745261508530}
   attackRate: 2
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512
   attackHitboxes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8452970744643729773}
+  - {fileID: 8452970744577457830}
+  - {fileID: 8452970744103588084}
   inAttackAnim: 0
 --- !u!114 &1684210477
 MonoBehaviour:
@@ -221,9 +221,11 @@ MonoBehaviour:
   firePoint: {fileID: 8452970744397299859}
   feverProjectilePreFab: {fileID: 932761474171890994, guid: dc484f864acb38f449ba955a6e95f956,
     type: 3}
-  feverLightningPreFab: {fileID: 0}
-  feverAOEPreFab: {fileID: 0}
-  animator: {fileID: 0}
+  feverLightningPreFab: {fileID: 6347328590250594609, guid: daeb53c3f4a93da4cb3af353d63fcdd9,
+    type: 3}
+  feverAOEPreFab: {fileID: 6019056073209926966, guid: 6bb5150f0ab2d324388ee0bf2184c2e5,
+    type: 3}
+  animator: {fileID: 8452970745261508530}
 --- !u!1 &8452970744103588091
 GameObject:
   m_ObjectHideFlags: 0
