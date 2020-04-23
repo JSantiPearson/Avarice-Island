@@ -100,7 +100,7 @@ MonoBehaviour:
   maxVisibleX: 96
   minXValue: 6.5
   minYValue: 0
-  maxXValue: 90
+  maxXValue: 31
   maxYValue: 1.1
   cameraHalfWidth: 0
   cameraRoot: {fileID: 8649656564577461735}
