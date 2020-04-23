@@ -76,7 +76,7 @@ public class Enemy : Actor
         fleeing,
         wandering,
         waiting,
-        teleporting, //not sure if this state should exist in this context. <-- I think it's fine (Ethan)
+        teleporting,
         shooting
     }
 
