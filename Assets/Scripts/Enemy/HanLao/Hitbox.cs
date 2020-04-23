@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
+
+  public enum HitboxType
+  {
+    damage,
+    flash
+  }
+
     bool m_Started;
+    public HitboxType type;
     public LayerMask m_LayerMask;
     public GameObject thisBox;
     public float damage;
@@ -35,8 +43,14 @@ public class Hitbox : MonoBehaviour
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
+              if (type == HitboxType.damage){
                 enemy.GetComponent<Hero>().hurt(damage);
                 beenHit.Add(enemy);
+              }
+              else if (type == HitboxType.flash){
+                enemy.GetComponent<Hero>().stunned();
+                beenHit.Add(enemy);
+              }
             }
         }
     }

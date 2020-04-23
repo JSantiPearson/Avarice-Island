@@ -22,11 +22,12 @@ public class NPCBehavior : MonoBehaviour
       script = player.GetComponent<Hero>();
       animator = gameObject.GetComponent<Animator>();
       cameraHalfWidth = Camera.main.GetComponent<CameraBounds>().cameraHalfWidth;
-      Debug.Log(cameraHalfWidth);
     }
     // Update is called once per frame
     void Update()
     {
+      //this line throws an error because the manager has not been initialized yet.
+      // TODO: Should we implement a loading screen?
       bool locked = !manager.GetComponent<GameManager>().cameraFollows;
       camera = Camera.main.transform.position;
       leftCamBound = camera.x - cameraHalfWidth;
@@ -41,7 +42,6 @@ public class NPCBehavior : MonoBehaviour
             localScale.x *= -1;
             gameObject.transform.localScale = localScale;
           }
-          Debug.Log("Running away");
           animator.SetBool("Running", true);
           position.x -= 0.06f;
           if (position.x <= leftCamBound-1){

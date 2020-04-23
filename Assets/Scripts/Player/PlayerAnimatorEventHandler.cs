@@ -8,7 +8,6 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
 
     public void activateFeverAoe(int activate)
     {
-        //Debug.Log(transform.GetChild(5).GetComponent<feverHitboxes>().SetActive(activate != 0));
         transform.GetChild(5).GetComponent<feverHitboxes>().SetActive(activate != 0);
     }
 
@@ -19,7 +18,6 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
     }
     public void activateIsAttacking(int activate)
     {
-        Debug.Log(transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0));
         transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0);
     }
     public void activatePlayerDashAttack(int activate)

@@ -35,8 +35,6 @@ public class PlayerCombat : MonoBehaviour
     {
         if (!inAttackAnim)
         {
-            //Debug.Log("Time:"  + Time.time);
-            // Debug.Log("Next Attack Time:"  + nextAttackTime);
             if (Input.GetButtonDown("Attack"))
             {
                 if (hero.speed > 3)
@@ -64,17 +62,23 @@ public class PlayerCombat : MonoBehaviour
         Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
 
         foreach (Collider enemy in hitEnemies)
-        {
-            enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
-            enemy.GetComponent<EnemyGrunt>().Hurt(30);
-            enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
-            enemy.GetComponent<RaveBoy>().Hurt(30);
-            enemy.GetComponent<RaveGirl>().Launch(GameObject.Find("Player").transform.position);
-            enemy.GetComponent<RaveGirl>().Hurt(30);
-            
-            Debug.Log("We Dash Attacked " + enemy.name);
-
-            enemy.GetComponent<HanLao>().Hurt(15);
+        { //I suspect that "Attack Colliders" are useless because enemies already have rigid bodies. 
+            if (enemy.name == "RaveBoy(Clone)"){
+              Debug.Log("Hit " + enemy.name);
+              enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
+              enemy.GetComponent<RaveBoy>().Hurt(30);
+            }
+            else if (enemy.name == "EnemyGrunt(Clone)"){
+              enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
+              enemy.GetComponent<EnemyGrunt>().Hurt(30);
+            }
+            else if (enemy.name == "RaveGirl(Clone)"){
+              enemy.GetComponent<RaveGirl>().Launch(GameObject.Find("Player").transform.position);
+              enemy.GetComponent<RaveGirl>().Hurt(30);
+            }
+            else if (enemy.name == "HanLao(Clone)"){
+              enemy.GetComponent<HanLao>().Hurt(15);
+            }
 
         }
         bufferAttackCount = 0;
@@ -89,9 +93,8 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         {
-            Debug.Log(enemy.name);
             enemy.GetComponent<EnemyGrunt>().Hit(15);
-            Debug.Log("We Hit " + enemy.name);
+            enemy.GetComponent<RaveBoy>().Hurt(15);
             if (bufferAttackCount > 1)
             {
                 animator.SetTrigger("Attack2");
@@ -117,19 +120,15 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         {
-            Debug.Log(enemy.name);
             enemy.GetComponent<EnemyGrunt>().Hit(15);
-            Debug.Log("We Hit " + enemy.name);
             if (bufferAttackCount > 2)
             {
-                //  Debug.Log("Buffer Into Attack 3 " + bufferAttackCount);
                 animator.SetTrigger("Attack3");
                 // Attack3(attackHitboxes[0]); //standing attack 1 and 3
             }
         }
         if (bufferAttackCount > 2)
         {
-            //  Debug.Log("Buffer Into Attack 3 " + bufferAttackCount);
             animator.SetTrigger("Attack3");
             Attack3(attackHitboxes[0]); //standing attack 1 and 3
         }
@@ -152,11 +151,7 @@ public class PlayerCombat : MonoBehaviour
             enemy.GetComponent<EnemyGrunt>().Hurt(30);
 
 
-            Debug.Log("We Hit " + enemy.name);
-
         }
-        // Debug.Log("Buffer after Attack 3 " + bufferAttackCount);
-
         bufferAttackCount = 0;
 
 

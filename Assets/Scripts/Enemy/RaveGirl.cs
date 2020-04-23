@@ -41,7 +41,6 @@ public class RaveGirl : Enemy
         fleeHealth = 30;
         lastDistance = Vector3.Distance(body.position, playerPosition);
         cameraHalfWidth = Camera.main.GetComponent<CameraBounds>().cameraHalfWidth;
-        Debug.Log(cameraHalfWidth);
     }
 
     public override void Update()
@@ -143,21 +142,17 @@ public class RaveGirl : Enemy
       float teleportLocation;
       if (playerReference.GetComponent<Hero>().isFacingLeft){
         if (playerPosition.x < leftCamBound + 2){
-          Debug.Log("Safe tele");
           teleportLocation = playerPosition.x + 1;
         }
         else{
-          Debug.Log("Tele in front!");
           teleportLocation = playerPosition.x - 2;
         }
       }
       else {
         if (playerPosition.x > rightCamBound - 2){
-          Debug.Log("Safe tele");
           teleportLocation = playerPosition.x - 1;
         }
         else{
-          Debug.Log("Tele in front!");
           teleportLocation = playerPosition.x + 2;
         }
       }
