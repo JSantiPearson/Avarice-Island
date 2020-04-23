@@ -14,6 +14,8 @@ public class HanLao : Actor
 
     public bool killTest;
 
+    protected float launchForce = 250f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,19 @@ public class HanLao : Actor
         {
             baseAnim.SetTrigger("defeated");
         }
+    }
+
+    public void Launch(Vector3 attackerLocation)
+    {
+        baseAnim.SetTrigger("Launch");
+
+        Vector3 horizontalLaunchInfluence = body.position - attackerLocation;
+        horizontalLaunchInfluence.Normalize();
+        horizontalLaunchInfluence = horizontalLaunchInfluence * launchForce / 2;
+        body.AddForce(horizontalLaunchInfluence, ForceMode.Force);
+
+        Vector3 verticalLaunchInfluence = Vector3.up * launchForce;
+        body.AddForce(verticalLaunchInfluence, ForceMode.Force);
     }
 
     public void Hurt(float damage)
