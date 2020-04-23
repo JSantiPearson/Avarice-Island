@@ -595,10 +595,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 59928708, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -15.61908
-      objectReference: {fileID: 0}
     - target: {fileID: 169339729, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -607,23 +603,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1164821333}
-    - target: {fileID: 1653132608, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 1653132609, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -222
-      objectReference: {fileID: 0}
-    - target: {fileID: 1878999760, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -15.61908
-      objectReference: {fileID: 0}
-    - target: {fileID: 3755170079247315966, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3755170079428337694, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -634,11 +613,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 836542756}
-    - target: {fileID: 3755170079454119633, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3755170079480596983, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -789,16 +763,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3755170080061064982, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3755170080061064982, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBarOld
-      objectReference: {fileID: 0}
     - target: {fileID: 3755170080164681995, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -809,21 +773,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3755170080303451273, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3755170080412731756, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 836542756}
-    - target: {fileID: 3755170080577144558, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3755170080638370283, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -834,11 +788,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1164821333}
-    - target: {fileID: 3755170080944347488, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b8ad81643a188949b34078cf28632c9, type: 3}
 --- !u!1 &1077510631 stripped

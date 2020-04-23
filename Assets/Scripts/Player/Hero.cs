@@ -9,8 +9,9 @@ public class Hero : Actor
     private readonly object balanceLock = new object();
     public int numEngagements;
 
-    public const float maxHealth = 150;
+    public const float maxHealth = 150, maxLives = 3;
     public float currentHealth;
+    public float currentLives;
 
     public float walkSpeed = 2;
     public float runSpeed = 5;
@@ -49,6 +50,7 @@ public class Hero : Actor
     {
         engaged = new List<Actor>(numEngagements);
         currentHealth = maxHealth;
+        currentLives = maxLives;
         deathDialogue = gameObject.GetComponent<Dialogue>();
         deathScreenAnim = GameObject.Find("DeathScreen").GetComponent<Animator>();
     }
@@ -129,7 +131,14 @@ public class Hero : Actor
 
         //check for death
         if(currentHealth<=0){
-            Die();
+            if(currentLives<=1){
+                currentLives--;
+                Die();
+            } else {
+                currentLives--;
+                currentHealth = maxHealth;
+            }
+
         }
 
 
