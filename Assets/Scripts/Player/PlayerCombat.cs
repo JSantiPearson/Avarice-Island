@@ -71,7 +71,7 @@ public class PlayerCombat : MonoBehaviour
         Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
 
         foreach (Collider enemy in hitEnemies)
-        { //I suspect that "Attack Colliders" are useless because enemies already have rigid bodies. 
+        { //I suspect that "Attack Colliders" are useless because enemies already have rigid bodies.
             switch (enemy.name)
             {
                 case GRUNT:
