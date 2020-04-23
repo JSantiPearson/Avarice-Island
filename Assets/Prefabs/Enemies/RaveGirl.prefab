@@ -676,6 +676,7 @@ MonoBehaviour:
   targetPosition: {x: 12, y: 2.5, z: 1}
   hitEffectPrefab: {fileID: 6811703016688193411, guid: 042ee057e134dc54cb43a128c4c8c483,
     type: 3}
-  ghostPrefab: {fileID: 0}
+  ghostPrefab: {fileID: 9011967409894598465, guid: df180d73ad654bc4f93ca59e8a36f75b,
+    type: 3}
   currentState: 0
   playerReference: {fileID: 0}
