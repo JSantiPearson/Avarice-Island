@@ -101,6 +101,11 @@ public class RaveGirl : Enemy
             else currentState = EnemyState.idle;
         }
 
+        //reset the combo indicator if we interrupted attacking for any reason.
+        if (currentState != EnemyState.attacking)
+        {
+            lastAttack = LastAttack.none;
+        }
         //Act on the current state
         switch (currentState)
         {

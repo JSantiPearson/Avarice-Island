@@ -30,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
     private const string RAVE_GIRL = "RaveGirl(Clone)";
     private const string BOUNCER_REX = "BouncerRex(Clone)";
     private const string BOUNCER_BRAD = "BouncerBrad(Clone)";
-    private const string BLASTER = "Blaster";
+    private const string BLASTER = "Blaster(Clone)";
     private const string HAN_LAO = "HanLao(Clone)";
     private const string SHEN = "Shen(Clone)";
 
