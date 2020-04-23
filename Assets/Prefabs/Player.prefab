@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8452970743776353712}
   - component: {fileID: 8452970743776353719}
   - component: {fileID: 8452970743776353713}
-  - component: {fileID: 1684210475}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -126,11 +125,6 @@ MonoBehaviour:
     type: 3}
   fullHeartPrefab: {fileID: 7418671944345048252, guid: 30f77ca8655edaf42ad5f00955775461,
     type: 3}
-  healthBar: {fileID: 0}
-  emptyHealthSet: {fileID: 0}
-  fullHealthSet: {fileID: 0}
-  livesBar: {fileID: 0}
-  fullHeartSet: {fileID: 0}
   playerObject: {fileID: 8452970743776353722}
   player: {fileID: 8452970743776353718}
 --- !u!114 &8452970743776353719
@@ -178,31 +172,6 @@ MonoBehaviour:
   feverLightningPreFab: {fileID: 8452970744385658044}
   feverAOEPreFab: {fileID: 8452970744152956154}
   animator: {fileID: 8452970745261508530}
---- !u!114 &1684210475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8452970743776353722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b108ca49cc89069488ef99e4861ce34a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hero: {fileID: 8452970743776353718}
-  input: {fileID: 0}
-  isRunning: 0
-  animator: {fileID: 8452970745261508530}
-  attackRate: 2
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  attackHitboxes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  inAttackAnim: 0
 --- !u!1 &8452970744103588091
 GameObject:
   m_ObjectHideFlags: 0
