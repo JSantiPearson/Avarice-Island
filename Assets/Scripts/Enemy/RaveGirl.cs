@@ -134,6 +134,74 @@ public class RaveGirl : Enemy
         lastDistance = currentDistance;
     }
 
+    public virtual void Attack()
+    {
+        Stop();
+        float attackThreshold;
+
+        switch (currentLevel)
+        {
+            case DifficultyLevel.easy:
+                attackThreshold = .6f;
+                break;
+            case DifficultyLevel.medium:
+                attackThreshold = .8f;
+                break;
+            case DifficultyLevel.hard:
+                attackThreshold = .95f;
+                break;
+            default:
+                attackThreshold = .6f;
+                break;
+        }
+
+        if (Random.value <= attackThreshold)
+        {
+            if (lastAttack == LastAttack.punch3)
+            {
+                Kick();
+            }
+            else if (lastAttack == LastAttack.punch2)
+            {
+                Punch3();
+            }
+            else if (lastAttack == LastAttack.punch1)
+            {
+                Punch2();
+            }
+            else
+            {
+                Punch();
+            }
+        }
+        else
+        {
+            StopAndPause(attackingPauseTime);
+        }
+    }
+
+    public void Punch2()
+    {
+        //seperate methods for each possible attack and select randomly? How many attacks will grunts have?
+        Stop();
+        //face the player
+        Vector3 playerPosition = playerReference.transform.position;
+        FlipSprite(body.position.x > playerPosition.x);
+        baseAnim.SetTrigger("Punch2");
+        lastAttack = LastAttack.punch2;
+    }
+
+    public void Punch3()
+    {
+        //seperate methods for each possible attack and select randomly? How many attacks will grunts have?
+        Stop();
+        //face the player
+        Vector3 playerPosition = playerReference.transform.position;
+        FlipSprite(body.position.x > playerPosition.x);
+        baseAnim.SetTrigger("Punch3");
+        lastAttack = LastAttack.punch3;
+    }
+
     IEnumerator Teleport()
     {
       Stop();

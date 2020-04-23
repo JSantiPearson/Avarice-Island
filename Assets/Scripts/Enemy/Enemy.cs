@@ -85,6 +85,7 @@ public class Enemy : Actor
         none,
         punch1,
         punch2,
+        punch3,
         kick
     }
 
