@@ -72,22 +72,164 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         { //I suspect that "Attack Colliders" are useless because enemies already have rigid bodies. 
-            if (enemy.name == "RaveBoy(Clone)"){
-              Debug.Log("Hit " + enemy.name);
-              enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
-              enemy.GetComponent<RaveBoy>().Hurt(30);
+            switch (enemy.name)
+            {
+                case GRUNT:
+                    enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<EnemyGrunt>().Hurt(30);
+                    break;
+                case BLASTER:
+                    enemy.GetComponent<Blaster>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<Blaster>().Hurt(30);
+                    break;
+                case RAVE_BOY:
+                    enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    break;
+                case RAVE_GIRL:
+                    enemy.GetComponent<RaveGirl>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveGirl>().Hurt(30);
+                    break;
+                case BOUNCER_BRAD:
+                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    break;
+                case BOUNCER_REX:
+                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    break;
+                case HAN_LAO:
+                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                case SHEN:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                default:
+                    break;
             }
-            else if (enemy.name == "EnemyGrunt(Clone)"){
-              enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
-              enemy.GetComponent<EnemyGrunt>().Hurt(30);
+
+        }
+        bufferAttackCount = 0;
+    }
+
+    void Attack(Collider col)
+    {
+
+        animator.SetTrigger("Attack");
+
+        Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
+
+        foreach (Collider enemy in hitEnemies)
+        {
+            switch (enemy.name)
+            {
+                case GRUNT:
+                    enemy.GetComponent<EnemyGrunt>().Hurt(15);
+                    break;
+                case BLASTER:
+                    enemy.GetComponent<Blaster>().Hurt(15);
+                    break;
+                case RAVE_BOY:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case RAVE_GIRL:
+                    enemy.GetComponent<RaveGirl>().Hurt(15);
+                    break;
+                case BOUNCER_BRAD:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case BOUNCER_REX:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case HAN_LAO:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                case SHEN:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                default:
+                    break;
             }
-            else if (enemy.name == "RaveGirl(Clone)"){
-              enemy.GetComponent<RaveGirl>().Launch(GameObject.Find("Player").transform.position);
-              enemy.GetComponent<RaveGirl>().Hurt(30);
+            if (bufferAttackCount > 1)
+            {
+                animator.SetTrigger("Attack2");
+                // Attack2(attackHitboxes[1]);
             }
-            else if (enemy.name == "HanLao(Clone)"){
-              enemy.GetComponent<HanLao>().Hurt(15);
+        }
+
+        if (bufferAttackCount > 1)
+        {
+            animator.SetTrigger("Attack2");
+            Attack2(attackHitboxes[1]);
+        }
+        else
+        {
+            bufferAttackCount = 0;
+        }
+
+    }
+    void Attack2(Collider col)
+    {
+
+        Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
+
+        foreach (Collider enemy in hitEnemies)
+        {
+            switch (enemy.name)
+            {
+                case GRUNT:
+                    enemy.GetComponent<EnemyGrunt>().Hurt(15);
+                    break;
+                case BLASTER:
+                    enemy.GetComponent<Blaster>().Hurt(15);
+                    break;
+                case RAVE_BOY:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case RAVE_GIRL:
+                    enemy.GetComponent<RaveGirl>().Hurt(15);
+                    break;
+                case BOUNCER_BRAD:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case BOUNCER_REX:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case HAN_LAO:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                case SHEN:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                default:
+                    break;
             }
+            if (bufferAttackCount > 2)
+            {
+                animator.SetTrigger("Attack3");
+                // Attack3(attackHitboxes[0]); //standing attack 1 and 3
+            }
+        }
+        if (bufferAttackCount > 2)
+        {
+            animator.SetTrigger("Attack3");
+            Attack3(attackHitboxes[0]); //standing attack 1 and 3
+        }
+        bufferAttackCount = 0;
+
+
+    }
+    void Attack3(Collider col)
+    {
+
+        // bufferAttack = false;
+
+        Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
+
+        foreach (Collider enemy in hitEnemies)
+        {
+            //hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
 
             switch (enemy.name)
             {
@@ -116,6 +258,7 @@ public class PlayerCombat : MonoBehaviour
                     enemy.GetComponent<RaveBoy>().Hurt(30);
                     break;
                 case HAN_LAO:
+                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
                     enemy.GetComponent<HanLao>().Hurt(15);
                     break;
                 case SHEN:
@@ -124,76 +267,6 @@ public class PlayerCombat : MonoBehaviour
                 default:
                     break;
             }
-
-        }
-        bufferAttackCount = 0;
-    }
-
-    void Attack(Collider col)
-    {
-
-        animator.SetTrigger("Attack");
-
-        Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
-
-        foreach (Collider enemy in hitEnemies)
-        {
-            enemy.GetComponent<EnemyGrunt>().Hit(15);
-            enemy.GetComponent<RaveBoy>().Hurt(15);
-            if (bufferAttackCount > 1)
-            {
-                animator.SetTrigger("Attack2");
-                // Attack2(attackHitboxes[1]);
-            }
-        }
-
-        if (bufferAttackCount > 1)
-        {
-            animator.SetTrigger("Attack2");
-            Attack2(attackHitboxes[1]);
-        }
-        else
-        {
-            bufferAttackCount = 0;
-        }
-
-    }
-    void Attack2(Collider col)
-    {
-
-        Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
-
-        foreach (Collider enemy in hitEnemies)
-        {
-            enemy.GetComponent<EnemyGrunt>().Hit(15);
-            if (bufferAttackCount > 2)
-            {
-                animator.SetTrigger("Attack3");
-                // Attack3(attackHitboxes[0]); //standing attack 1 and 3
-            }
-        }
-        if (bufferAttackCount > 2)
-        {
-            animator.SetTrigger("Attack3");
-            Attack3(attackHitboxes[0]); //standing attack 1 and 3
-        }
-        bufferAttackCount = 0;
-
-
-    }
-    void Attack3(Collider col)
-    {
-
-        // bufferAttack = false;
-
-        Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
-
-        foreach (Collider enemy in hitEnemies)
-        {
-            hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
-
-            enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
-            enemy.GetComponent<EnemyGrunt>().Hurt(30);
 
 
         }
