@@ -102,6 +102,10 @@ public class Blaster : Enemy
                 //currentState = EnemyState.approaching;
             }
         }
+        else
+        {
+            currentState = EnemyState.idle;
+        }
 
         //Act on the current state
         switch (currentState)

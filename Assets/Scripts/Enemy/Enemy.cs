@@ -162,6 +162,10 @@ public class Enemy : Actor
             else if (currentDistance <= noticeDistance) currentState = EnemyState.approaching;
             else currentState = EnemyState.idle;
         }
+        else
+        {
+            currentState = EnemyState.idle;
+        }
 
         //Act on the current state
         switch (currentState)
