@@ -10,4 +10,9 @@ public class EnemyGruntAnimatorEventHandler : MonoBehaviour
         transform.parent.GetChild(2).GetComponent<Hitbox>().SetActive(activate != 0);
     }
 
+    public void activateHitBox2(int activate)
+    {
+        transform.parent.GetChild(3).GetComponent<Hitbox>().SetActive(activate != 0);
+    }
+
 }
