@@ -458,7 +458,7 @@ public class Enemy : Actor
 
     private void Die()//Method for dying?
     {
-        currentState = EnemyState.dead;
+        //currentState = EnemyState.dead;
         List<Actor> playerEngagements = playerReference.GetComponent<Hero>().engaged;
         playerEngagements.Remove(this);
         baseAnim.SetTrigger("Death");
