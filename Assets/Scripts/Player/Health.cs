@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
   //public Sprite fullPip, emptyPip;
 
   public GameObject fullPipPrefab, emptyPipPrefab, fullHeartPrefab;
-  public GameObject healthBar, emptyHealthSet, fullHealthSet, livesBar, fullHeartSet;
+  private GameObject healthBar, emptyHealthSet, fullHealthSet, livesBar, fullHeartSet;
 
   public GameObject playerObject;
   public Hero player;

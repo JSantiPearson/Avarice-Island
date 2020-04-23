@@ -58,12 +58,34 @@ public class RaveBoy : Enemy
         }
         else if (rand <= attackThreshold)
         {
-            Punch();
+            if (lastAttack == LastAttack.punch2)
+            {
+                Kick();
+            }
+            else if(lastAttack == LastAttack.punch1)
+            {
+                Punch2();
+            }
+            else
+            {
+                Punch();
+            }
         }
         else
         {
             StopAndPause(attackingPauseTime);
         }
+    }
+
+    public void Punch2()
+    {
+        //seperate methods for each possible attack and select randomly? How many attacks will grunts have?
+        Stop();
+        //face the player
+        Vector3 playerPosition = playerReference.transform.position;
+        FlipSprite(body.position.x > playerPosition.x);
+        baseAnim.SetTrigger("Punch2");
+        lastAttack = LastAttack.punch2;
     }
 
     public void Flash()

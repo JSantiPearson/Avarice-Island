@@ -25,6 +25,15 @@ public class PlayerCombat : MonoBehaviour
 
     //hit effects
 
+    private const string GRUNT = "EnemyGrunt(Clone)";
+    private const string RAVE_BOY = "RaveBoy(Clone)";
+    private const string RAVE_GIRL = "RaveGirl(Clone)";
+    private const string BOUNCER_REX = "BouncerRex(Clone)";
+    private const string BOUNCER_BRAD = "BouncerBrad(Clone)";
+    private const string BLASTER = "Blaster(Clone)";
+    private const string HAN_LAO = "HanLao(Clone)";
+    private const string SHEN = "Shen(Clone)";
+
 
     void start()
     {
@@ -63,21 +72,41 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         { //I suspect that "Attack Colliders" are useless because enemies already have rigid bodies. 
-            if (enemy.name == "RaveBoy(Clone)"){
-              Debug.Log("Hit " + enemy.name);
-              enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
-              enemy.GetComponent<RaveBoy>().Hurt(30);
-            }
-            else if (enemy.name == "EnemyGrunt(Clone)"){
-              enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
-              enemy.GetComponent<EnemyGrunt>().Hurt(30);
-            }
-            else if (enemy.name == "RaveGirl(Clone)"){
-              enemy.GetComponent<RaveGirl>().Launch(GameObject.Find("Player").transform.position);
-              enemy.GetComponent<RaveGirl>().Hurt(30);
-            }
-            else if (enemy.name == "HanLao(Clone)"){
-              enemy.GetComponent<HanLao>().Hurt(15);
+            switch (enemy.name)
+            {
+                case GRUNT:
+                    enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<EnemyGrunt>().Hurt(30);
+                    break;
+                case BLASTER:
+                    enemy.GetComponent<Blaster>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<Blaster>().Hurt(30);
+                    break;
+                case RAVE_BOY:
+                    enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    break;
+                case RAVE_GIRL:
+                    enemy.GetComponent<RaveGirl>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveGirl>().Hurt(30);
+                    break;
+                case BOUNCER_BRAD:
+                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    break;
+                case BOUNCER_REX:
+                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    break;
+                case HAN_LAO:
+                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                case SHEN:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                default:
+                    break;
             }
 
         }
@@ -93,8 +122,35 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         {
-            enemy.GetComponent<EnemyGrunt>().Hit(15);
-            enemy.GetComponent<RaveBoy>().Hurt(15);
+            switch (enemy.name)
+            {
+                case GRUNT:
+                    enemy.GetComponent<EnemyGrunt>().Hurt(15);
+                    break;
+                case BLASTER:
+                    enemy.GetComponent<Blaster>().Hurt(15);
+                    break;
+                case RAVE_BOY:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case RAVE_GIRL:
+                    enemy.GetComponent<RaveGirl>().Hurt(15);
+                    break;
+                case BOUNCER_BRAD:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case BOUNCER_REX:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case HAN_LAO:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                case SHEN:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                default:
+                    break;
+            }
             if (bufferAttackCount > 1)
             {
                 animator.SetTrigger("Attack2");
@@ -120,7 +176,35 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         {
-            enemy.GetComponent<EnemyGrunt>().Hit(15);
+            switch (enemy.name)
+            {
+                case GRUNT:
+                    enemy.GetComponent<EnemyGrunt>().Hurt(15);
+                    break;
+                case BLASTER:
+                    enemy.GetComponent<Blaster>().Hurt(15);
+                    break;
+                case RAVE_BOY:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case RAVE_GIRL:
+                    enemy.GetComponent<RaveGirl>().Hurt(15);
+                    break;
+                case BOUNCER_BRAD:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case BOUNCER_REX:
+                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    break;
+                case HAN_LAO:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                case SHEN:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                default:
+                    break;
+            }
             if (bufferAttackCount > 2)
             {
                 animator.SetTrigger("Attack3");
@@ -145,10 +229,44 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         {
-            hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
+            //hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, enemyLayers);
 
-            enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
-            enemy.GetComponent<EnemyGrunt>().Hurt(30);
+            switch (enemy.name)
+            {
+                case GRUNT:
+                    enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<EnemyGrunt>().Hurt(30);
+                    break;
+                case BLASTER:
+                    enemy.GetComponent<Blaster>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<Blaster>().Hurt(30);
+                    break;
+                case RAVE_BOY:
+                    enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    break;
+                case RAVE_GIRL:
+                    enemy.GetComponent<RaveGirl>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveGirl>().Hurt(30);
+                    break;
+                case BOUNCER_BRAD:
+                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    break;
+                case BOUNCER_REX:
+                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    break;
+                case HAN_LAO:
+                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                case SHEN:
+                    enemy.GetComponent<HanLao>().Hurt(15);
+                    break;
+                default:
+                    break;
+            }
 
 
         }

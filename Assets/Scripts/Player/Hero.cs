@@ -233,7 +233,7 @@ public class Hero : Actor
     }
 
     //Not sure how Hunter wanted to do these but here is a quick and dirty version -Ethan
-    public void hurt(float damage)
+    public void hurt(int damage)
     {
         takeDamage(damage);
         baseAnim.SetTrigger("Hurt");
@@ -245,7 +245,7 @@ public class Hero : Actor
       StartCoroutine(Freeze(1.2f));
     }
 
-    public void takeDamage(float damage)
+    public void takeDamage(int damage)
     {
         currentHealth = (currentHealth - damage);
         gameObject.GetComponent<Health>().health = (int) Mathf.Ceil(currentHealth / (maxHealth / 5)); //Update the Health script and pips in the UI

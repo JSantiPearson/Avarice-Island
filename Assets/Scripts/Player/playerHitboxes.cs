@@ -7,7 +7,7 @@ public class playerHitbox : MonoBehaviour
     bool m_Started;
     public LayerMask m_LayerMask;
     public GameObject thisBox;
-    public float damage;
+    public int damage;
     public HashSet<GameObject> beenHit = new HashSet<GameObject>();
 
 

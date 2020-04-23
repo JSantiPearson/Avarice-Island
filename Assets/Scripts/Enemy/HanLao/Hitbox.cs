@@ -15,7 +15,7 @@ public class Hitbox : MonoBehaviour
     public HitboxType type;
     public LayerMask m_LayerMask;
     public GameObject thisBox;
-    public float damage;
+    public int damage;
     public HashSet<GameObject> beenHit = new HashSet<GameObject>();
 
     void Start()

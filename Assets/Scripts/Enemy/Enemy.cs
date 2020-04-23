@@ -80,8 +80,18 @@ public class Enemy : Actor
         shooting
     }
 
+    protected enum LastAttack
+    {
+        none,
+        punch1,
+        punch2,
+        punch3,
+        kick
+    }
+
     public DifficultyLevel? currentLevel = null;
     public EnemyState currentState;
+    protected LastAttack lastAttack = LastAttack.none;
 
     public GameObject playerReference;
 
@@ -162,7 +172,16 @@ public class Enemy : Actor
             else if (currentDistance <= noticeDistance) currentState = EnemyState.approaching;
             else currentState = EnemyState.idle;
         }
+        else
+        {
+            currentState = EnemyState.idle;
+        }
 
+        //reset the combo indicator if we interrupted attacking for any reason.
+        if (currentState != EnemyState.attacking)
+        {
+            lastAttack = LastAttack.none;
+        }
         //Act on the current state
         switch (currentState)
         {
@@ -299,7 +318,14 @@ public class Enemy : Actor
 
         if (Random.value <= attackThreshold)
         {
-            Punch();
+            if(lastAttack == LastAttack.punch2)
+            {
+                Kick();
+            }
+            else
+            {
+                Punch();
+            }
         }
         else
         {
@@ -392,6 +418,23 @@ public class Enemy : Actor
         Vector3 playerPosition = playerReference.transform.position;
         FlipSprite(body.position.x > playerPosition.x);
         baseAnim.SetTrigger("Punch");
+        if(lastAttack == LastAttack.punch1)
+        {
+            lastAttack = LastAttack.punch2;
+        }
+        else
+        {
+            lastAttack = LastAttack.punch1;
+        }
+    }
+
+    public void Kick()
+    {
+        Stop();
+        Vector3 playerPosition = playerReference.transform.position;
+        FlipSprite(body.position.x > playerPosition.x);
+        baseAnim.SetTrigger("Kick");
+        lastAttack = LastAttack.kick;
     }
 
     public void Stop()
