@@ -116,17 +116,22 @@ MonoBehaviour:
   health: 20
   numOfPips: 20
   prevHealth: 0
+  lives: 0
+  maxLives: 0
   regain: 0
   fullPips: []
-  fullPip: {fileID: 21300000, guid: c420655398dd1434181130702c1325a2, type: 3}
-  emptyPip: {fileID: 21300000, guid: 4e798b10ad563435bb9a3d58078fe01b, type: 3}
+  fullLives: []
   fullPipPrefab: {fileID: 7197418615088600027, guid: 9d4ca7d4c6de4fb45a5b48ab92dc747d,
     type: 3}
   emptyPipPrefab: {fileID: 2234996079511514278, guid: 9892abdb6f580ac4eadfd04eda64475b,
     type: 3}
+  fullHeartPrefab: {fileID: 7418671944345048252, guid: 30f77ca8655edaf42ad5f00955775461,
+    type: 3}
   healthBar: {fileID: 0}
   emptyHealthSet: {fileID: 0}
   fullHealthSet: {fileID: 0}
+  livesBar: {fileID: 0}
+  fullHeartSet: {fileID: 0}
   playerObject: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &8452970743776353719
