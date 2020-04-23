@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 8452970743776353719}
   - component: {fileID: 8452970743776353713}
   - component: {fileID: 1684210475}
-  - component: {fileID: 1684210477}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -132,8 +131,8 @@ MonoBehaviour:
   fullHealthSet: {fileID: 0}
   livesBar: {fileID: 0}
   fullHeartSet: {fileID: 0}
-  playerObject: {fileID: 0}
-  player: {fileID: 0}
+  playerObject: {fileID: 8452970743776353722}
+  player: {fileID: 8452970743776353718}
 --- !u!114 &8452970743776353719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +193,7 @@ MonoBehaviour:
   hero: {fileID: 8452970743776353718}
   input: {fileID: 0}
   isRunning: 0
-  animator: {fileID: 0}
+  animator: {fileID: 8452970745261508530}
   attackRate: 2
   enemyLayers:
     serializedVersion: 2
@@ -204,26 +203,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inAttackAnim: 0
---- !u!114 &1684210477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8452970743776353722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a182987a246403fb6174496c2b98cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feverBar: {fileID: 0}
-  alert: {fileID: 0}
-  firePoint: {fileID: 8452970744397299859}
-  feverProjectilePreFab: {fileID: 932761474171890994, guid: dc484f864acb38f449ba955a6e95f956,
-    type: 3}
-  feverLightningPreFab: {fileID: 0}
-  feverAOEPreFab: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!1 &8452970744103588091
 GameObject:
   m_ObjectHideFlags: 0
