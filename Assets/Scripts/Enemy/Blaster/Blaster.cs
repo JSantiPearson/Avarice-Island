@@ -8,7 +8,7 @@ public class Blaster : Enemy
     /// CLASS VARIABLES
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    float minShootDist = 2f;
+    float minShootDist = 1f;
     float maxShootDist = 4f;
     float shootThreshold = 0.2f;
     int directive; //to decide whether the blaster wants to position for shooting or punching
@@ -63,7 +63,7 @@ public class Blaster : Enemy
             isWaiting = !playerReference.GetComponent<Hero>().Engage(this);
         }
 
-        if (paused >= 0)
+        if (paused > 0)
         {
             paused--;
         }
@@ -107,6 +107,11 @@ public class Blaster : Enemy
             currentState = EnemyState.idle;
         }
 
+        //reset the combo indicator if we interrupted attacking for any reason.
+        if (currentState != EnemyState.attacking)
+        {
+            lastAttack = LastAttack.none;
+        }
         //Act on the current state
         switch (currentState)
         {
@@ -142,7 +147,7 @@ public class Blaster : Enemy
 
     public override void Idle()
     {
-        currentState = EnemyState.approaching;
+        Stop();
     }
 
     public override void Approach()
@@ -200,7 +205,14 @@ public class Blaster : Enemy
         float rand = Random.value;
         if (rand <= attackThreshold)
         {
-            Punch();
+            if (lastAttack == LastAttack.punch2)
+            {
+                Kick();
+            }
+            else
+            {
+                Punch();
+            }
         }
         else
         {

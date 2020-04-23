@@ -601,8 +601,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 1024
   thisBox: {fileID: 6760664862930900764}
-  damage: 10
+  damage: 5

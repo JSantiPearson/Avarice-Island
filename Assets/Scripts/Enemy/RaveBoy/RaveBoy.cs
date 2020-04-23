@@ -58,7 +58,14 @@ public class RaveBoy : Enemy
         }
         else if (rand <= attackThreshold)
         {
-            Punch();
+            if (lastAttack == LastAttack.punch2)
+            {
+                Kick();
+            }
+            else
+            {
+                Punch();
+            }
         }
         else
         {
