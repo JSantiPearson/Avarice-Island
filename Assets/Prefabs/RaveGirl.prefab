@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7453650146322609819}
   - component: {fileID: 7453650146322609817}
   - component: {fileID: 7453650146322609818}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RaveGirlController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7453650147012834222}
   - component: {fileID: 7453650147012834221}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RaveGirlShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 7453650147743373943}
   - component: {fileID: 7453650147743374216}
   - component: {fileID: 7453650147743374218}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RaveGirl
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -20,6 +20,7 @@ public class Hero : Actor
     bool isMoving;
     float lastWalk;
     bool attack;
+    bool freeze = false;
 
     public bool canRun = true;
     float tapAgainToRunTime = 0.4f;
@@ -66,9 +67,17 @@ public class Hero : Actor
 
         float h = input.GetHorizontalAxis();
         float v = input.GetVerticalAxis();
-        bool jump = input.GetJumpButtonDown();
-        attack = input.GetAttackButtonDown();
-        bool FeverAttack = input.GetFeverAttackButtonDown();
+        bool jump = false;
+        bool FeverAttack = false;
+        if (freeze){
+          h = 0;
+          v = 0;
+        }
+        else {
+          jump = input.GetJumpButtonDown();
+          attack = input.GetAttackButtonDown();
+          FeverAttack = input.GetFeverAttackButtonDown();
+        }
 
         currentDir = new Vector3(h, 0, v);
         currentDir.Normalize();
@@ -143,6 +152,15 @@ public class Hero : Actor
         baseAnim.SetBool("IsRunning", isRunning);
     }
 
+    public IEnumerator Freeze(float time){
+      Debug.Log("Freeze Start");
+      Stop();
+      freeze = true;
+      yield return new WaitForSeconds(time);
+      Debug.Log("Freeze Stop");
+      freeze = false;
+    }
+
     public void Walk()
     {
         speed = walkSpeed;
@@ -155,22 +173,27 @@ public class Hero : Actor
     void FixedUpdate()
     {
         Vector3 moveVector = currentDir * speed;
-        if (onGround && !isAttackingAnim)
-        {
-            body.MovePosition(transform.position + moveVector * Time.fixedDeltaTime);
-            baseAnim.SetFloat("Speed", moveVector.magnitude);
+        if (freeze){
+
         }
+        else {
+          if (onGround && !isAttackingAnim)
+          {
+              body.MovePosition(transform.position + moveVector * Time.fixedDeltaTime);
+              baseAnim.SetFloat("Speed", moveVector.magnitude);
+          }
 
-        if (moveVector != Vector3.zero)
-        {
-            if (moveVector.x != 0)
-            {
-                //transform.Rotate(0f, 180f, 0f);
+          if (moveVector != Vector3.zero)
+          {
+              if (moveVector.x != 0)
+              {
+                  //transform.Rotate(0f, 180f, 0f);
 
-                isFacingLeft = moveVector.x < 0;
-            }
+                  isFacingLeft = moveVector.x < 0;
+              }
 
-            FlipSprite(isFacingLeft);
+              FlipSprite(isFacingLeft);
+          }
         }
     }
 
@@ -218,6 +241,8 @@ public class Hero : Actor
 
     public void stunned(){
       baseAnim.SetTrigger("Flashed");
+      Debug.Log("Freeze function should activate");
+      StartCoroutine(Freeze(1.2f));
     }
 
     public void takeDamage(float damage)
@@ -232,16 +257,6 @@ public class Hero : Actor
         deathScreenAnim.SetTrigger("death");
         this.enabled = false;
     }
-
-    //public override void Attack()
-    //{
-
-
-        //baseAnim.SetBool("attack", attack);
-        //lastAttackTime = Time.time;
-       // attack = false;
-     //   baseAnim.SetBool("atatck", attack);
-   // }
 
     public bool Engage(Actor enemy)
     {
