@@ -653,6 +653,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8649656563482976998, guid: efcc4629498b60546972d8d3ecd6eb73,
+        type: 3}
+      propertyPath: maxXValue
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 8649656564577461734, guid: efcc4629498b60546972d8d3ecd6eb73,
         type: 3}
       propertyPath: actor

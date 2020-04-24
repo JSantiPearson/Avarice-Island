@@ -7,8 +7,9 @@ public class Hitbox : MonoBehaviour
 
   public enum HitboxType
   {
-    damage,
-    flash
+    light,
+    flash,
+    heavy
   }
 
     bool m_Started;
@@ -43,12 +44,17 @@ public class Hitbox : MonoBehaviour
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
-              if (type == HitboxType.damage){
+              if (type == HitboxType.light){
                 enemy.GetComponent<Hero>().hurt(damage);
                 beenHit.Add(enemy);
               }
               else if (type == HitboxType.flash){
                 enemy.GetComponent<Hero>().stunned();
+                beenHit.Add(enemy);
+              }
+              else if (type == HitboxType.heavy){
+                enemy.GetComponent<Hero>().hurt(damage);
+                enemy.GetComponent<Hero>().Launch();
                 beenHit.Add(enemy);
               }
             }
