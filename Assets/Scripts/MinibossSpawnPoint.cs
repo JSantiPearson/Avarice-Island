@@ -40,6 +40,8 @@ public class MinibossSpawnPoint : MonoBehaviour
         //objects
         player = GameObject.Find("Player");
         gameManager = GameObject.Find("MyGameManager").GetComponent<GameManager>();
+
+        //dialogue
         entranceDialogue = gameObject.GetComponent<Dialogue>();
         //locations
         spawnLocation = gameObject.transform.position;

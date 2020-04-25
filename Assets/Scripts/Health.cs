@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-  public int health, numOfPips, prevHealth; //pip behavior will be automatically scaled
+  public int numOfPips, prevHealth; //pip behavior will be automatically scaled
+  public int health; 
   public int lives, maxLives;
   public bool regain;
 
@@ -14,13 +15,30 @@ public class Health : MonoBehaviour
   //public Sprite fullPip, emptyPip;
 
   public GameObject fullPipPrefab, emptyPipPrefab, fullHeartPrefab;
-  private GameObject healthBar, emptyHealthSet, fullHealthSet, livesBar, fullHeartSet;
+  public GameObject healthBar, emptyHealthSet, fullHealthSet, livesBar, fullHeartSet;
 
   public GameObject playerObject;
   public Hero player;
 
   //reusable anim variable used in update 
   private Animator currPipAnimator;
+
+  //private static Health instance = null;
+    /*
+  void Awake()
+      {
+    //Health Persists across scenes
+
+    if (instance != null)
+    {
+      Destroy(gameObject);
+    }
+    else
+    {
+      instance = this;
+      //DontDestroyOnLoad(gameObject);
+    }
+  }*/
 
 
   void Start(){

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hero : Actor
 {
@@ -46,6 +47,59 @@ public class Hero : Actor
     public Dialogue deathDialogue;
     public Animator deathScreenAnim;
 
+    public Vector3 startingCoords;
+
+    private static Hero instance;
+
+        /*
+    public static Hero Instance{
+        get{
+            if(instance == null){
+                instance = GameObject.FindObjectOfType<Hero>();
+            }
+        return instance;
+
+        }
+    }*/
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        //this.body.MovePosition(startingCoords);
+        //GetComponent<Rigidbody>().MovePosition(startingCoords);
+        //input = GameObject.Find("MyGameManager").GetComponent<InputHandler>();
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
+    }
+
+    
+    void Awake() {
+    //Hero Script Persists across scenes
+        startingCoords = this.transform.position;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        if (instance != null)
+        {
+            //instance.gameObject.GetComponent<Rigidbody>().MovePosition(instance.startingCoords); //move the other object to the right place?
+            instance.ResetCoords();
+            //Destroy(gameObject);
+            //assign health vaalues to new object
+           // this.currentHealth = instance.currentHealth;
+            //this.currentLives = instance.currentLives;
+            //kill old object
+            //GameObject oldObject = instance.gameObject;
+            Destroy(gameObject);
+            //instance = this;
+           //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        
+    }
+
     public void Start()
     {
         engaged = new List<Actor>(numEngagements);
@@ -58,6 +112,7 @@ public class Hero : Actor
     public override void Update()
     {
         base.Update();
+
 
         isAttackingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack");
         isJumpLandAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpLand");
@@ -273,5 +328,11 @@ public class Hero : Actor
             }
             return false;
         }
+    }
+
+    public void ResetCoords(){
+        Debug.Log("trying to reset player coords");
+        transform.position = startingCoords;
+        body.MovePosition(startingCoords);
     }
 }

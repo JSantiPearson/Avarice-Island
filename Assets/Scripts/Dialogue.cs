@@ -19,6 +19,7 @@ public class Dialogue : MonoBehaviour
     private bool cursorOn;
     private char[] cursorChars = {'(','z',')'};
     private bool indexUpdated;
+ 
 
 	void Start(){
 		//find the pauseGame component
@@ -27,6 +28,8 @@ public class Dialogue : MonoBehaviour
         cursorOn = false; //used for flashing cursor in dialogue bar.
 		pausedForDialogue = false;
         timeElapsed=0; 
+
+       //playsAfterPan = false; //default should be false. change this within a spawn point script
 
         //fill in dialogue-related objects
 		pauseGame =  GameObject.Find("MyGameManager").GetComponent(typeof(PauseGame)) as PauseGame;
@@ -123,6 +126,12 @@ public class Dialogue : MonoBehaviour
     	pauseGame.UnpauseWithoutMenu();
     	//dialogueBar.SetActive(false); 
         dialogueAnim.SetTrigger("hide");   
+    }
+
+    private void ImmediatePause(){
+        pausedForDialogue = true; //fix for bug after miniboss death
+        dialogueAnim.ResetTrigger("popup");
+        pauseGame.PauseWithoutMenu();
     }
 
     IEnumerator WaitAndPause(float time){
