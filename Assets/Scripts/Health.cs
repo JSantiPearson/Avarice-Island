@@ -99,7 +99,7 @@ public class Health : MonoBehaviour
       regain = true;
     }
 
-    //remove and/or fill pips based on health
+    //remove and/or fill pips based on health///////////////////////////////////////////////////
     for(int i=0; i<numOfPips;i++){
 
       currPipAnimator = fullPips[i].GetComponent<Animator>(); 
@@ -119,12 +119,12 @@ public class Health : MonoBehaviour
       regain = false;
     }
 
-    //remove lives 
+    //remove lives /////////////////////////////////////////////////////////////////////
     int numLivesActive = (int)player.currentLives;
 
     for(int i=0; i<maxLives; i++){
       if(i<numLivesActive){
-        //implement life regain here
+        fullLives[i].SetActive(true);
       } else {
         fullLives[i].SetActive(false);
       }

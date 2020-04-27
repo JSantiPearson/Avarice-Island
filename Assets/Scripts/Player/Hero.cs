@@ -46,8 +46,11 @@ public class Hero : Actor
     //for player death
     public Dialogue deathDialogue;
     public Animator deathScreenAnim;
+    private bool needsRevive;
 
     public Vector3 startingCoords;
+
+    private Scene lastScene;
 
     private static Hero instance;
 
@@ -64,11 +67,16 @@ public class Hero : Actor
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //this.body.MovePosition(startingCoords);
-        //GetComponent<Rigidbody>().MovePosition(startingCoords);
-        //input = GameObject.Find("MyGameManager").GetComponent<InputHandler>();
-        Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
+        
+        //Upkeep after player death
+        this.enabled = true;
+        ResetHealth();
+        if(needsRevive){
+            baseAnim.SetTrigger("Revive");
+            needsRevive = false;
+        }
+        deathScreenAnim.SetTrigger("reset");
+        
     }
 
     
@@ -107,6 +115,7 @@ public class Hero : Actor
         currentLives = maxLives;
         deathDialogue = gameObject.GetComponent<Dialogue>();
         deathScreenAnim = GameObject.Find("DeathScreen").GetComponent<Animator>();
+        needsRevive = false;
     }
 
     public override void Update()
@@ -314,6 +323,7 @@ public class Hero : Actor
         //deathDialogue.PlayDialogue(); //This is causing a freeze
         baseAnim.SetTrigger("Dead"); //maybe best to have these triggers have same name?
         deathScreenAnim.SetTrigger("death");
+        needsRevive = true;
         this.enabled = false;
     }
 
@@ -334,5 +344,10 @@ public class Hero : Actor
         Debug.Log("trying to reset player coords");
         transform.position = startingCoords;
         body.MovePosition(startingCoords);
+    }
+
+    public void ResetHealth(){
+        currentHealth = maxHealth;
+        currentLives = maxLives;
     }
 }

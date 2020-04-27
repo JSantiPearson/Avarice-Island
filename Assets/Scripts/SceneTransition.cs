@@ -6,9 +6,37 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
 
-  	public Animator transitionAnimation; //need this when we implement fades
+  	public Animator transitionAnimation; 
+    private static SceneTransition instance;
 	//public string sceneName;
 
+    void Awake() {
+    //Hero Script Persists across scenes
+        //startingCoords = this.transform.position;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
+
+        if (instance != null)
+        {
+            //instance.gameObject.GetComponent<Rigidbody>().MovePosition(instance.startingCoords); //move the other object to the right place?
+            //instance.ResetCoords();
+            //Destroy(gameObject);
+            //assign health vaalues to new object
+           // this.currentHealth = instance.currentHealth;
+            //this.currentLives = instance.currentLives;
+            //kill old object
+            //GameObject oldObject = instance.gameObject;
+            Destroy(gameObject);
+            //instance = this;
+           //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -35,7 +63,8 @@ public class SceneTransition : MonoBehaviour
 		}
 		//trigger a fadeout
 		transitionAnimation.SetTrigger("fadeout");
-      	yield return new WaitForSeconds(0.8f);
-      	SceneManager.LoadScene(sceneName);
+    yield return new WaitForSeconds(0.8f);
+    transitionAnimation.ResetTrigger("fadeout");
+    SceneManager.LoadScene(sceneName);
     }
 }

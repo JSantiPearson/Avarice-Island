@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
   //TODO: Refactor Camera Stuff? or just rename this file and refactor noncamera stuff. 
@@ -29,10 +30,18 @@ public class GameManager : MonoBehaviour {
   public float timeElapsed=0;
   */
 
+  void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SetScreenColliders(false);
+        ResetCamera();
+
+    }
+
+
   void Awake() {
     //Hero Script Persists across scenes
         //startingCoords = this.transform.position;
-        //SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
         if (instance != null)
         {
@@ -118,6 +127,12 @@ public class GameManager : MonoBehaviour {
   public void SetScreenColliders(bool active){
     leftScreenCollider.SetActive(active);
     rightScreenCollider.SetActive(active);
+  }
+
+  public void ResetCamera(){
+    currDistCamToPlayer = 0;
+    cameraBounds.SetXPosition(cameraBounds.minVisibleX);
+    cameraFollows = true;
   }
 
 }
