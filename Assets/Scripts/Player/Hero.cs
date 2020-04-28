@@ -70,8 +70,8 @@ public class Hero : Actor
         
         //Upkeep after player death
         this.enabled = true;
-        ResetHealth();
         if(needsRevive){
+            ResetHealth();
             baseAnim.SetTrigger("Revive");
             needsRevive = false;
         }
