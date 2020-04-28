@@ -18,7 +18,7 @@ public class Enemy : Actor
     protected string HURT_GROUNDED_ANIM;
     protected string HURT_STANDING_ANIM;
 
-    public float preDialogueBufferDist = 1f;
+    public float preDialogueBufferDist = 0.5f;
 
     public int maxHealth = 100;
     public float currentHealth;

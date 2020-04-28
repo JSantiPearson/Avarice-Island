@@ -120,6 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &50247295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2767108201979315768, guid: 9d5793526d4e4844c9e28ac364e07106,
+    type: 3}
+  m_PrefabInstance: {fileID: 1250717729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2960d78078d5a4c8a02cf2f9cbeb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &56620245
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +284,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efcc4629498b60546972d8d3ecd6eb73, type: 3}
+--- !u!95 &941060029 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1508117636, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1925899650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1250717729
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2767108201979315768, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: transitionAnimation
+      value: 
+      objectReference: {fileID: 941060029}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 300.5053
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 215.56908
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.3599854
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315769, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767108201979315775, guid: 9d5793526d4e4844c9e28ac364e07106,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d5793526d4e4844c9e28ac364e07106, type: 3}
 --- !u!1001 &1925899650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -580,6 +672,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DocksMap
       objectReference: {fileID: 0}
+    - target: {fileID: 8660970362031978301, guid: ac354893a0e1e30479010643b4a1283d,
+        type: 3}
+      propertyPath: sceneTransition
+      value: 
+      objectReference: {fileID: 50247295}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac354893a0e1e30479010643b4a1283d, type: 3}
 --- !u!1001 &3710143948602252341

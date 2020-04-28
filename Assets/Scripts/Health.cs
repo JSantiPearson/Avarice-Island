@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-  public int health, numOfPips, prevHealth; //pip behavior will be automatically scaled
+  public int numOfPips, prevHealth; //pip behavior will be automatically scaled
+  public int health; 
   public int lives, maxLives;
   public bool regain;
 
@@ -14,13 +15,30 @@ public class Health : MonoBehaviour
   //public Sprite fullPip, emptyPip;
 
   public GameObject fullPipPrefab, emptyPipPrefab, fullHeartPrefab;
-  private GameObject healthBar, emptyHealthSet, fullHealthSet, livesBar, fullHeartSet;
+  public GameObject healthBar, emptyHealthSet, fullHealthSet, livesBar, fullHeartSet;
 
   public GameObject playerObject;
   public Hero player;
 
   //reusable anim variable used in update 
   private Animator currPipAnimator;
+
+  //private static Health instance = null;
+    /*
+  void Awake()
+      {
+    //Health Persists across scenes
+
+    if (instance != null)
+    {
+      Destroy(gameObject);
+    }
+    else
+    {
+      instance = this;
+      //DontDestroyOnLoad(gameObject);
+    }
+  }*/
 
 
   void Start(){
@@ -81,7 +99,7 @@ public class Health : MonoBehaviour
       regain = true;
     }
 
-    //remove and/or fill pips based on health
+    //remove and/or fill pips based on health///////////////////////////////////////////////////
     for(int i=0; i<numOfPips;i++){
 
       currPipAnimator = fullPips[i].GetComponent<Animator>(); 
@@ -101,12 +119,12 @@ public class Health : MonoBehaviour
       regain = false;
     }
 
-    //remove lives 
+    //remove lives /////////////////////////////////////////////////////////////////////
     int numLivesActive = (int)player.currentLives;
 
     for(int i=0; i<maxLives; i++){
       if(i<numLivesActive){
-        //implement life regain here
+        fullLives[i].SetActive(true);
       } else {
         fullLives[i].SetActive(false);
       }

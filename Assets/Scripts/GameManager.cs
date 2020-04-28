@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
   //TODO: Refactor Camera Stuff? or just rename this file and refactor noncamera stuff. 
@@ -21,12 +22,49 @@ public class GameManager : MonoBehaviour {
   public GameObject leftScreenCollider;
   public GameObject rightScreenCollider;
 
+  private static GameManager instance;
   //MOVE THESE ELSEWHERE WHEN SPAWNING IS REFACTORED
   /*
   int maxEnemies=5;
   public float spawnInterval=2;
   public float timeElapsed=0;
   */
+
+  void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SetScreenColliders(false);
+        ResetCamera();
+
+    }
+
+
+  void Awake() {
+    //Hero Script Persists across scenes
+        //startingCoords = this.transform.position;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        if (instance != null)
+        {
+            //instance.gameObject.GetComponent<Rigidbody>().MovePosition(instance.startingCoords); //move the other object to the right place?
+            //instance.ResetCoords();
+            //Destroy(gameObject);
+            //assign health vaalues to new object
+           // this.currentHealth = instance.currentHealth;
+            //this.currentLives = instance.currentLives;
+            //kill old object
+            //GameObject oldObject = instance.gameObject;
+            Destroy(gameObject);
+            //instance = this;
+           //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        
+    }
 
 //2
   void Start() {
@@ -89,6 +127,12 @@ public class GameManager : MonoBehaviour {
   public void SetScreenColliders(bool active){
     leftScreenCollider.SetActive(active);
     rightScreenCollider.SetActive(active);
+  }
+
+  public void ResetCamera(){
+    currDistCamToPlayer = 0;
+    cameraBounds.SetXPosition(cameraBounds.minVisibleX);
+    cameraFollows = true;
   }
 
 }

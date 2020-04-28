@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hero : Actor
 {
@@ -45,6 +46,67 @@ public class Hero : Actor
     //for player death
     public Dialogue deathDialogue;
     public Animator deathScreenAnim;
+    private bool needsRevive;
+
+    public Vector3 startingCoords;
+
+    private Scene lastScene;
+
+    private static Hero instance;
+
+        /*
+    public static Hero Instance{
+        get{
+            if(instance == null){
+                instance = GameObject.FindObjectOfType<Hero>();
+            }
+        return instance;
+
+        }
+    }*/
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        
+        //Upkeep after player death
+        this.enabled = true;
+        if(needsRevive){
+            ResetHealth();
+            baseAnim.SetTrigger("Revive");
+            needsRevive = false;
+        }
+        deathScreenAnim.SetTrigger("reset");
+        
+    }
+
+    
+    void Awake() {
+    //Hero Script Persists across scenes
+        startingCoords = this.transform.position;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        if (instance != null)
+        {
+            //instance.gameObject.GetComponent<Rigidbody>().MovePosition(instance.startingCoords); //move the other object to the right place?
+            instance.ResetCoords();
+            //Destroy(gameObject);
+            //assign health vaalues to new object
+           // this.currentHealth = instance.currentHealth;
+            //this.currentLives = instance.currentLives;
+            //kill old object
+            //GameObject oldObject = instance.gameObject;
+            Destroy(gameObject);
+            //instance = this;
+           //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        
+    }
 
     public void Start()
     {
@@ -53,11 +115,13 @@ public class Hero : Actor
         currentLives = maxLives;
         deathDialogue = gameObject.GetComponent<Dialogue>();
         deathScreenAnim = GameObject.Find("DeathScreen").GetComponent<Animator>();
+        needsRevive = false;
     }
 
     public override void Update()
     {
         base.Update();
+
 
         isAttackingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack");
         isJumpLandAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpLand");
@@ -259,6 +323,7 @@ public class Hero : Actor
         //deathDialogue.PlayDialogue(); //This is causing a freeze
         baseAnim.SetTrigger("Dead"); //maybe best to have these triggers have same name?
         deathScreenAnim.SetTrigger("death");
+        needsRevive = true;
         this.enabled = false;
     }
 
@@ -273,5 +338,16 @@ public class Hero : Actor
             }
             return false;
         }
+    }
+
+    public void ResetCoords(){
+        Debug.Log("trying to reset player coords");
+        transform.position = startingCoords;
+        body.MovePosition(startingCoords);
+    }
+
+    public void ResetHealth(){
+        currentHealth = maxHealth;
+        currentLives = maxLives;
     }
 }
