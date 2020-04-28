@@ -14,19 +14,19 @@ public class Bouncer : Enemy
     	//if we made them clones or if we somehow changed the CheckAnims() scheme in enemy superclass
     	//these animators also have multiple animations that correspond to a single state here. i just used one for each.
     	switch(bouncerName){
-    		case "BouncerRex":
+    		case "BouncerBrad":
         		PUNCH_ANIM = "BradPunchAnim";
         		LAUNCH_ANIM = "BradLaunchedAnim";
-        		GROUNDED_ANIM = "BradHurtGroundedAnim"; //no regular grounded anim?
+        		GROUNDED_ANIM = "BradGroundedAnim"; //no regular grounded anim?
         		STAND_ANIM = "BradGetUpAnim";
         		HURT_GROUNDED_ANIM = "BradHurtGroundedAnim";
         		HURT_STANDING_ANIM = "BradHurtFrontAnim";
         		break;
 
-        	case "BouncerBrad":
+        	case "BouncerRex":
         		PUNCH_ANIM = "RexPunchAnim";
         		LAUNCH_ANIM = "RexLaunchedAnim";
-        		GROUNDED_ANIM = "RexHurtGroundedAnim"; //no regular grounded anim?
+        		GROUNDED_ANIM = "RexGroundedAnim"; //no regular grounded anim?
         		STAND_ANIM = "RexGetUpAnim";
         		HURT_GROUNDED_ANIM = "RexHurtGroundedAnim";
         		HURT_STANDING_ANIM = "RexHurtFrontAnim";
@@ -54,7 +54,6 @@ public class Bouncer : Enemy
 
 		public override void Attack()
     {
-				Debug.Log(currentHealth);
         Stop();
         float attackThreshold;
 

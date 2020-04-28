@@ -92,18 +92,18 @@ public class PlayerCombat : MonoBehaviour
                     break;
                 case BOUNCER_BRAD:
                     enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
-                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    enemy.GetComponent<Bouncer>().Hurt(30);
                     break;
                 case BOUNCER_REX:
                     enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
-                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    enemy.GetComponent<Bouncer>().Hurt(30);
                     break;
                 case HAN_LAO:
-                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<HanLao>().Launch(GameObject.Find("Player").transform.position);
                     enemy.GetComponent<HanLao>().Hurt(15);
                     break;
                 case SHEN:
-                    enemy.GetComponent<HanLao>().Hurt(15);
+                    enemy.GetComponent<Shen>().Hurt(15);
                     break;
                 default:
                     break;
@@ -137,16 +137,16 @@ public class PlayerCombat : MonoBehaviour
                     enemy.GetComponent<RaveGirl>().Hurt(15);
                     break;
                 case BOUNCER_BRAD:
-                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    enemy.GetComponent<Bouncer>().Hurt(15);
                     break;
                 case BOUNCER_REX:
-                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    enemy.GetComponent<Bouncer>().Hurt(15);
                     break;
                 case HAN_LAO:
                     enemy.GetComponent<HanLao>().Hurt(15);
                     break;
                 case SHEN:
-                    enemy.GetComponent<HanLao>().Hurt(15);
+                    enemy.GetComponent<Shen>().Hurt(15);
                     break;
                 default:
                     break;
@@ -191,16 +191,16 @@ public class PlayerCombat : MonoBehaviour
                     enemy.GetComponent<RaveGirl>().Hurt(15);
                     break;
                 case BOUNCER_BRAD:
-                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    enemy.GetComponent<Bouncer>().Hurt(15);
                     break;
                 case BOUNCER_REX:
-                    enemy.GetComponent<RaveBoy>().Hurt(15);
+                    enemy.GetComponent<Bouncer>().Hurt(15);
                     break;
                 case HAN_LAO:
                     enemy.GetComponent<HanLao>().Hurt(15);
                     break;
                 case SHEN:
-                    enemy.GetComponent<HanLao>().Hurt(15);
+                    enemy.GetComponent<Shen>().Hurt(15);
                     break;
                 default:
                     break;
@@ -251,18 +251,17 @@ public class PlayerCombat : MonoBehaviour
                     break;
                 case BOUNCER_BRAD:
                     enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
-                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    enemy.GetComponent<Bouncer>().Hurt(30);
                     break;
                 case BOUNCER_REX:
                     enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
-                    enemy.GetComponent<RaveBoy>().Hurt(30);
+                    enemy.GetComponent<Bouncer>().Hurt(30);
                     break;
                 case HAN_LAO:
-                    enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
                     enemy.GetComponent<HanLao>().Hurt(15);
                     break;
                 case SHEN:
-                    enemy.GetComponent<HanLao>().Hurt(15);
+                    enemy.GetComponent<Shen>().Hurt(15);
                     break;
                 default:
                     break;
