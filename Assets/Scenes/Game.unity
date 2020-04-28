@@ -508,7 +508,19 @@ PrefabInstance:
         type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2019412750}
+    - target: {fileID: 3755170079793248274, guid: 3b8ad81643a188949b34078cf28632c9,
+        type: 3}
+      propertyPath: feverLightningPreFab
+      value: 
+      objectReference: {fileID: 6019056073209926966, guid: 6bb5150f0ab2d324388ee0bf2184c2e5,
+        type: 3}
+    - target: {fileID: 3755170079793248274, guid: 3b8ad81643a188949b34078cf28632c9,
+        type: 3}
+      propertyPath: feverAOEPreFab
+      value: 
+      objectReference: {fileID: 6019056073209926966, guid: 6bb5150f0ab2d324388ee0bf2184c2e5,
+        type: 3}
     - target: {fileID: 3755170079924625826, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_Name
@@ -788,6 +800,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1bd9a7614324df8aedef6f118e580f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2019412750 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8452970745261508530, guid: 64a6fe08ff1f13642875947c988e6f65,
+    type: 3}
+  m_PrefabInstance: {fileID: 8452970745325952668}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2138636758 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3755170078953143063, guid: 3b8ad81643a188949b34078cf28632c9,
@@ -954,6 +972,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1855178899, guid: af8535ef12a07ad42ba7d9e287d497e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.06
+      objectReference: {fileID: 0}
     - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
       propertyPath: spawnLimit
@@ -963,6 +985,17 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnInterval
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
+        type: 3}
+      propertyPath: spawnPrefab
+      value: 
+      objectReference: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
+        type: 3}
+    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
+        type: 3}
+      propertyPath: spawnDistFromPlayer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4546920533040513784, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
@@ -1269,6 +1302,11 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 1410213238}
+    - target: {fileID: 8452970743776353718, guid: 64a6fe08ff1f13642875947c988e6f65,
+        type: 3}
+      propertyPath: currentHealth
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 8452970743776353719, guid: 64a6fe08ff1f13642875947c988e6f65,
         type: 3}
       propertyPath: input
