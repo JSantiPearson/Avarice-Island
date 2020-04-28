@@ -866,7 +866,7 @@ PrefabInstance:
     - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
       propertyPath: spawnLimit
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
@@ -877,7 +877,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnPrefab
       value: 
-      objectReference: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
+      objectReference: {fileID: 4195653942107446675, guid: d60271f461e9744bfa43d6cf6f56188a,
         type: 3}
     - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
