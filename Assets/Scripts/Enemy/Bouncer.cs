@@ -54,7 +54,6 @@ public class Bouncer : Enemy
 
 		public override void Attack()
     {
-				Debug.Log(currentHealth);
         Stop();
         float attackThreshold;
 
