@@ -884,6 +884,11 @@ PrefabInstance:
       propertyPath: spawnDistFromPlayer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4546920531638128754, guid: af8535ef12a07ad42ba7d9e287d497e1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.12
+      objectReference: {fileID: 0}
     - target: {fileID: 4546920533040513784, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
       propertyPath: m_Name

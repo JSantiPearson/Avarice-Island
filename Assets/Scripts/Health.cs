@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -105,10 +105,12 @@ public class Health : MonoBehaviour
       currPipAnimator = fullPips[i].GetComponent<Animator>(); 
 
       if(i<numPipsActive){
-        if(regain){
+        if(regain){ //&& !(i==0 && lives>1)){
           currPipAnimator.ResetTrigger("Flash");
-         currPipAnimator.SetTrigger("Regain"); 
-        }
+          currPipAnimator.SetTrigger("Regain"); 
+        } //else if (regain) {
+          //currPipAnimator.Play("full_pip_active");
+        //}
         //currPipAnimator.SetTrigger("Regain"); //in case we implement regaining life points
       } else {
         currPipAnimator.SetTrigger("Flash"); //disables pip after flash

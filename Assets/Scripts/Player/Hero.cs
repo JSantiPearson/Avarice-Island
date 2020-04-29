@@ -40,6 +40,7 @@ public class Hero : Actor
     private float lastJumpTime;
 
     bool isAttackingAnim;
+    bool heroTemporaryFlashing;
     float lastAttackTime;
     float attackLimit = 0.14f;
 
@@ -194,13 +195,14 @@ public class Hero : Actor
         }
 
         //check for death
-        if(currentHealth<=0){
+        if(currentHealth<=0 && !heroTemporaryFlashing){
             if(currentLives<=1){
                 currentLives--;
                 Die();
             } else {
                 currentLives--;
-                currentHealth = maxHealth;
+                LoseLife();
+                //currentHealth = maxHealth;
             }
 
         }
@@ -319,6 +321,12 @@ public class Hero : Actor
         gameObject.GetComponent<Health>().health = (int) Mathf.Ceil(currentHealth / (maxHealth / 5)); //Update the Health script and pips in the UI
     }
 
+    public void LoseLife(){
+        baseAnim.SetTrigger("Dead");
+        StartCoroutine(WaitAndRevive(4));
+
+    }
+
     public void Die(){
         //deathDialogue.PlayDialogue(); //This is causing a freeze
         baseAnim.SetTrigger("Dead"); //maybe best to have these triggers have same name?
@@ -349,5 +357,15 @@ public class Hero : Actor
     public void ResetHealth(){
         currentHealth = maxHealth;
         currentLives = maxLives;
+    }
+
+    IEnumerator WaitAndRevive(float time){
+        input.enabled = false;
+        heroTemporaryFlashing=true;
+        yield return new WaitForSeconds(time);
+        baseAnim.SetTrigger("Revive");
+        currentHealth = maxHealth;
+        heroTemporaryFlashing=false;
+        input.enabled = true;
     }
 }
