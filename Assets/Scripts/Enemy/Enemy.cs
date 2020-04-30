@@ -177,8 +177,8 @@ public class Enemy : Actor
             currentState = EnemyState.idle;
         }
 
-        //reset the combo indicator if we interrupted attacking for any reason.
-        if (currentState != EnemyState.attacking)
+        //reset the combo indicator if we interrupted attacking, unless player is launched from a heavy attack.
+        if (currentState != EnemyState.attacking && (!playerReference.GetComponent<Hero>().isLaunching || !playerReference.GetComponent<Hero>().isGrounded))
         {
             lastAttack = LastAttack.none;
         }
@@ -476,6 +476,7 @@ public class Enemy : Actor
 
     public void Launch(Vector3 attackerLocation)
     {
+      if (!isLaunching){
         Stop();
         isLaunching = true;
         lastLaunchTime = Time.time;
@@ -488,12 +489,17 @@ public class Enemy : Actor
 
         Vector3 verticalLaunchInfluence = Vector3.up * launchForce;
         body.AddForce(verticalLaunchInfluence, ForceMode.Force);
+      }
     }
 
     public void Hurt(float damage)
     {
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
+        Stop();
+        isHurting = true;
+        lastHurtTime = Time.time;
+        baseAnim.SetTrigger("Hit");
         if (currentHealth <= 0){
             Die();
         }

@@ -36,7 +36,7 @@ public class playerHitbox : MonoBehaviour
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
-                enemy.GetComponent<Hero>().hurt(damage);
+                enemy.GetComponent<Hero>().Hurt(damage);
                 beenHit.Add(enemy);
             }
         }

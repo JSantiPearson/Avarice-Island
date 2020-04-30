@@ -31,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
     private const string BOUNCER_REX = "BouncerRex(Clone)";
     private const string BOUNCER_BRAD = "BouncerBrad(Clone)";
     private const string BLASTER = "Blaster(Clone)";
+    private const string BRAWLER = "Brawler(Clone)";
     private const string HAN_LAO = "HanLao(Clone)";
     private const string SHEN = "Shen(Clone)";
 
@@ -42,6 +43,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!inAttackAnim)
         {
             if (Input.GetButtonDown("Attack"))
@@ -54,7 +56,6 @@ public class PlayerCombat : MonoBehaviour
                 else
                 {
                     Attack(attackHitboxes[0]); //0 is first standing attack
-                    nextAttackTime = Time.time + attackRate; //lockout attack by a second
                     bufferAttackCount = 0;
                 }
             }
@@ -81,6 +82,10 @@ public class PlayerCombat : MonoBehaviour
                 case BLASTER:
                     enemy.GetComponent<Blaster>().Launch(GameObject.Find("Player").transform.position);
                     enemy.GetComponent<Blaster>().Hurt(30);
+                    break;
+                case BRAWLER:
+                    enemy.GetComponent<Brawler>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<Brawler>().Hurt(30);
                     break;
                 case RAVE_BOY:
                     enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
