@@ -494,6 +494,7 @@ public class Enemy : Actor
 
     public void Hurt(float damage)
     {
+        Debug.Log("Enemy hurt");
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
         Stop();
