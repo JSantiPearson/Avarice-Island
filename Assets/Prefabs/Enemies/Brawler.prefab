@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4195653940673022461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 0
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -467,7 +467,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   thisBox: {fileID: 4195653942288290817}
-  damage: 15
+  damage: 10
 --- !u!1 &4195653942308070721
 GameObject:
   m_ObjectHideFlags: 0

@@ -476,6 +476,7 @@ public class Enemy : Actor
 
     public void Launch(Vector3 attackerLocation)
     {
+      if (!isLaunching){
         Stop();
         isLaunching = true;
         lastLaunchTime = Time.time;
@@ -488,6 +489,7 @@ public class Enemy : Actor
 
         Vector3 verticalLaunchInfluence = Vector3.up * launchForce;
         body.AddForce(verticalLaunchInfluence, ForceMode.Force);
+      }
     }
 
     public void Hurt(float damage)
