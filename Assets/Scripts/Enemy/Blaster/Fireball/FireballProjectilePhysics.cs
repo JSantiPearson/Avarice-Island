@@ -56,7 +56,7 @@ public class FireballProjectilePhysics : MonoBehaviour
 
             if (player != null)
             {
-                player.hurt(damage);
+                player.Hurt(damage);
                 //Launch and Hitbox
 
                 //enemy.TakeDamage(damage);

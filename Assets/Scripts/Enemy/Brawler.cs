@@ -16,6 +16,17 @@ public class Brawler : Enemy
 			fleeHealth = 30;
 		}
 
+		public void Punch()
+    {
+        //seperate methods for each possible attack and select randomly? How many attacks will grunts have?
+        Stop();
+        //face the player
+        Vector3 playerPosition = playerReference.transform.position;
+        FlipSprite(body.position.x > playerPosition.x);
+        baseAnim.SetTrigger("Punch");
+        lastAttack = LastAttack.punch1;
+    }
+
 		public void Bump()
 		{
 			Stop();

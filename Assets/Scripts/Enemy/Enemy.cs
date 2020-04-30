@@ -177,8 +177,8 @@ public class Enemy : Actor
             currentState = EnemyState.idle;
         }
 
-        //reset the combo indicator if we interrupted attacking for any reason.
-        if (currentState != EnemyState.attacking)
+        //reset the combo indicator if we interrupted attacking, unless player is launched from a heavy attack.
+        if (currentState != EnemyState.attacking && (!playerReference.GetComponent<Hero>().isLaunching || !playerReference.GetComponent<Hero>().isGrounded))
         {
             lastAttack = LastAttack.none;
         }

@@ -45,16 +45,15 @@ public class Hitbox : MonoBehaviour
             if (!beenHit.Contains(enemy))
             {
               if (type == HitboxType.light){
-                enemy.GetComponent<Hero>().hurt(damage);
+                enemy.GetComponent<Hero>().Hurt(damage);
                 beenHit.Add(enemy);
               }
               else if (type == HitboxType.flash){
-                enemy.GetComponent<Hero>().stunned();
+                enemy.GetComponent<Hero>().Stunned();
                 beenHit.Add(enemy);
               }
               else if (type == HitboxType.heavy){
-                enemy.GetComponent<Hero>().hurt(damage);
-                enemy.GetComponent<Hero>().Launch();
+                enemy.GetComponent<Hero>().Launch(damage);
                 beenHit.Add(enemy);
               }
             }

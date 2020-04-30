@@ -44,7 +44,6 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(inAttackAnim);
         if (!inAttackAnim)
         {
             if (Input.GetButtonDown("Attack"))
