@@ -6,6 +6,17 @@ using UnityEngine.SceneManagement;
 public class Hero : Actor
 {
 
+    protected string PUNCH_ANIM;
+    protected string LAUNCH_ANIM;
+    protected string LAUNCH_RISE_ANIM;
+    protected string LAUNCH_FALL_ANIM;
+    protected string LAUNCH_LAND_ANIM;
+    protected string GROUNDED_ANIM;
+    protected string GET_UP_ANIM;
+    protected string STAND_ANIM;
+    protected string HURT_GROUNDED_ANIM;
+    protected string HURT_STANDING_ANIM;
+
     public List<Actor> engaged;
     private readonly object balanceLock = new object();
     public int numEngagements;
@@ -18,6 +29,12 @@ public class Hero : Actor
     public float runSpeed = 5;
 
     public bool isRunning;
+    public bool isAttacking;
+    public bool isHurting;
+    public bool isStanding;
+    public bool isGrounded;
+    public bool isLaunching;
+
     bool isMoving;
     float lastWalk;
     bool attack;
@@ -67,7 +84,7 @@ public class Hero : Actor
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
+
         //Upkeep after player death
         this.enabled = true;
         if(needsRevive){
@@ -76,10 +93,10 @@ public class Hero : Actor
             needsRevive = false;
         }
         deathScreenAnim.SetTrigger("reset");
-        
+
     }
 
-    
+
     void Awake() {
     //Hero Script Persists across scenes
         startingCoords = this.transform.position;
@@ -105,7 +122,7 @@ public class Hero : Actor
             DontDestroyOnLoad(gameObject);
         }
 
-        
+
     }
 
     public void Start()
@@ -116,18 +133,30 @@ public class Hero : Actor
         deathDialogue = gameObject.GetComponent<Dialogue>();
         deathScreenAnim = GameObject.Find("DeathScreen").GetComponent<Animator>();
         needsRevive = false;
+
+        PUNCH_ANIM = "hero_attack1";
+        LAUNCH_RISE_ANIM = "LaunchRise";
+        LAUNCH_FALL_ANIM = "LaunchFall";
+        LAUNCH_LAND_ANIM = "LaunchLand";
+        GROUNDED_ANIM = "GroundedAnim";
+        GET_UP_ANIM = "GetUpAnim";
+        STAND_ANIM = "hero_idle_anim";
+        HURT_GROUNDED_ANIM = "None"; //TODO: Add hurt grounded anim for player!
+        HURT_STANDING_ANIM = "HurtAnim";
     }
 
     public override void Update()
     {
         base.Update();
 
+        CheckAnims();
 
-        isAttackingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack");
-        isJumpLandAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpLand");
-        isJumpingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpRise") ||
-          baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpFall");
-
+        if (isGrounded || isLaunching){
+          freeze = true;
+        }
+        else {
+          freeze = false;
+        }
 
         float h = input.GetHorizontalAxis();
         float v = input.GetVerticalAxis();
@@ -217,11 +246,9 @@ public class Hero : Actor
     }
 
     public IEnumerator Freeze(float time){
-      Debug.Log("Freeze Start");
       Stop();
       freeze = true;
       yield return new WaitForSeconds(time);
-      Debug.Log("Freeze Stop");
       freeze = false;
     }
 
@@ -296,24 +323,28 @@ public class Hero : Actor
         return isRunning;
     }
 
-    public void Launch(){
-      baseAnim.SetTrigger("Launch");
+    public void Launch(int damage){
+      if (!isLaunching && !isGrounded){
+        TakeDamage(damage);
+        baseAnim.SetTrigger("Launch");
+      }
     }
 
     //Not sure how Hunter wanted to do these but here is a quick and dirty version -Ethan
-    public void hurt(int damage)
+    public void Hurt(int damage)
     {
-        takeDamage(damage);
+      if (!isHurting && !isLaunching && !isGrounded){
+        TakeDamage(damage);
         baseAnim.SetTrigger("Hurt");
+      }
     }
 
-    public void stunned(){
+    public void Stunned(){
       baseAnim.SetTrigger("Flashed");
-      Debug.Log("Freeze function should activate");
       StartCoroutine(Freeze(1.2f));
     }
 
-    public void takeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth = (currentHealth - damage);
         gameObject.GetComponent<Health>().health = (int) Mathf.Ceil(currentHealth / (maxHealth / 5)); //Update the Health script and pips in the UI
@@ -349,5 +380,18 @@ public class Hero : Actor
     public void ResetHealth(){
         currentHealth = maxHealth;
         currentLives = maxLives;
+    }
+
+    public virtual void CheckAnims()
+    {
+        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM);
+        isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_RISE_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_FALL_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_LAND_ANIM);
+        isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GROUNDED_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GET_UP_ANIM);
+        isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(STAND_ANIM);
+        isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_STANDING_ANIM);
     }
 }
