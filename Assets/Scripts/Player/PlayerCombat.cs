@@ -31,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
     private const string BOUNCER_REX = "BouncerRex(Clone)";
     private const string BOUNCER_BRAD = "BouncerBrad(Clone)";
     private const string BLASTER = "Blaster(Clone)";
+    private const string BRAWLER = "Brawler(Clone)";
     private const string HAN_LAO = "HanLao(Clone)";
     private const string SHEN = "Shen(Clone)";
 
@@ -82,6 +83,10 @@ public class PlayerCombat : MonoBehaviour
                 case BLASTER:
                     enemy.GetComponent<Blaster>().Launch(GameObject.Find("Player").transform.position);
                     enemy.GetComponent<Blaster>().Hurt(30);
+                    break;
+                case BRAWLER:
+                    enemy.GetComponent<Brawler>().Launch(GameObject.Find("Player").transform.position);
+                    enemy.GetComponent<Brawler>().Hurt(30);
                     break;
                 case RAVE_BOY:
                     enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
