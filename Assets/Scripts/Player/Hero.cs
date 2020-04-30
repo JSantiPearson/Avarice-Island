@@ -143,6 +143,8 @@ public class Hero : Actor
         STAND_ANIM = "hero_idle_anim";
         HURT_GROUNDED_ANIM = "None"; //TODO: Add hurt grounded anim for player!
         HURT_STANDING_ANIM = "HurtAnim";
+
+        transform.localScale = new Vector3(size, size, 1);
     }
 
     public override void Update()
