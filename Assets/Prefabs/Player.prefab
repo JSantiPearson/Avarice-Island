@@ -220,6 +220,7 @@ MonoBehaviour:
   jumpForce: 1700
   deathDialogue: {fileID: 0}
   deathScreenAnim: {fileID: 0}
+  startingCoords: {x: 0, y: 0, z: 0}
 --- !u!65 &8452970743776353717
 BoxCollider:
   m_ObjectHideFlags: 0

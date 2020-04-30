@@ -12,6 +12,8 @@ public class SpawnPoint : MonoBehaviour
   
   private float timeElapsed;
   private int numSpawned;
+  private GameObject[] spawnedEnemies;
+
   public Vector3 spawnLocation, playerLocation;
   public bool spawnTriggered;
   private GameObject player;
@@ -21,6 +23,7 @@ public class SpawnPoint : MonoBehaviour
         spawnTriggered=false;
         timeElapsed = 0;
         numSpawned=0;
+        spawnedEnemies = new GameObject[spawnLimit];
         player = GameObject.Find("Player");
         spawnLocation = gameObject.transform.position;
         playerLocation = player.transform.position; 
@@ -41,25 +44,38 @@ public class SpawnPoint : MonoBehaviour
 
         //start spawning enemies incrementally
         timeElapsed+=Time.deltaTime;
-        if(spawnTriggered && okToSpawn()){
+        if(spawnTriggered && OkToSpawn()){
          //if(okToSpawn()){
-        	Instantiate(spawnPrefab,spawnLocation,spawnPrefab.transform.rotation);
+        	spawnedEnemies[numSpawned] = Instantiate(spawnPrefab,spawnLocation,spawnPrefab.transform.rotation);
+          numSpawned++;
         }
 
     }
 
-    public bool okToSpawn(){
+    public bool OkToSpawn(){
     	if(numSpawned == spawnLimit){
     		return false;
     	}
 
-   		if(timeElapsed>spawnInterval){
+   		if(timeElapsed>spawnInterval && AreaClear()){
       		timeElapsed=0;
-      		numSpawned++;
       		return true;
     	}
       	
       	return false;
   	}
+
+    public bool AreaClear(){
+
+      //check if any enemies are standing in spawn area
+        foreach(GameObject enemy in spawnedEnemies){
+          if(enemy!=null && Actor.IsCloseTo(enemy.transform.position,spawnLocation,2f)){ //cant check array length properly, needed null check
+            return false;
+          }
+        }
+
+      //check is player is standing in spawn area
+      return !Actor.IsCloseTo(playerLocation,spawnLocation,2f);
+    }
 
 }
