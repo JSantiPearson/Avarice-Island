@@ -85,6 +85,7 @@ public class Hero : Actor
     //Hero Script Persists across scenes
         startingCoords = this.transform.position;
         SceneManager.sceneLoaded += OnSceneLoaded;
+        transform.localScale = new Vector3(size, size, 1);
 
         if (instance != null)
         {
