@@ -494,6 +494,10 @@ public class Enemy : Actor
     {
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
+        Stop();
+        isHurting = true;
+        lastHurtTime = Time.time;
+        baseAnim.SetTrigger("Hit");
         if (currentHealth <= 0){
             Die();
         }
