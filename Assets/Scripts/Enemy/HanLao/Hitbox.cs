@@ -52,7 +52,7 @@ public class Hitbox : MonoBehaviour
                 enemy.GetComponent<Hero>().Stunned();
                 beenHit.Add(enemy);
               }
-              else if (type == HitboxType.heavy){
+              else if (type == HitboxType.heavy){ //TODO: Add i-frames while player is getting up?
                 enemy.GetComponent<Hero>().Launch(damage);
                 beenHit.Add(enemy);
               }

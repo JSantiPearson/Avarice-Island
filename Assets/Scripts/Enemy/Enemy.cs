@@ -178,7 +178,7 @@ public class Enemy : Actor
         }
 
         //reset the combo indicator if we interrupted attacking, unless player is launched from a heavy attack.
-        if (currentState != EnemyState.attacking && (!playerReference.GetComponent<Hero>().isLaunching || !playerReference.GetComponent<Hero>().isGrounded))
+        if (currentState != EnemyState.attacking)
         {
             lastAttack = LastAttack.none;
         }
@@ -494,6 +494,7 @@ public class Enemy : Actor
 
     public void Hurt(float damage)
     {
+        Debug.Log("Enemy hurt");
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
         Stop();

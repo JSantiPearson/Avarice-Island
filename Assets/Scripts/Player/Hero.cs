@@ -1,25 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Hero : Actor
 {
 
-    protected string PUNCH_ANIM;
-    protected string LAUNCH_ANIM;
+    public List<Actor> engaged;
+    private readonly object balanceLock = new object();
+    public int numEngagements;
+
     protected string LAUNCH_RISE_ANIM;
     protected string LAUNCH_FALL_ANIM;
     protected string LAUNCH_LAND_ANIM;
     protected string GROUNDED_ANIM;
     protected string GET_UP_ANIM;
-    protected string STAND_ANIM;
     protected string HURT_GROUNDED_ANIM;
-    protected string HURT_STANDING_ANIM;
-
-    public List<Actor> engaged;
-    private readonly object balanceLock = new object();
-    public int numEngagements;
 
     public const float maxHealth = 150, maxLives = 3;
     public float currentHealth;
@@ -29,12 +24,6 @@ public class Hero : Actor
     public float runSpeed = 5;
 
     public bool isRunning;
-    public bool isAttacking;
-    public bool isHurting;
-    public bool isStanding;
-    public bool isGrounded;
-    public bool isLaunching;
-
     bool isMoving;
     float lastWalk;
     bool attack;
@@ -49,6 +38,8 @@ public class Hero : Actor
 
     bool isJumpLandAnim;
     bool isJumpingAnim;
+    public bool isGrounded;
+    public bool isLaunching;
 
     public InputHandler input;
 
@@ -57,96 +48,27 @@ public class Hero : Actor
     private float lastJumpTime;
 
     bool isAttackingAnim;
-    bool heroTemporaryFlashing;
     float lastAttackTime;
     float attackLimit = 0.14f;
 
     //for player death
     public Dialogue deathDialogue;
     public Animator deathScreenAnim;
-    private bool needsRevive;
-
-    public Vector3 startingCoords;
-
-    private Scene lastScene;
-
-    private static Hero instance;
-
-        /*
-    public static Hero Instance{
-        get{
-            if(instance == null){
-                instance = GameObject.FindObjectOfType<Hero>();
-            }
-        return instance;
-
-        }
-    }*/
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-
-        //Upkeep after player death
-        this.enabled = true;
-        if(needsRevive){
-            ResetHealth();
-            baseAnim.SetTrigger("Revive");
-            needsRevive = false;
-        }
-        deathScreenAnim.SetTrigger("reset");
-
-    }
-
-
-    void Awake() {
-    //Hero Script Persists across scenes
-        startingCoords = this.transform.position;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        transform.localScale = new Vector3(size, size, 1);
-
-        if (instance != null)
-        {
-            //instance.gameObject.GetComponent<Rigidbody>().MovePosition(instance.startingCoords); //move the other object to the right place?
-            instance.ResetCoords();
-            //Destroy(gameObject);
-            //assign health vaalues to new object
-           // this.currentHealth = instance.currentHealth;
-            //this.currentLives = instance.currentLives;
-            //kill old object
-            //GameObject oldObject = instance.gameObject;
-            Destroy(gameObject);
-            //instance = this;
-           //DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
-
-    }
 
     public void Start()
     {
-        engaged = new List<Actor>(numEngagements);
-        currentHealth = maxHealth;
-        currentLives = maxLives;
-        deathDialogue = gameObject.GetComponent<Dialogue>();
-        deathScreenAnim = GameObject.Find("DeathScreen").GetComponent<Animator>();
-        needsRevive = false;
-
-        PUNCH_ANIM = "hero_attack1";
         LAUNCH_RISE_ANIM = "LaunchRise";
         LAUNCH_FALL_ANIM = "LaunchFall";
         LAUNCH_LAND_ANIM = "LaunchLand";
         GROUNDED_ANIM = "GroundedAnim";
         GET_UP_ANIM = "GetUpAnim";
-        STAND_ANIM = "hero_idle_anim";
         HURT_GROUNDED_ANIM = "None"; //TODO: Add hurt grounded anim for player!
-        HURT_STANDING_ANIM = "HurtAnim";
 
-        transform.localScale = new Vector3(size, size, 1);
+        engaged = new List<Actor>(numEngagements);
+        currentHealth = maxHealth;
+        currentLives = maxLives;
+        deathDialogue = gameObject.GetComponent<Dialogue>();
+        deathScreenAnim = GameObject.Find("DeathScreen").GetComponent<Animator>();
     }
 
     public override void Update()
@@ -227,14 +149,13 @@ public class Hero : Actor
         }
 
         //check for death
-        if(currentHealth<=0 && !heroTemporaryFlashing){
+        if(currentHealth<=0){
             if(currentLives<=1){
                 currentLives--;
                 Die();
             } else {
                 currentLives--;
-                LoseLife();
-                //currentHealth = maxHealth;
+                currentHealth = maxHealth;
             }
 
         }
@@ -251,9 +172,11 @@ public class Hero : Actor
     }
 
     public IEnumerator Freeze(float time){
+      Debug.Log("Freeze Start");
       Stop();
       freeze = true;
       yield return new WaitForSeconds(time);
+      Debug.Log("Freeze Stop");
       freeze = false;
     }
 
@@ -329,23 +252,20 @@ public class Hero : Actor
     }
 
     public void Launch(int damage){
-      if (!isLaunching && !isGrounded){
-        TakeDamage(damage);
-        baseAnim.SetTrigger("Launch");
-      }
+      TakeDamage(damage);
+      baseAnim.SetTrigger("Launch");
     }
 
     //Not sure how Hunter wanted to do these but here is a quick and dirty version -Ethan
     public void Hurt(int damage)
     {
-      if (!isHurting && !isLaunching && !isGrounded){
         TakeDamage(damage);
         baseAnim.SetTrigger("Hurt");
-      }
     }
 
     public void Stunned(){
       baseAnim.SetTrigger("Flashed");
+      Debug.Log("Freeze function should activate");
       StartCoroutine(Freeze(1.2f));
     }
 
@@ -355,17 +275,10 @@ public class Hero : Actor
         gameObject.GetComponent<Health>().health = (int) Mathf.Ceil(currentHealth / (maxHealth / 5)); //Update the Health script and pips in the UI
     }
 
-    public void LoseLife(){
-        baseAnim.SetTrigger("Dead");
-        StartCoroutine(WaitAndRevive(4));
-
-    }
-
     public void Die(){
         //deathDialogue.PlayDialogue(); //This is causing a freeze
         baseAnim.SetTrigger("Dead"); //maybe best to have these triggers have same name?
         deathScreenAnim.SetTrigger("death");
-        needsRevive = true;
         this.enabled = false;
     }
 
@@ -382,36 +295,16 @@ public class Hero : Actor
         }
     }
 
-    public void ResetCoords(){
-        Debug.Log("trying to reset player coords");
-        transform.position = startingCoords;
-        body.MovePosition(startingCoords);
-    }
-
-    public void ResetHealth(){
-        currentHealth = maxHealth;
-        currentLives = maxLives;
-    }
-
-    IEnumerator WaitAndRevive(float time){
-        input.enabled = false;
-        heroTemporaryFlashing=true;
-        yield return new WaitForSeconds(time);
-        baseAnim.SetTrigger("Revive");
-        currentHealth = maxHealth;
-        heroTemporaryFlashing=false;
-        input.enabled = true;
-    }
     public virtual void CheckAnims()
     {
-        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM);
-        isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM) ||
-            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_RISE_ANIM) ||
+        isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_RISE_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_FALL_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_LAND_ANIM);
+        isAttackingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack");
+        isJumpLandAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpLand");
+        isJumpingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpRise") ||
+              baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpFall");
         isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GROUNDED_ANIM) ||
-            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GET_UP_ANIM);
-        isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(STAND_ANIM);
-        isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_STANDING_ANIM);
+              baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GET_UP_ANIM);
     }
 }
