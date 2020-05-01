@@ -7,7 +7,7 @@ public class FireballProjectilePhysics : MonoBehaviour
     public float Speed = 10f;
     //public Collider myCollider;
     public Animator baseAnim; //deals with animations
-    //public Rigidbody rb;
+    public Rigidbody body;
     public int damage;
     bool onGround;
     public float dieTime;
@@ -15,13 +15,30 @@ public class FireballProjectilePhysics : MonoBehaviour
     public float size = 1.0f;
     protected Vector3 frontVector; //for determining direction the actor is facing
 
+    private bool fireballPaused;
+
+
     void Start()
     {
+        fireballPaused = false;
         baseAnim = gameObject.GetComponent<Animator>();
+        body = gameObject.GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        //destroy if paused, FOR NOW
+        if(!GameManager.enemiesOn){
+            fireballPaused = true;
+            Destroy(gameObject);
+        }
+
+        /*
+        if(GameManager.enemiesOn && fireballPaused){
+            fireballPaused = false;
+            body.WakeUp();
+        }*/
+
         if (Time.time >= dieTime)
         {
 

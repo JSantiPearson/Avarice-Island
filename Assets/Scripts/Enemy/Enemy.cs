@@ -112,6 +112,11 @@ public class Enemy : Actor
 
     public virtual void Update()
     {
+
+        if(!GameManager.enemiesOn){
+            return;
+        }
+
         base.Update();
 
         CheckAnims();
