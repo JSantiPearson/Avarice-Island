@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hero : Actor
 {
@@ -48,12 +49,64 @@ public class Hero : Actor
     private float lastJumpTime;
 
     bool isAttackingAnim;
+    bool heroTemporaryFlashing;
     float lastAttackTime;
     float attackLimit = 0.14f;
 
     //for player death
     public Dialogue deathDialogue;
     public Animator deathScreenAnim;
+    private bool needsRevive;
+
+    public Vector3 startingCoords;
+
+    private Scene lastScene;
+
+    private static Hero instance;
+
+        /*
+    public static Hero Instance{
+        get{
+            if(instance == null){
+                instance = GameObject.FindObjectOfType<Hero>();
+            }
+        return instance;
+
+        }
+    }*/
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
+        //Upkeep after player death
+        this.enabled = true;
+        if(needsRevive){
+            ResetHealth();
+            baseAnim.SetTrigger("Revive");
+            needsRevive = false;
+        }
+        deathScreenAnim.SetTrigger("reset");
+
+    }
+
+
+    void Awake() {
+    //Hero Script Persists across scenes
+        startingCoords = this.transform.position;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        if (instance != null)
+        {
+            instance.ResetCoords();
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+    }
 
     public void Start()
     {
@@ -69,6 +122,7 @@ public class Hero : Actor
         currentLives = maxLives;
         deathDialogue = gameObject.GetComponent<Dialogue>();
         deathScreenAnim = GameObject.Find("DeathScreen").GetComponent<Animator>();
+        needsRevive = false;
     }
 
     public override void Update()
@@ -149,17 +203,16 @@ public class Hero : Actor
         }
 
         //check for death
-        if(currentHealth<=0){
+        if(currentHealth<=0 && !heroTemporaryFlashing){
             if(currentLives<=1){
                 currentLives--;
                 Die();
             } else {
                 currentLives--;
-                currentHealth = maxHealth;
+                LoseLife();
+                //currentHealth = maxHealth;
             }
-
         }
-
 
     }
 
@@ -172,11 +225,9 @@ public class Hero : Actor
     }
 
     public IEnumerator Freeze(float time){
-      Debug.Log("Freeze Start");
       Stop();
       freeze = true;
       yield return new WaitForSeconds(time);
-      Debug.Log("Freeze Stop");
       freeze = false;
     }
 
@@ -252,8 +303,8 @@ public class Hero : Actor
     }
 
     public void Launch(int damage){
-      TakeDamage(damage);
-      baseAnim.SetTrigger("Launch");
+        TakeDamage(damage);
+        baseAnim.SetTrigger("Launch");
     }
 
     //Not sure how Hunter wanted to do these but here is a quick and dirty version -Ethan
@@ -280,6 +331,33 @@ public class Hero : Actor
         baseAnim.SetTrigger("Dead"); //maybe best to have these triggers have same name?
         deathScreenAnim.SetTrigger("death");
         this.enabled = false;
+    }
+
+    public void LoseLife(){
+        baseAnim.SetTrigger("Dead");
+        StartCoroutine(WaitAndRevive(4));
+
+    }
+
+    public void ResetCoords(){
+        Debug.Log("trying to reset player coords");
+        transform.position = startingCoords;
+        body.MovePosition(startingCoords);
+    }
+
+    public void ResetHealth(){
+        currentHealth = maxHealth;
+        currentLives = maxLives;
+    }
+
+    IEnumerator WaitAndRevive(float time){
+        input.enabled = false;
+        heroTemporaryFlashing=true;
+        yield return new WaitForSeconds(time);
+        baseAnim.SetTrigger("Revive");
+        currentHealth = maxHealth;
+        heroTemporaryFlashing=false;
+        input.enabled = true;
     }
 
     public bool Engage(Actor enemy)

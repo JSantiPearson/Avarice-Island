@@ -12,6 +12,7 @@ public class PauseGame : MonoBehaviour
     public GameObject player;
     public Selectable firstSelectedPauseButton;
     public Selectable firstSelectedOptionsButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,7 @@ public class PauseGame : MonoBehaviour
 
     public void Pause(){
     	Time.timeScale=0f;
+        //GameManager.enemiesOn = false;
         gamePaused=true;
         player.GetComponent<Hero>().enabled=false;
         pauseMenu.SetActive(true);
@@ -45,6 +47,7 @@ public class PauseGame : MonoBehaviour
 
     public void Unpause(){
     	Time.timeScale=1f;
+        //GameManager.enemiesOn = true;
         gamePaused=false;
         player.GetComponent<Hero>().enabled=true;
         pauseMenu.SetActive(false);

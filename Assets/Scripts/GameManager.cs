@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour {
   public GameObject leftScreenCollider;
   public GameObject rightScreenCollider;
 
+  //script settings
+  public static bool enemiesOn;
+
   private static GameManager instance;
   //MOVE THESE ELSEWHERE WHEN SPAWNING IS REFACTORED
   /*
@@ -78,6 +81,8 @@ public class GameManager : MonoBehaviour {
     currDistCamToPlayer = 0;
     cameraBounds.SetXPosition(cameraBounds.minVisibleX);
     currentCameraTrans = cameraBounds.cameraRoot;
+
+    enemiesOn = true;
     //dialogueBar.SetActive(false); //TESTING ANIMATOR VERSION
     SetScreenColliders(false);    
   }
