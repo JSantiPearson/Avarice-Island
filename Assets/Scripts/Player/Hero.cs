@@ -102,28 +102,17 @@ public class Hero : Actor
     //Hero Script Persists across scenes
         startingCoords = this.transform.position;
         SceneManager.sceneLoaded += OnSceneLoaded;
-        transform.localScale = new Vector3(size, size, 1);
 
         if (instance != null)
         {
-            //instance.gameObject.GetComponent<Rigidbody>().MovePosition(instance.startingCoords); //move the other object to the right place?
             instance.ResetCoords();
-            //Destroy(gameObject);
-            //assign health vaalues to new object
-           // this.currentHealth = instance.currentHealth;
-            //this.currentLives = instance.currentLives;
-            //kill old object
-            //GameObject oldObject = instance.gameObject;
             Destroy(gameObject);
-            //instance = this;
-           //DontDestroyOnLoad(gameObject);
         }
         else
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
 
     }
 

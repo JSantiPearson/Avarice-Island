@@ -37,8 +37,8 @@ public class PauseGame : MonoBehaviour
     }
 
     public void Pause(){
-    	//Time.timeScale=0f;
-        GameManager.enemiesOn = false;
+    	Time.timeScale=0f;
+        //GameManager.enemiesOn = false;
         gamePaused=true;
         player.GetComponent<Hero>().enabled=false;
         pauseMenu.SetActive(true);
@@ -46,8 +46,8 @@ public class PauseGame : MonoBehaviour
     }
 
     public void Unpause(){
-    	//Time.timeScale=1f;
-        GameManager.enemiesOn = true;
+    	Time.timeScale=1f;
+        //GameManager.enemiesOn = true;
         gamePaused=false;
         player.GetComponent<Hero>().enabled=true;
         pauseMenu.SetActive(false);
