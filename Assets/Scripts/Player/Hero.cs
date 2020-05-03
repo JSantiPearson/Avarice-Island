@@ -206,6 +206,7 @@ public class Hero : Actor
         if(currentHealth<=0 && !heroTemporaryFlashing){
             if(currentLives<=1){
                 currentLives--;
+                needsRevive = true;
                 Die();
             } else {
                 currentLives--;
