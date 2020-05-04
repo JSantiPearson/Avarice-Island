@@ -11,6 +11,8 @@ public class HanLao : Actor
     public float currentHealth;
     public int currentPhase;
     public GameObject hitEffectPrefab;
+    public Rigidbody body;
+    public bool paused;
 
     public bool killTest;
 
@@ -19,8 +21,10 @@ public class HanLao : Actor
     // Start is called before the first frame update
     void Start()
     {
+        body = gameObject.GetComponent<Rigidbody>();
         currentHealth = maxHealth;
         currentPhase = 1;
+        paused = false;
 }
 
     // Update is called once per frame
@@ -30,6 +34,24 @@ public class HanLao : Actor
         {
             baseAnim.SetTrigger("defeated");
         }*/
+
+        //PAUSE LOGIC
+
+        if(GameManager.enemiesOn && paused){ //unpause
+            paused = false;
+            //body.Sleep();
+            baseAnim.enabled = true;
+        }
+
+        if(!GameManager.enemiesOn && !paused){ //disable animator on first pass after pause
+            paused=true;
+            baseAnim.enabled=false;
+            //body.WakeUp();
+            return;
+        } else if (paused){ //just skip update
+            return;
+        }
+
         if(killTest){
             Hurt(150);
             killTest = false;
@@ -48,6 +70,15 @@ public class HanLao : Actor
             baseAnim.SetTrigger("defeated");
         }
     }
+
+    void FixedUpdate(){
+        //pause logic //STILL GLITCHY DURING A JUMP
+        if (!GameManager.enemiesOn) {
+         body.velocity = Vector3.zero;
+         body.angularVelocity = Vector3.zero;
+         return;
+        }
+    } 
 
     public void Launch(Vector3 attackerLocation)
     {

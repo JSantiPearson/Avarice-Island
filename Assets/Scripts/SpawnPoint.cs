@@ -69,13 +69,13 @@ public class SpawnPoint : MonoBehaviour
 
       //check if any enemies are standing in spawn area
         foreach(GameObject enemy in spawnedEnemies){
-          if(enemy!=null && Actor.IsCloseTo(enemy.transform.position,spawnLocation,2f)){ //cant check array length properly, needed null check
+          if(enemy!=null && Actor.IsCloseTo(enemy.transform.position,spawnLocation,1f)){ //cant check array length properly, needed null check
             return false;
           }
         }
 
       //check is player is standing in spawn area
-      return !Actor.IsCloseTo(playerLocation,spawnLocation,2f);
+      return !Actor.IsCloseTo(playerLocation,spawnLocation,1f);
     }
 
 }

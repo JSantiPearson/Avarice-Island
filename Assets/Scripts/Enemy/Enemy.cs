@@ -64,6 +64,8 @@ public class Enemy : Actor
 
     public GameObject hitEffectPrefab, ghostPrefab;
 
+    private bool enemyPaused;
+
 
     public enum EnemyState
     {
@@ -111,11 +113,25 @@ public class Enemy : Actor
     }
 
     public virtual void Update()
-    {
+    {   
+        //PAUSE LOGIC
 
-        if(!GameManager.enemiesOn){
+        if(GameManager.enemiesOn && enemyPaused){ //unpause
+            enemyPaused = false;
+            //body.Sleep();
+            baseAnim.enabled = true;
+        }
+
+        if(!GameManager.enemiesOn && !enemyPaused){ //disable animator on first pass after pause
+            enemyPaused=true;
+            baseAnim.enabled=false;
+            //body.WakeUp();
+            return;
+        } else if (enemyPaused){ //just skip update
             return;
         }
+
+
 
         base.Update();
 
@@ -128,8 +144,10 @@ public class Enemy : Actor
         //remains fully idle until player reaches a certain point (should be equivalent to a dialogue point)
         if(currentState == EnemyState.preDialogueIdle){
             Stop();
+            Debug.Log("in predialogue");
             if(currentXDistance<preDialogueBufferDist){
                 currentState = EnemyState.idle;
+                Debug.Log("bbreaking out of predialogue");
             }
             return;
         }
@@ -219,6 +237,13 @@ public class Enemy : Actor
 
     void FixedUpdate()
     {
+        //pause logic
+        if (!GameManager.enemiesOn) {
+         body.velocity = Vector3.zero;
+         body.angularVelocity = Vector3.zero;
+         return;
+        } 
+
         Vector3 moveVector = currentDir * speed;
         body.MovePosition(transform.position + moveVector * Time.fixedDeltaTime);
         baseAnim.SetFloat("Speed", moveVector.magnitude);

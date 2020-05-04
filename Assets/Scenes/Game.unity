@@ -848,6 +848,11 @@ PrefabInstance:
       propertyPath: dialogueAnim
       value: 
       objectReference: {fileID: 691530492}
+    - target: {fileID: 933420384211956799, guid: b91f8d624053920488bf81cea0126043,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.72
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91f8d624053920488bf81cea0126043, type: 3}
 --- !u!1001 &2767108201411825796
@@ -938,12 +943,12 @@ PrefabInstance:
     - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
       propertyPath: spawnLimit
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
       propertyPath: spawnInterval
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
@@ -960,6 +965,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546920531638128755, guid: af8535ef12a07ad42ba7d9e287d497e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4546920533040513784, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
