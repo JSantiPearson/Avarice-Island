@@ -936,37 +936,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1855178899, guid: af8535ef12a07ad42ba7d9e287d497e1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnLimit
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnInterval
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnPrefab
-      value: 
-      objectReference: {fileID: 96733372261855030, guid: 7f48f087fe010ac47abbb78b4e9ab507,
-        type: 3}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnDistFromPlayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128754, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128755, guid: af8535ef12a07ad42ba7d9e287d497e1,
+    - target: {fileID: 4546920531785793492, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
       propertyPath: m_IsActive
       value: 0

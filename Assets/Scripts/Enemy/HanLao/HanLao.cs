@@ -11,7 +11,7 @@ public class HanLao : Actor
     public float currentHealth;
     public int currentPhase;
     public GameObject hitEffectPrefab;
-    public Rigidbody body;
+    //public Rigidbody body;
     public bool paused;
 
     public bool killTest;

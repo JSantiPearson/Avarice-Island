@@ -123,6 +123,7 @@ public class Hero : Actor
         deathDialogue = gameObject.GetComponent<Dialogue>();
         deathScreenAnim = GameObject.Find("DeathScreen").GetComponent<Animator>();
         needsRevive = false;
+        transform.localScale = new Vector3(this.size, this.size, 1); //fixes scale bug on spawn
     }
 
     public override void Update()

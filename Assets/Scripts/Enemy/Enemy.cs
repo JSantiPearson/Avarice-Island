@@ -110,6 +110,7 @@ public class Enemy : Actor
         currentHealth = maxHealth;
         isWaiting = true;
         fleeHealth = 30;
+        transform.localScale = new Vector3(this.size, this.size, 1); //fixes scale bug on spawn
     }
 
     public virtual void Update()
