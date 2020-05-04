@@ -28,7 +28,7 @@ public class Hero : Actor
     bool isMoving;
     float lastWalk;
     bool attack;
-    bool freeze = false;
+    public bool freeze = false;
 
     public bool canRun = true;
     float tapAgainToRunTime = 0.4f;
@@ -39,6 +39,7 @@ public class Hero : Actor
 
     bool isJumpLandAnim;
     bool isJumpingAnim;
+    bool isUsingFeverAnim;
     public bool isGrounded;
     public bool isLaunching;
 
@@ -131,7 +132,7 @@ public class Hero : Actor
 
         CheckAnims();
 
-        if (isGrounded || isLaunching){
+        if (isGrounded || isLaunching || isUsingFeverAnim){
           freeze = true;
         }
         else {
@@ -383,6 +384,9 @@ public class Hero : Actor
         isJumpLandAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpLand");
         isJumpingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpRise") ||
               baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpFall");
+        isUsingFeverAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("FeverAOE") ||
+              baseAnim.GetCurrentAnimatorStateInfo(0).IsName("FeverProjectile") ||
+              baseAnim.GetCurrentAnimatorStateInfo(0).IsName("FeverLightning");
         isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GROUNDED_ANIM) ||
               baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GET_UP_ANIM);
     }
