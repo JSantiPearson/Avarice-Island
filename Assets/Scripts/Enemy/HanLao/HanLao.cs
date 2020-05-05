@@ -11,7 +11,6 @@ public class HanLao : Actor
     public float currentHealth;
     public int currentPhase;
     public GameObject hitEffectPrefab;
-    //public Rigidbody body;
     public bool paused;
 
     public bool killTest;
@@ -58,7 +57,7 @@ public class HanLao : Actor
         }
 
         if(killTest){
-            Hurt(150);
+            Hit(150);
             killTest = false;
         }
         if (currentHealth <= (maxHealth / 2) && currentPhase == 1)
@@ -83,7 +82,7 @@ public class HanLao : Actor
          body.angularVelocity = Vector3.zero;
          return;
         }
-    } 
+    }
 
     public void Launch(Vector3 attackerLocation)
     {
@@ -98,7 +97,7 @@ public class HanLao : Actor
         body.AddForce(verticalLaunchInfluence, ForceMode.Force);
     }
 
-    public void Hurt(float damage)
+    public void Hit(float damage)
     {
         audioManager.PlayOneShot("hitSound",0.2f);
         TakeDamage(damage);
