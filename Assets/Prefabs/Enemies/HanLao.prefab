@@ -335,8 +335,9 @@ MonoBehaviour:
   maxHealth: 150
   currentHealth: 0
   currentPhase: 0
-  hitEffectPrefab: {fileID: 6945868551980403083, guid: d94156061177f7e46b7e48a6ff5cb2cb,
+  hitEffectPrefab: {fileID: 2186167066489008872, guid: 82092519e983c6541a0f88eb4b1ea989,
     type: 3}
+  paused: 0
   killTest: 0
 --- !u!114 &1449405596
 MonoBehaviour:
@@ -491,6 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -548,6 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 1024

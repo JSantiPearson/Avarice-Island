@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   baseAnim: {fileID: 6837527047377472509}
+  body: {fileID: 0}
   damage: 10
   dieTime: 0
   size: 1
@@ -209,13 +210,15 @@ MonoBehaviour:
   onGround: 0
   engaged: []
   numEngagements: 2
-  currentHealth: 0
+  currentHealth: 150
   currentLives: 0
   walkSpeed: 2
   runSpeed: 5
   isRunning: 0
   canRun: 1
   isFacingLeft: 0
+  isGrounded: 0
+  isLaunching: 0
   input: {fileID: 0}
   jumpForce: 1700
   deathDialogue: {fileID: 0}
@@ -340,6 +343,7 @@ GameObject:
   - component: {fileID: 8452970744103588086}
   - component: {fileID: 8452970744103588085}
   - component: {fileID: 8452970744103588084}
+  - component: {fileID: 177421469}
   m_Layer: 10
   m_Name: DashAttackHitbox
   m_TagString: Player
@@ -420,6 +424,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &177421469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8452970744103588091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  thisBox: {fileID: 8452970744103588091}
+  damage: 30
 --- !u!1 &8452970744152956154
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +786,7 @@ GameObject:
   - component: {fileID: 8452970744577457824}
   - component: {fileID: 8452970744577457831}
   - component: {fileID: 8452970744577457830}
+  - component: {fileID: 793364809}
   m_Layer: 10
   m_Name: Attack2Hitbox
   m_TagString: Player
@@ -844,6 +867,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &793364809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8452970744577457829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  thisBox: {fileID: 8452970744577457829}
+  damage: 10
 --- !u!1 &8452970744643729772
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +897,7 @@ GameObject:
   - component: {fileID: 8452970744643729775}
   - component: {fileID: 8452970744643729774}
   - component: {fileID: 8452970744643729773}
+  - component: {fileID: 2096264081}
   m_Layer: 10
   m_Name: Attack1n3Hitbox
   m_TagString: Player
@@ -936,6 +978,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2096264081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8452970744643729772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  thisBox: {fileID: 8452970744643729772}
+  damage: 10
 --- !u!1 &8452970745004685473
 GameObject:
   m_ObjectHideFlags: 0

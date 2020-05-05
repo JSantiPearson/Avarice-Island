@@ -8,12 +8,12 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
 
     public void activateFeverAoe(int activate)
     {
-        transform.GetChild(5).GetComponent<feverHitboxes>().SetActive(activate != 0);
+        transform.GetChild(5).GetComponent<feverHitboxes>().SetActive(activate != 0, true, 30);
     }
 
     public void activateFeverLightning(int activate)
     {
-        transform.GetChild(4).GetComponent<feverHitboxes>().SetActive(activate != 0);
+        transform.GetChild(4).GetComponent<feverHitboxes>().SetActive(activate != 0, false, 15);
 
     }
     public void activateIsAttacking(int activate)
@@ -22,12 +22,12 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
     }
     public void activatePlayerDashAttack(int activate)
     {
-        transform.GetChild(3).GetComponent<feverHitboxes>().SetActive(activate != 0);
+        transform.GetChild(3).GetComponent<feverHitboxes>().SetActive(activate != 0, true, 20);
 
     }
     public void activateFeverProjectile(int activate)
     {
-        transform.GetChild(3).GetComponent<feverHitboxes>().SetActive(activate != 0);
+        transform.GetChild(3).GetComponent<feverHitboxes>().SetActive(activate != 0, false,  15);
 
     }
 }

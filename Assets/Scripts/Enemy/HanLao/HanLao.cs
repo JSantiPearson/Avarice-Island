@@ -11,21 +11,25 @@ public class HanLao : Actor
     public float currentHealth;
     public int currentPhase;
     public GameObject hitEffectPrefab;
-    public Rigidbody body;
     public bool paused;
 
     public bool killTest;
 
     protected float launchForce = 250f;
 
+    public AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        body = gameObject.GetComponent<Rigidbody>();
+        //body = gameObject.GetComponent<Rigidbody>();
         currentHealth = maxHealth;
         currentPhase = 1;
         paused = false;
-}
+        GameManager.bossFightInProgress=true; //tells audio manager to switch songs
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -53,7 +57,7 @@ public class HanLao : Actor
         }
 
         if(killTest){
-            Hurt(150);
+            Hit(150);
             killTest = false;
         }
         if (currentHealth <= (maxHealth / 2) && currentPhase == 1)
@@ -78,7 +82,7 @@ public class HanLao : Actor
          body.angularVelocity = Vector3.zero;
          return;
         }
-    } 
+    }
 
     public void Launch(Vector3 attackerLocation)
     {
@@ -93,8 +97,9 @@ public class HanLao : Actor
         body.AddForce(verticalLaunchInfluence, ForceMode.Force);
     }
 
-    public void Hurt(float damage)
+    public void Hit(float damage)
     {
+        audioManager.PlayOneShot("hitSound",0.2f);
         TakeDamage(damage);
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         baseAnim.SetTrigger("hurt");
@@ -118,7 +123,7 @@ public class HanLao : Actor
 
     IEnumerator WaitAndDie(float time){
         yield return new WaitForSeconds(time);
-        Debug.Log("About to destroy han");
+        //Debug.Log("About to destroy han");
         Destroy(gameObject);
     }
 }

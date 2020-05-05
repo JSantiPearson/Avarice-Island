@@ -19,7 +19,12 @@ public class RaveGirl : Enemy
     public void Start()
     {
         PUNCH_ANIM = "RaveGirlPunchAnim";
-        LAUNCH_ANIM = "RaveGirlLaunchAnim";
+        EXTRA_ATTACK1_ANIM = "RaveGirlAttack2";
+        EXTRA_ATTACK2_ANIM = "RaveGirlAttack3";
+        EXTRA_ATTACK3_ANIM = "RaveGirlAttack4";
+        LAUNCH_RISE_ANIM = "LaunchRiseAnim";
+        LAUNCH_FALL_ANIM = "LaunchFallAnim";
+        LAUNCH_LAND_ANIM = "LaunchLandAnim";
         GROUNDED_ANIM = "RaveGirlGroundedAnim";
         STAND_ANIM = "RaveGirlGetUpAnim";
         HURT_GROUNDED_ANIM = "RaveGirlHurtGroundedAnim";

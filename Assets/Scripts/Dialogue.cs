@@ -65,8 +65,10 @@ public class Dialogue : MonoBehaviour
 		    if(index>=sentences.Length){
                 //dialogueBar.SetActive(false);
                 dialogueAnim.SetTrigger("hide");
-                pauseGame.UnpauseWithoutMenu();
                 pausedForDialogue = false;
+                Debug.Log("Sentences done, unpaused");
+                pauseGame.UnpauseWithoutMenu();
+                this.enabled = false; //don't interact with this dialogue again
             }
         }
 	}

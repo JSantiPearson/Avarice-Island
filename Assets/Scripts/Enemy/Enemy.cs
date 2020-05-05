@@ -9,6 +9,10 @@ public class Enemy : Actor
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     protected string PUNCH_ANIM;
+    protected string EXTRA_ATTACK1_ANIM;
+    protected string EXTRA_ATTACK2_ANIM;
+    protected string EXTRA_ATTACK3_ANIM;
+    protected string EXTRA_ATTACK4_ANIM;
     protected string LAUNCH_ANIM;
     protected string LAUNCH_RISE_ANIM;
     protected string LAUNCH_FALL_ANIM;
@@ -77,6 +81,9 @@ public class Enemy : Actor
     float cameraHalfWidth;
     Vector3 camera;
 
+    public AudioManager audioManager;
+
+
     public enum EnemyState
     {
         //noticed state? alternatively, "if state not approaching and approachable" case in state logic of update
@@ -123,6 +130,18 @@ public class Enemy : Actor
         fleeHealth = 30;
         cameraHalfWidth = Camera.main.GetComponent<CameraBounds>().cameraHalfWidth;
         takeBreath = true;
+        transform.localScale = new Vector3(this.size, this.size, 1); //fixes scale bug on spawn
+        //audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        //audioObject = GameObject.Find("AudioManager");
+    }
+
+    //can't currently find audiomanager with start method because enemies don't call their base start method.
+    //this will work for now since all enemies spawn after the audiomanager has been initialized
+    public void Awake(){
+        //assign audio for hit sound
+        if(GameObject.Find("AudioManager")){
+            audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        }
     }
 
     public virtual void Update()
@@ -569,7 +588,9 @@ public class Enemy : Actor
 
     public void Hurt(float damage)
     {
-        Debug.Log("Enemy hurt");
+        if(audioManager!=null){ //allows us to deactivate audio manager temporarily
+            audioManager.PlayOneShot("hitSound",0.2f);
+        }
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
         Stop();
@@ -605,7 +626,11 @@ public class Enemy : Actor
 
     public virtual void CheckAnims()
     {
-        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM);
+        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(EXTRA_ATTACK1_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(EXTRA_ATTACK2_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(EXTRA_ATTACK3_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(EXTRA_ATTACK4_ANIM);
         isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_RISE_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_FALL_ANIM) ||

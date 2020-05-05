@@ -15,8 +15,11 @@ public class Bouncer : Enemy
     	//these animators also have multiple animations that correspond to a single state here. i just used one for each.
     	switch(bouncerName){
     		case "BouncerBrad":
-        		PUNCH_ANIM = "BradPunchAnim";
-        		LAUNCH_ANIM = "BradLaunchedAnim";
+                PUNCH_ANIM = "BradPunchAnim";
+                EXTRA_ATTACK1_ANIM = "BradKickAnim";
+                EXTRA_ATTACK2_ANIM = "BradBigPunchAnim";
+                EXTRA_ATTACK3_ANIM = "BradGroundedKickAnim";
+                LAUNCH_ANIM = "BradLaunchAnim";
         		GROUNDED_ANIM = "BradGroundedAnim"; //no regular grounded anim?
         		STAND_ANIM = "BradGetUpAnim";
         		HURT_GROUNDED_ANIM = "BradHurtGroundedAnim";
@@ -25,7 +28,10 @@ public class Bouncer : Enemy
 
         	case "BouncerRex":
         		PUNCH_ANIM = "RexPunchAnim";
-        		LAUNCH_ANIM = "RexLaunchedAnim";
+                EXTRA_ATTACK1_ANIM = "RexKickAnim";
+                EXTRA_ATTACK2_ANIM = "RexBigPunchAnim";
+                EXTRA_ATTACK3_ANIM = "RexGroundedKickAnim";
+                LAUNCH_ANIM = "RexLaunchAnim";
         		GROUNDED_ANIM = "RexGroundedAnim"; //no regular grounded anim?
         		STAND_ANIM = "RexGetUpAnim";
         		HURT_GROUNDED_ANIM = "RexHurtGroundedAnim";
@@ -41,6 +47,7 @@ public class Bouncer : Enemy
         currentHealth = maxHealth;
         isWaiting = true;
         fleeHealth = 30;
+        transform.localScale = new Vector3((-1)*this.size, this.size, 1);
     }
 
 		public void BigPunch()

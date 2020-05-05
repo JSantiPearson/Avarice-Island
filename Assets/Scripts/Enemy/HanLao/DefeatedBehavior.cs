@@ -25,6 +25,7 @@ public class DefeatedBehavior : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if(!dialogue.pausedForDialogue){
+            GameManager.bossFightInProgress=false;
             dialogue.dialogueAnim.ResetTrigger("popup");
             hanLaoObject.GetComponent<HanLao>().Die();
         }
