@@ -23,7 +23,7 @@ public class Bouncer : Enemy
         		GROUNDED_ANIM = "BradGroundedAnim"; //no regular grounded anim?
         		STAND_ANIM = "BradGetUpAnim";
         		HURT_GROUNDED_ANIM = "BradHurtGroundedAnim";
-        		HURT_STANDING_ANIM = "BradHurtAnim";
+        		HURT_STANDING_ANIM = "BradHurtFrontAnim";
         		break;
 
         	case "BouncerRex":
@@ -35,7 +35,7 @@ public class Bouncer : Enemy
         		GROUNDED_ANIM = "RexGroundedAnim"; //no regular grounded anim?
         		STAND_ANIM = "RexGetUpAnim";
         		HURT_GROUNDED_ANIM = "RexHurtGroundedAnim";
-        		HURT_STANDING_ANIM = "RexHurtAnim";
+        		HURT_STANDING_ANIM = "RexHurtFrontAnim";
         		break;
     	}
 

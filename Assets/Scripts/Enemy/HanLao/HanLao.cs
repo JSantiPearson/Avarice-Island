@@ -11,7 +11,6 @@ public class HanLao : Actor
     public float currentHealth;
     public int currentPhase;
     public GameObject hitEffectPrefab;
-    public Rigidbody body;
     public bool paused;
 
     public bool killTest;
@@ -53,7 +52,7 @@ public class HanLao : Actor
         }
 
         if(killTest){
-            Hurt(150);
+            Hit(150);
             killTest = false;
         }
         if (currentHealth <= (maxHealth / 2) && currentPhase == 1)
@@ -93,7 +92,7 @@ public class HanLao : Actor
         body.AddForce(verticalLaunchInfluence, ForceMode.Force);
     }
 
-    public void Hurt(float damage)
+    public void Hit(float damage)
     {
         TakeDamage(damage);
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);

@@ -11,11 +11,21 @@ public class feverHitboxes : MonoBehaviour
     public bool Knockback;
     public HashSet<GameObject> beenHit = new HashSet<GameObject>();
 
+    private const string GRUNT = "EnemyGrunt(Clone)";
+    private const string RAVE_BOY = "RaveBoy(Clone)";
+    private const string RAVE_GIRL = "RaveGirl(Clone)";
+    private const string BOUNCER_REX = "BouncerRex(Clone)";
+    private const string BOUNCER_BRAD = "BouncerBrad(Clone)";
+    private const string BLASTER = "Blaster(Clone)";
+    private const string BRAWLER = "Brawler(Clone)";
+    private const string HAN_LAO = "HanLao(Clone)";
+    private const string SHEN = "Shen(Clone)";
+
     void Start()
     {
         //Use this to ensure that the Gizmos are being drawn when in Play Mode.
         m_Started = true;
-        SetActive(false);
+        SetActive(false, false, 0);
     }
 
     void FixedUpdate()
@@ -39,14 +49,76 @@ public class feverHitboxes : MonoBehaviour
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
-
-                enemy.GetComponent<Enemy>().Hurt(damage);
-                beenHit.Add(enemy);
-                if(Knockback)
+                switch (enemy.name)
                 {
-                    enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+                    case GRUNT:
+                        if (Knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
+                        }
+                        enemy.GetComponent<EnemyGrunt>().Hit(30);
+                        break;
+                    case BLASTER:
+                        if (Knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+
+                        }
+                        enemy.GetComponent<Blaster>().Hit(30);
+                        break;
+                    case RAVE_BOY:
+                        if (Knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+
+                        }
+                        enemy.GetComponent<RaveBoy>().Hit(30);
+                        break;
+                    case RAVE_GIRL:
+                        if (Knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+
+                        }
+                        enemy.GetComponent<RaveGirl>().Hit(30);
+                        break;
+                    case BOUNCER_BRAD:
+                        if (Knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+
+                        }
+                        enemy.GetComponent<Bouncer>().Hit(30);
+                        break;
+                    case BOUNCER_REX:
+                        if (Knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+
+                        }
+                        enemy.GetComponent<Bouncer>().Hit(30);
+                        break;
+                    case HAN_LAO:
+                        if (Knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+
+                        }
+                        enemy.GetComponent<HanLao>().Hit(15);
+                        break;
+                    case SHEN:
+                        if (Knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+
+                        }
+                        enemy.GetComponent<Shen>().Hit(15);
+                        break;
+                    default:
+                        break;
                 }
+                beenHit.Add(enemy);
             }
         }
     }
@@ -61,8 +133,10 @@ public class feverHitboxes : MonoBehaviour
             Gizmos.DrawWireCube(transform.position, transform.localScale);
     }
 
-    public void SetActive(bool isActive)
+    public void SetActive(bool isActive, bool launch, int damage)
     {
+        this.Knockback = launch;
+        this.damage = damage;
         thisBox.SetActive(isActive);
         beenHit.Clear();
     }
