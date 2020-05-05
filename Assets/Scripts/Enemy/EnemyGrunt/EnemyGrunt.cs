@@ -11,7 +11,10 @@ public class EnemyGrunt : Enemy
     public void Start()
     {
         PUNCH_ANIM = "enemy_grunt_punch";
-        LAUNCH_ANIM = "enemy_grunt_launch";
+        EXTRA_ATTACK2_ANIM = "GruntAttack2";
+        LAUNCH_RISE_ANIM = "GruntLaunchRise";
+        LAUNCH_FALL_ANIM = "GruntLaunchFall";
+        LAUNCH_LAND_ANIM = "GruntLaunchLand";
         GROUNDED_ANIM = "enemy_grunt_grounded";
         STAND_ANIM = "enemy_grunt_stand";
         HURT_GROUNDED_ANIM = "enemy_grunt_hurt_grounded";

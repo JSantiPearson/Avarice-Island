@@ -19,6 +19,7 @@ public class Blaster : Enemy
     {
         
         PUNCH_ANIM = "Blaster_Punch1";
+        EXTRA_ATTACK1_ANIM = "Blaster_Kick1";
         LAUNCH_RISE_ANIM = "Blaster_Launch_Rise";
         LAUNCH_FALL_ANIM = "Blaster_Launch_Fall";
         LAUNCH_LAND_ANIM = "Blaster_Launch_Land";
@@ -261,7 +262,8 @@ public class Blaster : Enemy
     public override void CheckAnims()
     {
         isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM) ||
-            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(SHOOT_ANIM);
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(SHOOT_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(EXTRA_ATTACK1_ANIM);
         isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_RISE_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_FALL_ANIM) ||
