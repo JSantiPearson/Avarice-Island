@@ -121,7 +121,10 @@ public class Enemy : Actor
     //can't currently find audiomanager with start method because enemies don't call their base start method.
     //this will work for now since all enemies spawn after the audiomanager has been initialized
     public void Awake(){
-        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        //assign audio for hit sound
+        if(GameObject.Find("AudioManager")){
+            audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        }
     }
 
     public virtual void Update()
@@ -536,7 +539,9 @@ public class Enemy : Actor
 
     public void Hurt(float damage)
     {
-        audioManager.PlayOneShot("hitSound",0.2f);
+        if(audioManager!=null){ //allows us to deactivate audio manager temporarily
+            audioManager.PlayOneShot("hitSound",0.2f);
+        }
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
         Stop();
