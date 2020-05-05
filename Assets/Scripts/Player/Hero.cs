@@ -318,7 +318,6 @@ public class Hero : Actor
 
     public void Stunned(){
       baseAnim.SetTrigger("Flashed");
-      Debug.Log("Freeze function should activate");
       StartCoroutine(Freeze(1.2f));
     }
 
@@ -373,6 +372,15 @@ public class Hero : Actor
             }
             return false;
         }
+    }
+
+    public bool Disengage(Enemy enemy)
+    {
+      lock (balanceLock)
+      {
+        engaged.Remove(enemy);
+        return true;
+      }
     }
 
     public virtual void CheckAnims()

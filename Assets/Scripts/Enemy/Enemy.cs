@@ -27,6 +27,9 @@ public class Enemy : Actor
     protected int rightBound = 15;
     protected int leftBound = 7;
 
+    public float leftCamBound;
+    public float rightCamBound;
+
     protected bool isAttacking;
     protected bool isHurting;
     protected float lastHurtTime;
@@ -38,6 +41,7 @@ public class Enemy : Actor
 
     protected float waitDistance = 4;
     protected bool isWaiting;
+    protected bool isFleeing;
 
     protected int paused;
     protected int waitingPauseTime = 40;
@@ -46,6 +50,8 @@ public class Enemy : Actor
     protected bool isMoving;
     protected float lastWalk;
     protected Vector3 lastWalkVector;
+
+    protected bool takeBreath = true;
 
     protected Vector3 currentDir;
     protected bool isFacingLeft;
@@ -64,8 +70,12 @@ public class Enemy : Actor
 
     public GameObject hitEffectPrefab, ghostPrefab;
 
+    List<Actor> playerEngagements;
+
     private bool enemyPaused;
 
+    float cameraHalfWidth;
+    Vector3 camera;
 
     public enum EnemyState
     {
@@ -109,12 +119,19 @@ public class Enemy : Actor
         currentState = EnemyState.idle; //override this if preDialogueIdle needs to be used
         currentHealth = maxHealth;
         isWaiting = true;
+        isFleeing = false;
         fleeHealth = 30;
+        cameraHalfWidth = Camera.main.GetComponent<CameraBounds>().cameraHalfWidth;
+        takeBreath = true;
     }
 
     public virtual void Update()
-    {   
+    {
         //PAUSE LOGIC
+
+        camera = Camera.main.transform.position;
+        leftCamBound = camera.x - cameraHalfWidth;
+        rightCamBound = camera.x + cameraHalfWidth;
 
         if(GameManager.enemiesOn && enemyPaused){ //unpause
             enemyPaused = false;
@@ -131,8 +148,6 @@ public class Enemy : Actor
             return;
         }
 
-
-
         base.Update();
 
         CheckAnims();
@@ -141,13 +156,15 @@ public class Enemy : Actor
         float currentDistance = Vector3.Distance(body.position, playerPosition);
         float currentXDistance = Mathf.Abs(body.position.x - playerPosition.x); //need this for preDialogue checks
 
+        playerEngagements = playerReference.GetComponent<Hero>().engaged;
+
         //remains fully idle until player reaches a certain point (should be equivalent to a dialogue point)
         if(currentState == EnemyState.preDialogueIdle){
             Stop();
             Debug.Log("in predialogue");
             if(currentXDistance<preDialogueBufferDist){
                 currentState = EnemyState.idle;
-                Debug.Log("bbreaking out of predialogue");
+                Debug.Log("breaking out of predialogue");
             }
             return;
         }
@@ -157,83 +174,84 @@ public class Enemy : Actor
             isWaiting = !playerReference.GetComponent<Hero>().Engage(this);
         }
 
-        if (paused >= 0)
-        {
-            paused--;
-        }
-        else if (isWaiting)
-        {
-            currentState = EnemyState.waiting;
-        }
-        //Universal state change logic
-        else if (!(isLaunching || isHurting || isAttacking || isWaiting || isGrounded || isStanding))
-        {
-            //might have to rework this to flee to a determined point rather than a standing distance
-            if (currentDistance <= 3 && (currentHealth <= fleeHealth || currentState == EnemyState.fleeing) && !isHurting)
+          if (paused >= 0)
+          {
+              paused--;
+          }
+          else if (isWaiting)
+          {
+              currentState = EnemyState.waiting;
+          }
+          //Universal state change logic
+            else if (!(isLaunching || isHurting || isAttacking || isWaiting || isGrounded || isStanding))
             {
-                if (currentState != EnemyState.fleeing)
+                //might have to rework this to flee to a determined point rather than a standing distance
+                if (currentDistance <= 3 && (currentHealth <= fleeHealth || currentState == EnemyState.fleeing) && !isHurting)
                 {
-                    switch (currentLevel)
+                    if (currentState != EnemyState.fleeing)
                     {
-                        case DifficultyLevel.easy:
-                            fleeHealth -= 30;
-                            break;
-                        case DifficultyLevel.medium:
-                            fleeHealth -= 15;
-                            break;
-                        case DifficultyLevel.hard:
-                            fleeHealth -= 10;
-                            break;
-                        default:
-                            fleeHealth -= 30;
-                            break;
+                        switch (currentLevel)
+                        {
+                            case DifficultyLevel.easy:
+                                fleeHealth -= 30;
+                                break;
+                            case DifficultyLevel.medium:
+                                fleeHealth -= 15;
+                                break;
+                            case DifficultyLevel.hard:
+                                fleeHealth -= 10;
+                                break;
+                            default:
+                                fleeHealth -= 30;
+                                break;
+                        }
                     }
+                    currentState = EnemyState.fleeing;
                 }
-                currentState = EnemyState.fleeing;
+                else if (currentDistance <= attackDistance) currentState = EnemyState.attacking;
+                else if (currentDistance <= noticeDistance) currentState = EnemyState.approaching;
+                else currentState = EnemyState.idle;
             }
-            else if (currentDistance <= attackDistance) currentState = EnemyState.attacking;
-            else if (currentDistance <= noticeDistance) currentState = EnemyState.approaching;
-            else currentState = EnemyState.idle;
-        }
-        else
-        {
-            currentState = EnemyState.idle;
+            else
+            {
+                currentState = EnemyState.idle;
+            }
+
+            //reset the combo indicator if we interrupted attacking, unless player is launched from a heavy attack.
+            if (currentState != EnemyState.attacking)
+            {
+                lastAttack = LastAttack.none;
+            }
+            //Act on the current state
+            switch (currentState)
+            {
+                case EnemyState.idle:
+                    Idle();
+                    break;
+                case EnemyState.pacing:
+                    Pace();
+                    break;
+                case EnemyState.approaching:
+                    Approach();
+                    break;
+                case EnemyState.attacking:
+                    Attack();
+                    break;
+                case EnemyState.fleeing:
+                    Flee();
+                    break;
+                case EnemyState.wandering:
+                    Wander();
+                    break;
+                case EnemyState.waiting:
+                    Wait();
+                    break;
+                default:
+                    break;
+            }
+
         }
 
-        //reset the combo indicator if we interrupted attacking, unless player is launched from a heavy attack.
-        if (currentState != EnemyState.attacking)
-        {
-            lastAttack = LastAttack.none;
-        }
-        //Act on the current state
-        switch (currentState)
-        {
-            case EnemyState.idle:
-                Idle();
-                break;
-            case EnemyState.pacing:
-                Pace();
-                break;
-            case EnemyState.approaching:
-                Approach();
-                break;
-            case EnemyState.attacking:
-                Attack();
-                break;
-            case EnemyState.fleeing:
-                Flee();
-                break;
-            case EnemyState.wandering:
-                Wander();
-                break;
-            case EnemyState.waiting:
-                Wait();
-                break;
-            default:
-                break;
-        }
-
-    }
 
     void FixedUpdate()
     {
@@ -242,7 +260,7 @@ public class Enemy : Actor
          body.velocity = Vector3.zero;
          body.angularVelocity = Vector3.zero;
          return;
-        } 
+        }
 
         Vector3 moveVector = currentDir * speed;
         body.MovePosition(transform.position + moveVector * Time.fixedDeltaTime);
@@ -325,6 +343,14 @@ public class Enemy : Actor
         }
     }
 
+    public void CatchBreath()
+    {
+      Stop();
+      isFleeing = false;
+      baseAnim.SetTrigger("Rest");
+      takeBreath = false;
+    }
+
     public virtual void Attack()
     {
         Stop();
@@ -366,10 +392,22 @@ public class Enemy : Actor
     //might have to rework this to flee to a determined point rather than a standing distance
     public void Flee()
     {
+        isFleeing = true;
         Vector3 playerPosition = playerReference.transform.position;
         currentDir = body.position - playerPosition;
         currentDir.Normalize();
-        Walk();
+        isWaiting = playerReference.GetComponent<Hero>().Disengage(this);
+        if (body.position.x - playerPosition.x < 20){
+          Run();
+        }
+        else {
+          if (takeBreath){
+            CatchBreath();
+          }
+          else{
+            Wander();
+          }
+        }
     }
 
     public void Wander()
@@ -409,6 +447,13 @@ public class Enemy : Actor
         {
             var wanderBoundsX = (left: startingPosition.x - 5, right: startingPosition.x + 5);
             var wanderBoundsZ = (bottom: -2.5f, top: 1.2f);
+
+            if (wanderBoundsX.left < leftCamBound){
+              wanderBoundsX.left = leftCamBound + 1;
+            }
+            if (wanderBoundsX.right > rightCamBound){
+              wanderBoundsX.right = rightCamBound - 1;
+            }
 
             //Form a line connecting the player and enemy
             Vector3 playerPosition = playerReference.transform.position;

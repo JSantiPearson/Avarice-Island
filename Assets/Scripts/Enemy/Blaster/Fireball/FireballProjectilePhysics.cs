@@ -49,14 +49,13 @@ public class FireballProjectilePhysics : MonoBehaviour
 
     void OnTriggerEnter(Collider hitInfo)
     {
-        
+
     }
 
     void OnCollisionEnter(Collision col)
     {
 
         Collider hitInfo = col.collider;
-        Debug.Log("fireball hit " + hitInfo.name);
         //if (hitInfo.GetComponent<Collider>().tag == "Floor")
         if (hitInfo.tag == "Floor")
         {
@@ -78,8 +77,6 @@ public class FireballProjectilePhysics : MonoBehaviour
 
                 //enemy.TakeDamage(damage);
             }
-
-            Debug.Log("fireball hit" + player.name);
         }
         //myCollider.SetActive(false);
         //rb.setActive(false);
@@ -108,5 +105,3 @@ public class FireballProjectilePhysics : MonoBehaviour
         }
     }
 }
-
-
