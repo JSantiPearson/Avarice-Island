@@ -416,7 +416,7 @@ public class Enemy : Actor
         currentDir = body.position - playerPosition;
         currentDir.Normalize();
         isWaiting = playerReference.GetComponent<Hero>().Disengage(this);
-        if (body.position.x - playerPosition.x < 20){
+        if (body.position.x - playerPosition.x < 5){
           Run();
         }
         else {
@@ -462,6 +462,7 @@ public class Enemy : Actor
 
     public void Wait()
     {
+      if (!isFleeing){
         if (IsCloseTo(targetPosition, body.position, 0.1f))
         {
             var wanderBoundsX = (left: startingPosition.x - 5, right: startingPosition.x + 5);
@@ -498,6 +499,10 @@ public class Enemy : Actor
             currentDir.Normalize();
             Walk();
         }
+      }
+      else {
+        Flee();
+      }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
