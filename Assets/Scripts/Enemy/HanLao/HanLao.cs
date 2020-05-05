@@ -21,7 +21,7 @@ public class HanLao : Actor
     // Start is called before the first frame update
     void Start()
     {
-        body = gameObject.GetComponent<Rigidbody>();
+        //body = gameObject.GetComponent<Rigidbody>();
         currentHealth = maxHealth;
         currentPhase = 1;
         paused = false;
