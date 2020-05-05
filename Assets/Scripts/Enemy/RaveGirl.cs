@@ -15,10 +15,6 @@ public class RaveGirl : Enemy
     protected bool isTeleporting;
     protected string TELEPORT_IN_ANIM;
     protected string TELEPORT_OUT_ANIM;
-    float cameraHalfWidth;
-    Vector3 camera;
-    float leftCamBound;
-    float rightCamBound;
 
     public void Start()
     {
@@ -45,7 +41,6 @@ public class RaveGirl : Enemy
         isWaiting = true;
         fleeHealth = 30;
         lastDistance = Vector3.Distance(body.position, playerPosition);
-        cameraHalfWidth = Camera.main.GetComponent<CameraBounds>().cameraHalfWidth;
     }
 
     public override void Update()
@@ -53,10 +48,6 @@ public class RaveGirl : Enemy
         base.Update();
 
         CheckAnims();
-
-        camera = Camera.main.transform.position;
-        leftCamBound = camera.x - cameraHalfWidth;
-        rightCamBound = camera.x + cameraHalfWidth;
 
         playerPosition = playerReference.transform.position;
         float currentDistance = Vector3.Distance(body.position, playerPosition);
