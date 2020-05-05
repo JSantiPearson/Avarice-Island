@@ -10,16 +10,6 @@ public class playerHitbox : MonoBehaviour
     public int damage;
     public HashSet<GameObject> beenHit = new HashSet<GameObject>();
 
-    private const string GRUNT = "EnemyGrunt(Clone)";
-    private const string RAVE_BOY = "RaveBoy(Clone)";
-    private const string RAVE_GIRL = "RaveGirl(Clone)";
-    private const string BOUNCER_REX = "BouncerRex(Clone)";
-    private const string BOUNCER_BRAD = "BouncerBrad(Clone)";
-    private const string BLASTER = "Blaster(Clone)";
-    private const string BRAWLER = "Brawler(Clone)";
-    private const string HAN_LAO = "HanLao(Clone)";
-    private const string SHEN = "Shen(Clone)";
-
 
     void Start()
     {
@@ -46,46 +36,8 @@ public class playerHitbox : MonoBehaviour
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
-                switch (enemy.name)
-                {
-                    case GRUNT:
-                        enemy.GetComponent<EnemyGrunt>().Launch(GameObject.Find("Player").transform.position);
-                        enemy.GetComponent<EnemyGrunt>().Hurt(30);
-                        break;
-                    case BLASTER:
-                        enemy.GetComponent<Blaster>().Launch(GameObject.Find("Player").transform.position);
-                        enemy.GetComponent<Blaster>().Hurt(30);
-                        break;
-                    case BRAWLER:
-                        enemy.GetComponent<Brawler>().Launch(GameObject.Find("Player").transform.position);
-                        enemy.GetComponent<Brawler>().Hurt(30);
-                        break;
-                    case RAVE_BOY:
-                        enemy.GetComponent<RaveBoy>().Launch(GameObject.Find("Player").transform.position);
-                        enemy.GetComponent<RaveBoy>().Hurt(30);
-                        break;
-                    case RAVE_GIRL:
-                        enemy.GetComponent<RaveGirl>().Launch(GameObject.Find("Player").transform.position);
-                        enemy.GetComponent<RaveGirl>().Hurt(30);
-                        break;
-                    case BOUNCER_BRAD:
-                        enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
-                        enemy.GetComponent<Bouncer>().Hurt(30);
-                        break;
-                    case BOUNCER_REX:
-                        enemy.GetComponent<Bouncer>().Launch(GameObject.Find("Player").transform.position);
-                        enemy.GetComponent<Bouncer>().Hurt(30);
-                        break;
-                    case HAN_LAO:
-                        enemy.GetComponent<HanLao>().Launch(GameObject.Find("Player").transform.position);
-                        enemy.GetComponent<HanLao>().Hurt(15);
-                        break;
-                    case SHEN:
-                        enemy.GetComponent<Shen>().Hurt(15);
-                        break;
-                    default:
-                        break;
-                }
+                enemy.GetComponent<Hero>().Hurt(damage);
+                beenHit.Add(enemy);
             }
         }
     }
