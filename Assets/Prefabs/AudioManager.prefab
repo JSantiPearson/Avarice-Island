@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5442586813745587382
 Transform:
   m_ObjectHideFlags: 0
@@ -45,9 +45,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixerGroup: {fileID: 24300002, guid: 09ad3b67f3960234090aec08010691fb, type: 2}
   mixer: {fileID: 24100000, guid: 09ad3b67f3960234090aec08010691fb, type: 2}
+  initialSliderVal: 0.948
   sounds:
   - name: mainTheme
     clip: {fileID: 8300000, guid: 0b9480aff6c2366408d1e81ef60fc49f, type: 3}
+    volume: 0
+    volumeVariance: 0
+    pitch: 0
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: hitSound
+    clip: {fileID: 8300000, guid: 53c11cbb9da146841925c7a7a884773a, type: 3}
+    volume: 0
+    volumeVariance: 0
+    pitch: 0
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: bossTheme
+    clip: {fileID: 8300000, guid: 23fb5fbc4dfba244abcacc7d94f9cdfd, type: 3}
     volume: 0
     volumeVariance: 0
     pitch: 0

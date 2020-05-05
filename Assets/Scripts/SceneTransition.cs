@@ -41,6 +41,9 @@ public class SceneTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(transitionAnimation==null){
+            transitionAnimation = GameObject.Find("TransitionFade").GetComponent<Animator>();
+        }
     //This will load a scene on keypress.
     //   if(Input.GetKeyDown(KeyCode.Tab) && sceneName!=null){
     //   	StartCoroutine(LoadScene());

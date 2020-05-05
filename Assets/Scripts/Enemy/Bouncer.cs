@@ -47,6 +47,7 @@ public class Bouncer : Enemy
         currentHealth = maxHealth;
         isWaiting = true;
         fleeHealth = 30;
+        transform.localScale = new Vector3((-1)*this.size, this.size, 1);
     }
 
 		public void BigPunch()

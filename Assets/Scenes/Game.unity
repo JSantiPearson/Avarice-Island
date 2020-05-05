@@ -120,30 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &177421464 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8452970744103588091, guid: 64a6fe08ff1f13642875947c988e6f65,
-    type: 3}
-  m_PrefabInstance: {fileID: 8452970745325952668}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &177421469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177421464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 2
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 512
-  thisBox: {fileID: 177421464}
-  damage: 30
 --- !u!114 &221637477 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5442586813745587381, guid: 945e81e5e093f5e45af456febea047fa,
@@ -276,30 +252,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1863270442}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &793364804 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8452970744577457829, guid: 64a6fe08ff1f13642875947c988e6f65,
-    type: 3}
-  m_PrefabInstance: {fileID: 8452970745325952668}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &793364809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793364804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 512
-  thisBox: {fileID: 793364804}
-  damage: 10
 --- !u!1 &993418785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1268044937225440496, guid: ddb130f5e4ada024a91db35bbd7d0c14,
@@ -620,21 +572,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8649656563482976998, guid: efcc4629498b60546972d8d3ecd6eb73,
-        type: 3}
-      propertyPath: maxXValue
-      value: 31
-      objectReference: {fileID: 0}
     - target: {fileID: 8649656564577461734, guid: efcc4629498b60546972d8d3ecd6eb73,
         type: 3}
       propertyPath: actor
       value: 
       objectReference: {fileID: 1684210474}
-    - target: {fileID: 8649656564577461734, guid: efcc4629498b60546972d8d3ecd6eb73,
-        type: 3}
-      propertyPath: cameraFollows
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8649656564577461735, guid: efcc4629498b60546972d8d3ecd6eb73,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -741,30 +683,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 8452970745325952668}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2096264076 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8452970744643729772, guid: 64a6fe08ff1f13642875947c988e6f65,
-    type: 3}
-  m_PrefabInstance: {fileID: 8452970745325952668}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2096264081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096264076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 512
-  thisBox: {fileID: 2096264076}
-  damage: 10
 --- !u!1 &2138636758 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3755170078953143063, guid: 3b8ad81643a188949b34078cf28632c9,
@@ -936,37 +854,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1855178899, guid: af8535ef12a07ad42ba7d9e287d497e1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnLimit
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnInterval
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnPrefab
-      value: 
-      objectReference: {fileID: 96733372261855030, guid: 7f48f087fe010ac47abbb78b4e9ab507,
-        type: 3}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnDistFromPlayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128754, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128755, guid: af8535ef12a07ad42ba7d9e287d497e1,
+    - target: {fileID: 4546920531785793492, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1045,17 +933,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5442586813745587380, guid: 945e81e5e093f5e45af456febea047fa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5442586813745587381, guid: 945e81e5e093f5e45af456febea047fa,
-        type: 3}
-      propertyPath: mixerGroup
-      value: 
-      objectReference: {fileID: 24300002, guid: 09ad3b67f3960234090aec08010691fb,
-        type: 2}
     - target: {fileID: 5442586813745587382, guid: 945e81e5e093f5e45af456febea047fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1287,11 +1164,6 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 1410213238}
-    - target: {fileID: 8452970743776353718, guid: 64a6fe08ff1f13642875947c988e6f65,
-        type: 3}
-      propertyPath: currentHealth
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 8452970743776353719, guid: 64a6fe08ff1f13642875947c988e6f65,
         type: 3}
       propertyPath: input

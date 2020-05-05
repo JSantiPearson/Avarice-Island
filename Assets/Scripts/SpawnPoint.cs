@@ -55,6 +55,7 @@ public class SpawnPoint : MonoBehaviour
     public bool OkToSpawn(){
     	if(numSpawned == spawnLimit){
     		return false;
+        Destroy(gameObject);
     	}
 
    		if(timeElapsed>spawnInterval && AreaClear()){

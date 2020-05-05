@@ -70,6 +70,8 @@ public class Enemy : Actor
 
     private bool enemyPaused;
 
+    public AudioManager audioManager;
+
 
     public enum EnemyState
     {
@@ -114,6 +116,19 @@ public class Enemy : Actor
         currentHealth = maxHealth;
         isWaiting = true;
         fleeHealth = 30;
+        transform.localScale = new Vector3(this.size, this.size, 1); //fixes scale bug on spawn
+        //audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        //audioObject = GameObject.Find("AudioManager");
+        
+    }
+
+    //can't currently find audiomanager with start method because enemies don't call their base start method.
+    //this will work for now since all enemies spawn after the audiomanager has been initialized
+    public void Awake(){
+        //assign audio for hit sound
+        if(GameObject.Find("AudioManager")){
+            audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        }
     }
 
     public virtual void Update()
@@ -528,7 +543,9 @@ public class Enemy : Actor
 
     public void Hurt(float damage)
     {
-        Debug.Log("Enemy hurt");
+        if(audioManager!=null){ //allows us to deactivate audio manager temporarily
+            audioManager.PlayOneShot("hitSound",0.2f);
+        }
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
         Stop();
