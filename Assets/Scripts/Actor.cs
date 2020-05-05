@@ -22,6 +22,10 @@ public class Actor : MonoBehaviour
     hard
   }
 
+  public void Start(){
+     //transform.localScale = new Vector3(size, size, 1);
+  }
+
     /**
     * Updates the graphics every frame, moving actors and such. Position is determined through here.
     **/

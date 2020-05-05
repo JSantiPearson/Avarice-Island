@@ -168,10 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15605e0b954e8b4eb1db6e834a2afe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 4211829178027098480, guid: 2db58d65d27c37a4598f619d3cc471be,
+  spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
-  spawnLimit: 1
-  spawnInterval: 3
+  spawnLimit: 2
+  spawnInterval: 2
   spawnDistFromPlayer: -3
   spawnLocation: {x: 0, y: 0, z: 0}
   playerLocation: {x: 0, y: 0, z: 0}

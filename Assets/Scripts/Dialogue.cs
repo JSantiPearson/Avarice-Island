@@ -63,12 +63,10 @@ public class Dialogue : MonoBehaviour
             }  
 
 		    if(index>=sentences.Length){
-                Debug.Log("about to unpauseForDialogue");
-                pausedForDialogue = false;
-                Debug.Log("just unpausedForDialogue");
                 //dialogueBar.SetActive(false);
                 dialogueAnim.SetTrigger("hide");
                 pauseGame.UnpauseWithoutMenu();
+                pausedForDialogue = false;
             }
         }
 	}
@@ -78,7 +76,8 @@ public class Dialogue : MonoBehaviour
     	//dialogueBar.SetActive(true);
         dialogueAnim.SetTrigger("popup");
     	//pauseGame.PauseWithoutMenu();
-        StartCoroutine(WaitAndPause(0.5f));
+        //StartCoroutine(WaitAndPause(0.5f));
+        ImmediatePause();
     	//pausedForDialogue = true;
         //PlaySentence(0); //start first sentence
     	//CONTINUE HAPPENS IN UPDATE METHOD
@@ -130,7 +129,7 @@ public class Dialogue : MonoBehaviour
 
     private void ImmediatePause(){
         pausedForDialogue = true; //fix for bug after miniboss death
-        dialogueAnim.ResetTrigger("popup");
+        //dialogueAnim.ResetTrigger("popup");
         pauseGame.PauseWithoutMenu();
     }
 

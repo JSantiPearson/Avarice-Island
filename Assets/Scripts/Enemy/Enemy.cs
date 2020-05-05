@@ -64,6 +64,8 @@ public class Enemy : Actor
 
     public GameObject hitEffectPrefab, ghostPrefab;
 
+    private bool enemyPaused;
+
 
     public enum EnemyState
     {
@@ -111,7 +113,26 @@ public class Enemy : Actor
     }
 
     public virtual void Update()
-    {
+    {   
+        //PAUSE LOGIC
+
+        if(GameManager.enemiesOn && enemyPaused){ //unpause
+            enemyPaused = false;
+            //body.Sleep();
+            baseAnim.enabled = true;
+        }
+
+        if(!GameManager.enemiesOn && !enemyPaused){ //disable animator on first pass after pause
+            enemyPaused=true;
+            baseAnim.enabled=false;
+            //body.WakeUp();
+            return;
+        } else if (enemyPaused){ //just skip update
+            return;
+        }
+
+
+
         base.Update();
 
         CheckAnims();
@@ -123,8 +144,10 @@ public class Enemy : Actor
         //remains fully idle until player reaches a certain point (should be equivalent to a dialogue point)
         if(currentState == EnemyState.preDialogueIdle){
             Stop();
+            Debug.Log("in predialogue");
             if(currentXDistance<preDialogueBufferDist){
                 currentState = EnemyState.idle;
+                Debug.Log("bbreaking out of predialogue");
             }
             return;
         }
@@ -178,7 +201,7 @@ public class Enemy : Actor
         }
 
         //reset the combo indicator if we interrupted attacking, unless player is launched from a heavy attack.
-        if (currentState != EnemyState.attacking && (!playerReference.GetComponent<Hero>().isLaunching || !playerReference.GetComponent<Hero>().isGrounded))
+        if (currentState != EnemyState.attacking)
         {
             lastAttack = LastAttack.none;
         }
@@ -214,6 +237,13 @@ public class Enemy : Actor
 
     void FixedUpdate()
     {
+        //pause logic
+        if (!GameManager.enemiesOn) {
+         body.velocity = Vector3.zero;
+         body.angularVelocity = Vector3.zero;
+         return;
+        } 
+
         Vector3 moveVector = currentDir * speed;
         body.MovePosition(transform.position + moveVector * Time.fixedDeltaTime);
         baseAnim.SetFloat("Speed", moveVector.magnitude);
@@ -494,6 +524,7 @@ public class Enemy : Actor
 
     public void Hurt(float damage)
     {
+        Debug.Log("Enemy hurt");
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         currentHealth -= damage;
         Stop();

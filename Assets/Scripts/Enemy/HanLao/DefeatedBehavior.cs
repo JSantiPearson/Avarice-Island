@@ -15,7 +15,7 @@ public class DefeatedBehavior : StateMachineBehaviour
         dialogue.PlayDialogue();
         animator.ResetTrigger("defeated");
 
-        hanLaoObject.GetComponent<HanLao>().Die();
+        //hanLaoObject.GetComponent<HanLao>().Die();
         //animator.SetTrigger("exit");
 
 
@@ -24,6 +24,10 @@ public class DefeatedBehavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(!dialogue.pausedForDialogue){
+            dialogue.dialogueAnim.ResetTrigger("popup");
+            hanLaoObject.GetComponent<HanLao>().Die();
+        }
         //animator.ResetTrigger("defeated");
     }
 
