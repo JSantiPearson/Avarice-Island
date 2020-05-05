@@ -9,6 +9,10 @@ public class Enemy : Actor
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     protected string PUNCH_ANIM;
+    protected string EXTRA_ATTACK1_ANIM;
+    protected string EXTRA_ATTACK2_ANIM;
+    protected string EXTRA_ATTACK3_ANIM;
+    protected string EXTRA_ATTACK4_ANIM;
     protected string LAUNCH_ANIM;
     protected string LAUNCH_RISE_ANIM;
     protected string LAUNCH_FALL_ANIM;
@@ -560,7 +564,11 @@ public class Enemy : Actor
 
     public virtual void CheckAnims()
     {
-        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM);
+        isAttacking = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(PUNCH_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(EXTRA_ATTACK1_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(EXTRA_ATTACK2_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(EXTRA_ATTACK3_ANIM) ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName(EXTRA_ATTACK4_ANIM);
         isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_RISE_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_FALL_ANIM) ||
