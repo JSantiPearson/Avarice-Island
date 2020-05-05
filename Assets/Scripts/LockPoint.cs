@@ -15,6 +15,8 @@ public class LockPoint : MonoBehaviour
 	private float distanceFromPlayer;
 	public Dialogue dialogue;
 	public Animator goArrowAnim;
+    public GameObject associatedSpawnPoint;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +52,7 @@ public class LockPoint : MonoBehaviour
     	//just reached the lock point - lock
     	//still fighting enemies - do nothing
 
-        if(locked && enemiesLeft==0){
+        if(locked && enemiesLeft==0 && associatedSpawnPoint==null){
         	//UNLOCK
         	gameManager.UnlockCamera();
             gameManager.SetScreenColliders(false);

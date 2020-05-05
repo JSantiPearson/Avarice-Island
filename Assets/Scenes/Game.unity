@@ -1015,17 +1015,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5442586813745587380, guid: 945e81e5e093f5e45af456febea047fa,
+    - target: {fileID: 5442586813745587381, guid: 945e81e5e093f5e45af456febea047fa,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: sounds.Array.data[1].loop
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5442586813745587381, guid: 945e81e5e093f5e45af456febea047fa,
         type: 3}
-      propertyPath: mixerGroup
+      propertyPath: sounds.Array.data[1].volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442586813745587381, guid: 945e81e5e093f5e45af456febea047fa,
+        type: 3}
+      propertyPath: sounds.Array.data[1].clip
       value: 
-      objectReference: {fileID: 24300002, guid: 09ad3b67f3960234090aec08010691fb,
-        type: 2}
+      objectReference: {fileID: 8300000, guid: 53c11cbb9da146841925c7a7a884773a, type: 3}
     - target: {fileID: 5442586813745587382, guid: 945e81e5e093f5e45af456febea047fa,
         type: 3}
       propertyPath: m_LocalPosition.x

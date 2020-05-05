@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
 
   //script settings
   public static bool enemiesOn;
+  public static bool bossFightInProgress;
 
   private static GameManager instance;
   //MOVE THESE ELSEWHERE WHEN SPAWNING IS REFACTORED
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour {
     currentCameraTrans = cameraBounds.cameraRoot;
 
     enemiesOn = true;
+    bossFightInProgress = false;
     //dialogueBar.SetActive(false); //TESTING ANIMATOR VERSION
     SetScreenColliders(false);    
   }

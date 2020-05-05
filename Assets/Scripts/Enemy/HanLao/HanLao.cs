@@ -18,6 +18,8 @@ public class HanLao : Actor
 
     protected float launchForce = 250f;
 
+    public AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,10 @@ public class HanLao : Actor
         currentHealth = maxHealth;
         currentPhase = 1;
         paused = false;
-}
+        GameManager.bossFightInProgress=true; //tells audio manager to switch songs
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -95,6 +100,7 @@ public class HanLao : Actor
 
     public void Hurt(float damage)
     {
+        audioManager.PlayOneShot("hitSound",0.2f);
         TakeDamage(damage);
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
         baseAnim.SetTrigger("hurt");
@@ -118,7 +124,7 @@ public class HanLao : Actor
 
     IEnumerator WaitAndDie(float time){
         yield return new WaitForSeconds(time);
-        Debug.Log("About to destroy han");
+        //Debug.Log("About to destroy han");
         Destroy(gameObject);
     }
 }
