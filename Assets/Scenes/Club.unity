@@ -203,6 +203,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b67be7ad6f6e2a4db9b3d15d8584a5a, type: 3}
+--- !u!1 &182602316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1483238636, guid: 599fc3e44461e7a4dba0265e24d07b0e,
+    type: 3}
+  m_PrefabInstance: {fileID: 335230627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &273243861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8452970744397299859, guid: 64a6fe08ff1f13642875947c988e6f65,
@@ -218,7 +224,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1483238636, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1901841959, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
       propertyPath: textDisplay
@@ -230,12 +236,12 @@ PrefabInstance:
       objectReference: {fileID: 1951887707}
     - target: {fileID: 2080717135, guid: 599fc3e44461e7a4dba0265e24d07b0e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5463774143562906255, guid: 599fc3e44461e7a4dba0265e24d07b0e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120865179932378490, guid: 599fc3e44461e7a4dba0265e24d07b0e,
         type: 3}
@@ -448,6 +454,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &958729579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5442586813745587381, guid: 945e81e5e093f5e45af456febea047fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1097408365}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cc7630656630d4fb7737b988638590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1070420053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -638,6 +656,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 836542756}
+    - target: {fileID: 3755170080472090049, guid: 3b8ad81643a188949b34078cf28632c9,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 958729579}
+    - target: {fileID: 3755170080472090049, guid: 3b8ad81643a188949b34078cf28632c9,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 3755170080638370283, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1019,6 +1047,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClubLockPoints
       objectReference: {fileID: 0}
+    - target: {fileID: 3145255035186348849, guid: 64378fee75adf744e93b71d4f36a6a65,
+        type: 3}
+      propertyPath: associatedSpawnPoint
+      value: 
+      objectReference: {fileID: 182602316}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64378fee75adf744e93b71d4f36a6a65, type: 3}
 --- !u!1001 &3290409154167231058
