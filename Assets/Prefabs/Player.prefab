@@ -215,6 +215,7 @@ MonoBehaviour:
   walkSpeed: 2
   runSpeed: 5
   isRunning: 0
+  freeze: 0
   canRun: 1
   isFacingLeft: 0
   isGrounded: 0
