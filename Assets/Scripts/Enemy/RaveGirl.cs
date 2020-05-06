@@ -8,17 +8,15 @@ public class RaveGirl : Enemy
     /// CLASS VARIABLES
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    float lastDistance;
     float teleportDistance = 2;
     float teleportThreshold = .08f;
-    Vector3 playerPosition;
-    protected bool isTeleporting;
     protected string TELEPORT_IN_ANIM;
     protected string TELEPORT_OUT_ANIM;
 
     public void Start()
     {
         PUNCH_ANIM = "RaveGirlPunchAnim";
+        BREATHING_ANIM = "RaveGirlBreathAnim";
         EXTRA_ATTACK1_ANIM = "RaveGirlAttack2";
         EXTRA_ATTACK2_ANIM = "RaveGirlAttack3";
         EXTRA_ATTACK3_ANIM = "RaveGirlAttack4";
@@ -35,104 +33,90 @@ public class RaveGirl : Enemy
         targetPosition = new Vector3(body.position.x, startingPosition.y, startingPosition.z);
         startingPosition = targetPosition;
         playerReference = GameObject.Find("Player");
-        playerPosition = playerReference.transform.position;
         currentState = EnemyState.idle;
         currentHealth = maxHealth;
         isWaiting = true;
         fleeHealth = 30;
-        lastDistance = Vector3.Distance(body.position, playerPosition);
+        teleportThreshold = .08f;
     }
 
-    public override void Update()
+    public override void FreezeEnemy()
     {
-        base.Update();
+      // Freeze enemy in place during nonmoving anims
+      if (isGrounded || isLaunching || isBreathing || isStanding || isTeleporting){
+        walkSpeed = 0f;
+        runSpeed = 0f;
+      }
+      else {
+        walkSpeed = 1.5f;
+        runSpeed = 4f;
+      }
+    }
 
-        CheckAnims();
+    public override void DetermineState(float currentDistance)
+    {
+      //might have to rework this to flee to a determined point rather than a standing distance
+      if (currentDistance <= 3 && (currentHealth <= fleeHealth || currentState == EnemyState.fleeing) && !isHurting)
+      {
+          if (currentState != EnemyState.fleeing)
+          {
+              switch (currentLevel)
+              {
+                  case DifficultyLevel.easy:
+                      fleeHealth -= 30;
+                      break;
+                  case DifficultyLevel.medium:
+                      fleeHealth -= 15;
+                      break;
+                  case DifficultyLevel.hard:
+                      fleeHealth -= 10;
+                      break;
+                  default:
+                      fleeHealth -= 30;
+                      break;
+              }
+          }
+          currentState = EnemyState.fleeing;
+      }
+      else if (currentDistance > lastDistance && currentDistance > 3 && Random.value <= teleportThreshold){
+        currentState = EnemyState.teleporting;
+      }
+      else if (currentDistance <= attackDistance) currentState = EnemyState.attacking;
+      else if (currentDistance <= noticeDistance) currentState = EnemyState.approaching;
+      else currentState = EnemyState.idle;
+    }
 
-        playerPosition = playerReference.transform.position;
-        float currentDistance = Vector3.Distance(body.position, playerPosition);
-
-        if (isWaiting)
-        {
-            isWaiting = !playerReference.GetComponent<Hero>().Engage(this);
-        }
-
-        if (paused >= 0)
-        {
-            paused--;
-        }
-        else if (isWaiting)
-        {
-            currentState = EnemyState.waiting;
-        }
-        //Universal state change logic
-        else if (!(isLaunching || isHurting || isAttacking || isWaiting || isGrounded || isStanding || isTeleporting))
-        {
-            //might have to rework this to flee to a determined point rather than a standing distance
-            if (currentDistance <= 3 && (currentHealth <= fleeHealth || currentState == EnemyState.fleeing) && !isHurting)
-            {
-                if (currentState != EnemyState.fleeing)
-                {
-                    switch (currentLevel)
-                    {
-                        case DifficultyLevel.easy:
-                            fleeHealth -= 30;
-                            break;
-                        case DifficultyLevel.medium:
-                            fleeHealth -= 15;
-                            break;
-                        case DifficultyLevel.hard:
-                            fleeHealth -= 10;
-                            break;
-                        default:
-                            fleeHealth -= 30;
-                            break;
-                    }
-                }
-                currentState = EnemyState.fleeing;
-            }
-            else if (currentDistance > lastDistance && currentDistance > 3 && Random.value <= teleportThreshold) currentState = EnemyState.teleporting;
-            else if (currentDistance <= attackDistance) currentState = EnemyState.attacking;
-            else if (currentDistance <= noticeDistance) currentState = EnemyState.approaching;
-            else currentState = EnemyState.idle;
-        }
-
-        //reset the combo indicator if we interrupted attacking for any reason.
-        if (currentState != EnemyState.attacking)
-        {
-            lastAttack = LastAttack.none;
-        }
-        //Act on the current state
-        switch (currentState)
-        {
-            case EnemyState.idle:
-                Idle();
-                break;
-            case EnemyState.pacing:
-                Pace();
-                break;
-            case EnemyState.approaching:
-                Approach();
-                break;
-            case EnemyState.attacking:
-                Attack();
-                break;
-            case EnemyState.fleeing:
-                Flee();
-                break;
-            case EnemyState.wandering:
-                Wander();
-                break;
-            case EnemyState.waiting:
-                Wait();
-                break;
-            case EnemyState.teleporting:
-                StartCoroutine(Teleport());
-                break;
-            default:
-                break;
-        }
-        lastDistance = currentDistance;
+    public override void ChangeState(EnemyState currentState)
+    {
+      switch (currentState)
+      {
+          case EnemyState.idle:
+              Idle();
+              break;
+          case EnemyState.pacing:
+              Pace();
+              break;
+          case EnemyState.approaching:
+              Approach();
+              break;
+          case EnemyState.attacking:
+              Attack();
+              break;
+          case EnemyState.fleeing:
+              Flee();
+              break;
+          case EnemyState.wandering:
+              Wander();
+              break;
+          case EnemyState.waiting:
+              Wait();
+              break;
+          case EnemyState.teleporting:
+              StartCoroutine(Teleport());
+              break;
+          default:
+              break;
+      }
     }
 
     public virtual void Attack()
@@ -186,7 +170,6 @@ public class RaveGirl : Enemy
         //seperate methods for each possible attack and select randomly? How many attacks will grunts have?
         Stop();
         //face the player
-        Vector3 playerPosition = playerReference.transform.position;
         FlipSprite(body.position.x > playerPosition.x);
         baseAnim.SetTrigger("Punch2");
         lastAttack = LastAttack.punch2;
@@ -197,7 +180,6 @@ public class RaveGirl : Enemy
         //seperate methods for each possible attack and select randomly? How many attacks will grunts have?
         Stop();
         //face the player
-        Vector3 playerPosition = playerReference.transform.position;
         FlipSprite(body.position.x > playerPosition.x);
         baseAnim.SetTrigger("Punch3");
         lastAttack = LastAttack.punch3;
@@ -240,5 +222,6 @@ public class RaveGirl : Enemy
         isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(STAND_ANIM);
         isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_GROUNDED_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_STANDING_ANIM);
+        isBreathing = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(BREATHING_ANIM);
     }
 }

@@ -9,6 +9,7 @@ public class Enemy : Actor
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     protected string PUNCH_ANIM;
+    protected string BREATHING_ANIM;
     protected string EXTRA_ATTACK1_ANIM;
     protected string EXTRA_ATTACK2_ANIM;
     protected string EXTRA_ATTACK3_ANIM;
@@ -34,14 +35,18 @@ public class Enemy : Actor
     public float leftCamBound;
     public float rightCamBound;
 
+    public float lastDistance;
+
     protected bool isAttacking;
     protected bool isHurting;
+    protected bool isBreathing;
     protected float lastHurtTime;
     protected bool isLaunching;
     protected float lastLaunchTime;
     protected float launchForce = 250f;
     protected bool isStanding;
     protected bool isGrounded;
+    protected bool isTeleporting;
 
     protected float waitDistance = 4;
     protected bool isWaiting;
@@ -62,6 +67,7 @@ public class Enemy : Actor
 
     public Vector3 startingPosition = new Vector3(12.0f, 2.475173f, 1.0f);
     public Vector3 targetPosition = new Vector3(12.0f, 2.5f, 1.0f);
+    public Vector3 playerPosition;
 
     protected float timeOfLastWander;
     protected float WanderWaitTime = 5;
@@ -123,12 +129,14 @@ public class Enemy : Actor
         targetPosition = new Vector3(body.position.x, startingPosition.y, startingPosition.z);
         startingPosition = targetPosition;
         playerReference = GameObject.Find("Player");
+        playerPosition = playerReference.transform.position;
+        lastDistance = Vector3.Distance(body.position, playerPosition);
         currentState = EnemyState.idle; //override this if preDialogueIdle needs to be used
         currentHealth = maxHealth;
         isWaiting = true;
+        isTeleporting = false;
         isFleeing = false;
         fleeHealth = 30;
-        cameraHalfWidth = Camera.main.GetComponent<CameraBounds>().cameraHalfWidth;
         takeBreath = true;
         transform.localScale = new Vector3(this.size, this.size, 1); //fixes scale bug on spawn
         //audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -142,12 +150,32 @@ public class Enemy : Actor
         if(GameObject.Find("AudioManager")){
             audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         }
+        cameraHalfWidth = Camera.main.GetComponent<CameraBounds>().cameraHalfWidth;
+    }
+
+    /**
+    / Update Methods
+    **/
+
+    public virtual void FreezeEnemy()
+    {
+      // Freeze enemy in place during nonmoving anims
+      if (isGrounded || isLaunching || isBreathing || isStanding || isHurting){
+        walkSpeed = 0f;
+        runSpeed = 0f;
+      }
+      else {
+        walkSpeed = 1.5f;
+        runSpeed = 4f;
+      }
     }
 
     public virtual void Update()
     {
-        //PAUSE LOGIC
 
+        FreezeEnemy();
+
+      // camera bounds
         camera = Camera.main.transform.position;
         leftCamBound = camera.x - cameraHalfWidth;
         rightCamBound = camera.x + cameraHalfWidth;
@@ -171,7 +199,7 @@ public class Enemy : Actor
 
         CheckAnims();
 
-        Vector3 playerPosition = playerReference.transform.position;
+        playerPosition = playerReference.transform.position;
         float currentDistance = Vector3.Distance(body.position, playerPosition);
         float currentXDistance = Mathf.Abs(body.position.x - playerPosition.x); //need this for preDialogue checks
 
@@ -192,7 +220,6 @@ public class Enemy : Actor
         {
             isWaiting = !playerReference.GetComponent<Hero>().Engage(this);
         }
-
           if (paused >= 0)
           {
               paused--;
@@ -202,34 +229,9 @@ public class Enemy : Actor
               currentState = EnemyState.waiting;
           }
           //Universal state change logic
-            else if (!(isLaunching || isHurting || isAttacking || isWaiting || isGrounded || isStanding))
-            {
-                //might have to rework this to flee to a determined point rather than a standing distance
-                if (currentDistance <= 3 && (currentHealth <= fleeHealth || currentState == EnemyState.fleeing) && !isHurting)
-                {
-                    if (currentState != EnemyState.fleeing)
-                    {
-                        switch (currentLevel)
-                        {
-                            case DifficultyLevel.easy:
-                                fleeHealth -= 30;
-                                break;
-                            case DifficultyLevel.medium:
-                                fleeHealth -= 15;
-                                break;
-                            case DifficultyLevel.hard:
-                                fleeHealth -= 10;
-                                break;
-                            default:
-                                fleeHealth -= 30;
-                                break;
-                        }
-                    }
-                    currentState = EnemyState.fleeing;
-                }
-                else if (currentDistance <= attackDistance) currentState = EnemyState.attacking;
-                else if (currentDistance <= noticeDistance) currentState = EnemyState.approaching;
-                else currentState = EnemyState.idle;
+          else if (!(isLaunching || isHurting || isAttacking || isWaiting || isGrounded || isStanding || isTeleporting))
+          {
+                DetermineState(currentDistance);
             }
             else
             {
@@ -242,35 +244,69 @@ public class Enemy : Actor
                 lastAttack = LastAttack.none;
             }
             //Act on the current state
-            switch (currentState)
-            {
-                case EnemyState.idle:
-                    Idle();
-                    break;
-                case EnemyState.pacing:
-                    Pace();
-                    break;
-                case EnemyState.approaching:
-                    Approach();
-                    break;
-                case EnemyState.attacking:
-                    Attack();
-                    break;
-                case EnemyState.fleeing:
-                    Flee();
-                    break;
-                case EnemyState.wandering:
-                    Wander();
-                    break;
-                case EnemyState.waiting:
-                    Wait();
-                    break;
-                default:
-                    break;
-            }
-
+            ChangeState(currentState);
+            lastDistance = currentDistance;
         }
 
+    public virtual void DetermineState(float currentDistance)
+    {
+      //might have to rework this to flee to a determined point rather than a standing distance
+      if (currentDistance <= 3 && (currentHealth <= fleeHealth || currentState == EnemyState.fleeing) && !isHurting)
+      {
+          if (currentState != EnemyState.fleeing)
+          {
+              switch (currentLevel)
+              {
+                  case DifficultyLevel.easy:
+                      fleeHealth -= 30;
+                      break;
+                  case DifficultyLevel.medium:
+                      fleeHealth -= 15;
+                      break;
+                  case DifficultyLevel.hard:
+                      fleeHealth -= 10;
+                      break;
+                  default:
+                      fleeHealth -= 30;
+                      break;
+              }
+          }
+          currentState = EnemyState.fleeing;
+      }
+      else if (currentDistance <= attackDistance) currentState = EnemyState.attacking;
+      else if (currentDistance <= noticeDistance) currentState = EnemyState.approaching;
+      else currentState = EnemyState.idle;
+    }
+
+    public virtual void ChangeState(EnemyState currentState)
+    {
+      switch (currentState)
+      {
+          case EnemyState.idle:
+              Idle();
+              break;
+          case EnemyState.pacing:
+              Pace();
+              break;
+          case EnemyState.approaching:
+              Approach();
+              break;
+          case EnemyState.attacking:
+              Attack();
+              break;
+          case EnemyState.fleeing:
+              Flee();
+              break;
+          case EnemyState.wandering:
+              Wander();
+              break;
+          case EnemyState.waiting:
+              Wait();
+              break;
+          default:
+              break;
+      }
+    }
 
     void FixedUpdate()
     {
@@ -408,15 +444,14 @@ public class Enemy : Actor
         }
     }
 
-    //might have to rework this to flee to a determined point rather than a standing distance
     public void Flee()
     {
         isFleeing = true;
-        Vector3 playerPosition = playerReference.transform.position;
         currentDir = body.position - playerPosition;
         currentDir.Normalize();
         isWaiting = playerReference.GetComponent<Hero>().Disengage(this);
-        if (body.position.x - playerPosition.x < 5){
+        //Run away if player is close or if a wall is hit
+        if (body.position.x - playerPosition.x < 5 && body.position.x <= rightCamBound-0.9 && body.position.x >= leftCamBound+0.9){
           Run();
         }
         else {
@@ -476,7 +511,6 @@ public class Enemy : Actor
             }
 
             //Form a line connecting the player and enemy
-            Vector3 playerPosition = playerReference.transform.position;
             Vector3 desiredLine = body.position - playerPosition;
             desiredLine.Normalize();
             //Find a point on that line that is waitDistance away from player
@@ -514,7 +548,6 @@ public class Enemy : Actor
         //seperate methods for each possible attack and select randomly? How many attacks will grunts have?
         Stop();
         //face the player
-        Vector3 playerPosition = playerReference.transform.position;
         FlipSprite(body.position.x > playerPosition.x);
         baseAnim.SetTrigger("Punch");
         if(lastAttack == LastAttack.punch1)
@@ -530,7 +563,6 @@ public class Enemy : Actor
     public void Kick()
     {
         Stop();
-        Vector3 playerPosition = playerReference.transform.position;
         FlipSprite(body.position.x > playerPosition.x);
         baseAnim.SetTrigger("Kick");
         lastAttack = LastAttack.kick;
@@ -570,6 +602,15 @@ public class Enemy : Actor
         isHurting = true;
         lastHurtTime = Time.time;
         baseAnim.SetTrigger("Hit");
+        Hurt(damage);
+    }
+
+    public void Zap(float damage)
+    {
+        Stop();
+        isHurting = true;
+        lastHurtTime = Time.time;
+        baseAnim.SetTrigger("Zap");
         Hurt(damage);
     }
 
@@ -644,8 +685,7 @@ public class Enemy : Actor
         isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(STAND_ANIM);
         isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_GROUNDED_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_STANDING_ANIM);
-
-        Debug.Log(baseAnim.GetCurrentAnimatorStateInfo(0).shortNameHash);
+        isBreathing = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(BREATHING_ANIM);
     }
 
     IEnumerator WaitAndDie(float time){

@@ -34,6 +34,9 @@ public class SpawnPoint : MonoBehaviour
     void Update()
     {
 
+      if(numSpawned == spawnLimit){
+        Destroy(gameObject);
+      }
 
        //wait until player is in range to start spawning
         playerLocation = player.transform.position;
@@ -55,7 +58,6 @@ public class SpawnPoint : MonoBehaviour
     public bool OkToSpawn(){
     	if(numSpawned == spawnLimit){
     		return false;
-        Destroy(gameObject);
     	}
 
    		if(timeElapsed>spawnInterval && AreaClear()){

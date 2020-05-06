@@ -13,6 +13,7 @@ public class RaveBoy : Enemy
     public void Start()
     {
         PUNCH_ANIM = "RaveBoyPunchAnim";
+        BREATHING_ANIM = "BreathAnim";
         EXTRA_ATTACK1_ANIM = "Attack2Anim";
         EXTRA_ATTACK2_ANIM = "Attack3Anim";
         EXTRA_ATTACK3_ANIM = "RaveBoyFlashAnim";

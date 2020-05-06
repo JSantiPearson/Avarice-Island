@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Camera))]
 public class CameraBounds : MonoBehaviour {
@@ -36,7 +37,15 @@ public class CameraBounds : MonoBehaviour {
     position = rightBounds.transform.localPosition;
     position.x = transform.localPosition.x + cameraHalfWidth;
     rightBounds.transform.localPosition = position;
+
 }
+
+void Update(){
+  if(SceneManager.GetActiveScene().name.Equals("Docks")){
+    maxXValue = 27.4f;
+  }
+}
+
   /**
   * Sets the camera position every frame
   **/

@@ -76,6 +76,7 @@ public class Dialogue : MonoBehaviour
     public void PlayDialogue()
     {
     	//dialogueBar.SetActive(true);
+        Debug.Log("Playing dialogue from somewhere");
         dialogueAnim.SetTrigger("popup");
     	//pauseGame.PauseWithoutMenu();
         //StartCoroutine(WaitAndPause(0.5f));
