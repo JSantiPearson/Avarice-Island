@@ -105,6 +105,14 @@ public class HanLao : Actor
         baseAnim.SetTrigger("hurt");
     }
 
+		public void Zap(float damage)
+    {
+        audioManager.PlayOneShot("hitSound",0.2f);
+        TakeDamage(damage);
+        Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
+        baseAnim.SetTrigger("Zap");
+    }
+
     /**
   * If actor exits collision with something, check if it's the ground. If it is, onGround is false.
   **/

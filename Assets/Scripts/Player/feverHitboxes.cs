@@ -57,7 +57,7 @@ public class feverHitboxes : MonoBehaviour
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<EnemyGrunt>().Hit(30);
+                        enemy.GetComponent<EnemyGrunt>().Zap(30);
                         break;
                     case BLASTER:
                         if (Knockback)
@@ -65,7 +65,7 @@ public class feverHitboxes : MonoBehaviour
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<Blaster>().Hit(30);
+                        enemy.GetComponent<Blaster>().Zap(30);
                         break;
                     case RAVE_BOY:
                         if (Knockback)
@@ -73,7 +73,7 @@ public class feverHitboxes : MonoBehaviour
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<RaveBoy>().Hit(30);
+                        enemy.GetComponent<RaveBoy>().Zap(30);
                         break;
                     case RAVE_GIRL:
                         if (Knockback)
@@ -81,7 +81,7 @@ public class feverHitboxes : MonoBehaviour
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<RaveGirl>().Hit(30);
+                        enemy.GetComponent<RaveGirl>().Zap(30);
                         break;
                     case BOUNCER_BRAD:
                         if (Knockback)
@@ -89,7 +89,7 @@ public class feverHitboxes : MonoBehaviour
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<Bouncer>().Hit(30);
+                        enemy.GetComponent<Bouncer>().Zap(30);
                         break;
                     case BOUNCER_REX:
                         if (Knockback)
@@ -97,7 +97,7 @@ public class feverHitboxes : MonoBehaviour
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<Bouncer>().Hit(30);
+                        enemy.GetComponent<Bouncer>().Zap(30);
                         break;
                     case HAN_LAO:
                         if (Knockback)
@@ -105,7 +105,7 @@ public class feverHitboxes : MonoBehaviour
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<HanLao>().Hit(15);
+                        enemy.GetComponent<HanLao>().Zap(15);
                         break;
                     case SHEN:
                         if (Knockback)
@@ -113,7 +113,7 @@ public class feverHitboxes : MonoBehaviour
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<Shen>().Hit(15);
+                        enemy.GetComponent<Shen>().Zap(15);
                         break;
                     default:
                         break;

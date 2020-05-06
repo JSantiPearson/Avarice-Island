@@ -605,6 +605,15 @@ public class Enemy : Actor
         Hurt(damage);
     }
 
+    public void Zap(float damage)
+    {
+        Stop();
+        isHurting = true;
+        lastHurtTime = Time.time;
+        baseAnim.SetTrigger("Zap");
+        Hurt(damage);
+    }
+
     public void Launch(Vector3 attackerLocation)
     {
       if (!isLaunching){
