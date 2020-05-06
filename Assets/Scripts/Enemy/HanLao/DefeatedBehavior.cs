@@ -6,13 +6,17 @@ public class DefeatedBehavior : StateMachineBehaviour
 {
     public Dialogue dialogue;
     public GameObject hanLaoObject; //might need to clean this up
+    public static bool hasBeenDefeated = false; //PART OF A QUICK FIX
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Debug.Log("enter defeated state");
         hanLaoObject = animator.transform.parent.gameObject;
         dialogue = hanLaoObject.GetComponent(typeof(Dialogue)) as Dialogue;
-        dialogue.PlayDialogue();
+        if(!hasBeenDefeated){ //quick fix for han lao double defeated bug
+            dialogue.PlayDialogue();
+            hasBeenDefeated = true;
+        }
         animator.ResetTrigger("defeated");
 
         //hanLaoObject.GetComponent<HanLao>().Die();
