@@ -7,18 +7,19 @@ public class Brawler : Enemy
 
 		public void Start()
 		{
-            PUNCH_ANIM = "Brawler_Punch";
-            EXTRA_ATTACK1_ANIM = "Brawler_Bounce";
-            EXTRA_ATTACK2_ANIM = "Brawler_Bump";
-            LAUNCH_RISE_ANIM = "Brawler_Launch_Rise";
-            LAUNCH_FALL_ANIM = "Brawler_Launch_Fall";
-            LAUNCH_LAND_ANIM = "Brawler_Launch_Land";
-            GROUNDED_ANIM = "Brawler_Idle_Grounded";
-            STAND_ANIM = "Brawler_GetUp";
-            HURT_GROUNDED_ANIM = "Brawler_Hurt_Grounded";
-            HURT_STANDING_ANIM = "Brawler_Hurt";
+	    PUNCH_ANIM = "Brawler_Punch";
+			BREATHING_ANIM = "BrawlerBreathAnim";
+	    EXTRA_ATTACK1_ANIM = "Brawler_Bounce";
+	    EXTRA_ATTACK2_ANIM = "Brawler_Bump";
+	    LAUNCH_RISE_ANIM = "Brawler_Launch_Rise";
+	  	LAUNCH_FALL_ANIM = "Brawler_Launch_Fall";
+	    LAUNCH_LAND_ANIM = "Brawler_Launch_Land";
+	    GROUNDED_ANIM = "Brawler_Idle_Grounded";
+      STAND_ANIM = "Brawler_GetUp";
+      HURT_GROUNDED_ANIM = "Brawler_Hurt_Grounded";
+      HURT_STANDING_ANIM = "Brawler_Hurt";
 
-            targetPosition = new Vector3(body.position.x, startingPosition.y, startingPosition.z);
+      targetPosition = new Vector3(body.position.x, startingPosition.y, startingPosition.z);
 			startingPosition = targetPosition;
 			playerReference = GameObject.Find("Player");
 			currentState = EnemyState.idle;
