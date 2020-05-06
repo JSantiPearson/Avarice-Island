@@ -188,7 +188,7 @@ public class Enemy : Actor
             return;
         }
 
-        if (isWaiting)
+        if (isWaiting && !isFleeing)
         {
             isWaiting = !playerReference.GetComponent<Hero>().Engage(this);
         }
@@ -644,6 +644,8 @@ public class Enemy : Actor
         isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(STAND_ANIM);
         isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_GROUNDED_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_STANDING_ANIM);
+
+        Debug.Log(baseAnim.GetCurrentAnimatorStateInfo(0).shortNameHash);
     }
 
     IEnumerator WaitAndDie(float time){
