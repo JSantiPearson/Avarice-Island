@@ -16,6 +16,7 @@ public class Bouncer : Enemy
     	switch(bouncerName){
     		case "BouncerBrad":
                 PUNCH_ANIM = "BradPunchAnim";
+								BREATHING_ANIM = "BradBreath";
                 EXTRA_ATTACK1_ANIM = "BradKickAnim";
                 EXTRA_ATTACK2_ANIM = "BradBigPunchAnim";
                 EXTRA_ATTACK3_ANIM = "BradGroundedKickAnim";
@@ -27,7 +28,8 @@ public class Bouncer : Enemy
         		break;
 
         	case "BouncerRex":
-        		PUNCH_ANIM = "RexPunchAnim";
+        				PUNCH_ANIM = "RexPunchAnim";
+								BREATHING_ANIM = "RexBreath";
                 EXTRA_ATTACK1_ANIM = "RexKickAnim";
                 EXTRA_ATTACK2_ANIM = "RexBigPunchAnim";
                 EXTRA_ATTACK3_ANIM = "RexGroundedKickAnim";

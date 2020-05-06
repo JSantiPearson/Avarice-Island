@@ -17,8 +17,9 @@ public class Blaster : Enemy
 
     public void Start()
     {
-        
+
         PUNCH_ANIM = "Blaster_Punch1";
+        BREATHING_ANIM = "Blaster_Breath";
         EXTRA_ATTACK1_ANIM = "Blaster_Kick1";
         LAUNCH_RISE_ANIM = "Blaster_Launch_Rise";
         LAUNCH_FALL_ANIM = "Blaster_Launch_Fall";
@@ -43,6 +44,8 @@ public class Blaster : Enemy
         base.Update();
 
         CheckAnims();
+
+        FreezeEnemy();
 
         Vector3 playerPosition = playerReference.transform.position;
         float currentDistance = Vector3.Distance(body.position, playerPosition);
@@ -272,5 +275,6 @@ public class Blaster : Enemy
         isStanding = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(STAND_ANIM);
         isHurting = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_GROUNDED_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(HURT_STANDING_ANIM);
+        isBreathing = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(BREATHING_ANIM);
     }
 }
