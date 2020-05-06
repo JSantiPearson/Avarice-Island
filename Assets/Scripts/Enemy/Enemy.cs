@@ -216,7 +216,7 @@ public class Enemy : Actor
             return;
         }
 
-        if (isWaiting)
+        if (isWaiting && !isFleeing)
         {
             isWaiting = !playerReference.GetComponent<Hero>().Engage(this);
         }
