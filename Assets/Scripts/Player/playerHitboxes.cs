@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerHitbox : MonoBehaviour
+public class playerHitboxes : MonoBehaviour
 {
     bool m_Started;
     public LayerMask m_LayerMask;

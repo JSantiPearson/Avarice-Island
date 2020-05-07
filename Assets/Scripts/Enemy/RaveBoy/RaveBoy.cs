@@ -22,7 +22,7 @@ public class RaveBoy : Enemy
         LAUNCH_LAND_ANIM = "RaveBoyLaunchAnim";
         GROUNDED_ANIM = "RaveBoyGroundedAnim";
         STAND_ANIM = "RaveBoyGetUpAnim";
-        HURT_GROUNDED_ANIM = "RaveBoyHurtGroundedAnim";
+        HURT_GROUNDED_ANIM = "RaveBoyHurtGrounded";
         HURT_STANDING_ANIM = "RaveBoyHurtAnim";
 
 
