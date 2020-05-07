@@ -19,6 +19,9 @@ public class Dialogue : MonoBehaviour
     private bool cursorOn;
     private char[] cursorChars = {'(','z',')'};
     private bool indexUpdated;
+
+    public Animator pingPortraitAnim;
+    public Animator opponentAnim;
  
 
 	void Start(){
@@ -36,6 +39,7 @@ public class Dialogue : MonoBehaviour
 		dialogueBar = GameObject.Find("DialogueBar");
         dialogueAnim = dialogueBar.GetComponent<Animator>();
         textDisplay = dialogueBar.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        pingPortraitAnim = GameObject.Find("PingPortrait").GetComponent<Animator>();
         //textDisplay = GameObject.Find("DialogueText").GetComponent(typeof(TextMeshProUGUI)) as TextMeshProUGUI;
 
 	}
@@ -65,6 +69,10 @@ public class Dialogue : MonoBehaviour
 		    if(index>=sentences.Length){
                 //dialogueBar.SetActive(false);
                 dialogueAnim.SetTrigger("hide");
+                //pingPortraitAnim.SetTrigger("hide");
+                if(opponentAnim!=null){
+                    opponentAnim.SetTrigger("hide");
+                }
                 pausedForDialogue = false;
                 Debug.Log("Sentences done, unpaused");
                 pauseGame.UnpauseWithoutMenu();
@@ -75,9 +83,11 @@ public class Dialogue : MonoBehaviour
 
     public void PlayDialogue()
     {
-    	//dialogueBar.SetActive(true);
-        Debug.Log("Playing dialogue from somewhere");
+        //pingPortraitAnim.SetTrigger("popup");
         dialogueAnim.SetTrigger("popup");
+        if(opponentAnim!=null){
+            opponentAnim.SetTrigger("popup");
+        }
     	//pauseGame.PauseWithoutMenu();
         //StartCoroutine(WaitAndPause(0.5f));
         ImmediatePause();
