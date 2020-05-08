@@ -20,6 +20,7 @@ public class feverHitboxes : MonoBehaviour
     private const string BRAWLER = "Brawler(Clone)";
     private const string HAN_LAO = "HanLao(Clone)";
     private const string SHEN = "Shen(Clone)";
+    private const string SHEN2 = "Shen";
 
     void Start()
     {
@@ -106,6 +107,14 @@ public class feverHitboxes : MonoBehaviour
                         }
                         break;
                     case SHEN:
+                        enemy.GetComponent<Shen>().Zap(15);
+                        if (Knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+
+                        }
+                        break;
+                    case SHEN2:
                         enemy.GetComponent<Shen>().Zap(15);
                         if (Knockback)
                         {
