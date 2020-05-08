@@ -12,8 +12,8 @@ public class Shen : Actor
     public float comboTimeLimit;
     private float comboTimer;
 
-    private float lightningTimer;
-    public float lightningTimeLimit;
+    public float lightningTimer;
+    public float lightningTimeLimit = 30.0f;
 
     public GameObject hitEffectPrefab;
     public bool paused;
@@ -96,7 +96,7 @@ public class Shen : Actor
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.tag == "Ground")
+        if(collision.collider.tag == "Floor")
         {
             baseAnim.SetBool("onGround", false);
         }
@@ -104,7 +104,7 @@ public class Shen : Actor
 
     protected virtual void OnCollisionExit(Collision collision)
     {
-        if (collision.collider.tag == "Ground")
+        if (collision.collider.tag == "Floor")
         {
             baseAnim.SetBool("onGround", true);
         }
