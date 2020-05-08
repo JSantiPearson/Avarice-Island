@@ -457,9 +457,9 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -8411663337965834321}
+  - {fileID: -1784107458492957440}
   - {fileID: 7964396108601316064}
   - {fileID: 2878056988003267277}
-  - {fileID: -1784107458492957440}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -928,7 +928,7 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 0}
   - m_Name: DashAttack
     m_Type: 9
@@ -2374,9 +2374,9 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
+  - {fileID: -9146667447301989149}
   - {fileID: 6539376529348011296}
   - {fileID: -8700278339219208248}
-  - {fileID: -9146667447301989149}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0

@@ -30,21 +30,23 @@ public class PlayerCombat : MonoBehaviour
 
         if (!inAttackAnim)
         {
+            Debug.Log("inUpdate" + bufferAttackCount);
             if (Input.GetButtonDown("Attack"))
             {
                 if (hero.speed > 3)
                 {
                     dashAttack();
-                    bufferAttackCount = 0;
+                   // bufferAttackCount = 0;
                 }
                 else
                 {
                     Punch(); //0 is first standing attack
-                    bufferAttackCount = 0;
+                    //bufferAttackCount = 0;
                 }
             }
         }
-        if (Input.GetButtonDown("Attack"))
+
+        if(Input.GetButtonDown("Attack"))
         {
             bufferAttackCount++;
         }
@@ -61,7 +63,6 @@ public class PlayerCombat : MonoBehaviour
         animator.SetTrigger("Attack");
         if (bufferAttackCount > 1)
         {
-            animator.SetTrigger("Attack2");
             Kick();
         }
         else
@@ -72,35 +73,47 @@ public class PlayerCombat : MonoBehaviour
     }
     void Kick()
     {
+        animator.SetTrigger("Attack2");
         if (bufferAttackCount > 2)
         {
-            animator.SetTrigger("Attack3");
             Roundhouse(); //standing attack 1 and 3
         }
-        bufferAttackCount = 0;
+        else
+        {
+            bufferAttackCount = 0;
+        }
 
 
     }
     void Roundhouse()
     {
+        animator.SetTrigger("Attack3");
+
         if (bufferAttackCount > 3)
         {
-            animator.SetTrigger("Attack4");
             Uppercut(); //standing attack 1 and 3
         }
-        bufferAttackCount = 0;
+        else
+        {
+            bufferAttackCount = 0;
+
+        }
 
 
     }
     void Uppercut()
     {
+        animator.SetTrigger("Attack4");
+
         // bufferAttack = false;
         bufferAttackCount = 0;
     }
-    public int isAttacking(bool isAttacking)
+
+
+    public void isAttacking(bool isAttacking)
     {
         inAttackAnim = isAttacking;
-        return 220;
+       // return 220;
     }
 
 
