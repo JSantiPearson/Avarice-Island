@@ -39,7 +39,7 @@ public class PlayerCombat : MonoBehaviour
                 }
                 else
                 {
-                    Attack(); //0 is first standing attack
+                    Punch(); //0 is first standing attack
                     bufferAttackCount = 0;
                 }
             }
@@ -56,13 +56,13 @@ public class PlayerCombat : MonoBehaviour
         bufferAttackCount = 0;
     }
 
-    void Attack()
+    void Punch()
     {
         animator.SetTrigger("Attack");
         if (bufferAttackCount > 1)
         {
             animator.SetTrigger("Attack2");
-            Attack2();
+            Kick();
         }
         else
         {
@@ -70,18 +70,29 @@ public class PlayerCombat : MonoBehaviour
         }
 
     }
-    void Attack2()
+    void Kick()
     {
         if (bufferAttackCount > 2)
         {
             animator.SetTrigger("Attack3");
-            Attack3(); //standing attack 1 and 3
+            Roundhouse(); //standing attack 1 and 3
         }
         bufferAttackCount = 0;
 
 
     }
-    void Attack3()
+    void Roundhouse()
+    {
+        if (bufferAttackCount > 3)
+        {
+            animator.SetTrigger("Attack4");
+            Uppercut(); //standing attack 1 and 3
+        }
+        bufferAttackCount = 0;
+
+
+    }
+    void Uppercut()
     {
         // bufferAttack = false;
         bufferAttackCount = 0;
