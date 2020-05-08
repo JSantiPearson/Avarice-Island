@@ -20,6 +20,7 @@ public class playerHitboxes : MonoBehaviour
     private const string BRAWLER = "Brawler(Clone)";
     private const string HAN_LAO = "HanLao(Clone)";
     private const string SHEN = "Shen(Clone)";
+    private const string SHEN2 = "Shen";
 
     void Start()
     {
@@ -100,6 +101,9 @@ public class playerHitboxes : MonoBehaviour
                         enemy.GetComponent<HanLao>().Hit(damage);
                         break;
                     case SHEN:
+                        enemy.GetComponent<Shen>().Hit(damage);
+                        break;
+                    case SHEN2:
                         enemy.GetComponent<Shen>().Hit(damage);
                         break;
                     default:
