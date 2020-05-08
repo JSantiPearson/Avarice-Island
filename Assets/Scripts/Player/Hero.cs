@@ -86,7 +86,7 @@ public class Hero : Actor
             ResetHealth();
             baseAnim.SetTrigger("Revive");
             deathScreenAnim.SetTrigger("reset");
-            needsRevive = false;     
+            needsRevive = false;
         }
        // deathScreenAnim.SetTrigger("reset");
 
@@ -317,6 +317,12 @@ public class Hero : Actor
     {
         TakeDamage(damage);
         baseAnim.SetTrigger("Hurt");
+    }
+
+    public void Zap(int damage)
+    {
+        TakeDamage(damage);
+        baseAnim.SetTrigger("Zap");
     }
 
     public void Stunned(){

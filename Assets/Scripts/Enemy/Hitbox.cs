@@ -8,8 +8,10 @@ public class Hitbox : MonoBehaviour
   public enum HitboxType
   {
     light,
+    heavy,
     flash,
-    heavy
+    lightning_light,
+    lightning_heavy
   }
 
     bool m_Started;
@@ -54,6 +56,15 @@ public class Hitbox : MonoBehaviour
               }
               else if (type == HitboxType.heavy){ //TODO: Add i-frames while player is getting up?
                 enemy.GetComponent<Hero>().Launch(damage);
+                beenHit.Add(enemy);
+              }
+              else if (type == HitboxType.lightning_light){ //TODO: Add i-frames while player is getting up?
+                enemy.GetComponent<Hero>().Zap(damage);
+                beenHit.Add(enemy);
+              }
+              else if (type == HitboxType.lightning_heavy){ //TODO: Add i-frames while player is getting up?
+                enemy.GetComponent<Hero>().Zap(damage);
+                enemy.GetComponent<Hero>().Launch(0);
                 beenHit.Add(enemy);
               }
             }
