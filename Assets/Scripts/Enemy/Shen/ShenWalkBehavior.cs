@@ -9,8 +9,7 @@ public class ShenWalkBehavior : StateMachineBehaviour
     public GameObject player;
     public Rigidbody body;
     
-    public float walkSpeed;
-    public float runSpeed;
+    public float walkSpeedMultiplier;
     public float speed;
     private Vector3 direction;
 
@@ -38,7 +37,7 @@ public class ShenWalkBehavior : StateMachineBehaviour
 
         if (Actor.IsCloseTo(body.position, playerPos.position, groundAttackDist))
         {
-            animator.SetTrigger("groundattack");
+            animator.SetFloat("Soeed", 0.0f);
         }
 
         body.MovePosition(body.position + moveVector * Time.deltaTime);

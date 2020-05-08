@@ -8,10 +8,8 @@ public class ShenRunBehavior : StateMachineBehaviour
     public Actor shenActor;
     public GameObject player;
     public Rigidbody body;
-    
-    public float walkSpeed;
-    public float runSpeed;
-    public float speed;
+
+    public float runSpeedmultiplier = 1.5f;
     private Vector3 direction;
 
     private bool isFacingLeft;
@@ -29,6 +27,21 @@ public class ShenRunBehavior : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
+        Vector3 playerPos = player.transform.position;
+        Vector3 moveVector = playerPos - body.position;
+        moveVector.Normalize();
+
+        shenActor.FlipSprite(moveVector.x < 0);
+
+        if (Actor.IsCloseTo(body.position, playerPos.position, groundAttackDist))
+        {
+            animator.SetTrigger("groundattack");
+        }
+
+        body.MovePosition(body.position + moveVector * runSpeedmultiplier * Time.deltaTime);
+
+
     }
 
 

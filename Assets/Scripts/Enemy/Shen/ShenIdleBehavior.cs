@@ -9,13 +9,15 @@ public class ShenIdleBehavior : StateMachineBehaviour
     public GameObject player;
     public Rigidbody body;
     
-    public float walkSpeed;
-    public float runSpeed;
-    public float speed;
+    private float walkSpeed;
+    private float speed;
     private Vector3 direction;
 
     private bool isFacingLeft;
     const float groundAttackDist = 1.4f;
+    private float attackThreshold = 0.6f;
+    private float axeKickThreshold = 0.1f;
+    private float roarThreshold = 0.05f;
 
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -29,7 +31,33 @@ public class ShenIdleBehavior : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        float rand = Random.value;
+        if(rand <= roarThreshold)
+        {
+            animator.setTrigger("Roar");
+            shenActor.comboCounter = 0;
+        }
+        else if (rand <= axeKickThreshold)
+        {
+            animator.setTrigger("AxeKick");
+            shenActor.comboCounter = 0;
+        }
+        else if (rand <= attackThreshold)
+        {
+            switch (shenActor.comboCounter)
+            {
+                case 0:
+                    animator.setTrigger("Punch");
+                case 1:
+                    animator.setTrigger("Kick");
+                default:
+            }
 
+        }
+        else
+        {
+            shenActor.comboCounter = 0;
+        }
     }
 
 
