@@ -35,9 +35,9 @@ public class ShenWalkBehavior : StateMachineBehaviour
 
         shenActor.FlipSprite(moveVector.x < 0);
 
-        if (Actor.IsCloseTo(body.position, playerPos.position, groundAttackDist))
+        if (Actor.IsCloseTo(body.position, playerPos, groundAttackDist))
         {
-            animator.SetFloat("Soeed", 0.0f);
+            animator.SetFloat("Speed", 0.0f);
         }
 
         body.MovePosition(body.position + moveVector * Time.deltaTime);

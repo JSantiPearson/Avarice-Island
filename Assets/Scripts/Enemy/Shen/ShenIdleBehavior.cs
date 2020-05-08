@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShenIdleBehavior : StateMachineBehaviour
 {
     public GameObject shenObject;
-    public Actor shenActor;
+    public Shen shenActor;
     public GameObject player;
     public Rigidbody body;
     
@@ -31,15 +31,22 @@ public class ShenIdleBehavior : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //Check that the player is nearby
+        if (!Actor.IsCloseTo(body.position, player.transform.position, groundAttackDist))
+        {
+            animator.SetFloat("Speed", 2.5f);
+        }
+
+        //Select and execute attack
         float rand = Random.value;
         if(rand <= roarThreshold)
         {
-            animator.setTrigger("Roar");
+            animator.SetTrigger("Roar");
             shenActor.comboCounter = 0;
         }
         else if (rand <= axeKickThreshold)
         {
-            animator.setTrigger("AxeKick");
+            animator.SetTrigger("AxeKick");
             shenActor.comboCounter = 0;
         }
         else if (rand <= attackThreshold)
@@ -47,10 +54,13 @@ public class ShenIdleBehavior : StateMachineBehaviour
             switch (shenActor.comboCounter)
             {
                 case 0:
-                    animator.setTrigger("Punch");
+                    animator.SetTrigger("Punch");
+                    break;
                 case 1:
-                    animator.setTrigger("Kick");
+                    animator.SetTrigger("Kick");
+                    break;
                 default:
+                    break;
             }
 
         }

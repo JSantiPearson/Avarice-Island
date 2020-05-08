@@ -34,7 +34,7 @@ public class ShenRunBehavior : StateMachineBehaviour
 
         shenActor.FlipSprite(moveVector.x < 0);
 
-        if (Actor.IsCloseTo(body.position, playerPos.position, groundAttackDist))
+        if (Actor.IsCloseTo(body.position, playerPos, groundAttackDist))
         {
             animator.SetTrigger("groundattack");
         }

@@ -14,7 +14,16 @@ public class Shen : Actor
 
     private float lightningTimer;
     public float lightningTimeLimit;
-    
+
+    public GameObject hitEffectPrefab;
+    public bool paused;
+
+    public bool killTest;
+
+    protected float launchForce = 250f;
+
+    public AudioManager audioManager;
+
 
 
     // Start is called before the first frame update
@@ -27,7 +36,6 @@ public class Shen : Actor
 
         lightningTimer = lightningTimeLimit;
 
-        paused = false;
         GameManager.bossFightInProgress = true; //tells audio manager to switch songs
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
@@ -35,14 +43,12 @@ public class Shen : Actor
     // Update is called once per frame
     void Update()
     {
-        baseAnim.setFloat("Speed", body.transform.velocity);
-
         // Manage the lightning timer
         lightningTimer -= Time.deltaTime;
         if(lightningTimer <= 0)
         {
             lightningTimer = lightningTimeLimit;
-            baseAnim.setTrigger("Lightning");
+            baseAnim.SetTrigger("Lightning");
         }
 
         // Manage the combo counter
@@ -57,7 +63,7 @@ public class Shen : Actor
     public void Hit(int damage)
     {
         currentHealth -= damage;
-        baseAnim.setTrigger("Hit");
+        baseAnim.SetTrigger("Hit");
         comboCounter = 0;
     }
 
@@ -92,7 +98,7 @@ public class Shen : Actor
     {
         if(collision.collider.tag == "Ground")
         {
-            baseAnim.setBool("onGround", false);
+            baseAnim.SetBool("onGround", false);
         }
     }
 
@@ -100,7 +106,7 @@ public class Shen : Actor
     {
         if (collision.collider.tag == "Ground")
         {
-            baseAnim.setBool("onGround", true);
+            baseAnim.SetBool("onGround", true);
         }
     }
 }
