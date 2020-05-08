@@ -117,14 +117,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 0}
   sentences:
-  - '...AH!'
-  - YOU SCARED ME... TIME TO ANNIHILATE YOU
+  - I am afraid this is as far as you will get, Ping.
+  - "Obey your grandfather\u2019s decision\u2026 or perish."
   index: 0
   speed: 0
   pauseGame: {fileID: 0}
   dialogueBar: {fileID: 0}
   dialogueAnim: {fileID: 0}
   pausedForDialogue: 0
+  portraitName: HanLaoPortrait
 --- !u!1 &2080717135
 GameObject:
   m_ObjectHideFlags: 0

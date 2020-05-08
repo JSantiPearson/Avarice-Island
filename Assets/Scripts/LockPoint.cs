@@ -52,7 +52,10 @@ public class LockPoint : MonoBehaviour
     	//just reached the lock point - lock
     	//still fighting enemies - do nothing
 
-        if(locked && enemiesLeft==0 && associatedSpawnPoint==null){
+        //check if dialogue is finished (this is just for opening dialogue lock point, needs rework)
+        bool dialoguePlayed = (dialogue!=null && !dialogue.pausedForDialogue) || dialogue==null;
+
+        if(locked && enemiesLeft==0 && associatedSpawnPoint==null && dialoguePlayed){
         	//UNLOCK
         	gameManager.UnlockCamera();
             gameManager.SetScreenColliders(false);

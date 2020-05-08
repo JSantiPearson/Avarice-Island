@@ -60,7 +60,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4546920531638128754}
-  - component: {fileID: 4546920531638128753}
+  - component: {fileID: 166733303}
   m_Layer: 0
   m_Name: GateSpawn
   m_TagString: Untagged
@@ -82,7 +82,7 @@ Transform:
   m_Father: {fileID: 4546920533040513791}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4546920531638128753
+--- !u!114 &166733303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,11 +94,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15605e0b954e8b4eb1db6e834a2afe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 96733372261855030, guid: 7f48f087fe010ac47abbb78b4e9ab507,
+  spawnPrefab: {fileID: 725957175831764326, guid: b32c0c3188e3d224c93af04e69d65201,
     type: 3}
   spawnLimit: 3
   spawnInterval: 1
-  spawnDistFromPlayer: 4
+  spawnDistFromPlayer: 3
   spawnLocation: {x: 0, y: 0, z: 0}
   playerLocation: {x: 0, y: 0, z: 0}
   spawnTriggered: 0
@@ -118,7 +118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4546920531785793483
 Transform:
   m_ObjectHideFlags: 0

@@ -19,6 +19,16 @@ public class AnimatorEventHandler : MonoBehaviour
         transform.parent.GetChild(3).GetComponent<Hitbox>().SetActive(activate != 0);
     }
 
+    public void activateHitBox3(int activate)
+    {
+        transform.parent.GetChild(4).GetComponent<Hitbox>().SetActive(activate != 0);
+    }
+
+    public void activateHitBox4(int activate)
+    {
+        transform.parent.GetChild(5).GetComponent<Hitbox>().SetActive(activate != 0);
+    }
+
     public void throwKnife()
     {
         Instantiate(knifeProjectile, transform.position - new Vector3(0, 0, 1), transform.rotation);
