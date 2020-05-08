@@ -609,8 +609,10 @@ public class Enemy : Actor
         Stop();
         isHurting = true;
         lastHurtTime = Time.time;
-        baseAnim.SetTrigger("Zap");
         Hurt(damage);
+        baseAnim.SetTrigger("Zap");
+        baseAnim.ResetTrigger("Hit"); //fixes an issue where grunts trigger a late hurt anim
+        
     }
 
     public void Launch(Vector3 attackerLocation)
