@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1083201462111410186}
   - component: {fileID: 1083201462111410185}
   m_Layer: 9
-  m_Name: HanLao_Sprite
+  m_Name: Shen_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1083201462895113846}
   - component: {fileID: 4721808638754297157}
   m_Layer: 9
-  m_Name: HanLao_Animator
+  m_Name: Shen_Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ Animator:
   m_GameObject: {fileID: 1083201462895113841}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 16d41a185922d3e4f919aadaecb65da1, type: 2}
+  m_Controller: {fileID: 9100000, guid: e3107eae3ea0a407a9e4564d14eaf9c2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.21, y: 0.95}
+  m_Size: {x: 0.89, y: 1.22}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 1083201463325225858}
   - component: {fileID: 1083201463325225857}
   m_Layer: 9
-  m_Name: HanLao_AttackCollider
+  m_Name: Shen_AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,8 +255,8 @@ GameObject:
   - component: {fileID: 1083201463559581786}
   - component: {fileID: 1083201463559581764}
   - component: {fileID: 1083201463559581765}
-  - component: {fileID: 567660292}
   - component: {fileID: 1449405596}
+  - component: {fileID: 7715043442913840060}
   m_Layer: 9
   m_Name: HanLao
   m_TagString: Enemy
@@ -313,35 +313,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &567660292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083201463559581760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb1deca7c4c8e546bd0344e7e7a22d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseAnim: {fileID: 1083201462895113840}
-  body: {fileID: 1083201463559581765}
-  shadowSprite: {fileID: 1083201463625490993}
-  speed: 2
-  size: 1.5
-  onGround: 0
-  walkSpeed: 0
-  runSpeed: 0
-  direction: 0
-  maxHealth: 150
-  currentHealth: 0
-  currentPhase: 0
-  hitEffectPrefab: {fileID: 2186167066489008872, guid: 82092519e983c6541a0f88eb4b1ea989,
-    type: 3}
-  paused: 0
-  killTest: 0
-  audioManager: {fileID: 0}
 --- !u!114 &1449405596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +336,24 @@ MonoBehaviour:
   dialogueAnim: {fileID: 0}
   pausedForDialogue: 0
   portraitName: HanLaoPortrait
+--- !u!114 &7715043442913840060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083201463559581760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83debe0462b0ec54aaa40e6309783de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseAnim: {fileID: 1083201462895113840}
+  body: {fileID: 1083201463559581765}
+  shadowSprite: {fileID: 1083201463625490993}
+  speed: 2
+  size: 1.5
+  onGround: 0
 --- !u!1 &1083201463625490994
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +365,7 @@ GameObject:
   - component: {fileID: 1083201463625490992}
   - component: {fileID: 1083201463625490993}
   m_Layer: 9
-  m_Name: HanLao_ShadowCharacter
+  m_Name: Shen_ShadowCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
