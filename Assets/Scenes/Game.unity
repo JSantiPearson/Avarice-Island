@@ -884,6 +884,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 166733303, guid: af8535ef12a07ad42ba7d9e287d497e1, type: 3}
+      propertyPath: spawnLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 166733303, guid: af8535ef12a07ad42ba7d9e287d497e1, type: 3}
+      propertyPath: spawnPrefab
+      value: 
+      objectReference: {fileID: 2148785907832245371, guid: 45dc1fc395fb054498d21ef298e6be99,
+        type: 3}
     - target: {fileID: 1855178899, guid: af8535ef12a07ad42ba7d9e287d497e1, type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.06

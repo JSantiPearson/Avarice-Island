@@ -8,7 +8,7 @@ public class ShenIdleBehavior : StateMachineBehaviour
     public Shen shenActor;
     public GameObject player;
     public Rigidbody body;
-    
+
     private float walkSpeed;
     private float speed;
     private Vector3 direction;
@@ -36,7 +36,6 @@ public class ShenIdleBehavior : StateMachineBehaviour
         if (!Actor.IsCloseTo(body.position, player.transform.position, groundAttackDist))
         {
             animator.SetBool("Walk", true);
-            Debug.Log("in that shit");
             return;
         }
 

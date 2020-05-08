@@ -32,9 +32,6 @@ public class Enemy : Actor
     protected int rightBound = 15;
     protected int leftBound = 7;
 
-    public float leftCamBound;
-    public float rightCamBound;
-
     public float lastDistance;
 
     protected bool isAttacking;
@@ -86,6 +83,8 @@ public class Enemy : Actor
 
     float cameraHalfWidth;
     Vector3 camera;
+    public float leftCamBound;
+    public float rightCamBound;
 
     public AudioManager audioManager;
 

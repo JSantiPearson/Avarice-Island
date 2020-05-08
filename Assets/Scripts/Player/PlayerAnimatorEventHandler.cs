@@ -61,8 +61,8 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
         transform.GetChild(3).GetComponent<playerHitboxes>().SetActive(false, false, 10);
         transform.GetChild(4).GetComponent<playerHitboxes>().SetActive(false, true, 15);
         transform.GetChild(5).GetComponent<playerHitboxes>().SetActive(false, true, 20);
-        transform.GetChild(6).GetComponent<playerHitboxes>().SetActive(false, false, 15);
-        transform.GetChild(7).GetComponent<playerHitboxes>().SetActive(false, true, 30);
+        transform.GetChild(6).GetComponent<feverHitboxes>().SetActive(false, false, 15);
+        transform.GetChild(7).GetComponent<feverHitboxes>().SetActive(false, true, 30);
         transform.parent.GetComponent<PlayerCombat>().isAttacking(false);
     }
 
