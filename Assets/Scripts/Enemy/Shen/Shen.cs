@@ -60,21 +60,48 @@ public class Shen : Actor
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        currentHealth = currentHealth - damage;
+        if (currentHealth <= 0)
+        {
+            baseAnim.SetTrigger("defeated");
+        }
+    }
+
     public void Hit(int damage)
     {
-        currentHealth -= damage;
+        TakeDamage(damage);
         baseAnim.SetTrigger("Hit");
         comboCounter = 0;
+
+        audioManager.PlayOneShot("hitSound", 0.2f);
+        Instantiate(hitEffectPrefab, this.transform.position, this.transform.rotation);
+        baseAnim.SetTrigger("hurt");
     }
 
-    public void Launch(int damage)
+    public void Launch(Vector3 attackerLocation)
     {
 
+        baseAnim.SetTrigger("Launch");
+
+        Vector3 horizontalLaunchInfluence = body.position - attackerLocation;
+        horizontalLaunchInfluence.Normalize();
+        horizontalLaunchInfluence = horizontalLaunchInfluence * launchForce / 2;
+        body.AddForce(horizontalLaunchInfluence, ForceMode.Force);
+
+        Vector3 verticalLaunchInfluence = Vector3.up * launchForce;
+        body.AddForce(verticalLaunchInfluence, ForceMode.Force);
     }
 
-    public void Zap(int damage)
+    public void Zap(float damage)
     {
 
+        TakeDamage(damage);
+
+        audioManager.PlayOneShot("hitSound", 0.2f);
+        Instantiate(hitEffectPrefab, this.transform.position, this.transform.rotation);
+        baseAnim.SetTrigger("Zap");
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,5 +135,18 @@ public class Shen : Actor
         {
             baseAnim.SetBool("onGround", true);
         }
+    }
+
+
+    public void Die()
+    {
+        StartCoroutine(WaitAndDie(1.5f));
+    }
+
+    IEnumerator WaitAndDie(float time)
+    {
+        yield return new WaitForSeconds(time);
+        //Debug.Log("About to destroy han");
+        Destroy(gameObject);
     }
 }
