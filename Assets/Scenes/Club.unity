@@ -484,31 +484,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1164821333}
-    - target: {fileID: 860443369336858544, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -121.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 860443369336858544, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -22.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 860443369336858544, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -72.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 860443369336858544, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -72.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 860443369336858544, guid: 3b8ad81643a188949b34078cf28632c9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 3755170079428337694, guid: 3b8ad81643a188949b34078cf28632c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -770,31 +745,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945e81e5e093f5e45af456febea047fa, type: 3}
---- !u!1 &1128916224 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5674032585159134283, guid: 3b8ad81643a188949b34078cf28632c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1070420053}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1128916228
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128916224}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6f262ca451e54444e8b7e1ec0c51f13e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1164821333 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2767108201979315768, guid: 9d5793526d4e4844c9e28ac364e07106,

@@ -7,7 +7,7 @@ public class HanLao : Actor
 	public float walkSpeed;
 	public float runSpeed;
 	public float direction;
-    public float maxHealth = 150;
+    public float maxHealth = 150f;
     public float currentHealth;
     public int currentPhase;
     public GameObject hitEffectPrefab;
@@ -57,7 +57,7 @@ public class HanLao : Actor
         }
 
         if(killTest){
-            Hit(150);
+            Hit(maxHealth);
             killTest = false;
         }
         if (currentHealth <= (maxHealth / 2) && currentPhase == 1)
