@@ -33,23 +33,26 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
     public void activatePlayerKick(int activate)
     {
         transform.GetChild(2).GetComponent<playerHitboxes>().SetActive(activate != 0, false, 10);
-        transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0);
     }
     public void activatePlayerRoundhouse(int activate)
     {
         transform.GetChild(3).GetComponent<playerHitboxes>().SetActive(activate != 0, false, 10);
-        transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0);
     }
     public void activatePlayerUppercut(int activate)
     {
         transform.GetChild(4).GetComponent<playerHitboxes>().SetActive(activate != 0, true, 15);
-        transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0);
     }
     public void activatePlayerDashAttack(int activate)
     {
         transform.GetChild(5).GetComponent<playerHitboxes>().SetActive(activate != 0, true, 20);
         transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0);
     }
+    public void noLongerAttacking(int activate)
+    {
+        transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0);
+
+    }
+
 
     public void activateHitboxReset()
     {
