@@ -42,6 +42,7 @@ public class Hero : Actor
     bool isUsingFeverAnim;
     public bool isGrounded;
     public bool isLaunching;
+    public bool isFlashed;
 
     public InputHandler input;
 
@@ -133,7 +134,7 @@ public class Hero : Actor
 
         CheckAnims();
 
-        if (isGrounded || isLaunching || isUsingFeverAnim){
+        if (isGrounded || isLaunching || isUsingFeverAnim || isFlashed){
           freeze = true;
         }
         else {
@@ -398,5 +399,7 @@ public class Hero : Actor
               baseAnim.GetCurrentAnimatorStateInfo(0).IsName("FeverLightning");
         isGrounded = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GROUNDED_ANIM) ||
               baseAnim.GetCurrentAnimatorStateInfo(0).IsName(GET_UP_ANIM);
+        isFlashed = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("InitStunAnim") ||
+              baseAnim.GetCurrentAnimatorStateInfo(0).IsName("StunnedAnim");
     }
 }

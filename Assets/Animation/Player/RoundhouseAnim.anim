@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hero_attack3
+  m_Name: RoundhouseAnim
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,17 +20,19 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: f2af04e550c784e52a9fcd5a065af05d, type: 3}
+      value: {fileID: 21300000, guid: 0a1e63184eb184391b5ef51b4eab6bfe, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 07f444c59f6134d839667269b9fed5e2, type: 3}
+      value: {fileID: 21300000, guid: 981310051e6e945da991aa76d8bf5b36, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 07f444c59f6134d839667269b9fed5e2, type: 3}
+      value: {fileID: 21300000, guid: 003003eedfa864e89866d3ed474ba501, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 9db4733f443a846f3a230f75682d8175, type: 3}
+      value: {fileID: 21300000, guid: 102dc0a298618495593506ac77c3978b, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 9db4733f443a846f3a230f75682d8175, type: 3}
+      value: {fileID: 21300000, guid: b5ac23b1df5cc4f01998f19284b10df7, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300000, guid: 933c0d2fc8257444bbf5b79d2b191ebd, type: 3}
+      value: {fileID: 21300000, guid: d7cf4413569ca4169b8c4f9f30b01156, type: 3}
+    - time: 0.5
+      value: {fileID: 21300000, guid: 6b1b0c21458b34be785b983af1e3d5aa, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,18 +52,19 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: f2af04e550c784e52a9fcd5a065af05d, type: 3}
-    - {fileID: 21300000, guid: 07f444c59f6134d839667269b9fed5e2, type: 3}
-    - {fileID: 21300000, guid: 07f444c59f6134d839667269b9fed5e2, type: 3}
-    - {fileID: 21300000, guid: 9db4733f443a846f3a230f75682d8175, type: 3}
-    - {fileID: 21300000, guid: 9db4733f443a846f3a230f75682d8175, type: 3}
-    - {fileID: 21300000, guid: 933c0d2fc8257444bbf5b79d2b191ebd, type: 3}
+    - {fileID: 21300000, guid: 0a1e63184eb184391b5ef51b4eab6bfe, type: 3}
+    - {fileID: 21300000, guid: 981310051e6e945da991aa76d8bf5b36, type: 3}
+    - {fileID: 21300000, guid: 003003eedfa864e89866d3ed474ba501, type: 3}
+    - {fileID: 21300000, guid: 102dc0a298618495593506ac77c3978b, type: 3}
+    - {fileID: 21300000, guid: b5ac23b1df5cc4f01998f19284b10df7, type: 3}
+    - {fileID: 21300000, guid: d7cf4413569ca4169b8c4f9f30b01156, type: 3}
+    - {fileID: 21300000, guid: 6b1b0c21458b34be785b983af1e3d5aa, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.5833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -80,4 +83,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.16666667
+    functionName: activatePlayerRoundhouse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: activatePlayerRoundhouse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
