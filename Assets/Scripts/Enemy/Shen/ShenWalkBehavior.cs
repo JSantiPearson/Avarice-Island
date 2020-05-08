@@ -37,7 +37,7 @@ public class ShenWalkBehavior : StateMachineBehaviour
 
         if (Actor.IsCloseTo(body.position, playerPos, groundAttackDist))
         {
-            animator.SetFloat("Speed", 0.0f);
+            animator.SetBool("Walk", false);
         }
 
         body.MovePosition(body.position + moveVector * Time.deltaTime);

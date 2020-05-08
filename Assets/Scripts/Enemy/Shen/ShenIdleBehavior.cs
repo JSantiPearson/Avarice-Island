@@ -23,21 +23,25 @@ public class ShenIdleBehavior : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.Find("Player");
-        shenObject = animator.transform.parent.gameObject;
+        shenObject = animator.gameObject.transform.parent.gameObject;
         body = shenObject.GetComponent<Rigidbody>();
-        Debug.Log("made it to the body baby");
         shenActor = shenObject.GetComponent<Shen>();
     }
 
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
         //Check that the player is nearby
         if (!Actor.IsCloseTo(body.position, player.transform.position, groundAttackDist))
         {
-            animator.SetFloat("Speed", 2.5f);
+            animator.SetBool("Walk", true);
+            Debug.Log("in that shit");
+            return;
         }
 
+
+        shenActor.FlipSprite((player.transform.position - body.position).x < 0);
         //Select and execute attack
         float rand = Random.value;
         if(rand <= roarThreshold)
