@@ -339,6 +339,7 @@ MonoBehaviour:
     type: 3}
   paused: 0
   killTest: 0
+  audioManager: {fileID: 0}
 --- !u!114 &1449405596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,13 +354,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 0}
   sentences:
-  - A rave always comes to an end...
+  - "How\u2026? You are much stronger than I expected\u2026"
+  - No matter. You are no match for Mr. Feng Long.
   index: 0
   speed: 0
   pauseGame: {fileID: 0}
   dialogueBar: {fileID: 0}
   dialogueAnim: {fileID: 0}
   pausedForDialogue: 0
+  portraitName: HanLaoPortrait
 --- !u!1 &1083201463625490994
 GameObject:
   m_ObjectHideFlags: 0

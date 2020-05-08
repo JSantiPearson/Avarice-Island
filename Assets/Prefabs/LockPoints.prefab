@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1389012481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1389012482}
+  - component: {fileID: 1389012484}
+  - component: {fileID: 1389012483}
+  m_Layer: 0
+  m_Name: LockPointOpeningDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1389012482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389012481}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.807, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 933420383789421298}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389012484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389012481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e6c0553e741564fa5b19121dacb332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 0}
+  goArrowAnim: {fileID: 0}
+  associatedSpawnPoint: {fileID: 0}
+--- !u!114 &1389012483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389012481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6448b59325b50428dd3c70b3996451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textDisplay: {fileID: 0}
+  sentences:
+  - " ...Firewall territory. We\u2019re so close."
+  - "Shen may have thought that I\u2019d take his little coup sitting down, "
+  - but this will be the last time he underestimates me.
+  - "Let\u2019s go."
+  index: 0
+  speed: 0
+  pauseGame: {fileID: 0}
+  dialogueBar: {fileID: 0}
+  dialogueAnim: {fileID: 0}
+  pausedForDialogue: 0
+  portraitName: PingPortrait
 --- !u!1 &933420383145335677
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,6 +147,7 @@ Transform:
   m_Children:
   - {fileID: 933420383145335676}
   - {fileID: 933420384211956799}
+  - {fileID: 1389012482}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,11 +212,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 0}
   sentences:
-  - 'STOP... WE ARE GOING TO BOUNCE YOU!!! '
+  - 'Shen said that you might make an appearance. '
+  - Sorry, pal. You're not on the list.
   index: 0
   speed: 0
   pauseGame: {fileID: 0}
   dialogueBar: {fileID: 0}
   dialogueAnim: {fileID: 0}
   pausedForDialogue: 0
-  portraitAnim: {fileID: 0}
+  portraitName: BouncersPortrait

@@ -21,7 +21,8 @@ public class Dialogue : MonoBehaviour
     private bool indexUpdated;
 
     //public Animator pingPortraitAnim;
-    public Animator portraitAnim;
+    private Animator portraitAnim;
+    public string portraitName; //need to assign this in inspector to avoid UI DDOL bugs
  
 
 	void Start(){
@@ -39,7 +40,7 @@ public class Dialogue : MonoBehaviour
 		dialogueBar = GameObject.Find("DialogueBar");
         dialogueAnim = dialogueBar.GetComponent<Animator>();
         textDisplay = dialogueBar.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        //pingPortraitAnim = GameObject.Find("PingPortrait").GetComponent<Animator>();
+        portraitAnim = GameObject.Find(portraitName).GetComponent<Animator>();
         //textDisplay = GameObject.Find("DialogueText").GetComponent(typeof(TextMeshProUGUI)) as TextMeshProUGUI;
 
 	}

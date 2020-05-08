@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1483238637
 Transform:
   m_ObjectHideFlags: 0
@@ -117,15 +117,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 0}
   sentences:
-  - '...AH!'
-  - YOU SCARED ME... TIME TO ANNIHILATE YOU
+  - I am afraid this is as far as you will get, Ping.
+  - "Obey your grandfather\u2019s decision\u2026 or perish."
   index: 0
   speed: 0
   pauseGame: {fileID: 0}
   dialogueBar: {fileID: 0}
   dialogueAnim: {fileID: 0}
   pausedForDialogue: 0
-  portraitAnim: {fileID: 0}
+  portraitName: HanLaoPortrait
 --- !u!1 &2080717135
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2080717136
 Transform:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7610830011016217915
 Transform:
   m_ObjectHideFlags: 0
