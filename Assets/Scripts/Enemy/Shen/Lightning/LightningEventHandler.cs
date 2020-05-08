@@ -10,6 +10,8 @@ public class LightningEventHandler : MonoBehaviour
         pos.y = pos.y + 3.9f;
         gameObject.transform.localScale = new Vector3(1.7f, 1.7f, 1);
         gameObject.transform.position = pos;
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        sprite.sortingOrder = 5;
     }
 
     public void activateHitBox(int activate)
