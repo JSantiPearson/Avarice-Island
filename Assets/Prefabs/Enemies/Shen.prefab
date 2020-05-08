@@ -259,17 +259,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83debe0462b0ec54aaa40e6309783de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAnim: {fileID: 0}
-  body: {fileID: 0}
-  shadowSprite: {fileID: 0}
+  baseAnim: {fileID: 2123623670961724191}
+  body: {fileID: 2123623670552583466}
+  shadowSprite: {fileID: 2123623670618754910}
   speed: 2
   size: 1.5
   onGround: 0
-  maxHealth: 100
+  maxHealth: 300
   currentHealth: 0
   comboCounter: 0
-  comboTimeLimit: 0
-  lightningTimeLimit: 0
+  comboTimeLimit: 1.2
+  lightningTimeLimit: 20
   hitEffectPrefab: {fileID: 0}
   paused: 0
   killTest: 0
@@ -451,7 +451,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.55, y: 1.56}
+  m_Size: {x: 1.44, y: 1.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

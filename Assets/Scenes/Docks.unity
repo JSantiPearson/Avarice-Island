@@ -464,6 +464,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d5793526d4e4844c9e28ac364e07106, type: 3}
+--- !u!114 &1370394914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3755170079793248272, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1925899650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1428979936 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3755170080870462187, guid: 3b8ad81643a188949b34078cf28632c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1925899650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1621949076
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +739,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8452970743776353713, guid: 64a6fe08ff1f13642875947c988e6f65,
+        type: 3}
+      propertyPath: feverBar
+      value: 
+      objectReference: {fileID: 1370394914}
+    - target: {fileID: 8452970743776353713, guid: 64a6fe08ff1f13642875947c988e6f65,
+        type: 3}
+      propertyPath: alert
+      value: 
+      objectReference: {fileID: 1428979936}
     - target: {fileID: 8452970743776353718, guid: 64a6fe08ff1f13642875947c988e6f65,
         type: 3}
       propertyPath: input
@@ -963,7 +997,7 @@ PrefabInstance:
     - target: {fileID: 2123623670552583477, guid: 9d55144f00510fd40ab40895d740a2d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.83
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2123623670552583477, guid: 9d55144f00510fd40ab40895d740a2d6,
         type: 3}

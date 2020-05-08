@@ -25,6 +25,7 @@ public class ShenIdleBehavior : StateMachineBehaviour
         player = GameObject.Find("Player");
         shenObject = animator.transform.parent.gameObject;
         body = shenObject.GetComponent<Rigidbody>();
+        Debug.Log("made it to the body baby");
         shenActor = shenObject.GetComponent<Shen>();
     }
 
