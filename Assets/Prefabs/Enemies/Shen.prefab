@@ -269,8 +269,10 @@ MonoBehaviour:
   currentHealth: 0
   comboCounter: 0
   comboTimeLimit: 2
+  lightningTimer: 0
   lightningTimeLimit: 20
-  hitEffectPrefab: {fileID: 0}
+  hitEffectPrefab: {fileID: 2186167066489008872, guid: 82092519e983c6541a0f88eb4b1ea989,
+    type: 3}
   paused: 0
   killTest: 0
   audioManager: {fileID: 0}

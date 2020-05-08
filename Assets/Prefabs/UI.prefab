@@ -4597,6 +4597,7 @@ GameObject:
   - component: {fileID: 860443369336858544}
   - component: {fileID: 4403495492655565997}
   - component: {fileID: 7925761032430291906}
+  - component: {fileID: 1128916228}
   m_Layer: 0
   m_Name: ShenPortrait
   m_TagString: Untagged
@@ -4613,15 +4614,15 @@ RectTransform:
   m_GameObject: {fileID: 5674032585159134283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 690450448993152700}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 192.8, y: -10.799999}
-  m_SizeDelta: {x: -66.63, y: -66.32}
+  m_AnchoredPosition: {x: -121.5, y: -22.61}
+  m_SizeDelta: {x: -72.54, y: -72.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4403495492655565997
 CanvasRenderer:
@@ -4659,6 +4660,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1128916228
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674032585159134283}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6f262ca451e54444e8b7e1ec0c51f13e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7189692410977063555
 GameObject:
   m_ObjectHideFlags: 0

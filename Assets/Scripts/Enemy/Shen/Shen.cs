@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shen : Actor
 
 {
-    public float maxHealth = 150;
+    public float maxHealth = 150f;
     public float currentHealth;
 
     public int comboCounter;
@@ -43,6 +43,22 @@ public class Shen : Actor
     // Update is called once per frame
     void Update()
     {
+        //Pause logic
+        if(GameManager.enemiesOn && paused){ //unpause
+            paused = false;
+            //body.Sleep();
+            baseAnim.enabled = true;
+        }
+
+        if(!GameManager.enemiesOn && !paused){ //disable animator on first pass after pause
+            paused=true;
+            baseAnim.enabled=false;
+            //body.WakeUp();
+            return;
+        } else if (paused){ //just skip update
+            return;
+        }
+
         // Manage the lightning timer
         lightningTimer -= Time.deltaTime;
         if(lightningTimer <= 0)
@@ -58,6 +74,12 @@ public class Shen : Actor
             comboTimer = comboTimeLimit;
             comboCounter = 0;
         }
+
+
+         if(killTest){
+            Hit(maxHealth);
+            killTest = false;
+        }
     }
 
     public void TakeDamage(float damage)
@@ -69,7 +91,7 @@ public class Shen : Actor
         }
     }
 
-    public void Hit(int damage)
+    public void Hit(float damage)
     {
         TakeDamage(damage);
         baseAnim.SetTrigger("Hit");
