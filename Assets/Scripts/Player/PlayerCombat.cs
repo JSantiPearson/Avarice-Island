@@ -30,7 +30,6 @@ public class PlayerCombat : MonoBehaviour
 
         if (!inAttackAnim)
         {
-            Debug.Log("inUpdate" + bufferAttackCount);
             if (Input.GetButtonDown("Attack"))
             {
                 if (hero.speed > 3)

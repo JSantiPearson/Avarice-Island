@@ -134,7 +134,7 @@ public class Hero : Actor
 
         CheckAnims();
 
-        if (isGrounded || isLaunching || isUsingFeverAnim || isFlashed){
+        if (isGrounded || isLaunching || isUsingFeverAnim || isFlashed || isAttackingAnim){
           freeze = true;
         }
         else {
@@ -390,7 +390,10 @@ public class Hero : Actor
         isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_RISE_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_FALL_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_LAND_ANIM);
-        isAttackingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack");
+        isAttackingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Punch") ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Kick") ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Roundhouse") ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Uppercut");
         isJumpLandAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpLand");
         isJumpingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpRise") ||
               baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpFall");
