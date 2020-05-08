@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shen : Enemy
+public class Shen : Actor
+
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +15,15 @@ public class Shen : Enemy
     void Update()
     {
         
+    }
+
+    public void Hit(int damage)
+    {
+
+    }
+
+    public void Zap(int damage)
+    {
+
     }
 }
