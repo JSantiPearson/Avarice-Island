@@ -85,9 +85,10 @@ public class Hero : Actor
         if(needsRevive){
             ResetHealth();
             baseAnim.SetTrigger("Revive");
-            needsRevive = false;
+            deathScreenAnim.SetTrigger("reset");
+            needsRevive = false;     
         }
-        deathScreenAnim.SetTrigger("reset");
+       // deathScreenAnim.SetTrigger("reset");
 
     }
 

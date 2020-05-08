@@ -76,3 +76,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 0}
   goArrowAnim: {fileID: 0}
+  associatedSpawnPoint: {fileID: 0}
