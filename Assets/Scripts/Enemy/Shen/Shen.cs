@@ -87,7 +87,7 @@ public class Shen : Actor
         currentHealth = currentHealth - damage;
         if (currentHealth <= 0)
         {
-            baseAnim.SetTrigger("defeated");
+            baseAnim.SetTrigger("Defeated");
         }
     }
 
