@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerAnimatorEventHandler : MonoBehaviour
 {
     public GameObject ElectroBall;
+    public float Force;
+    public GameObject firepoint;
+    public float count;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// Fever Attacks
@@ -17,9 +20,17 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
     {
         transform.GetChild(7).GetComponent<feverHitboxes>().SetActive(activate != 0, true, 30);
     }
-    public void activateFeverProjectile(int activate)
+    public void activateFeverProjectile()
     {
-        transform.GetChild(8).GetComponent<feverHitboxes>().SetActive(activate != 0, false, 15);
+        //  transform.GetChild(8).GetComponent<feverHitboxes>().SetActive(activate != 0, false, 15);
+        count++;
+        Debug.Log("Projectile Count: " + count);
+       var projectile = Instantiate(ElectroBall, firepoint.transform.position, transform.rotation);
+        projectile.GetComponent<Rigidbody>().AddForce(firepoint.transform.up * Force);
+        projectile.GetComponent<FeverProjectilePhysics>().dieTime = Time.time + .1f;
+
+
+
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
