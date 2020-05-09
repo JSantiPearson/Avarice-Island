@@ -13,7 +13,7 @@ public class ExitDoor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       player = GameObject.Find("Player"); 
+       player = GameObject.Find("Player");
        playerTrans = player.transform;
     }
 
@@ -23,8 +23,11 @@ public class ExitDoor : MonoBehaviour
     	playerPos =  playerTrans.position;
     	doorPos = gameObject.transform.position;
     	//Debug.Log("Door x: " + doorPos.x + "\n Player x: " + playerPos.x );
-        if(System.Math.Abs(playerPos.x-doorPos.x)<0.8){
-        	doorAnim.SetTrigger("Nearby");
+        if(System.Math.Abs(playerPos.x-doorPos.x)<1.5){
+        	doorAnim.SetBool("Nearby", true);
         }
+				else {
+					doorAnim.SetBool("Nearby", false);
+				}
     }
 }
