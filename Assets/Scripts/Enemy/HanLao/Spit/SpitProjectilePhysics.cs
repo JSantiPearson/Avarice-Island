@@ -4,68 +4,60 @@ using UnityEngine;
 
 public class SpitProjectilePhysics : MonoBehaviour
 {
-    public float Speed = 10f;
     //public Collider myCollider;
     public Animator baseAnim; //deals with animations
     //public Rigidbody rb;
     public int damage;
     bool onGround;
+    private float hitResetTimerMax = 1.5f;
+    private float hitResetTimer;
+
 
     public float size = 1.0f;
     protected Vector3 frontVector; //for determining direction the actor is facing
 
+
+    bool m_Started;
+    public LayerMask m_LayerMask;
+    public HashSet<GameObject> beenHit = new HashSet<GameObject>();
+
     void Start()
     {
         baseAnim = gameObject.GetComponent<Animator>();
+        hitResetTimer = hitResetTimerMax;
     }
 
     void Update()
     {
+        MyCollisions();
 
+        hitResetTimer = hitResetTimer - Time.deltaTime;
+        if(hitResetTimer <= 0)
+        {
+            beenHit.Clear();
+            hitResetTimer = hitResetTimerMax;
+        }
     }
 
-    void OnTriggerEnter(Collider hitInfo)
+    void MyCollisions()
     {
-        Debug.Log("spit hit" + hitInfo.name);
-        //if (hitInfo.GetComponent<Collider>().tag == "Floor")
-        if (hitInfo.tag == "Floor")
+        //Use the OverlapBox to detect if there are any other colliders within this box area.
+        //Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
+        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale/2, Quaternion.identity, m_LayerMask);
+        //Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, m_layerMask);
+        int i = 0;
+        //Check when there is a new collider coming into contact with the box
+        Debug.Log("Spit puddle trying to hit");
+        foreach (Collider collider in hitColliders)
         {
-            onGround = true;
-            baseAnim.SetBool("onGround", onGround);
-            //myCollider.SetActive(false);
-            //rb.setActive(false);
-            Destroy(gameObject);
-        }
-        else if (hitInfo.tag == "Player")
-        {
-
-            //EnemyGrunt enemy = hitInfo.GetComponent<EnemyGrunt>();
-            Hero player = hitInfo.transform.parent.parent.gameObject.GetComponent<Hero>();
-
-            if (player != null)
+            Debug.Log("Spit puddle detected a hit");
+            GameObject enemy = collider.gameObject;
+            if (!beenHit.Contains(enemy))
             {
-                player.Hurt(damage);
-                //Launch and Hitbox
-
-                //enemy.TakeDamage(damage);
+                Debug.Log("Spit puddle just hit " + enemy.name);
+                enemy.GetComponent<Hero>().Hurt(damage);
+                beenHit.Add(enemy);
             }
-
-            Debug.Log("spit hit" + player.name);
-            Destroy(gameObject);
-        }
-        //myCollider.SetActive(false);
-        //rb.setActive(false);
-    }
-
-    void OnCollisionEnter(Collision hitInfo)
-    {
-        if (hitInfo.collider.tag == "Floor")
-        {
-            onGround = true;
-            baseAnim.SetBool("onGround", onGround);
-            //myCollider.SetActive(false);
-            //rb.setActive(false);
-            Destroy(gameObject);
         }
     }
 
@@ -88,5 +80,12 @@ public class SpitProjectilePhysics : MonoBehaviour
             frontVector = new Vector3(1, 0, 0);
             transform.localScale = new Vector3(size, size, 1);
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Check that it is being run in Play Mode, so it doesn't try to draw this in Editor mode
+        Gizmos.DrawWireCube(transform.position, transform.localScale/2);
     }
 }

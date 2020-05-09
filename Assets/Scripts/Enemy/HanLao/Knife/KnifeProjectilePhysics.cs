@@ -10,6 +10,7 @@ public class KnifeProjectilePhysics : MonoBehaviour
     //public Rigidbody rb;
     public int damage;
     bool onGround;
+    private float lifeTime = 2.0f;
 
     public float size = 1.0f;
     protected Vector3 frontVector; //for determining direction the actor is facing
@@ -21,7 +22,11 @@ public class KnifeProjectilePhysics : MonoBehaviour
     
     void Update()
     {
-
+        lifeTime = lifeTime - Time.deltaTime;
+        if(lifeTime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider hitInfo)
