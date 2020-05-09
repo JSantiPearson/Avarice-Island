@@ -431,7 +431,7 @@ MonoBehaviour:
   size: 1.5
   onGround: 0
   engaged: []
-  numEngagements: 2
+  numEngagements: 3
   currentHealth: 150
   currentLives: 0
   walkSpeed: 2
