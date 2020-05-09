@@ -37,7 +37,8 @@ public class AnimatorEventHandler : MonoBehaviour
 
     public void spitAttack()
     {
-        Instantiate(spitProjectile, transform.position - new Vector3(0, -1, 0), transform.rotation);
+        Transform spawnPoint = transform.parent.GetChild(6);
+        Instantiate(spitProjectile, spawnPoint.position, transform.rotation);
     }
 
 }

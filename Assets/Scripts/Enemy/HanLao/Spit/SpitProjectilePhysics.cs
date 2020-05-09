@@ -4,24 +4,39 @@ using UnityEngine;
 
 public class SpitProjectilePhysics : MonoBehaviour
 {
-    public float Speed = 10f;
     //public Collider myCollider;
     public Animator baseAnim; //deals with animations
     //public Rigidbody rb;
     public int damage;
     bool onGround;
+    private float hitResetTimerMax = 1.5f;
+    private float hitResetTimer;
+
 
     public float size = 1.0f;
     protected Vector3 frontVector; //for determining direction the actor is facing
 
+
+    bool m_Started;
+    public LayerMask m_LayerMask;
+    public HashSet<GameObject> beenHit = new HashSet<GameObject>();
+
     void Start()
     {
         baseAnim = gameObject.GetComponent<Animator>();
+        hitResetTimer = hitResetTimerMax;
     }
 
     void Update()
     {
         MyCollisions();
+
+        hitResetTimer = hitResetTimer - Time.deltaTime;
+        if(hitResetTimer <= 0)
+        {
+            beenHit.Clear();
+            hitResetTimer = hitResetTimerMax;
+        }
     }
 
     void MyCollisions()
@@ -37,68 +52,9 @@ public class SpitProjectilePhysics : MonoBehaviour
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
-                if (type == HitboxType.light)
-                {
-                    enemy.GetComponent<Hero>().Hurt(damage);
-                    beenHit.Add(enemy);
-                }
-                else if (type == HitboxType.flash)
-                {
-                    enemy.GetComponent<Hero>().Stunned();
-                    beenHit.Add(enemy);
-                }
-                else if (type == HitboxType.heavy)
-                { //TODO: Add i-frames while player is getting up?
-                    enemy.GetComponent<Hero>().Launch(damage);
-                    beenHit.Add(enemy);
-                }
-                else if (type == HitboxType.lightning_light)
-                { //TODO: Add i-frames while player is getting up?
-                    enemy.GetComponent<Hero>().Zap(damage);
-                    beenHit.Add(enemy);
-                }
-                else if (type == HitboxType.lightning_heavy)
-                { //TODO: Add i-frames while player is getting up?
-                    enemy.GetComponent<Hero>().Zap(damage);
-                    enemy.GetComponent<Hero>().Launch(0);
-                    beenHit.Add(enemy);
-                }
+                enemy.GetComponent<Hero>().Hurt(damage);
+                beenHit.Add(enemy);
             }
-        }
-    }
-
-    void OnTriggerEnter(Collider hitInfo)
-    {
-        else if (hitInfo.tag == "Player")
-        {
-
-            //EnemyGrunt enemy = hitInfo.GetComponent<EnemyGrunt>();
-            Hero player = hitInfo.transform.parent.parent.gameObject.GetComponent<Hero>();
-
-            if (player != null)
-            {
-                player.Hurt(damage);
-                //Launch and Hitbox
-
-                //enemy.TakeDamage(damage);
-            }
-
-            Debug.Log("spit hit" + player.name);
-            Destroy(gameObject);
-        }
-        //myCollider.SetActive(false);
-        //rb.setActive(false);
-    }
-
-    void OnCollisionEnter(Collision hitInfo)
-    {
-        if (hitInfo.collider.tag == "Floor")
-        {
-            onGround = true;
-            baseAnim.SetBool("onGround", onGround);
-            //myCollider.SetActive(false);
-            //rb.setActive(false);
-            Destroy(gameObject);
         }
     }
 
