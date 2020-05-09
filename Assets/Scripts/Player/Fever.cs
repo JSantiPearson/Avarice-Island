@@ -11,10 +11,10 @@ public class Fever : MonoBehaviour
     Color tempColor = new Color(1f, 0f, 0f, 0f);
     private bool cooldown = false;
     private bool fadeIn = true;
-    public Transform firePoint;
-    public GameObject feverProjectilePreFab;
-    public GameObject feverLightningPreFab;
-    public GameObject feverAOEPreFab;
+   // public Transform firePoint;
+    //public GameObject feverProjectilePreFab;
+    //public GameObject feverLightningPreFab;
+    //public GameObject feverAOEPreFab;
     public Animator animator;
 
     void Start(){
@@ -84,7 +84,7 @@ public class Fever : MonoBehaviour
     void FireProjectile()
     {
         animator.SetTrigger("FeverProjectile");
-        Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
+        //Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
     }
     void feverAOE()
     {

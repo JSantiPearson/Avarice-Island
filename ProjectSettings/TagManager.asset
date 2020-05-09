@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Hit
   - Launch
+  - camBounds
   layers:
   - Default
   - TransparentFX

@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932761474171890994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 2.35, z: 1.36}
+  m_LocalPosition: {x: 7, y: 2.38, z: 1.36}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +62,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.2
+  m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &7743358095077644968
 Animator:
@@ -99,6 +99,7 @@ MonoBehaviour:
   collider: {fileID: -5306000454987824724}
   rb: {fileID: -5209954011663614875}
   damage: 20
+  dieTime: 0
 --- !u!212 &8373478504360386948
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -137,12 +138,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 737761140f27d7143a4401a09df5685f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5e1458eb55be56f4a996a123f51ebaaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 0.27, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
