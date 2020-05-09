@@ -86,7 +86,7 @@ public class Hero : Actor
             ResetHealth();
             baseAnim.SetTrigger("Revive");
             deathScreenAnim.SetTrigger("reset");
-            needsRevive = false;     
+            needsRevive = false;
         }
        // deathScreenAnim.SetTrigger("reset");
 
@@ -135,7 +135,7 @@ public class Hero : Actor
 
         CheckAnims();
 
-        if (isGrounded || isLaunching || isUsingFeverAnim || isFlashed){
+        if (isGrounded || isLaunching || isUsingFeverAnim || isFlashed || isAttackingAnim){
           freeze = true;
         }
         else {
@@ -319,6 +319,12 @@ public class Hero : Actor
         baseAnim.SetTrigger("Hurt");
     }
 
+    public void Zap(int damage)
+    {
+        TakeDamage(damage);
+        baseAnim.SetTrigger("Zap");
+    }
+
     public void Stunned(){
       baseAnim.SetTrigger("Flashed");
       StartCoroutine(Freeze(1.2f));
@@ -391,7 +397,10 @@ public class Hero : Actor
         isLaunching = baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_RISE_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_FALL_ANIM) ||
             baseAnim.GetCurrentAnimatorStateInfo(0).IsName(LAUNCH_LAND_ANIM);
-        isAttackingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack");
+        isAttackingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Punch") ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Kick") ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Roundhouse") ||
+            baseAnim.GetCurrentAnimatorStateInfo(0).IsName("Uppercut");
         isJumpLandAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpLand");
         isJumpingAnim = baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpRise") ||
               baseAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpFall");

@@ -77,7 +77,7 @@ public class Shen : Actor
 
 
          if(killTest){
-            Hit(maxHealth);
+            Hit(maxHealth, false);
             killTest = false;
         }
     }
@@ -91,15 +91,16 @@ public class Shen : Actor
         }
     }
 
-    public void Hit(float damage)
+    public void Hit(float damage, bool knockback)
     {
         TakeDamage(damage);
-        baseAnim.SetTrigger("Hit");
+        if (!knockback){
+          baseAnim.SetTrigger("Hit");
+        }
         comboCounter = 0;
 
         audioManager.PlayOneShot("hitSound", 0.2f);
         Instantiate(hitEffectPrefab, this.transform.position, this.transform.rotation);
-        baseAnim.SetTrigger("hurt");
     }
 
     public void Launch(Vector3 attackerLocation)

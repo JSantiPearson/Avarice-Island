@@ -8,7 +8,7 @@ public class playerHitboxes : MonoBehaviour
     public LayerMask m_LayerMask;
     public GameObject thisBox;
     public int damage;
-    public bool Knockback;
+    public bool knockback;
     public HashSet<GameObject> beenHit = new HashSet<GameObject>();
 
     private const string GRUNT = "EnemyGrunt(Clone)";
@@ -50,61 +50,61 @@ public class playerHitboxes : MonoBehaviour
                 switch (enemy.name)
                 {
                     case GRUNT:
-                        if (Knockback)
+                        if (knockback)
                         {
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<EnemyGrunt>().Hit(damage);
+                        enemy.GetComponent<EnemyGrunt>().Hit(damage, knockback);
                         break;
                     case BLASTER:
-                        if (Knockback)
+                        if (knockback)
                         {
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<Blaster>().Hit(damage);
+                        enemy.GetComponent<Blaster>().Hit(damage, knockback);
                         break;
                     case RAVE_BOY:
-                        if (Knockback)
+                        if (knockback)
                         {
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<RaveBoy>().Hit(damage);
+                        enemy.GetComponent<RaveBoy>().Hit(damage, knockback);
                         break;
                     case RAVE_GIRL:
-                        if (Knockback)
+                        if (knockback)
                         {
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<RaveGirl>().Hit(damage);
+                        enemy.GetComponent<RaveGirl>().Hit(damage, knockback);
                         break;
                     case BOUNCER_BRAD:
-                        if (Knockback)
+                        if (knockback)
                         {
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<Bouncer>().Hit(damage);
+                        enemy.GetComponent<Bouncer>().Hit(damage, knockback);
                         break;
                     case BOUNCER_REX:
-                        if (Knockback)
+                        if (knockback)
                         {
                             enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
 
                         }
-                        enemy.GetComponent<Bouncer>().Hit(damage);
+                        enemy.GetComponent<Bouncer>().Hit(damage, knockback);
                         break;
                     case HAN_LAO:
-                        enemy.GetComponent<HanLao>().Hit(damage);
+                        enemy.GetComponent<HanLao>().Hit(damage, knockback);
                         break;
                     case SHEN:
-                        enemy.GetComponent<Shen>().Hit(damage);
+                        enemy.GetComponent<Shen>().Hit(damage, knockback);
                         break;
                     case SHEN2:
-                        enemy.GetComponent<Shen>().Hit(damage);
+                        enemy.GetComponent<Shen>().Hit(damage, knockback);
                         break;
                     default:
                         break;
@@ -126,7 +126,7 @@ public class playerHitboxes : MonoBehaviour
 
     public void SetActive(bool isActive, bool launch, int damage)
     {
-        this.Knockback = launch;
+        this.knockback = launch;
         this.damage = damage;
         thisBox.SetActive(isActive);
         beenHit.Clear();
