@@ -340,7 +340,7 @@ public class Enemy : Actor
                 Landed();
                 break;
             case "hit":
-                Hit(0);
+                Hit(0, false);
                 break;
             case "launch":
                 Launch(collision.transform.position);
@@ -595,13 +595,12 @@ public class Enemy : Actor
         baseAnim.SetFloat("Speed", speed);
     }
 
-    public void Hit(float damage)
+    public void Hit(float damage, bool knockback)
     {
         Stop();
         isHurting = true;
         lastHurtTime = Time.time;
-        baseAnim.SetTrigger("Hit");
-        Hurt(damage);
+        Hurt(damage, knockback);
     }
 
     public void Zap(float damage)
@@ -609,10 +608,10 @@ public class Enemy : Actor
         Stop();
         isHurting = true;
         lastHurtTime = Time.time;
-        Hurt(damage);
+        Hurt(damage, false);
         baseAnim.SetTrigger("Zap");
         baseAnim.ResetTrigger("Hit"); //fixes an issue where grunts trigger a late hurt anim
-        
+
     }
 
     public void Launch(Vector3 attackerLocation)
@@ -633,7 +632,7 @@ public class Enemy : Actor
       }
     }
 
-    public void Hurt(float damage)
+    public void Hurt(float damage, bool knockback)
     {
         if(audioManager!=null){ //allows us to deactivate audio manager temporarily
             audioManager.PlayOneShot("hitSound",0.2f);
@@ -643,7 +642,9 @@ public class Enemy : Actor
         Stop();
         isHurting = true;
         lastHurtTime = Time.time;
-        baseAnim.SetTrigger("Hit");
+        if (!knockback){
+          baseAnim.SetTrigger("Hit");
+        }
         if (currentHealth <= 0){
             Die();
         }

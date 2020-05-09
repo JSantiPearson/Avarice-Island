@@ -57,7 +57,7 @@ public class HanLao : Actor
         }
 
         if(killTest){
-            Hit(maxHealth);
+            Hit(maxHealth, false);
             killTest = false;
         }
         if (currentHealth <= (maxHealth / 2) && currentPhase == 1)
@@ -97,12 +97,14 @@ public class HanLao : Actor
         body.AddForce(verticalLaunchInfluence, ForceMode.Force);
     }
 
-    public void Hit(float damage)
+    public void Hit(float damage, bool knockback)
     {
         audioManager.PlayOneShot("hitSound",0.2f);
         TakeDamage(damage);
         Instantiate(hitEffectPrefab,this.transform.position,this.transform.rotation);
-        baseAnim.SetTrigger("hurt");
+				if (!knockback){
+					baseAnim.SetTrigger("hurt");
+				}
     }
 
 		public void Zap(float damage)
