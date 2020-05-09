@@ -503,7 +503,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   thisBox: {fileID: 2057692241006171768}
-  damage: 30
+  damage: 15
 --- !u!1 &4037364221976081616
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +561,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   thisBox: {fileID: 4037364221976081616}
-  damage: 30
+  damage: 15
 --- !u!1 &7509260949756080349
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +619,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   thisBox: {fileID: 7509260949756080349}
-  damage: 30
+  damage: 15
 --- !u!1 &7734187347907106261
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +677,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   thisBox: {fileID: 7734187347907106261}
-  damage: 30
+  damage: 15
 --- !u!1 &8872905909142078541
 GameObject:
   m_ObjectHideFlags: 0
