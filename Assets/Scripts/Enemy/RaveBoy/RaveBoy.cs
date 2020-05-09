@@ -39,7 +39,7 @@ public class RaveBoy : Enemy
     {
         Stop();
         float attackThreshold;
-        float flashThreshold = .05f;
+        float flashThreshold = .1f;
 
         switch (currentLevel)
         {

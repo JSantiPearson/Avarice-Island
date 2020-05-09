@@ -382,12 +382,16 @@ MonoBehaviour:
   currentHealth: 100
   walkSpeed: 1.5
   runSpeed: 4
+  lastDistance: 0
   startingPosition: {x: 12, y: 2.475173, z: 1}
   targetPosition: {x: 12, y: 2.5, z: 1}
+  playerPosition: {x: 0, y: 0, z: 0}
   hitEffectPrefab: {fileID: 2186167066489008872, guid: 82092519e983c6541a0f88eb4b1ea989,
     type: 3}
   ghostPrefab: {fileID: 9011967409894598465, guid: df180d73ad654bc4f93ca59e8a36f75b,
     type: 3}
+  leftCamBound: 0
+  rightCamBound: 0
   audioManager: {fileID: 0}
   currentState: 0
   playerReference: {fileID: 8452970743776353722, guid: 64a6fe08ff1f13642875947c988e6f65,
@@ -445,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfea766e3dd7b9d4baea7295cb7d91de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 1024
