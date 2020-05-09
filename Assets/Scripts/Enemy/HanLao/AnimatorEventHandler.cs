@@ -31,7 +31,7 @@ public class AnimatorEventHandler : MonoBehaviour
 
     public void throwKnife()
     {
-        Instantiate(knifeProjectile, transform.position - new Vector3(0, 0, 1), transform.rotation);
+        Instantiate(knifeProjectile, transform.position, transform.rotation);
         transform.parent.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * knifeThrowLift);
     }
 
