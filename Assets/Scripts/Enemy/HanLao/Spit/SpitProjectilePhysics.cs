@@ -43,15 +43,18 @@ public class SpitProjectilePhysics : MonoBehaviour
     {
         //Use the OverlapBox to detect if there are any other colliders within this box area.
         //Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
-        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, Quaternion.identity, m_LayerMask);
+        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale/2, Quaternion.identity, m_LayerMask);
         //Collider[] hitEnemies = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, m_layerMask);
         int i = 0;
         //Check when there is a new collider coming into contact with the box
+        Debug.Log("Spit puddle trying to hit");
         foreach (Collider collider in hitColliders)
         {
+            Debug.Log("Spit puddle detected a hit");
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
+                Debug.Log("Spit puddle just hit " + enemy.name);
                 enemy.GetComponent<Hero>().Hurt(damage);
                 beenHit.Add(enemy);
             }
@@ -77,5 +80,12 @@ public class SpitProjectilePhysics : MonoBehaviour
             frontVector = new Vector3(1, 0, 0);
             transform.localScale = new Vector3(size, size, 1);
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Check that it is being run in Play Mode, so it doesn't try to draw this in Editor mode
+        Gizmos.DrawWireCube(transform.position, transform.localScale/2);
     }
 }
