@@ -258,8 +258,8 @@ public class Blaster : Enemy
     {
         float diffX = System.Math.Abs(target.x - position.x);
         float diffZ = System.Math.Abs(target.z - position.z);
-
-        return (diffX <= maxShootDist && diffZ <= 0.3);
+        // return true if enemy has reached a viable range to shoot at player, or if the enemy is stuck.
+        return ((diffX <= maxShootDist || transform.position.x == lastPosition.x) && diffZ <= 0.3);
     }
 
     public override void CheckAnims()

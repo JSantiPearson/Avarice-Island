@@ -58,6 +58,13 @@ public class feverHitboxes : MonoBehaviour
 
                         }
                         break;
+                    case BRAWLER:
+                        enemy.GetComponent<Brawler>().Zap(30);
+                        if (Knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+                        }
+                            break;
                     case BLASTER:
                         enemy.GetComponent<Blaster>().Zap(30);
                         if (Knockback)

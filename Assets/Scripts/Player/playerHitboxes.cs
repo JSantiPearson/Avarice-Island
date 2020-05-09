@@ -57,6 +57,13 @@ public class playerHitboxes : MonoBehaviour
                         }
                         enemy.GetComponent<EnemyGrunt>().Hit(damage, knockback);
                         break;
+                    case BRAWLER:
+                        if (knockback)
+                        {
+                            enemy.GetComponent<Enemy>().Launch(GameObject.Find("Player").transform.position);
+                        }
+                        enemy.GetComponent<Brawler>().Hit(damage, knockback);
+                        break;
                     case BLASTER:
                         if (knockback)
                         {

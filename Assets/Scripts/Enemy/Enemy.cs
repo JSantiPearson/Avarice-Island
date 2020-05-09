@@ -33,6 +33,7 @@ public class Enemy : Actor
     protected int leftBound = 7;
 
     public float lastDistance;
+    public Vector3 lastPosition;
 
     protected bool isAttacking;
     protected bool isHurting;
@@ -245,6 +246,7 @@ public class Enemy : Actor
             //Act on the current state
             ChangeState(currentState);
             lastDistance = currentDistance;
+            lastPosition = transform.position;
         }
 
     public virtual void DetermineState(float currentDistance)
@@ -450,7 +452,7 @@ public class Enemy : Actor
         currentDir.Normalize();
         isWaiting = playerReference.GetComponent<Hero>().Disengage(this);
         //Run away if player is close or if a wall is hit
-        if (body.position.x - playerPosition.x < 5 && body.position.x <= rightCamBound-0.9 && body.position.x >= leftCamBound+0.9){
+        if (body.position.y < 4 && body.position.x - playerPosition.x < 5 && body.position.x <= rightCamBound-0.9 && body.position.x >= leftCamBound+0.9){
           Run();
         }
         else {
