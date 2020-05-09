@@ -941,6 +941,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8452970745004685474, guid: 64a6fe08ff1f13642875947c988e6f65,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452970745004685475, guid: 64a6fe08ff1f13642875947c988e6f65,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64a6fe08ff1f13642875947c988e6f65, type: 3}
 --- !u!1 &2052850001 stripped
@@ -968,6 +978,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1622059369393045376, guid: ac354893a0e1e30479010643b4a1283d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622059369729080713, guid: ac354893a0e1e30479010643b4a1283d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622059369729080713, guid: ac354893a0e1e30479010643b4a1283d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622059369729080713, guid: ac354893a0e1e30479010643b4a1283d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622059369729080713, guid: ac354893a0e1e30479010643b4a1283d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622059369729080719, guid: ac354893a0e1e30479010643b4a1283d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1622059370857423536, guid: ac354893a0e1e30479010643b4a1283d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1175,6 +1215,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886530462271837550, guid: 59593e1df687a484d881ab31d867131d,
+        type: 3}
+      propertyPath: sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886530462271837550, guid: 59593e1df687a484d881ab31d867131d,
+        type: 3}
+      propertyPath: sentences.Array.data[2]
+      value: ' I guess if you want something done right, you have to do it yourself. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886530462271837550, guid: 59593e1df687a484d881ab31d867131d,
+        type: 3}
+      propertyPath: sentences.Array.data[0]
+      value: "What a surprise - if it isn\u2019t my little cousin. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886530462271837550, guid: 59593e1df687a484d881ab31d867131d,
+        type: 3}
+      propertyPath: sentences.Array.data[1]
+      value: '...I thought I instructed my goons to take care of you.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59593e1df687a484d881ab31d867131d, type: 3}
