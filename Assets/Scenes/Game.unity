@@ -884,56 +884,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 166733303, guid: af8535ef12a07ad42ba7d9e287d497e1, type: 3}
-      propertyPath: spawnLimit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 166733303, guid: af8535ef12a07ad42ba7d9e287d497e1, type: 3}
-      propertyPath: spawnPrefab
-      value: 
-      objectReference: {fileID: 2148785907832245371, guid: 45dc1fc395fb054498d21ef298e6be99,
-        type: 3}
-    - target: {fileID: 1855178899, guid: af8535ef12a07ad42ba7d9e287d497e1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnLimit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnInterval
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnPrefab
-      value: 
-      objectReference: {fileID: 4211829178027098480, guid: 2db58d65d27c37a4598f619d3cc471be,
-        type: 3}
-    - target: {fileID: 4546920531638128753, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnDistFromPlayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128754, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531638128755, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546920531785793482, guid: af8535ef12a07ad42ba7d9e287d497e1,
-        type: 3}
-      propertyPath: spawnPrefab
-      value: 
-      objectReference: {fileID: 4211829178027098480, guid: 2db58d65d27c37a4598f619d3cc471be,
-        type: 3}
     - target: {fileID: 4546920533040513784, guid: af8535ef12a07ad42ba7d9e287d497e1,
         type: 3}
       propertyPath: m_Name
