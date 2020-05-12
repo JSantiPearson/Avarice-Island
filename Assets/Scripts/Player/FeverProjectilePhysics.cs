@@ -10,14 +10,9 @@ public class FeverProjectilePhysics : MonoBehaviour
     bool isFacingLeft;
     public int damage = 15;
     public float dieTime;
-    public void updateLeft(bool isFacingLeft)
-    {
-        isFacingLeft = this.isFacingLeft;
-    }
+
     void Start()
     {
-
-         //   rb.velocity = new Vector3(BulletSpeed, 0, 0);
 
 
     }
@@ -25,31 +20,22 @@ public class FeverProjectilePhysics : MonoBehaviour
     {
 
 
-
-        if (Time.time >= dieTime)
+        //if projectile is out longer than it takes to go from the two ends of the map destroy it
+        if (Time.time >= dieTime)  
         {
-
-            //baseAnim.SetTrigger("Hit");
             Destroy(gameObject);
         }
 
     }
 
-    void OnTriggerEnter(Collider hitInfo)
-    {
 
-
-    }
-
+    //When the projectile collides with an object
     void OnCollisionEnter(Collision col)
     {
-
+        //get information
         Collider hitInfo = col.collider;
-        //if (hitInfo.GetComponent<Collider>().tag == "Floor")
 
-
-        Debug.Log("ElectroWave hit: " + hitInfo.tag);
-
+        //if camera bounds destroy it so it cant hit enemys further down the level
         if (hitInfo.tag == "camBounds")
         {
             Destroy(gameObject);
@@ -58,16 +44,15 @@ public class FeverProjectilePhysics : MonoBehaviour
         else if (hitInfo.tag == "Enemy")
         {
 
-            //EnemyGrunt enemy = hitInfo.GetComponent<EnemyGrunt>();
+            //get baddie information
             Enemy baddie = hitInfo.gameObject.GetComponent<Enemy>();
 
             if (baddie != null)
             {
+                //deal damage and projectile has no knockback
                 baddie.Hurt(damage, false);
-                //Launch and Hitbox
-
-                //enemy.TakeDamage(damage);
             }
+            //destroy object as we have hit something
             Destroy(gameObject);
         }
 

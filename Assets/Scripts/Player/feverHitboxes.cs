@@ -48,6 +48,7 @@ public class feverHitboxes : MonoBehaviour
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
+                //enemy damage switch statement
                 switch (enemy.name)
                 {
                     case GRUNT:
@@ -146,7 +147,7 @@ public class feverHitboxes : MonoBehaviour
             //Draw a cube where the OverlapBox is (positioned where your GameObject is as well as a size)
             Gizmos.DrawWireCube(transform.position, transform.localScale);
     }
-
+    //activate hitboxes from the animator
     public void SetActive(bool isActive, bool launch, int damage)
     {
         this.Knockback = launch;
