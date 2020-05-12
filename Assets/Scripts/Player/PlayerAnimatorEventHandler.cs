@@ -7,7 +7,6 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
     public GameObject ElectroBall;
     public float Force;
     public GameObject firepoint;
-    public float count;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// Fever Attacks
@@ -22,10 +21,9 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
     }
     public void activateFeverProjectile()
     {
-        //  transform.GetChild(8).GetComponent<feverHitboxes>().SetActive(activate != 0, false, 15);
-        count++;
-        Debug.Log("Projectile Count: " + count);
+        //spawn the projectile
        var projectile = Instantiate(ElectroBall, firepoint.transform.position, transform.rotation);
+        //add force and die time
         projectile.GetComponent<Rigidbody>().AddForce(firepoint.transform.up * Force);
         projectile.GetComponent<FeverProjectilePhysics>().dieTime = Time.time + .1f;
 
@@ -58,13 +56,15 @@ public class PlayerAnimatorEventHandler : MonoBehaviour
         transform.GetChild(5).GetComponent<playerHitboxes>().SetActive(activate != 0, true, 20);
         transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0);
     }
+
+    //Get when we are attack to use for the attack buffer
     public void noLongerAttacking(int activate)
     {
         transform.parent.GetComponent<PlayerCombat>().isAttacking(activate != 0);
 
     }
 
-
+    //resets all hitboxes to false, use for when attacks are interruped or knocked into hitstun
     public void activateHitboxReset()
     {
         transform.GetChild(1).GetComponent<playerHitboxes>().SetActive(false, false, 10);

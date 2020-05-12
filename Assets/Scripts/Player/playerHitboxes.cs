@@ -47,6 +47,7 @@ public class playerHitboxes : MonoBehaviour
             GameObject enemy = collider.gameObject;
             if (!beenHit.Contains(enemy))
             {
+                //switch statement of all enemy types
                 switch (enemy.name)
                 {
                     case GRUNT:
@@ -116,6 +117,7 @@ public class playerHitboxes : MonoBehaviour
                     default:
                         break;
                 }
+                //add enemy to beenHit hashmap
                 beenHit.Add(enemy);
             }
         }
@@ -131,6 +133,7 @@ public class playerHitboxes : MonoBehaviour
             Gizmos.DrawWireCube(transform.position, transform.localScale);
     }
 
+    //activate hitboxes from the animator
     public void SetActive(bool isActive, bool launch, int damage)
     {
         this.knockback = launch;

@@ -11,11 +11,9 @@ public class Fever : MonoBehaviour
     Color tempColor = new Color(1f, 0f, 0f, 0f);
     private bool cooldown = false;
     private bool fadeIn = true;
-   // public Transform firePoint;
-    //public GameObject feverProjectilePreFab;
-    //public GameObject feverLightningPreFab;
-    //public GameObject feverAOEPreFab;
     public Animator animator;
+
+
 
     void Start(){
       feverBar.fillAmount = 0f;
@@ -26,14 +24,18 @@ public class Fever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if we fill the bar go into cooldown mode
       if (feverBar.fillAmount >= 99.7f / 100)
         cooldown = true;
+      //if bar empty stop cooldown
       else if (feverBar.fillAmount == 0)
         cooldown = false;
       feverBar.fillAmount -= 0.075f / 100;
 
+      //player hits fever button
       if (Input.GetKeyDown(KeyCode.E) && !cooldown){
 
+            //projectile
             if((Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.LeftArrow)) && !cooldown)
             {
               if (feverBar.fillAmount <= 86f / 100){
@@ -41,6 +43,7 @@ public class Fever : MonoBehaviour
                 feverBar.fillAmount += 15f / 100;
               }
             }
+            //Lightning
             else if (Input.GetKey(KeyCode.UpArrow) && !cooldown)
             {
               if (feverBar.fillAmount <= 86f / 100){
@@ -49,6 +52,7 @@ public class Fever : MonoBehaviour
               }
 
             }
+            //AOE
             if(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.UpArrow)) && !cooldown)
             {
               if (feverBar.fillAmount <= 51f / 100){
@@ -61,6 +65,7 @@ public class Fever : MonoBehaviour
 
         }
 
+      //Fade in on UI
       if (cooldown && fadeIn){
         tempColor.a += interval;
         alert.color = tempColor;
@@ -81,21 +86,18 @@ public class Fever : MonoBehaviour
       }
     }
 
+
+    //Set animation triggers for the animator 
     void FireProjectile()
     {
         animator.SetTrigger("FeverProjectile");
-        //Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
     }
     void feverAOE()
     {
         animator.SetTrigger("FeverAOE");
-        //Debug.Log("fiejifjfiejfiejf");
-       // Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
     }
     void feverLightning()
     {
         animator.SetTrigger("FeverLightning");
-        //Debug.Log("fiejifjfiejfiejf");
-        //Instantiate(feverProjectilePreFab, firePoint.position, firePoint.rotation);
     }
 }

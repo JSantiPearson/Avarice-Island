@@ -305,12 +305,18 @@ MonoBehaviour:
   currentHealth: 0
   walkSpeed: 1.5
   runSpeed: 4
+  lastDistance: 0
+  lastPosition: {x: 0, y: 0, z: 0}
   startingPosition: {x: 12, y: 2.475173, z: 1}
   targetPosition: {x: 12, y: 2.5, z: 1}
+  playerPosition: {x: 0, y: 0, z: 0}
   hitEffectPrefab: {fileID: 2186167066489008872, guid: 82092519e983c6541a0f88eb4b1ea989,
     type: 3}
   ghostPrefab: {fileID: 9011967409894598465, guid: df180d73ad654bc4f93ca59e8a36f75b,
     type: 3}
+  leftCamBound: 0
+  rightCamBound: 0
+  audioManager: {fileID: 0}
   currentState: 0
   playerReference: {fileID: 0}
 --- !u!1 &96733372464086340
@@ -490,7 +496,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 1}
+  m_Size: {x: 0.91, y: 0.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
