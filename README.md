@@ -66,6 +66,8 @@ P = pause
 
 ## Known Bugs
 
+-Starting at the Start scene will disable some UI features including Game Over Screen buttons
+
 -The animator will have priority issue and some animations will play in situations where they should not
 
 -The Fever projectile has inconsistent speed issues
